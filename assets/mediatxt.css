@@ -126,8 +126,8 @@
     text-align: left
 }
 .media-text--horizontal .media-text__media img {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 100%;
     vertical-align: middle
 }
 .media-text--horizontal .media-text__header {
