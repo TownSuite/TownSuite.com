@@ -617,6 +617,7 @@ body.townsuite-2016 {
     height: auto !important;
 	max-height: 235 px !important;
 }
+
 .learn-more-content .media-text__headline-head {
     letter-spacing: -0.5px;
     color: #737373;
@@ -1001,4 +1002,9 @@ body.townsuite-2016.ie .button-tertiary {
     padding-bottom: 6px;
     -webkit-filter: none;
     filter: none
+}
+
+section.container img {
+    max-height: 235px;
+	width: auto;
 }
