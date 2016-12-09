@@ -614,7 +614,8 @@ body.townsuite-2016 {
     display: block;
     margin: -1px 0 0 -1px;
     text-align: center;
-    height: auto !important
+    height: auto !important;
+	max-height: 235 px !important;
 }
 .learn-more-content .media-text__headline-head {
     letter-spacing: -0.5px;
