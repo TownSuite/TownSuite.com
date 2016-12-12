@@ -1014,7 +1014,7 @@ section.container img {
 
 }
 .k-event {
-    cursor: default;
+    cursor: pointer;
     min-height: 3.5em !important;
     color: #d8e0ed !important;
     background-color: #00578e  !important
@@ -1035,6 +1035,11 @@ section.container img {
 button#btnReset, button#btnSearchFacilities {
 	float:right;
 	margin: 10px;	
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #286090;
+    border-color: #204d74;
 }
 div#ts_calendar_placeholder {
     margin-top: 40px;
