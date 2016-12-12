@@ -1016,9 +1016,13 @@ section.container img {
 #k-event, .k-event {top: 470px;width: 29px;left: 2px;height: 25px;background-color: #6b95be;}
 .k-event {
     cursor: default;
-    min-height: 1.3em;
+    min-height: 2.0em;
     color: #d8e0ed !important;
     background-color: #00578e  !important
+}
+.k-task {
+    position: relative;
+    background-color: #fff !important;
 }
 .event-section-container {
     max-width: 1125px;
