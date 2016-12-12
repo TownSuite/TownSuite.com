@@ -1019,4 +1019,8 @@ section.container img {
     min-height: 1.3em;
     color: #d8e0ed !important;
     background-color: #00578e  !important
-    }
+}
+.event-section-container {
+    max-width: 1125px;
+    margin: 0 auto 60px;
+}
