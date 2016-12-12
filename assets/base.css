@@ -1013,3 +1013,10 @@ section.container img {
     margin: 15px 0 0 0;
 
 }
+#k-event, .k-event {top: 470px;width: 29px;left: 2px;height: 25px;background-color: #6b95be;}
+.k-event {
+    cursor: default;
+    min-height: 1.3em;
+    color: #d8e0ed !important;
+    background-color: #00578e  !important
+    }
