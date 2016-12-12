@@ -296,7 +296,7 @@ body.townsuite-2016 {
     display: inline-block;
     background: no-repeat center center;
     position: relative;
-    top: 2px;
+    top: -4px;
     margin-left: 8px;
     background-size: 120px auto;
     -webkit-transition: all 300ms ease-in-out 0s;
@@ -487,7 +487,7 @@ body.townsuite-2016 {
 .media-text--horizontal .media-text__wrapper {
     vertical-align: top
 }
-.large-title, .try-townsuite-cta, .media-text__header, #locale-container, .media-text__headline-head {
+.large-title, .try-townsuite-cta, .media-text__header, #locale-container, .media-text__headline-head, h2, h4, h1 {
 	font-family: "dax", "DaxRegular", "Open Sans", "lucida grande", "Segoe UI", arial, verdana, "lucida sans unicode", tahoma, sans-serif;
 	src: url(http://noisynature.com/files/1/index_files/dax-regular-webfont.ttf) format("truetype");
 }
@@ -523,9 +523,10 @@ body.townsuite-2016 {
 }
 .townsuite-2016 .try-townsuite-cta {
     padding-top: 90px;
-    padding-bottom: 135px;
+    padding-bottom: 100px;
     text-align: center;
-    background: #fff
+    background: #fff;
+    margin-top: 25px;
 }
 .townsuite-2016 .try-townsuite-cta .medium-title,
 .townsuite-2016 .try-townsuite-cta .learn-more-content .media-text__headline-head,
@@ -614,8 +615,10 @@ body.townsuite-2016 {
     display: block;
     margin: -1px 0 0 -1px;
     text-align: center;
-    height: auto !important
+    height: auto !important;
+	max-height: 235 px !important;
 }
+
 .learn-more-content .media-text__headline-head {
     letter-spacing: -0.5px;
     color: #737373;
@@ -634,7 +637,7 @@ body.townsuite-2016 {
     line-height: 158%;
     color: #737373;
     margin: 35px auto 0;
-    max-width: 260px
+    max-width: 350px
 }
 .top-notification-bar #browse-header {
     top: 101px
@@ -1000,4 +1003,44 @@ body.townsuite-2016.ie .button-tertiary {
     padding-bottom: 6px;
     -webkit-filter: none;
     filter: none
+}
+
+section.container img {
+    max-height: 235px;
+	width: auto;
+}
+.townsuite-2016 .button-tertiary {
+    margin: 15px 0 0 0;
+
+}
+.k-event {
+    cursor: pointer;
+    min-height: 3.5em !important;
+    color: #d8e0ed !important;
+    background-color: #00578e  !important
+}
+.k-task {
+    position: relative;
+    background-color: inherit !important;
+}
+.event-section-container {
+    max-width: 1125px;
+    margin: 0 auto 60px;
+}
+.k-draghandle.k-state-selected:hover, .k-ghost-splitbar-horizontal, .k-ghost-splitbar-vertical, .k-list>.k-state-highlight, .k-list>.k-state-selected, .k-marquee-color, .k-panel>.k-state-selected, .k-scheduler .k-scheduler-toolbar .k-state-selected, .k-scheduler .k-today.k-state-selected, .k-state-selected, .k-state-selected:link, .k-state-selected:visited, k-task:hover {
+    color: #fff !important;
+    background-color: #6b95be !important;
+    border-color: #6b95be !important;
+}
+button#btnReset, button#btnSearchFacilities {
+	float:right;
+	margin: 10px;	
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #286090;
+    border-color: #204d74;
+}
+div#ts_calendar_placeholder {
+    margin-top: 40px;
 }

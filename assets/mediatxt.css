@@ -102,7 +102,7 @@
     padding-bottom: 15px
 }
 .media-text--horizontal .media-text__wrapper {
-    width: 50%;
+    width: ;
     text-align: left;
     display: table-cell;
     vertical-align: middle;
@@ -126,8 +126,8 @@
     text-align: left
 }
 .media-text--horizontal .media-text__media img {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 100%;
     vertical-align: middle
 }
 .media-text--horizontal .media-text__header {
@@ -178,5 +178,5 @@
     width: 50%
 }
 .media-text--three-across {
-    width: 27.5%
+    width: 31.25%
 }

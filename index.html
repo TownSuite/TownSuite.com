@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en_GB" xmlns:fb="http://ogp.me/ns/fb#" xml:lang="en_GB" class="grid-990" xmlns="http://www.w3.org/1999/xhtml">
+<html manifest="demo.appcache" lang="en_GB" xmlns:fb="http://ogp.me/ns/fb#" xml:lang="en_US" class="grid-990" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
     <link id="linkFavicon" rel="shortcut icon" href="./assets/favicon.ico" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <link href="./assets/animation.css" type="text/css" crossorigin="anonymous" rel="stylesheet" />
@@ -12,7 +12,7 @@
     <link href="./assets/mediatxt.css" type="text/css" crossorigin="anonymous" rel="stylesheet" />
     <link href="./assets/base.css" type="text/css" crossorigin="anonymous" rel="stylesheet" />
     <link href="./assets/index.css" type="text/css" crossorigin="anonymous" rel="stylesheet" />
-
+</head>
 
 
     <body class="en_GB  townsuite-2016 townsuite-2016--responsive townsuite-logo-2016 exp-growth_web_google_register__GOOGLE3 exp-growth_web_google_register--polish " dir="ltr">
@@ -20,7 +20,7 @@
             <div class="mast-head__container container">
                 <nav class="mast-head__nav mast-head-nav">
                     <ul class="nav-list">
-                        <li class="nav-list__item nav-list__item--ts"><a href="/try" id="try-ts" class="button-tertiary try-ts">Try TownSuite</a>
+                        <li class="nav-list__item nav-list__item--ts"><a href="/try" id="ts-learn-more" class="button-tertiary ts-learn-more">Try TownSuite</a>
                         </li>
                     </ul>
                     <ul class="nav-list">
@@ -35,15 +35,15 @@
         </header>
         <section class="hero small-padding">
             <div class="sign-up-form-v1 sign-up-form-v1-hero new-exp-form-image hero__content">
-                <div style="width:1200px; height:352px;" data-scale-down="false" data-implementation-width="820" class="hero__banner animator" data-implementation-height="312">
-                    <img src="./assets/header.png" alt="" class="animator-poster" />
-                    <div style="width:59040px;" class="animator-strip"><img data-src="./assets/header.png" style="width:39360px;" alt="" class="animator-frame animator-frame--intro animator-sequence" /><img data-src="h./assets/header.png" style="width:19680px;" alt="" class="animator-frame animator-frame--loop animator-sequence" />
+                <div style="width:1200px; height:440px;" data-scale-down="false" data-implementation-width="820" class="hero__banner animator" data-implementation-height="312">
+                    <img src="./assets/svg/header.svg" alt="" class="animator-poster" />
+                    <div class="animator-strip"><img data-src="./assets/svg/header.svg" alt="" class="animator-frame animator-frame--intro animator-sequence" /><img data-src="./assets/svg/header.svg" alt="" class="animator-frame animator-frame--loop animator-sequence" />
                     </div>
                 </div>
                 <div class="six-column hero__copy">
                     <header class="header-text">
-                        <h1 class="large-title">TownSuite simplifies/enhances the way<span class="lb--desktop-mobile"></span>you work</h1>
-                        <h2 class="medium-title">Access all of your municipal information from from one place. No additional spreadsheets or post-it notes required.</h2>
+                        <h1 class="large-title">TownSuite enhances the way<span class="lb--desktop-mobile"></span>you work</h1>
+                        <h2 class="medium-title">Access all of your municipal information from from one place. No additional spreadsheets, complicated integrations or post-it notes required.</h2>
                     </header>
                     <a href="/register" class="sign-up--responsive button-big button-secondary">Try TownSuite</a>
                     <h4 class="sign-in--responsive">or <a href="https://ebills.ws.townsuite.com/">sign in</a></h4>
@@ -52,16 +52,16 @@
                 <div class="five-column">
                 	<h3 class="medium-title medium-title--desktop">Learn more</h3>	
                 	<div class="form-container">
-                    	<div data-js-component-id="component1146517864917799934" class="index form_shown register standard register-form--error-alert login-form-container register-form--error-list third_party_auth">
-                        	<form action="/ajax_register" class="clearfix credentials-form register-form">
+                    	<div class="index form_shown register standard register-form--error-alert login-form-container register-form--error-list third_party_auth">
+                        	<form action="http://townsuite.com" class="clearfix credentials-form register-form">
                             	<button type="submit" class="login-button button-primary">See the big picture</button>
 							</form>
                     </div>
                 </div>
                 	<div class="form-container">
-                    	<div data-js-component-id="component1146517864917799934" class="index form_shown register standard register-form--error-alert login-form-container register-form--error-list third_party_auth">
-                        	<form action="/ajax_register" class="clearfix credentials-form register-form">
-                            	<button type="submit" class="login-button button-primary">See process simplification</button>
+                    	<div class="index form_shown register standard register-form--error-alert login-form-container register-form--error-list third_party_auth">
+                        	<form action="http://townsuite.com" class="clearfix credentials-form register-form">
+                            	<button type="submit" class="login-button button-primary">See the software at work</button>
 							</form>
                     </div>
                                 <div class="try-business-cta--inverted">
@@ -74,20 +74,20 @@
         </section>
         <section class="twelve-column features-container">
 					<article class="content-row ">
-		                <article class="content-module media-text  media-text-inline media-text--alt-order media-text--horizontal clearfix" id="docs-anywhere">
+		                <article class="content-module media-text  media-text-inline media-text--alt-order media-text--horizontal clearfix">
 	                    <div class="media-text__content">
 	                        <div class="media-text__wrapper">
 	                            <div class="media-text__text">
-	                                <h2 class="media-text__header">Connect the dots</h2>
+	                                <h2 class="media-text__header">Connect your dots</h2>
 	                                <p class="media-text__body">TownSuite helps manage multiple levels of municipal management. Creating and leveraging information that can be intelligently linked throughout your municipality.</p>
 	                            </div>
-	                            <a id="try-ts" class="button-tertiary" data-toggle="collapse" data-target="#demo" style="float: right;">Learn more </a>
+	                            <a id="ts-learn-more" class="button-tertiary" data-toggle="collapse" data-target="#demo" style="float: right;">Learn more </a>
 	                        </div>
 	                        <div class="media-text__wrapper">
 	                            <div class="media-text__media">
 	                                <h2 class="media-text__header media-text__header--responsive">Connect the dots</h2>
-	                                <img src="./assets/dots.png" data-hi-res-no-resize="True" data-hi-res="" class="media-text__image--responsive media-text__image" />
-	                                <div style="width:454px; height:252px;" data-scale-down="false" data-implementation-width="454" class="animator" data-implementation-height="252" id=""><img src="./assets/dots.png" data-hi-res="" alt="" class="animator-poster" />
+	                                <img src="./assets/svg/dots.svg" data-hi-res-no-resize="True" data-hi-res="./assets/svg/dots.svg" alt="" class="media-text__image--responsive media-text__image"/>
+	                                <div style="width:454px; height:252px; position: relative; left: 150px;" data-scale-down="false" data-implementation-width="454" class="animator" data-implementation-height="252" id="right"><img src="./assets/svg/dots.svg" data-hi-res="" alt="" class="animator-poster" />
 	                                </div>
 	                            </div>
 	                </article>
@@ -115,7 +115,7 @@
 	                            </div>
 	                            <div class="media-text__content">
 	                                <div class="media-text__wrapper">
-	                                    <div class="media-text__media"><img src="./assets/black.png" alt="" data-hi-res="./assets/black.png" />
+	                                    <div class="media-text__media"><img src="./assets/img/index/acrossdepartments.png" alt="" data-hi-res="./assets/img/index/acrossdepartments.png" />
 	                                    </div>
 	                                </div>
 	                                <div class="media-text__wrapper">
@@ -131,7 +131,7 @@
 	                            </div>
 	                            <div class="media-text__content">
 	                                <div class="media-text__wrapper">
-	                                    <div class="media-text__media"><img src="./assets/black.png" alt="" data-hi-res="./assets/black.png" />
+	                                    <div class="media-text__media"><img src="./assets/img/index/cloud.png" alt="" data-hi-res="./assets/img/index/cloud.png" />
 	                                    </div>
 	                                </div>
 	                                <div class="media-text__wrapper">
@@ -151,8 +151,8 @@
 	                        <div class="media-text__wrapper">
 	                            <div class="media-text__media">
 	                                <h2 class="media-text__header media-text__header--responsive">Work within one product</h2>
-	                                <img src="./assets/black.png" data-hi-res-no-resize="True" data-hi-res="./assets/black.png" alt="" class="media-text__image--responsive media-text__image" />
-	                                <div style="width:458px; height:240px;" data-scale-down="false" data-implementation-width="458" class="animator" data-implementation-height="240" ><img src="./assets/black.png" data-hi-res="./assets/black.png" alt="" class="animator-poster" />
+	                                <img src="./assets/svg/oneproduct.svg" data-hi-res-no-resize="True" data-hi-res="./assets/svg/oneproduct.svg" alt="" class="media-text__image--responsive media-text__image" />
+	                                <div style="width:458px; height:240px;" data-scale-down="false" data-implementation-width="458" class="animator" data-implementation-height="240" ><img src="./assets/svg/oneproduct.svg" data-hi-res="./assets/svg/oneproduct.svg" alt="" class="animator-poster" />
 	                                </div>
 	                            </div>
 	                        </div>
@@ -161,7 +161,7 @@
 	                                <h2 class="media-text__header">Work within one product</h2>
 	                                <p class="media-text__body">Engineered to control your municipal information from one source while relying on minimal connections to other software. Any connection we make outside is also managed by us to ensure they are always running.</p>
 	                            </div>
-	                            <a id="try-ts" class="button-tertiary" data-toggle="collapse" data-target="#demo2" style="float: right;">Learn more </a>
+	                            <a id="ts-learn-more" class="button-tertiary" data-toggle="collapse" data-target="#demo2" style="float: right;">Learn more </a>
 	                        </div>
 	                    </div>
 	                </article>
@@ -219,20 +219,20 @@
 					</article>
 					
 					<article class="content-row ">
-		                <article class="content-module media-text  media-text-inline media-text--alt-order media-text--horizontal clearfix" id="docs-anywhere">
+		                <article class="content-module media-text  media-text-inline media-text--alt-order media-text--horizontal clearfix">
 	                    <div class="media-text__content">
 	                        <div class="media-text__wrapper">
 	                            <div class="media-text__text">
 	                                <h2 class="media-text__header">Municipal focused solution</h2>
-	                                <p class="media-text__body">Designed for municipal use and grown by municipal users over the past 30 years.</p>
+	                                <p class="media-text__body">Designed, engineered, built and tested for municipal use and grown by municipal users over the past 30 years.</p>
 	                            </div>
-	                            <a id="try-ts" class="button-tertiary" data-toggle="collapse" data-target="#demo3" style="float: right;">Learn more </a>
+	                            <a id="ts-learn-more" class="button-tertiary" data-toggle="collapse" data-target="#demo3" style="float: right;">Learn more </a>
 	                        </div>
 	                        <div class="media-text__wrapper">
 	                            <div class="media-text__media">
 	                                <h2 class="media-text__header media-text__header--responsive">Municipal focused solution</h2>
 	                                <img src="./assets/municipal.png" data-hi-res-no-resize="True" data-hi-res="" class="media-text__image--responsive media-text__image" />
-	                                <div style="width:454px; height:252px;" data-scale-down="false" data-implementation-width="454" class="animator" data-implementation-height="252" id=""><img src="./assets/municipal.png" data-hi-res="" alt="" class="animator-poster" />
+	                                <div style="width:454px; height:252px; position: relative; left: 110px;" data-scale-down="false" data-implementation-width="454" class="animator" data-implementation-height="252" id=""><img src="./assets/municipal.png" data-hi-res="" alt="" class="animator-poster" />
 	                                </div>
 	                            </div>
 	                </article>
@@ -296,9 +296,9 @@
 	                    <div class="media-text__content">
 	                        <div class="media-text__wrapper">
 	                            <div class="media-text__media">
-	                                <h2 class="media-text__header media-text__header--responsive">Leverage information</h2>
+	                                <h2 class="media-text__header media-text__header--responsive">Leverage informarion</h2>
 	                                <img src="./assets/leverage.png" data-hi-res-no-resize="True" data-hi-res="./assets/leverage.png" alt="" class="media-text__image--responsive media-text__image" />
-	                                <div style="width:458px; height:240px;" data-scale-down="false" data-implementation-width="458" class="animator" data-implementation-height="240" ><img src="./assets/leverage.png" data-hi-res="./assets/leverage.png" alt="" class="animator-poster" />
+	                                <div style="width:458px; height:240px; position: relative; right: 100px;" data-scale-down="false" data-implementation-width="458" class="animator" data-implementation-height="240" ><img src="./assets/leverage.png" data-hi-res="./assets/leverage.png" alt="" class="animator-poster" />
 	                                </div>
 	                            </div>
 	                        </div>
@@ -307,7 +307,7 @@
 	                                <h2 class="media-text__header">Leverage information</h2>
 	                                <p class="media-text__body">Collecting and retrieving information has never been easier. Choose from one of our several product dashboards, out-of-the box reports created and refined over years of clients input or create your own reports ad-hoc.</p>
 	                            </div>
-	                            <a id="try-ts" class="button-tertiary" data-toggle="collapse" data-target="#demo4" style="float: right;">Learn more </a>
+	                            <a id="ts-learn-more" class="button-tertiary" data-toggle="collapse" data-target="#demo4" style="float: right;">Learn more </a>
 	                        </div>
 	                    </div>
 	                </article>
@@ -319,7 +319,7 @@
 	                            </div>
 	                            <div class="media-text__content">
 	                                <div class="media-text__wrapper">
-	                                    <div class="media-text__media"><img src="./assets/black.png" alt="" data-hi-res="./assets/black.png" />
+	                                    <div class="media-text__media"><img src="./assets/img/index/dashboards.png" alt="" data-hi-res="./assets/img/index/dashboards.png" />
 	                                    </div>
 	                                </div>
 	                                <div class="media-text__wrapper">
@@ -335,7 +335,7 @@
 	                            </div>
 	                            <div class="media-text__content">
 	                                <div class="media-text__wrapper">
-	                                    <div class="media-text__media"><img src="./assets/black.png" alt="" data-hi-res="./assets/black.png" />
+	                                    <div class="media-text__media"><img src="./assets/img/index/reporting.png" alt="" data-hi-res="./assets/img/index/reporting.png" />
 	                                    </div>
 	                                </div>
 	                                <div class="media-text__wrapper">
@@ -351,7 +351,7 @@
 	                            </div>
 	                            <div class="media-text__content">
 	                                <div class="media-text__wrapper">
-	                                    <div class="media-text__media"><img src="./assets/black.png" alt="" data-hi-res="./assets/black.png" />
+	                                    <div class="media-text__media"><img src="./assets/img/index/custom.gif" alt="" data-hi-res="./assets/img/index/custom.gif" />
 	                                    </div>
 	                                </div>
 	                                <div class="media-text__wrapper">
@@ -368,20 +368,20 @@
 				</artivle>	
 				
 				<article class="content-row ">
-	                <article class="content-module media-text  media-text-inline media-text--alt-order media-text--horizontal clearfix" id="docs-anywhere">
+	                <article class="content-module media-text  media-text-inline media-text--alt-order media-text--horizontal clearfix">
                     <div class="media-text__content">
                         <div class="media-text__wrapper">
                             <div class="media-text__text">
                                 <h2 class="media-text__header">Any size municipality</h2>
                                 <p class="media-text__body">With class leading technology that continues to evolve with each release. TownSuite has the ability to serve well beyond it's name and actually assists government bodies connect information on a larger scale.</p>
                             </div>
-                            <a id="try-ts" class="button-tertiary" data-toggle="collapse" data-target="#demo5" style="float: right;">Learn more </a>
+                            <a id="ts-learn-more" class="button-tertiary" data-toggle="collapse" data-target="#demo5" style="float: right;">Learn more </a>
                         </div>
                         <div class="media-text__wrapper">
                             <div class="media-text__media">
                                 <h2 class="media-text__header media-text__header--responsive">Any size municipality</h2>
                                 <img src="./assets/any.png" data-hi-res-no-resize="True" data-hi-res="" class="media-text__image--responsive media-text__image" />
-                                <div style="width:454px; height:252px;" data-scale-down="false" data-implementation-width="454" class="animator" data-implementation-height="252" id=""><img src="./assets/any.png" data-hi-res="" alt="" class="animator-poster" />
+                                <div style="width:454px; height:252px; position: relative; left: 70px;" data-scale-down="false" data-implementation-width="454" class="animator" data-implementation-height="252" id=""><img src="./assets/any.png" data-hi-res="" alt="" class="animator-poster" />
                                 </div>
                             </div>
                 </article>
@@ -421,7 +421,7 @@
                         </article>
                         <article class="media-text--headline media-text--three-across content-module learn-more-content media-text">
                             <div class="media-text__headline">
-                                <h1 class="media-text__headline-head">Multi-tennant</h1>
+                                <h1 class="media-text__headline-head">Multi-tenant</h1>
                             </div>
                             <div class="media-text__content">
                                 <div class="media-text__wrapper">
@@ -447,7 +447,7 @@
                             <div class="media-text__media">
                                 <h2 class="media-text__header media-text__header--responsive">We use it too</h2>
                                 <img src="./assets/useit.png" data-hi-res-no-resize="True" data-hi-res="./assets/useit.png" alt="" class="media-text__image--responsive media-text__image" />
-                                <div style="width:458px; height:240px;" data-scale-down="false" data-implementation-width="458" class="animator" data-implementation-height="240" ><img src="./assets/useit.png" data-hi-res="./assets/useit.png" alt="" class="animator-poster" />
+                                <div style="width:458px; height:240px; position: relative; right: 100px;" data-scale-down="false" data-implementation-width="458" class="animator" data-implementation-height="240" ><img src="./assets/useit.png" data-hi-res="./assets/useit.png" alt="" class="animator-poster" />
                                 </div>
                             </div>
                         </div>
@@ -456,7 +456,7 @@
                                 <h2 class="media-text__header">We use it too</h2>
                                 <p class="media-text__body">We not only work with you to make your experience better overtime, we also use and rely on our products daily for critical business functions.</p>
                             </div>
-                            <a id="try-ts" class="button-tertiary" data-toggle="collapse" data-target="#demo6" style="float: right;">Learn more </a>
+                            <a id="ts-learn-more" class="button-tertiary" data-toggle="collapse" data-target="#demo6" style="float: right;">Learn more </a>
                         </div>
                     </div>
                 </article>
@@ -468,7 +468,7 @@
                             </div>
                             <div class="media-text__content">
                                 <div class="media-text__wrapper">
-                                    <div class="media-text__media"><img src="./assets/black.png" alt="" data-hi-res="./assets/black.png" />
+                                    <div class="media-text__media"><img src="./assets/img/index/portal.png" alt="" data-hi-res="./assets/img/index/portal.png" />
                                     </div>
                                 </div>
                                 <div class="media-text__wrapper">
@@ -484,7 +484,7 @@
                             </div>
                             <div class="media-text__content">
                                 <div class="media-text__wrapper">
-                                    <div class="media-text__media"><img src="./assets/black.png" alt="" data-hi-res="./assets/black.png" />
+                                    <div class="media-text__media"><img src="./assets/img/index/estubs.png" alt="" data-hi-res="./assets/img/index/estubs.png" />
                                     </div>
                                 </div>
                                 <div class="media-text__wrapper">
@@ -500,7 +500,7 @@
                             </div>
                             <div class="media-text__content">
                                 <div class="media-text__wrapper">
-                                    <div class="media-text__media"><img src="./assets/black.png" alt="" data-hi-res="./assets/black.png" />
+                                    <div class="media-text__media"><img src="./assets/img/index/support.png" alt="" data-hi-res="./assets/img/index/support.png" />
                                     </div>
                                 </div>
                                 <div class="media-text__wrapper">
@@ -517,20 +517,20 @@
 
 
 			<article class="content-row ">
-                <article class="content-module media-text  media-text-inline media-text--alt-order media-text--horizontal clearfix" id="docs-anywhere">
+                <article class="content-module media-text  media-text-inline media-text--alt-order media-text--horizontal clearfix">
                 <div class="media-text__content">
                     <div class="media-text__wrapper">
                         <div class="media-text__text">
                             <h2 class="media-text__header">Living software</h2>
-                            <p class="media-text__body">Don't worry about version update fees again. Instead grow with us using our innovative platform that grows and evolves with our clientbase. </p>
+                            <p class="media-text__body">Don't worry about version update fees again. Instead grow with us using our innovative platform that grows and evolves with our client base. </p>
                         </div>
-                        <a id="try-ts" class="button-tertiary" data-toggle="collapse" data-target="#demo8" style="float: right;">Learn more </a>
+                        <a id="ts-learn-more" class="button-tertiary" data-toggle="collapse" data-target="#demo8" style="float: right;">Learn more </a>
                     </div>
                     <div class="media-text__wrapper">
                         <div class="media-text__media">
                             <h2 class="media-text__header media-text__header--responsive">Living software</h2>
                             <img src="./assets/living.png" data-hi-res-no-resize="True" data-hi-res="" class="media-text__image--responsive media-text__image" />
-                            <div style="width:454px; height:252px;" data-scale-down="false" data-implementation-width="454" class="animator" data-implementation-height="252" id=""><img src="./assets/living.png" data-hi-res="" alt="" class="animator-poster" />
+                            <div style="width:454px; height:252px; position: relative; left: 100px;" data-scale-down="false" data-implementation-width="454" class="animator" data-implementation-height="252" id=""><img src="./assets/living.png" data-hi-res="" alt="" class="animator-poster" />
                             </div>
                         </div>
             </article>
@@ -558,7 +558,7 @@
                         </div>
                         <div class="media-text__content">
                             <div class="media-text__wrapper">
-                                <div class="media-text__media"><img src="./assets/black.png" alt="" data-hi-res="./assets/black.png" />
+                                <div class="media-text__media"><img src="./assets/img/index/updates.png" alt="" data-hi-res="./assets/img/index/updates.png" />
                                 </div>
                             </div>
                             <div class="media-text__wrapper">
@@ -574,7 +574,7 @@
                         </div>
                         <div class="media-text__content">
                             <div class="media-text__wrapper">
-                                <div class="media-text__media"><img src="./assets/black.png" alt="" data-hi-res="./assets/black.png" />
+                                <div class="media-text__media"><img src="./assets/img/index/docs.png" alt="" data-hi-res="./assets/img/index/docs.png" />
                                 </div>
                             </div>
                             <div class="media-text__wrapper">
@@ -598,7 +598,7 @@
                             <div class="media-text__media">
                                 <h2 class="media-text__header media-text__header--responsive">100% Canadian</h2>
                                 <img src="./assets/canadian.png" data-hi-res-no-resize="True" data-hi-res="./assets/canadian.png" alt="" class="media-text__image--responsive media-text__image" />
-                                <div style="width:458px; height:240px;" data-scale-down="false" data-implementation-width="458" class="animator" data-implementation-height="240" ><img src="./assets/canadian.png" data-hi-res="./assets/canadian.png" alt="" class="animator-poster" />
+                                <div style="width:458px; height:240px; position: relative; right: 100px;" data-scale-down="false" data-implementation-width="458" class="animator" data-implementation-height="240" ><img src="./assets/canadian.png" data-hi-res="./assets/canadian.png" alt="" class="animator-poster" />
                                 </div>
                             </div>
                         </div>
@@ -607,7 +607,7 @@
                                 <h2 class="media-text__header">100% Canadian</h2>
                                 <p class="media-text__body">Since our inception TownSuite has been 100% owned and operated by Canadians. Any hosting is also hosted in facilities that are also wholly owned Canadian corporations.</p>
                             </div>
-                            <a id="try-ts" class="button-tertiary" data-toggle="collapse" data-target="#demo9" style="float: right;">Learn more </a>
+                            <a id="ts-learn-more" class="button-tertiary" data-toggle="collapse" data-target="#demo9" style="float: right;">Learn more </a>
                         </div>
                     </div>
                 </article>
@@ -619,7 +619,7 @@
                             </div>
                             <div class="media-text__content">
                                 <div class="media-text__wrapper">
-                                    <div class="media-text__media"><img src="./assets/black.png" alt="" data-hi-res="./assets/black.png" />
+                                    <div class="media-text__media"><img src="./assets/img/index/owned.png" alt="" data-hi-res="./assets/img/index/owned.png" />
                                     </div>
                                 </div>
                                 <div class="media-text__wrapper">
@@ -635,7 +635,7 @@
                             </div>
                             <div class="media-text__content">
                                 <div class="media-text__wrapper">
-                                    <div class="media-text__media"><img src="./assets/black.png" alt="" data-hi-res="./assets/black.png" />
+                                    <div class="media-text__media"><img src="./assets/img/index/operated.png" alt="" data-hi-res="./assets/img/index/operated.png" />
                                     </div>
                                 </div>
                                 <div class="media-text__wrapper">
@@ -647,11 +647,11 @@
                         </article>
                         <article class="media-text--headline media-text--three-across content-module learn-more-content media-text">
                             <div class="media-text__headline">
-                                <h1 class="media-text__headline-head">Support</h1>
+                                <h1 class="media-text__headline-head">Supported</h1>
                             </div>
                             <div class="media-text__content">
                                 <div class="media-text__wrapper">
-                                    <div class="media-text__media"><img src="./assets/black.png" alt="" data-hi-res="./assets/black.png" />
+                                    <div class="media-text__media"><img src="./assets/img/index/supported.png" alt="" data-hi-res="./assets/img/index/supported.png" />
                                     </div>
                                 </div>
                                 <div class="media-text__wrapper">
@@ -667,20 +667,20 @@
             </article>
 	
 			<article class="content-row ">
-                <article class="content-module media-text  media-text-inline media-text--alt-order media-text--horizontal clearfix" id="docs-anywhere">
+                <article class="content-module media-text  media-text-inline media-text--alt-order media-text--horizontal clearfix">
                 <div class="media-text__content">
                     <div class="media-text__wrapper">
                         <div class="media-text__text">
                             <h2 class="media-text__header">Your partners in software</h2>
                             <p class="media-text__body">Our team works collaboratively with you to resolve your technical issues, and identify areas where our software can be improved to benefit everyone. </p>
                         </div>
-                        <a id="try-ts" class="button-tertiary" data-toggle="collapse" data-target="#demo10" style="float: right;">Learn more </a>
+                        <a id="ts-learn-more" class="button-tertiary" data-toggle="collapse" data-target="#demo10" style="float: right;">Learn more </a>
                     </div>
                     <div class="media-text__wrapper">
                         <div class="media-text__media">
                             <h2 class="media-text__header media-text__header--responsive">Your partners in software</h2>
                             <img src="./assets/partners.png" data-hi-res-no-resize="True" data-hi-res="" class="media-text__image--responsive media-text__image" />
-                            <div style="width:454px; height:252px;" data-scale-down="false" data-implementation-width="454" class="animator" data-implementation-height="252" id=""><img src="./assets/partners.png" data-hi-res="" alt="" class="animator-poster" />
+                            <div style="width:454px; height:252px; position: relative; left: 90px;" data-scale-down="false" data-implementation-width="454" class="animator" data-implementation-height="252" id=""><img src="./assets/partners.png" data-hi-res="" alt="" class="animator-poster" />
                             </div>
                         </div>
             </article>
@@ -738,15 +738,11 @@
                 </div>
             </section>
         </article>
+      </section> 
 
-	
-                </section>
                 
 	
 	
-	</section>
-	</section>
-	</section>
 		                
 
 
@@ -754,7 +750,7 @@
             <h2 class="medium-title medium-title--desktop">Get started now</h2>
             <div class="sign-up-form-v1 try-townsuite-cta__register new-exp-form-image">
                 <div class="form-container">
-                    <div data-js-component-id="component1146517864917799934" class="index form_shown register standard register-form--error-alert login-form-container register-form--error-list third_party_auth">
+                    <div  class="index form_shown register standard register-form--error-alert login-form-container register-form--error-list third_party_auth">
                         <form action="/ajax_register" class="clearfix credentials-form register-form">
                             <button type="submit" class="login-button button-primary">Try TownSuite</button>
                         </form>
@@ -837,7 +833,8 @@
                         </li>
                     </ul>
                 </nav>
-                <div id="locale-container"> &copy; 2016  TownSuite Municipal Software <img border="0" src="./assets/favicon.ico?v=1.814.0.15739" alt="TownSuite Emblem"></div>
+                <div id="locale-container"> &copy; <script>document.write(new Date().getFullYear())</script> TownSuite Municipal Software <img border="0" src="./assets/favicon.ico" alt="TownSuite Emblem"></div>
+
             </footer>
         </section>
         <div id="accessible-announce" class="ax-visually-hidden" aria-live="assertive"></div>
