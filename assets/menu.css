@@ -16,7 +16,7 @@
 }
 * {
   box-sizing: border-box;
-  font-family: "dax", "DaxRegular", "Open Sans", "lucida grande", "Segoe UI"
+  font-family: "dax", "DaxRegular", "Open Sans", "lucida grande", "Segoe UI";
   font-weight: 500;
 }
 a,
