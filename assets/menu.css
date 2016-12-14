@@ -34,8 +34,8 @@ h1 {
 }
 .outer-menu {
   position: fixed;
-  top: 5vh;
-  right: 0;
+  top: 3vh;
+  right: 1vh;
   z-index: 1000;
 }
 .outer-menu .checkbox-toggle {
@@ -197,4 +197,11 @@ h1 {
   height: 2px;
   background: #d8e0ed;
   transition: width 0.4s ease;
+}
+.menu-title {
+  font-family: "dax", "DaxRegular", "Open Sans", "lucida grande", "Segoe UI";
+  position: fixed;
+  right: 3vh;
+  top: 0vh;
+  z-index: 1000;
 }
