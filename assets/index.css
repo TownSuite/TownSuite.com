@@ -56,6 +56,12 @@
     margin: 0 0 0 2px !important;
     position: absolute !important
 }
+.townsuite-2016 #docs-anywhere .animator {
+    top: 40px
+}
+.townsuite-2016 #send-videos .animator {
+    top: 35px
+}
 .townsuite-2016 #send-videos .media-text__wrapper:nth-of-type(2) {
     padding-left: 85px
 }
@@ -956,39 +962,6 @@
     .townsuite-2016.townsuite-2016--responsive .learn-more-content .media-text__body {
         max-width: 500px
     }
-}
-.townsuite-2016.exp-growth_web_google_register__GOOGLE3 .form-container .text-input,
-.townsuite-2016.exp-growth_web_google_register__GOOGLE3 .form-container .text-input label,
-.townsuite-2016.exp-growth_web_google_register__GOOGLE3 .form-container .auth-google,
-.townsuite-2016.exp-growth_web_google_register__GOOGLE3 .form-container .login-button,
-.townsuite-2016.exp-growth_web_google_register__GOOGLE3 .form-container .text-input-input,
-.townsuite-2016.exp-growth_web_google_register__MULTISTEP .form-container .text-input,
-.townsuite-2016.exp-growth_web_google_register__MULTISTEP .form-container .text-input label,
-.townsuite-2016.exp-growth_web_google_register__MULTISTEP .form-container .auth-google,
-.townsuite-2016.exp-growth_web_google_register__MULTISTEP .form-container .login-button,
-.townsuite-2016.exp-growth_web_google_register__MULTISTEP .form-container .text-input-input {
-    font-size: 13px !important
-}
-.townsuite-2016.exp-growth_web_google_register__GOOGLE3 .form-container .agree label,
-.townsuite-2016.exp-growth_web_google_register__MULTISTEP .form-container .agree label {
-    font-size: 11px !important
-}
-.townsuite-2016.exp-growth_web_google_register__GOOGLE3 .new-exp-form-image.sign-up-form-v1 .form-container {
-    margin: 0 -5px 14px 0;
-    width: 370px;
-    max-width: 370px
-}
-.townsuite-2016.exp-growth_web_google_register__GOOGLE3 .new-exp-form-image.sign-up-form-v1 .form-container .checkbox {
-    clear: left;
-    float: left;
-    display: block
-}
-.townsuite-2016.exp-growth_web_google_register--polish.exp-growth_web_google_register__GOOGLE3 .hero__copy .large-title .lb--desktop-mobile::before,
-.townsuite-2016.exp-growth_web_google_register--polish.exp-growth_web_google_register__MULTISTEP .hero__copy .large-title .lb--desktop-mobile::before {
-    content: '';
-    display: inline-block;
-    visibility: hidden;
-    width: .25em
 }
 .sign-in-form-promo {
     border-top: 1px solid #d0d4d9;
