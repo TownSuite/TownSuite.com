@@ -14,7 +14,7 @@
   align-items: center;
   justify-content: center;
 }
-* {
+.menu {
   box-sizing: border-box;
   font-family: "dax", "DaxRegular", "Open Sans", "lucida grande", "Segoe UI";
   font-weight: 500;
