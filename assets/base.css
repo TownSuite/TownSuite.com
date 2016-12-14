@@ -583,49 +583,7 @@ body.townsuite-2016 {
 .townsuite-2016 .login-form-container.register.small.index {
     width: 100%
 }
-.learn-more-content {
-    padding: 30px 0 30px
-}
-@media only screen and (max-width: 990px) {
-    .learn-more-content {
-        margin-bottom: 40px
-    }
-}
-.learn-more-content.media-text--three-across:first-of-type {
-    padding-left: 0;
-    padding-right: 45px
-}
-.learn-more-content.media-text--three-across:nth-of-type(2) {
-    padding-right: 22.5px;
-    padding-left: 22.5px
-}
-.learn-more-content.media-text--three-across:last-of-type {
-    padding-right: 0;
-    padding-left: 45px
-}
-.learn-more-content .media-text__media {
-    position: relative;
-    max-width: 220px;
-    margin: 0 auto;
-    border: 1px solid #a1a1a1;
-    overflow: hidden;
-    border-radius: 50%
-}
-.learn-more-content .media-text__media img {
-    display: block;
-    margin: -1px 0 0 -1px;
-    text-align: center;
-    height: auto !important;
-	max-height: 235 px !important;
-}
 
-.learn-more-content .media-text__headline-head {
-    letter-spacing: -0.5px;
-    color: #737373;
-    min-height: 70px;
-    font-weight: 600;
-    padding: 0
-}
 @media only screen and (max-width: 990px) {
     .learn-more-content .media-text__headline-head {
         margin-bottom: 15px
@@ -666,61 +624,6 @@ body.top-notification-bar {
 }
 body.top-notification-bar .mast-head {
     top: 51px
-}
-#top-notification-bar-container {
-    min-height: 51px;
-    width: 100%;
-    line-height: 18px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 100
-}
-#top-notification-bar-container #install-bar {
-    min-height: 100%;
-    margin: 0 auto;
-    width: 990px
-}
-#top-notification-bar-container #install-bar div {
-    display: inline-block
-}
-#top-notification-bar-container #install-bar #over-nav {
-    position: absolute;
-    min-height: 44px;
-    min-width: 137px
-}
-#top-notification-bar-container #install-bar #over-content {
-    position: absolute;
-    padding-left: 190px;
-    width: 800px;
-    height: 51px
-}
-#top-notification-bar-container #install-bar #over-content.clickable {
-    cursor: pointer
-}
-#top-notification-bar-container #install-bar #install-bar-title {
-    font-size: 14px;
-    font-weight: bold;
-    padding-top: 12px
-}
-#top-notification-bar-container #install-bar #install-bar-blurb {
-    padding-left: 10px
-}
-#top-notification-bar-container #install-bar #install-bar-dismiss-text {
-    padding-left: 10px
-}
-#top-notification-bar-container #install-bar #install-bar-button {
-    float: right;
-    padding-top: 7px
-}
-#top-notification-bar-container #install-bar #install-bar-dismiss-x {
-    position: absolute;
-    right: 0
-}
-#top-notification-bar-container #install-bar #install-bar-dismiss-x a {
-    display: block;
-    padding: 19px;
-    line-height: 0
 }
 .hr-label {
     position: relative;
