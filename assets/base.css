@@ -625,59 +625,6 @@ body.top-notification-bar {
 body.top-notification-bar .mast-head {
     top: 51px
 }
-.hr-label {
-    position: relative;
-    margin-top: 20px;
-    margin-bottom: 5px;
-    text-align: center;
-    clear: both
-}
-.hr-label::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.2)
-}
-.hr-label__text {
-    display: inline-block;
-    position: relative;
-    padding: 0 12px;
-    background-color: #FFF
-}
-.auth-google.button-primary {
-    position: relative;
-    padding: 8px 0;
-    margin-bottom: 5px;
-    width: 100%;
-    background-size: 16px 16px;
-    background-repeat: no-repeat;
-    background-position: left 10px center;
-    background-image: url("");
-    background-color: #4285f4;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    font-size: 14px
-}
-.auth-google.button-primary:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 36px;
-    border-left: 1px solid rgba(0, 0, 0, 0.1);
-    border-color: #2265d4
-}
-.auth-google.button-primary:hover {
-    border-color: rgba(0, 0, 0, 0.1);
-    background-color: #5496ff
-}
-.small .auth-google.button-primary {
-    margin-top: 5px;
-    margin-bottom: 0
-}
 .townsuite-2016 .button-primary,
 .townsuite-2016 .button-secondary,
 .townsuite-2016 .button-tertiary,
