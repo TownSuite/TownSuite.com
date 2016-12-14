@@ -1467,7 +1467,7 @@
 .townsuite-2016.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .sign-up-form-v1 .form-container .exp-growth_web_google_register__GOOGLE3.button-primary {
     color: #3d464d;
     background-color: #fbfbfb;
-    background-image: url("/static/images/index/google-logo-color-vflpJqkMT.svg")
+    background-image: url("")
 }
 .townsuite-2016.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .sign-up-form-v1 .form-container .exp-growth_web_google_register__GOOGLE3.button-primary:before {
     border-left: 0
@@ -1753,7 +1753,7 @@ body.exp-smores-version-2V1 .sign-up-form-v1 .form-container .hr-label .login-bu
 body.exp-smores-version-2V1 .sign-up-form-v1 .auth-google {
     background-color: #fff;
     color: #6A7C8F;
-    background-image: url("/static/images/index/smores/google_icon-vflI0D6Ww.svg");
+    background-image: url("");
     background-size: contain;
     border: none
 }
@@ -1963,7 +1963,7 @@ body.exp-smores-version-2V1 .feature--teamwork-and-feedback {
     -webkit-align-content: center;
     -ms-flex-line-pack: center;
     align-content: center;
-    background-image: url("/static/images/index/smores/teamwork-and-feedback-vfl1azx2m.svg");
+    background-image: url("");
     background-position: center center;
     background-size: 815px;
     background-repeat: no-repeat
