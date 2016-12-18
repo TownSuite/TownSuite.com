@@ -206,3 +206,6 @@ h1 {
   z-index: 1000;
   color: #00578e;
 }
+.outer-menu:hover .hamburger {
+    background: #00578e;
+}
