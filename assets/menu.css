@@ -209,7 +209,7 @@ h1 {
 .menu.right {
 	position: relative;
 }
-.menu .login-button.button-primary, .menu .button-tertiary {
+.menu .login-button.button-primary {
 	background: #6a94be;
 	position: absolute;
 	right: 10px;
