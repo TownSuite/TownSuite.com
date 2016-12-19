@@ -206,3 +206,17 @@ h1 {
 .outer-menu:hover .hamburger {
     background: #00578e;
 }
+.menu.right {
+	position: relative;
+}
+.menu .login-button.button-primary, .menu .button-tertiary {
+	background: #6a94be;
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	font-size: 1em;
+}
+.menu .button-tertiary:hover {
+	background: #d8e0ed;
+	color: #58595b;
+}
