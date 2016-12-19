@@ -474,14 +474,14 @@ body.townsuite-2016 {
     position: absolute;
     width: 16px;
     background: #fafbfc no-repeat center center;
-    background-image: url("/static/images/business/try_free/down_arrow-vfle_zp25.png");
+    background-image: url("");
     background-size: 14px 16px
 }
 @media (-webkit-min-device-pixel-ratio: 1.1),
 (min-resolution: 192dpx),
 (min-resolution: 1.1dppx) {
     .hero__scroll-text:before {
-        background-image: url("/static/images/business/try_free/down_arrow@2x-vflylN2mx.png")
+        background-image: url("")
     }
 }
 .media-text--horizontal .media-text__wrapper {
@@ -583,6 +583,7 @@ body.townsuite-2016 {
 .townsuite-2016 .login-form-container.register.small.index {
     width: 100%
 }
+<<<<<<< HEAD
 .learn-more-content {		
     padding: 30px 0 30px		
 }		
@@ -661,14 +662,9 @@ body.townsuite-2016 {
     height: auto !important;
 	max-height: 235 px !important;
 }
+=======
+>>>>>>> origin/gh-pages
 
-.learn-more-content .media-text__headline-head {
-    letter-spacing: -0.5px;
-    color: #737373;
-    min-height: 70px;
-    font-weight: 600;
-    padding: 0
-}
 @media only screen and (max-width: 990px) {
     .learn-more-content .media-text__headline-head {
         margin-bottom: 15px
@@ -698,54 +694,6 @@ body.townsuite-2016 {
         top: 50px
     }
 }
-.has-top-onboarding-progress-bar #browse-header {
-    top: 280px
-}
-@media (max-width: 1005px) {
-    .has-top-onboarding-progress-bar #browse-header {
-        top: 50px
-    }
-}
-.has-top-onboarding-progress-bar-collapsed #browse-header {
-    top: 110px
-}
-@media (max-width: 1005px) {
-    .has-top-onboarding-progress-bar-collapsed #browse-header {
-        top: 50px
-    }
-}
-.has-top-onboarding-progress-bar.top-notification-bar #browse-header {
-    top: 331px
-}
-@media (max-width: 1005px) {
-    .has-top-onboarding-progress-bar.top-notification-bar #browse-header {
-        top: 50px
-    }
-}
-.has-top-onboarding-progress-bar-collapsed.top-notification-bar #browse-header {
-    top: 161px
-}
-@media (max-width: 1005px) {
-    .has-top-onboarding-progress-bar-collapsed.top-notification-bar #browse-header {
-        top: 50px
-    }
-}
-.has-fastrack-survey-banner #browse-header {
-    top: 150px
-}
-@media (max-width: 1005px) {
-    .has-fastrack-survey-banner #browse-header {
-        top: 50px
-    }
-}
-.has-prompt-large-banner #browse-header {
-    top: 225px
-}
-@media (max-width: 1005px) {
-    .has-prompt-large-banner #browse-header {
-        top: 50px
-    }
-}
 .fixed-header #top-notification-bar-container {
     position: fixed;
     top: 0;
@@ -757,190 +705,6 @@ body.top-notification-bar {
 }
 body.top-notification-bar .mast-head {
     top: 51px
-}
-#top-notification-bar-container {
-    min-height: 51px;
-    width: 100%;
-    line-height: 18px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 100
-}
-#top-notification-bar-container #install-bar {
-    min-height: 100%;
-    margin: 0 auto;
-    width: 990px
-}
-#top-notification-bar-container #install-bar div {
-    display: inline-block
-}
-#top-notification-bar-container #install-bar #over-nav {
-    position: absolute;
-    min-height: 44px;
-    min-width: 137px
-}
-#top-notification-bar-container #install-bar #over-content {
-    position: absolute;
-    padding-left: 190px;
-    width: 800px;
-    height: 51px
-}
-#top-notification-bar-container #install-bar #over-content.clickable {
-    cursor: pointer
-}
-#top-notification-bar-container #install-bar #install-bar-title {
-    font-size: 14px;
-    font-weight: bold;
-    padding-top: 12px
-}
-#top-notification-bar-container #install-bar #install-bar-blurb {
-    padding-left: 10px
-}
-#top-notification-bar-container #install-bar #install-bar-dismiss-text {
-    padding-left: 10px
-}
-#top-notification-bar-container #install-bar #install-bar-button {
-    float: right;
-    padding-top: 7px
-}
-#top-notification-bar-container #install-bar #install-bar-dismiss-x {
-    position: absolute;
-    right: 0
-}
-#top-notification-bar-container #install-bar #install-bar-dismiss-x a {
-    display: block;
-    padding: 19px;
-    line-height: 0
-}
-#top-notification-bar-container #quota-bar,
-#top-notification-bar-container #rebill-bar,
-#top-notification-bar-container #beta-locale-bar,
-#top-notification-bar-container #add-credit-card-bar,
-#top-notification-bar-container #two-account-admin-banner,
-#top-notification-bar-container #suggested-article-banner,
-#top-notification-bar-container #ts-admin-early-access-sharing-controls-banner,
-#top-notification-bar-container #prompt-top-notification-bar,
-#top-notification-bar-container #prompt-large-banner,
-#top-notification-bar-container #locale-switch-banner {
-    text-align: center;
-    font-size: 13px;
-    padding-top: 15px
-}
-#top-notification-bar-container .top-notification-bar {
-    margin: 0px 30px
-}
-#top-notification-bar-container .top-notification-bar .top-notification-bar-dismiss {
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    margin-top: -10px;
-    text-decoration: none;
-    cursor: pointer
-}
-#top-notification-bar-container .top-notification-bar .top-notification-link-button {
-    margin: 0 0 0 10px
-}
-#top-notification-bar-container #prompt-top-notification-bar.top-notification-bar-with-button {
-    padding-top: 10px
-}
-#top-notification-bar-container.lightred {
-    background: #ffe3e3;
-    border-bottom: 1px solid #ed7a6f
-}
-#top-notification-bar-container.lightred #unsupported-browser {
-    text-align: center;
-    font-size: 13px;
-    padding-top: 15px
-}
-#top-notification-bar-container.lightred #unsupported-browser #unsupported-browser-dismiss {
-    color: #ed7a6f
-}
-#top-notification-bar-container.lightred #dealpocalypse-bar {
-    text-align: center;
-    font-size: 13px;
-    padding-top: 15px
-}
-#top-notification-bar-container.lightblue {
-    background-color: #f4faff;
-    border-bottom: 1px solid #72b6ec;
-    display: block
-}
-#top-notification-bar-container.orange {
-    background-color: #fffdec;
-    border-bottom: 1px solid #fcca00;
-    display: block
-}
-#top-notification-bar-container.orange #install-bar #over-nav {
-    background-image: url("/static/images/growth/install-friends-orange-vflDxuZv_.png");
-    background-repeat: no-repeat
-}
-#top-notification-bar-container.lightyellow {
-    border-bottom: 1px solid;
-    background: #fffdec;
-    border-color: #fcca00
-}
-#top-notification-bar-container.lightyellow #dealpocalypse-bar {
-    text-align: center;
-    font-size: 13px;
-    padding-top: 15px
-}
-#top-notification-bar-container.dismiss #install-bar #over-content #complete-setup-blurb #complete-setup-blurb-period,
-#top-notification-bar-container.dismiss #install-bar #over-content #complete-setup-blurb #complete-setup-dismiss {
-    display: inline
-}
-.hr-label {
-    position: relative;
-    margin-top: 20px;
-    margin-bottom: 5px;
-    text-align: center;
-    clear: both
-}
-.hr-label::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.2)
-}
-.hr-label__text {
-    display: inline-block;
-    position: relative;
-    padding: 0 12px;
-    background-color: #FFF
-}
-.auth-google.button-primary {
-    position: relative;
-    padding: 8px 0;
-    margin-bottom: 5px;
-    width: 100%;
-    background-size: 16px 16px;
-    background-repeat: no-repeat;
-    background-position: left 10px center;
-    background-image: url("/static/images/index/google-logo-white-vfltwSoWq.svg");
-    background-color: #4285f4;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    font-size: 14px
-}
-.auth-google.button-primary:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 36px;
-    border-left: 1px solid rgba(0, 0, 0, 0.1);
-    border-color: #2265d4
-}
-.auth-google.button-primary:hover {
-    border-color: rgba(0, 0, 0, 0.1);
-    background-color: #5496ff
-}
-.small .auth-google.button-primary {
-    margin-top: 5px;
-    margin-bottom: 0
 }
 .townsuite-2016 .button-primary,
 .townsuite-2016 .button-secondary,
@@ -1019,7 +783,7 @@ body.top-notification-bar .mast-head {
     background-size: 16px 16px;
     background-repeat: no-repeat;
     background-position: left 10px center;
-    background-image: url("/static/images/index/google-logo-white-vfltwSoWq.svg");
+    background-image: url("");
     background-color: #4285f4;
     border: 1px solid rgba(0, 0, 0, 0.2);
     font-family: 'Roboto', sans-serif;
