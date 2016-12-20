@@ -963,178 +963,6 @@
         max-width: 500px
     }
 }
-.townsuite-2016.exp-growth_web_google_register__GOOGLE3 .form-container .text-input,
-.townsuite-2016.exp-growth_web_google_register__GOOGLE3 .form-container .text-input label,
-.townsuite-2016.exp-growth_web_google_register__GOOGLE3 .form-container .auth-google,
-.townsuite-2016.exp-growth_web_google_register__GOOGLE3 .form-container .login-button,
-.townsuite-2016.exp-growth_web_google_register__GOOGLE3 .form-container .text-input-input,
-.townsuite-2016.exp-growth_web_google_register__MULTISTEP .form-container .text-input,
-.townsuite-2016.exp-growth_web_google_register__MULTISTEP .form-container .text-input label,
-.townsuite-2016.exp-growth_web_google_register__MULTISTEP .form-container .auth-google,
-.townsuite-2016.exp-growth_web_google_register__MULTISTEP .form-container .login-button,
-.townsuite-2016.exp-growth_web_google_register__MULTISTEP .form-container .text-input-input {
-    font-size: 13px !important
-}
-.townsuite-2016.exp-growth_web_google_register__GOOGLE3 .form-container .agree label,
-.townsuite-2016.exp-growth_web_google_register__MULTISTEP .form-container .agree label {
-    font-size: 11px !important
-}
-.townsuite-2016.exp-growth_web_google_register__GOOGLE3 .new-exp-form-image.sign-up-form-v1 .form-container {
-    margin: 0 -5px 14px 0;
-    width: 370px;
-    max-width: 370px
-}
-.townsuite-2016.exp-growth_web_google_register__GOOGLE3 .new-exp-form-image.sign-up-form-v1 .form-container .checkbox {
-    clear: left;
-    float: left;
-    display: block
-}
-.townsuite-2016.exp-growth_web_google_register__GOOGLE3 .try-townsuite-cta__register.new-exp-form-image .form-container {
-    margin: -12px auto 14px
-}
-.townsuite-2016.exp-growth_web_google_register__MULTISTEP .new-exp-form-image.sign-up-form-v1 .form-container {
-    margin: 0 -5px 14px 55px;
-    width: 320px;
-    max-width: 320px
-}
-.townsuite-2016.exp-growth_web_google_register__MULTISTEP .try-townsuite-cta__register.new-exp-form-image .form-container {
-    margin: -12px auto 14px
-}
-.townsuite-2016.exp-growth_web_google_register--polish .sign-up-form-v1 .form-container .login-button.button-primary {
-    padding-top: 5px;
-    padding-bottom: 4px
-}
-.townsuite-2016.exp-growth_web_google_register--polish .sign-up-form-v1 .form-container .hr-label {
-    padding: 0;
-    margin: 5px 0
-}
-.townsuite-2016.exp-growth_web_google_register--polish .sign-up-form-v1 .form-container .hr-label__text {
-    font-size: 13px;
-    line-height: 24px;
-    padding: 0 8px;
-    vertical-align: top
-}
-.townsuite-2016.exp-growth_web_google_register--polish .sign-up-form-v1 .form-container .hr-label::before {
-    border-top-color: #d0d4d9
-}
-.townsuite-2016.exp-growth_web_google_register--polish .sign-up-form-v1 .form-container .auth-google.button-primary {
-    padding-top: 5px;
-    padding-bottom: 5px
-}
-.townsuite-2016.exp-growth_web_google_register--polish .sign-up-form-v1 .form-container .password-input-meter {
-    right: 2px
-}
-.townsuite-2016.exp-growth_web_google_register--polish .sign-up-form-v1 .form-container .text-input .text-input-input {
-    height: 36px
-}
-.townsuite-2016.exp-growth_web_google_register--polish .sign-up-form-v1.new-exp-form-image .form-container .checkbox {
-    padding: 6px 0;
-    padding-right: 25px
-}
-.townsuite-2016.exp-growth_web_google_register--polish .sign-up-form-v1.new-exp-form-image .form-container .checkbox input {
-    margin-top: 2px
-}
-.townsuite-2016.exp-growth_web_google_register--polish .sign-up-form-v1.new-exp-form-image .form-container .login-button.button-primary {
-    font-weight: 600;
-    background: #6a94be;
-    margin-bottom: 0
-}
-.townsuite-2016.exp-growth_web_google_register--polish .sign-up-form-v1 .register-form--error-list .register-form__errors {
-    height: 0;
-    margin-top: 0
-}
-.townsuite-2016.exp-growth_web_google_register--polish .sign-up-form-v1 .register-form--error-list .register-form__error {
-    line-height: 20px
-}
-.townsuite-2016.exp-growth_web_google_register--polish .sign-up-form-v1 .register-form--error-alert .text-input--error:before {
-    right: 10px;
-    top: 11px;
-    z-index: 1;
-    left: auto
-}
-.townsuite-2016.exp-growth_web_google_register--polish .sign-up-form-v1 .register-form--error-alert .text-input--error.input-password:before {
-    right: 16px
-}
-.townsuite-2016.exp-growth_web_google_register--polish .sign-up-form-v1 .register-form--error-alert .checkbox-inline--error:before {
-    right: 0;
-    top: 11px;
-    left: auto
-}
-.townsuite-2016.exp-growth_web_google_register--polish .sign-up-form-v1 .register-form .checkbox-inline {
-    margin-right: 25px
-}
-.townsuite-2016.exp-growth_web_google_register--polish .sign-up-form-v1 .register-form__multistep {
-    height: 280px
-}
-.townsuite-2016.exp-growth_web_google_register--polish.exp-growth_web_google_register__GOOGLE3 .form-container .auth-google,
-.townsuite-2016.exp-growth_web_google_register--polish.exp-growth_web_google_register__GOOGLE3 .form-container .login-button,
-.townsuite-2016.exp-growth_web_google_register--polish.exp-growth_web_google_register__MULTISTEP .form-container .auth-google,
-.townsuite-2016.exp-growth_web_google_register--polish.exp-growth_web_google_register__MULTISTEP .form-container .login-button {
-    font-size: 14px !important
-}
-.townsuite-2016.exp-growth_web_google_register--polish.exp-growth_web_google_register__GOOGLE3 .register-form {
-    margin-bottom: 13px
-}
-.townsuite-2016.exp-growth_web_google_register--polish.exp-growth_web_google_register__GOOGLE3 .register-form__errors {
-    padding: 0
-}
-.townsuite-2016.exp-growth_web_google_register--polish.exp-growth_web_google_register__MULTISTEP .form-container .auth-google {
-    font-weight: 600
-}
-.townsuite-2016.exp-growth_web_google_register--polish.exp-growth_web_google_register__GOOGLE3 {
-    background-position: 9px 9px
-}
-.townsuite-2016.exp-growth_web_google_register--polish.exp-growth_web_google_register__GOOGLE3:before {
-    left: 34px
-}
-.townsuite-2016.exp-growth_web_google_register--polish.exp-growth_web_google_register__MULTISTEP .hr-label {
-    margin: 6px 0
-}
-.townsuite-2016.exp-growth_web_google_register--polish.exp-growth_web_google_register__MULTISTEP .hero__content {
-    padding-bottom: 0
-}
-.townsuite-2016.exp-growth_web_google_register--polish.exp-growth_web_google_register__GOOGLE3 .sign-up-form-v1-hero {
-    padding-bottom: 37px
-}
-.townsuite-2016.exp-growth_web_google_register--polish.exp-growth_web_google_register__GOOGLE3 .hero,
-.townsuite-2016.exp-growth_web_google_register--polish.exp-growth_web_google_register__MULTISTEP .hero {
-    padding-top: 105px;
-    overflow: visible
-}
-.townsuite-2016.exp-growth_web_google_register--polish.exp-growth_web_google_register__GOOGLE3 .hero__register,
-.townsuite-2016.exp-growth_web_google_register--polish.exp-growth_web_google_register__MULTISTEP .hero__register {
-    margin-top: 4px
-}
-.townsuite-2016.exp-growth_web_google_register--polish.exp-growth_web_google_register__GOOGLE3 .hero__banner,
-.townsuite-2016.exp-growth_web_google_register--polish.exp-growth_web_google_register__MULTISTEP .hero__banner {
-    margin-bottom: 33px !important
-}
-.townsuite-2016.exp-growth_web_google_register--polish.exp-growth_web_google_register__GOOGLE3 .hero__copy,
-.townsuite-2016.exp-growth_web_google_register--polish.exp-growth_web_google_register__MULTISTEP .hero__copy {
-    width: 100%;
-    max-width: 395px
-}
-.townsuite-2016.exp-growth_web_google_register--polish.exp-growth_web_google_register__GOOGLE3 .hero__copy .medium-title,
-.townsuite-2016.exp-growth_web_google_register--polish.exp-growth_web_google_register__MULTISTEP .hero__copy .medium-title {
-    margin-top: 23px;
-    font-size: 21px;
-    line-height: 36px
-}
-.townsuite-2016.exp-growth_web_google_register--polish.exp-growth_web_google_register__GOOGLE3 .hero__copy .large-title,
-.townsuite-2016.exp-growth_web_google_register--polish.exp-growth_web_google_register__MULTISTEP .hero__copy .large-title {
-    line-height: 47px
-}
-.townsuite-2016.exp-growth_web_google_register--polish.exp-growth_web_google_register__GOOGLE3 .hero__copy .large-title .lb--desktop-mobile,
-.townsuite-2016.exp-growth_web_google_register--polish.exp-growth_web_google_register__MULTISTEP .hero__copy .large-title .lb--desktop-mobile {
-    display: inline
-}
-.townsuite-2016.exp-growth_web_google_register--polish.exp-growth_web_google_register__GOOGLE3 .hero__copy .large-title .lb--desktop-mobile::before,
-.townsuite-2016.exp-growth_web_google_register--polish.exp-growth_web_google_register__MULTISTEP .hero__copy .large-title .lb--desktop-mobile::before {
-    content: '';
-    display: inline-block;
-    visibility: hidden;
-    width: .25em
-}
 .sign-in-form-promo {
     border-top: 1px solid #d0d4d9;
     margin: 15px -32px -15px -32px;
@@ -1467,7 +1295,7 @@
 .townsuite-2016.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .sign-up-form-v1 .form-container .exp-growth_web_google_register__GOOGLE3.button-primary {
     color: #3d464d;
     background-color: #fbfbfb;
-    background-image: url("/static/images/index/google-logo-color-vflpJqkMT.svg")
+    background-image: url("")
 }
 .townsuite-2016.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .sign-up-form-v1 .form-container .exp-growth_web_google_register__GOOGLE3.button-primary:before {
     border-left: 0
@@ -1753,7 +1581,7 @@ body.exp-smores-version-2V1 .sign-up-form-v1 .form-container .hr-label .login-bu
 body.exp-smores-version-2V1 .sign-up-form-v1 .auth-google {
     background-color: #fff;
     color: #6A7C8F;
-    background-image: url("/static/images/index/smores/google_icon-vflI0D6Ww.svg");
+    background-image: url("");
     background-size: contain;
     border: none
 }
@@ -1963,7 +1791,7 @@ body.exp-smores-version-2V1 .feature--teamwork-and-feedback {
     -webkit-align-content: center;
     -ms-flex-line-pack: center;
     align-content: center;
-    background-image: url("/static/images/index/smores/teamwork-and-feedback-vfl1azx2m.svg");
+    background-image: url("");
     background-position: center center;
     background-size: 815px;
     background-repeat: no-repeat

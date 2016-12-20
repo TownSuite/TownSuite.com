@@ -2,7 +2,8 @@
 <html manifest="demo.appcache" lang="en_GB" xmlns:fb="http://ogp.me/ns/fb#" xml:lang="en_US" class="grid-990" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="HandheldFriendly" content="true" />
     <link id="linkFavicon" rel="shortcut icon" href="./assets/favicon.ico" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <link href="./assets/animation.css" type="text/css" crossorigin="anonymous" rel="stylesheet" />
@@ -11,9 +12,12 @@
     <link href="./assets/footer.css" type="text/css" crossorigin="anonymous" rel="stylesheet" />
     <link href="./assets/mediatxt.css" type="text/css" crossorigin="anonymous" rel="stylesheet" />
     <link href="./assets/base.css" type="text/css" crossorigin="anonymous" rel="stylesheet" />
-    <link href="./assets/index.css" type="text/css" crossorigin="anonymous" rel="stylesheet" />
+    <link href="./assets/index.css" type="text/css" crossorigin="anonymous" rel="stylesheet" /> 
+    <link href="./assets/menu.css" type="text/css" crossorigin="anonymous" rel="stylesheet" />   
+    <meta name="keywords" content="TownSuite, Municipal, Local goverment, Software, GIS, Accounting, Financial, Asset Management, HRIS, HRM, Event and Facility Management, Mapping, Public Works, Planning, Billing, Accounts Payable, General Ledger, Atlantic Canada, Andrew Whey, Newfoundland, Government, Municipality"/>
+	<meta name="description" content="TownSuite Municipal Software are focused makers of living municipal software which covers a broad array of offerings for anys size municipality"/>
+	<title>TownSuite Municipal Software</title>    
 </head>
-
 
     <body class="en_GB  townsuite-2016 townsuite-2016--responsive townsuite-logo-2016 exp-growth_web_google_register__GOOGLE3 exp-growth_web_google_register--polish " dir="ltr">
         <header class="mast-head">
@@ -24,7 +28,7 @@
                         </li>
                     </ul>
                     <ul class="nav-list">
-                        <li class="nav-list__item nav-list__item--download"><a href="/downloading?src=index" class="button-link">View our apps</a>
+                        <li class="nav-list__item nav-list__item--download"><a href="/apps" class="button-link">View our apps</a>
                         </li>
                         <li class="nav-list__item nav-list__item--sign-in"><a href="https://ebills.ws.townsuite.com/" id="sign-in" class="sign-in button-link">Sign in</a>
                         </li>
@@ -32,24 +36,25 @@
                 </nav>
                 <h1 id="townsuite-logo" class="townsuite-logo"><img src="./assets/logo.svg" alt="" class="townsuite-logo__type" />TownSuite</h1>
             </div>
-        </header>
+        </header>        
         <section class="hero small-padding">
             <div class="sign-up-form-v1 sign-up-form-v1-hero new-exp-form-image hero__content">
                 <div style="width:1200px; height:440px;" data-scale-down="false" data-implementation-width="820" class="hero__banner animator" data-implementation-height="312">
                     <img src="./assets/svg/header.svg" alt="" class="animator-poster" />
                     <div class="animator-strip"><img data-src="./assets/svg/header.svg" alt="" class="animator-frame animator-frame--intro animator-sequence" /><img data-src="./assets/svg/header.svg" alt="" class="animator-frame animator-frame--loop animator-sequence" />
+                    
                     </div>
                 </div>
                 <div class="six-column hero__copy">
                     <header class="header-text">
-                        <h1 class="large-title">TownSuite enhances the way<span class="lb--desktop-mobile"></span>you work</h1>
+                        <h1 class="large-title">TownSuite enhances the way<span class="lb--desktop-mobile"></span> you work</h1>
                         <h2 class="medium-title">Access all of your municipal information from from one place. No additional spreadsheets, complicated integrations or post-it notes required.</h2>
                     </header>
                     <a href="/register" class="sign-up--responsive button-big button-secondary">Try TownSuite</a>
                     <h4 class="sign-in--responsive">or <a href="https://ebills.ws.townsuite.com/">sign in</a></h4>
                 </div>
                 
-                <div class="five-column">
+                <div class="five-column hero__register">
                 	<h3 class="medium-title medium-title--desktop">Learn more</h3>	
                 	<div class="form-container">
                     	<div class="index form_shown register standard register-form--error-alert login-form-container register-form--error-list third_party_auth">
@@ -67,12 +72,37 @@
                                 <div class="try-business-cta--inverted">
 										<a href="/features" target="">See all features</a>
 									</div>
- 
-						<!iframe src="https://player.vimeo.com/video/122113865" width="100%" height="300 em" frameborder="0" webkitAllowFullScreen allowFullScreen></iframe>
                 </div>
             </div>
         </section>
-        <section class="twelve-column features-container">
+		<section class="twelve-column features-container">			
+
+		<div class="outer-menu">		  
+		  <input class="checkbox-toggle" type="checkbox" />
+		  <div class="hamburger">
+		    <div></div>
+		  </div>
+		  <div class="menu-title">Menu</div>
+		  <div class="menu">
+		    <div>
+		      <div>			      
+		        <ul>
+		          <li>1. <a href="#">The <strong>BIG</strong> picture</a></li>
+		          <li>2. <a href="#">Enhancing your processes</a></li>
+		          <li>3. <a href="#">Understand our offerings</a></li>
+		          <li>4. <a href="/about">Learn about who we are</a></li>
+		          	<div class="login">
+			        	<a href="/try" class="button-tertiary">Try TownSuite</a>
+			        	or
+			        	<a href="https://ebills.ws.townsuite.com/login" class="button-tertiary">Sign in</a>
+			        </div>
+		        </ul>
+		      </div>
+		    </div>	
+		  </div>			  
+		</div>
+
+
 					<article class="content-row ">
 		                <article class="content-module media-text  media-text-inline media-text--alt-order media-text--horizontal clearfix">
 	                    <div class="media-text__content">
@@ -838,7 +868,6 @@
             </footer>
         </section>
         <div id="accessible-announce" class="ax-visually-hidden" aria-live="assertive"></div>
-        <script></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>       
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </body>
