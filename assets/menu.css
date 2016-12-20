@@ -227,12 +227,8 @@ h1 {
 }
 @media (max-width: 1200px) {
 	.menu .button-tertiary {
-	    background: #00578e;
-	    color: #d8e0ed;
-	    border: 1px solid;
 	    margin: 0 10px 0 10px;
 	    font-size: 12px;
-	    font-family: "dax", "DaxRegular", "Open Sans", "lucida grande", "Segoe UI" !important;
 	}
 }
 .menu .button-tertiary:hover {
