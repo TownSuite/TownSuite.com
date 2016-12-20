@@ -220,6 +220,8 @@ h1 {
     color: #d8e0ed;
     border: 1px solid;
     margin: 15px;
+    font-size: 23px;
+    font-family: "dax", "DaxRegular", "Open Sans", "lucida grande", "Segoe UI" !important;
 }
 .menu .button-tertiary:hover {
 	background: #d8e0ed;
