@@ -164,10 +164,11 @@ h1 {
   display: block;
   height: 100%;
   max-width: 95%;
+  min-width: 300px;
 }
 @media (min-width: 1200px) {
 	.outer-menu .menu > div > div > ul {
-		width: 600px;
+		min-width: 600px;
 		min-height: 600px;
 	}
 }
@@ -214,14 +215,25 @@ h1 {
 .menu .login {
     position: relative;
 	top: 5em;
+	padding: 10px;
 }
 .menu .button-tertiary {
     background: #00578e;
     color: #d8e0ed;
     border: 1px solid;
-    margin: 15px;
+    margin: 0 17.5px 0 17.5px;
     font-size: 23px;
     font-family: "dax", "DaxRegular", "Open Sans", "lucida grande", "Segoe UI" !important;
+}
+@media (max-width: 1200px) {
+	.menu .button-tertiary {
+	    background: #00578e;
+	    color: #d8e0ed;
+	    border: 1px solid;
+	    margin: 0 10px 0 10px;
+	    font-size: 12px;
+	    font-family: "dax", "DaxRegular", "Open Sans", "lucida grande", "Segoe UI" !important;
+	}
 }
 .menu .button-tertiary:hover {
 	background: #d8e0ed;
