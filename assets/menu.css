@@ -149,8 +149,6 @@ h1 {
 }
 .outer-menu .menu > div > div {
   text-align: center;
-  max-width: 90vw;
-  max-height: 100vh;
   opacity: 0;
   transition: opacity 0.4s ease;
   overflow-y: auto;
@@ -161,10 +159,17 @@ h1 {
 }
 .outer-menu .menu > div > div > ul {
   list-style: none;
-  padding: 0 1em;
+  padding: 5em 1em;
   margin: 0;
   display: block;
-  max-height: 100vh;
+  height: 100%;
+  max-width: 95%;
+}
+@media (min-width: 1200px) {
+	.outer-menu .menu > div > div > ul {
+		width: 600px;
+		min-height: 600px;
+	}
 }
 .outer-menu .menu > div > div > ul > li {
   padding: 0;
@@ -206,15 +211,15 @@ h1 {
 .outer-menu:hover .hamburger {
     background: #00578e;
 }
-.menu.right {
-	position: relative;
+.menu .login {
+    position: relative;
+	top: 5em;
 }
-.menu .login-button.button-primary {
-	background: #6a94be;
-	position: absolute;
-	right: 10px;
-	bottom: 10px;
-	font-size: 1em;
+.menu .button-tertiary {
+    background: #00578e;
+    color: #d8e0ed;
+    border: 1px solid;
+    margin: 15px;
 }
 .menu .button-tertiary:hover {
 	background: #d8e0ed;
