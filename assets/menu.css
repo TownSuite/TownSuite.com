@@ -65,11 +65,11 @@ h1 {
 }
 .outer-menu .checkbox-toggle:checked ~ .menu > div {
   transform: scale(1);
-  transition-duration: .75s;
+  transition-duration: 0.5s;
 }
 .outer-menu .checkbox-toggle:checked ~ .menu > div > div {
   opacity: 1;
-  transition: opacity 0.4s ease 0.4s;
+  transition: opacity 0.2s ease 0.3s;
 }
 .outer-menu .checkbox-toggle:checked:hover + .hamburger > div {
   transform: rotate(225deg);
@@ -85,7 +85,7 @@ h1 {
   background: #6b95be;
   border-radius: 0 0.12em 0.12em 0;
   cursor: pointer;
-  transition: box-shadow 0.4s ease;
+  transition: box-shadow 0.3s ease;
   backface-visibility: hidden;
   display: flex;
   align-items: center;
@@ -97,7 +97,7 @@ h1 {
   width: 100%;
   height: 2px;
   background: #fbfbfb;
-  transition: all 0.4s ease;
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -112,7 +112,7 @@ h1 {
   width: 100%;
   height: 2px;
   background: inherit;
-  transition: all 0.4s ease;
+  transition: all 0.3s ease;
 }
 .outer-menu .hamburger > div:after {
   top: 10px;
@@ -138,7 +138,7 @@ h1 {
   color: #d8e0ed;
   background: #00578e;
   border-radius: 50%;
-  transition: all 0.4s ease;
+  transition: all 0.3s ease;
   flex: none;
   transform: scale(0);
   backface-visibility: hidden;
@@ -150,7 +150,7 @@ h1 {
 .outer-menu .menu > div > div {
   text-align: center;
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.2s ease;
   overflow-y: auto;
   flex: none;
   display: flex;
@@ -182,7 +182,7 @@ h1 {
   position: relative;
   display: inline;
   cursor: pointer;
-  transition: color 0.4s ease;
+  transition: color 0.3s ease;
 }
 .outer-menu .menu > div > div > ul > li > a:hover {
   color: #d8e0ed;
@@ -199,7 +199,7 @@ h1 {
   width: 0;
   height: 2px;
   background: #d8e0ed;
-  transition: width 0.4s ease;
+  transition: width 0.3s ease;
 }
 .menu-title {
   font-family: "dax", "DaxRegular", "Open Sans", "lucida grande", "Segoe UI";
