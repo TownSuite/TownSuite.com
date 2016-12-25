@@ -16,38 +16,38 @@
     <title>TownSuite Events - TownSuite Municipal Software</title>
 </head>
 
-    <body class="en_GB  townsuite-2016 townsuite-2016--responsive townsuite-logo-2016 exp-growth_web_google_register__GOOGLE3 exp-growth_web_google_register--polish " dir="ltr">
-        <header class="mast-head">
-            <div class="mast-head__container container">
-                <nav class="mast-head__nav mast-head-nav">
-                    <ul class="nav-list">
-                        <li class="nav-list__item nav-list__item--ts"><a href="/try" id="try-ts" class="button-tertiary try-ts">Try TownSuite</a>
-                        </li>
-                    </ul>
-                    <ul class="nav-list">
-                        <li class="nav-list__item nav-list__item--download"><a href="/downloading?src=index" class="button-link">View our apps</a>
-                        </li>
-                        <li class="nav-list__item nav-list__item--sign-in"><a href="https://ebills.ws.townsuite.com/" id="sign-in" class="sign-in button-link">Sign in</a>
-                        </li>
-                    </ul>
-                </nav>
-                <h1 id="townsuite-logo" class="townsuite-logo"><img src="./assets/logo.svg" alt="" class="townsuite-logo__type" />TownSuite</h1>
-            </div>
-        </header>
+<body class="en_GB  townsuite-2016 townsuite-2016--responsive townsuite-logo-2016 exp-growth_web_google_register__GOOGLE3 exp-growth_web_google_register--polish " dir="ltr">
+    <header class="mast-head">
+        <div class="mast-head__container container">
+            <nav class="mast-head__nav mast-head-nav">
+                <ul class="nav-list">
+                    <li class="nav-list__item nav-list__item--ts"><a href="/try" id="try-ts" class="button-tertiary try-ts">Try TownSuite</a>
+                    </li>
+                </ul>
+                <ul class="nav-list">
+                    <li class="nav-list__item nav-list__item--download"><a href="/downloading?src=index" class="button-link">View our apps</a>
+                    </li>
+                    <li class="nav-list__item nav-list__item--sign-in"><a href="https://ebills.ws.townsuite.com/" id="sign-in" class="sign-in button-link">Sign in</a>
+                    </li>
+                </ul>
+            </nav>
+            <h1 id="townsuite-logo" class="townsuite-logo"><img src="./assets/logo.svg" alt="" class="townsuite-logo__type" />TownSuite</h1>
+        </div>
+    </header>
 
 
-		<div id="page-content">
-		   <section class="about-section section-intro">
-		      <h2 class="intro-text">See our planned events below.</h2>
-		      <h4>If you have any questions do not hesitate to <a href="/contact">contact us</a>.</h4>
-		   </section>
-		  <section class="about-section section-TownSuite even">
+    <div id="page-content">
+        <section class="about-section section-intro">
+            <h2 class="intro-text">See our planned events below.</h2>
+            <h4>If you have any questions do not hesitate to <a href="/contact">contact us</a>.</h4>
+        </section>
+        <section class="about-section section-TownSuite even">
 
-		  <div class="event-section-container">
-		     <div id="scheduler"></div>
-		  </section>
+            <div class="event-section-container">
+                <div id="scheduler"></div>
+        </section>
 
-		</div>
+        </div>
 
         <section class="footer-row">
             <footer id="homepage-footer" class="twelve-column townsuite-footer clearfix">
@@ -115,15 +115,18 @@
                         </li>
                     </ul>
                 </nav>
-                <div id="locale-container"> &copy; <script>document.write(new Date().getFullYear())</script> TownSuite Municipal Software <img border="0" src="./assets/favicon.ico?v=1.814.0.15739" alt="TownSuite Emblem"></div>
+                <div id="locale-container"> &copy;
+                    <script>
+                        document.write(new Date().getFullYear())
+                    </script> TownSuite Municipal Software <img border="0" src="./assets/favicon.ico?v=1.814.0.15739" alt="TownSuite Emblem"></div>
             </footer>
         </section>
         <div id="accessible-announce" class="ax-visually-hidden" aria-live="assertive"></div>
 
         <script type="text/javascript" src="http://webservices.townsuite.com/assets/typescript/recreation/scheduler.js"></script>
-		<script type="text/javascript">
-			window.onload =function () {
-				TownSuite.Events.Scheduler.Init('http://webservices.townsuite.com', "silver", "scheduler");
-			};
-		</script>
-    </body>
+        <script type="text/javascript">
+            window.onload = function() {
+                TownSuite.Events.Scheduler.Init('http://webservices.townsuite.com', "silver", "scheduler");
+            };
+        </script>
+</body>
