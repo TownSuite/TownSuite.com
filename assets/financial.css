@@ -839,19 +839,20 @@ h2, .alpha, #alpha (
     padding-left: 0
 }
 .upgrade-features .pro-header {
-    background-color: #6a94be;
-    background-image: url("pro-pattern-vflg9mluR.png");
+    background-color: #7b838a;
+    background-image: url("svg/header.svg");
     background-size: 1373px 726px;
     background-repeat: no-repeat;
     background-position: center -100px;
-    color: #fff;
+    color: #000;
     position: relative
+    z-index: 1;
 }
 @media (-webkit-min-device-pixel-ratio: 1.1),
 (min-resolution: 192dpx),
 (min-resolution: 1.1dppx) {
     .upgrade-features .pro-header {
-        background-image: url("pro-pattern@2x-vflEbMd7V.png")
+        background-image: url("svg/header.svg");
     }
 }
 .upgrade-features .pro-header .subhead {
@@ -866,13 +867,6 @@ h2, .alpha, #alpha (
     display: inline-block;
     width: auto;
     list-style: none
-}
-.upgrade-features .pro-header__headline {
-    color: #fff
-}
-.upgrade-features .pro-header .meta,
-.upgrade-features .pro-header .meta a {
-    color: rgba(255, 255, 255, 0.9)
 }
 .upgrade-features .pro-header .meta a {
     text-decoration: underline
