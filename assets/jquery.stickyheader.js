@@ -11,7 +11,7 @@ $(function(){
 			$t
 			.addClass('sticky-enabled')
 			.css({
-				margin: 0,
+				margin: '0',
 				width: '100%'
 			}).wrap('<div class="sticky-wrap" />');
 
@@ -40,7 +40,7 @@ $(function(){
 				.find('tbody td').remove();
 
 			$stickyInsct.html('<thead><tr><th>'+$t.find('thead th:first-child').html()+'</th></tr></thead>');
-			
+
 			// Set widths
 			var setWidths = function () {
 					$t
@@ -61,7 +61,7 @@ $(function(){
 				repositionStickyHead = function () {
 					// Return value of calculated allowance
 					var allowance = calcAllowance();
-				
+
 					// Check if wrapper parent is overflowing along the y-axis
 					if($t.height() > $stickyWrap.height()) {
 						// If it is overflowing (advanced layout)
@@ -69,7 +69,7 @@ $(function(){
 						if($stickyWrap.scrollTop() > 0) {
 							// When top of wrapping parent is out of view
 							$stickyHead.add($stickyInsct).css({
-								opacity: 1,
+								opacity: 0,
 								top: $stickyWrap.scrollTop()
 							});
 						} else {
@@ -101,7 +101,7 @@ $(function(){
 					if($stickyWrap.scrollLeft() > 0) {
 						// When left of wrapping parent is out of view
 						$stickyCol.add($stickyInsct).css({
-							opacity: 1,
+							opacity: 0,
 							left: $stickyWrap.scrollLeft()
 						});
 					} else {
@@ -117,13 +117,13 @@ $(function(){
 					$t.find('tbody tr:lt(3)').each(function () {
 						a += $(this).height();
 					});
-					
+
 					// Set fail safe limit (last three row might be too tall)
 					// Set arbitrary limit at 0.25 of viewport height, or you can use an arbitrary pixel value
 					if(a > $w.height()*0.25) {
 						a = $w.height()*0.25;
 					}
-					
+
 					// Add the height of sticky header
 					a += $stickyHead.height();
 					return a;
@@ -131,19 +131,19 @@ $(function(){
 
 			setWidths();
 
-			$t.parent('.sticky-wrap').scroll($.throttle(250, function() {
+			$t.parent('.sticky-wrap').scroll($.throttle(5, function() {
 				repositionStickyHead();
 				repositionStickyCol();
 			}));
 
 			$w
 			.load(setWidths)
-			.resize($.debounce(250, function () {
+			.resize($.debounce(15, function () {
 				setWidths();
 				repositionStickyHead();
 				repositionStickyCol();
 			}))
-			.scroll($.throttle(250, repositionStickyHead));
+			.scroll($.throttle(10, repositionStickyHead));
 		}
 	});
 });
