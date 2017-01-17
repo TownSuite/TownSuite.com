@@ -42,6 +42,9 @@ td {
   td{
     width:300px !important;
   }
+  th.title {
+    width: 300px !important;
+  }
 }
 tr.header, th.header {
 		color: #58595b;

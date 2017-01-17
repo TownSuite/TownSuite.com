@@ -39,7 +39,7 @@ $(function(){
 				.end()
 				.find('tbody td').remove();
 
-			$stickyInsct.html('<thead><tr><th>'+$t.find('thead th:first-child').html()+'</th></tr></thead>');
+		//	$stickyInsct.html('<thead><tr><th>'+$t.find('thead th:first-child').html()+'</th></tr></thead>');
 
 			// Set widths
 			var setWidths = function () {
