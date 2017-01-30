@@ -22,7 +22,7 @@
     box-sizing:border-box;
   }
   h1 {
-    font-size:22px;
+    font-size:24px;
     margin:0;
     font-weight:400;
   }
@@ -34,11 +34,21 @@
 
   .sidebar {
     position:absolute;
-    width:33.3333%;
+    width:50%;
     height:100%;
     top:0;left:0;
     overflow:hidden;
     border-right:1px solid rgba(0,0,0,0.25);
+  }
+  @media (min-width: 900px) {
+    .sidebar {
+      position:absolute;
+      width:33.0%;
+      height:100%;
+      top:0;left:0;
+      overflow:hidden;
+      border-right:1px solid rgba(0,0,0,0.25);
+    }
   }
   .pad2 {
     padding:20px;
@@ -48,9 +58,17 @@
   }
   .map {
     position:absolute;
-    left:33.3333%;
-    width:66.6666%;
+    left:50%;
+    width:50%;
     top:0;bottom:0;
+  }
+  @media (min-width: 900px) {
+    .map {
+      position:absolute;
+      left:33.3333%;
+      width:66.6666%;
+      top:0;bottom:0;
+    }
   }
   .heading {
     background:#fff;
@@ -132,16 +150,16 @@
     padding:10px;
   }
   .leaflet-container .leaflet-marker-icon { cursor:pointer; }
-  .mapbox-logo.leaflet-control.mapbox-logo-true {
-    background-image: url(http://new.townsuite.com/assets/emblem.svg);
+  .mapbox-logo-true {
+    background-image: url(http://new.townsuite.com/assets/logo.svg);
   }
-  .mapbox-logo.leaflet-control.mapbox-logo-true {
-    margin-left: -10px;
+  .leaflet-bottom.leaflet-left {
+      right: 0 !important;
   }
   .leaflet-control-attribution.leaflet-control {
     display: none;
     visibility: hidden;
-  } 
+  }
   </style>
 </head>
 <body>
