@@ -88,3 +88,6 @@
         padding-top: 0
     }
 }
+footer img {
+    width: 16px !important;
+}
