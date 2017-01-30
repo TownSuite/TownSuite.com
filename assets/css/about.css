@@ -64,11 +64,16 @@ body {
 }
 .about-section {
     border-bottom: 1px solid rgba(208, 212, 217, 0.9);
-    padding: 80px 0
+    padding: 80px 0 10px 0;
+    margin-top: 50px;
+}
+.about-section2 {
+    border-bottom: 1px solid rgba(208, 212, 217, 0.9);
+    padding: 40px 0;
 }
 @media only screen and (max-width: 767px) {
     .about-section {
-        padding: 40px 0
+        margin-top: 15px;
     }
 }
 .about-section.even {
