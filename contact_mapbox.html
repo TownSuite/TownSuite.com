@@ -273,7 +273,7 @@
     }
 
     var details = listing.appendChild(document.createElement('div'));
-    details.innerHTML = prop.city;
+    details.innerHTML = prop.city + ', ' + prop.state;
     if (prop.phone) {
       details.innerHTML += ' &middot; ' + prop.phoneFormatted;
     }
