@@ -39,7 +39,7 @@ a:hover, a:focus {
 	outline: none;
 }
 
-/* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
+/* Clearfix hack by Nicolas Gallagher: https://nicolasgallagher.com/micro-clearfix-hack/ */
 .clearfix:before,
 .clearfix:after {
 	display: table;
