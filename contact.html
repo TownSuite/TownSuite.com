@@ -71,7 +71,14 @@
             <img src="/assets/logo.svg" alt="" src="/" href="/" class="section-intro__img">
             <h2 class="intro-text">Talk get in touch with someone at TownSuite today!</h2>
 
-            [Service Request embeded here]
+            <div id="TheNewSRDiv"></div>
+
+            <script type="text/javascript" src="https://yourtownname.ws.townsuite.com/assets/typescript/complaintsportal/EmbedView.js"></script>
+            <script type="text/javascript">
+                window.onload =function () {
+                new TownSuite.Issue.EmbedView('https://yourtownname.ws.townsuite.com', "default", "TheNewSRDiv");
+                };
+            </script>
         </section>
         <section class="about-section2 section-TownSuite even">
             <div class="about-section-container">
