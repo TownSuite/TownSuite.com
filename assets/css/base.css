@@ -829,7 +829,7 @@ section.container img {
     position: relative;
     background-color: inherit !important;
 }
-.event-section-container {
+.event-section-container, div#TheNewSRDiv {
     max-width: 1125px;
     margin: 0 auto 60px;
 }
