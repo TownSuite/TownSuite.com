@@ -85,7 +85,7 @@ path.stroke-thin {
 	margin: 0 auto 30px;
 	width: 80px;
 	height: 80px;
-	background: url(../img/codrops_logo.png) no-repeat 50% 50%;
+	background: url(./img/codrops_logo.png) no-repeat 50% 50%;
 }
 
 .demo-loading .headline {

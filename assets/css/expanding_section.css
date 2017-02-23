@@ -173,7 +173,7 @@ noscript {
     transition: transform 250ms cubic-bezier(0.55, 0.085, 0.68, 0.53), background 0ms, -webkit-transform 250ms cubic-bezier(0.55, 0.085, 0.68, 0.53);
     -webkit-backface-visibility: 'hidden';
     backface-visibility: 'hidden';
-    background-image: url("./index_files/plus.png");
+    background-image: url("/index_files/plus.png");
     background-size: 40px 80px
 }
 @media (-webkit-min-device-pixel-ratio: 1.1),
@@ -219,7 +219,7 @@ noscript {
     overflow: hidden;
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
-    background-image: url("./index_files/plus.png");
+    background-image: url("/index_files/plus.png");
     background-size: 40px 80px
 }
 @media (-webkit-min-device-pixel-ratio: 1.1),

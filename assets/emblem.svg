@@ -5,15 +5,15 @@
 	 width="128px" height="128px" viewBox="0 0 128 128" enable-background="new 0 0 128 128" xml:space="preserve">
 <g>
 	<polygon fill="#01588F" points="72.089,42.306 86.477,73.04 55.738,87.437 41.345,56.703 	"/>
-	
+
 		<rect x="29.975" y="8.283" transform="matrix(-0.4241 -0.9056 0.9056 -0.4241 43.987 78.4862)" fill="#D9E0EC" width="33.949" height="33.948"/>
-	
+
 		<rect x="6.727" y="67.821" transform="matrix(-0.424 -0.9057 0.9057 -0.424 -43.0497 142.2122)" fill="#6C95BE" width="33.947" height="33.952"/>
-	
+
 		<rect x="93.743" y="88.813" transform="matrix(0.4561 0.8899 -0.8899 0.4561 142.6805 -38.1727)" fill="#E38D25" width="17.652" height="17.651"/>
-	
+
 		<rect x="116.25" y="79.819" transform="matrix(0.426 0.9047 -0.9047 0.426 145.6705 -60.8674)" fill="#2DA349" width="9.114" height="9.108"/>
-	
+
 		<rect x="103.826" y="114.183" transform="matrix(0.4256 0.9049 -0.9049 0.4256 169.832 -29.8995)" fill="#E03B3F" width="9.282" height="9.282"/>
 </g>
 </svg>
