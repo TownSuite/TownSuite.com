@@ -133,7 +133,7 @@ noscript {
     padding-top: 0;
     padding-bottom: 0
 }
-body.townsuite-2016 {
+body.townsuite-2017 {
     background: #fbfbfb
 }
 @media (max-width: 1024px) {
@@ -141,7 +141,7 @@ body.townsuite-2016 {
         margin: 0 auto
     }
 }
-.townsuite-2016 #notify-wrapper {
+.townsuite-2017 #notify-wrapper {
     width: 100%;
     height: 0px;
     left: 0;
@@ -151,10 +151,10 @@ body.townsuite-2016 {
     z-index: 1001;
     margin-top: 70px
 }
-.no-header-bar .townsuite-2016 #notify-wrapper {
+.no-header-bar .townsuite-2017 #notify-wrapper {
     margin-top: 30px
 }
-.townsuite-2016 #notify {
+.townsuite-2017 #notify {
     display: inline-block;
     padding: 8px 18px;
     border-radius: 6px;
@@ -162,18 +162,18 @@ body.townsuite-2016 {
     border-style: solid;
     font-size: 12px
 }
-.townsuite-2016 #notify,
-.townsuite-2016 #notify.server-info {
+.townsuite-2017 #notify,
+.townsuite-2017 #notify.server-info {
     color: #47525d;
     background-color: #fbfbfb;
     border-color: #47525d
 }
-.townsuite-2016 #notify.server-error {
+.townsuite-2017 #notify.server-error {
     color: #e82110;
     background-color: #ffe3e3;
     border-color: #e82110
 }
-.townsuite-2016 #notify.server-success {
+.townsuite-2017 #notify.server-success {
     color: #48ac68;
     background-color: #edfaf1;
     border-color: #48ac68
@@ -181,7 +181,7 @@ body.townsuite-2016 {
 * {
     -webkit-font-smoothing: antialiased
 }
-body.townsuite-2016 {
+body.townsuite-2017 {
     font-size: 14px;
     line-height: 26px
 }
@@ -209,8 +209,8 @@ body.townsuite-2016 {
     font-size: 21px;
     font-weight: 100
 }
-.townsuite-2016 .try-townsuite-cta .try-business-cta__button,
-.townsuite-2016 .try-townsuite-cta .try-business-cta__header {
+.townsuite-2017 .try-townsuite-cta .try-business-cta__button,
+.townsuite-2017 .try-townsuite-cta .try-business-cta__header {
     line-height: 34px;
     font-size: 16px;
     font-weight: 400
@@ -220,10 +220,10 @@ body.townsuite-2016 {
 *:after {
     box-sizing: border-box
 }
-.grid-990 body.townsuite-2016 {
+.grid-990 body.townsuite-2017 {
     min-width: 990px
 }
-.grid-990 body.townsuite-2016--responsive {
+.grid-990 body.townsuite-2017--responsive {
     min-width: 0
 }
 .twelve-column {
@@ -373,19 +373,19 @@ body.townsuite-2016 {
     vertical-align: middle;
     text-align: right
 }
-.townsuite-2016 .mast-head .button-tertiary {
+.townsuite-2017 .mast-head .button-tertiary {
     border-color: #00578e;
     color: #00578e
 }
-.townsuite-2016 .mast-head .button-tertiary:hover {
+.townsuite-2017 .mast-head .button-tertiary:hover {
     border-color: #0071ce;
     color: #0071ce
 }
-.townsuite-2016 .mast-head .nav-list__item+.nav-list__item {
+.townsuite-2017 .mast-head .nav-list__item+.nav-list__item {
     position: relative;
     padding-left: 6px
 }
-.townsuite-2016 .mast-head .nav-list__item+.nav-list__item::before {
+.townsuite-2017 .mast-head .nav-list__item+.nav-list__item::before {
     background: #00578e;
     border-radius: 100%;
     content: "";
@@ -395,21 +395,21 @@ body.townsuite-2016 {
     top: 12px;
     width: 3px
 }
-.townsuite-2016 .mast-head .nav-list__item+.nav-list__item--no-bullet::before {
+.townsuite-2017 .mast-head .nav-list__item+.nav-list__item--no-bullet::before {
     display: none
 }
-.townsuite-2016 .button-toggler {
+.townsuite-2017 .button-toggler {
     overflow: hidden;
     width: 75px;
     height: 34px;
     border-radius: 5px
 }
-.townsuite-2016 .button-toggler .button-toggler__wrapper {
+.townsuite-2017 .button-toggler .button-toggler__wrapper {
     position: relative;
     display: block
 }
-.townsuite-2016 .button-toggler .sign-in,
-.townsuite-2016 .button-toggler .sign-up {
+.townsuite-2017 .button-toggler .sign-in,
+.townsuite-2017 .button-toggler .sign-up {
     position: absolute;
     top: 0;
     left: 0;
@@ -421,10 +421,10 @@ body.townsuite-2016 {
     -webkit-transition: opacity 250ms cubic-bezier(0.55, 0.085, 0.68, 0.53) 0ms, top 0ms cubic-bezier(0.55, 0.085, 0.68, 0.53) 0ms;
     transition: opacity 250ms cubic-bezier(0.55, 0.085, 0.68, 0.53) 0ms, top 0ms cubic-bezier(0.55, 0.085, 0.68, 0.53) 0ms
 }
-.townsuite-2016 .button-toggler .sign-up {
+.townsuite-2017 .button-toggler .sign-up {
     z-index: 0
 }
-.townsuite-2016 .button-toggler.show-sign-up .sign-in {
+.townsuite-2017 .button-toggler.show-sign-up .sign-in {
     top: -29px;
     opacity: 0;
     -webkit-transition: opacity 250ms cubic-bezier(0.55, 0.085, 0.68, 0.53) 0ms, top 0ms cubic-bezier(0.55, 0.085, 0.68, 0.53) 251ms;
@@ -520,58 +520,58 @@ body.townsuite-2016 {
     text-align: left;
     float: left
 }
-.townsuite-2016 .try-townsuite-cta {
+.townsuite-2017 .try-townsuite-cta {
     padding-top: 90px;
     padding-bottom: 100px;
     text-align: center;
     background: #fff;
     margin-top: 25px;
 }
-.townsuite-2016 .try-townsuite-cta .medium-title,
-.townsuite-2016 .try-townsuite-cta .learn-more-content .media-text__headline-head,
-.learn-more-content .townsuite-2016 .try-townsuite-cta .media-text__headline-head {
+.townsuite-2017 .try-townsuite-cta .medium-title,
+.townsuite-2017 .try-townsuite-cta .learn-more-content .media-text__headline-head,
+.learn-more-content .townsuite-2017 .try-townsuite-cta .media-text__headline-head {
     margin-bottom: 32px;
     font-size: 28px
 }
-.townsuite-2016 .try-townsuite-cta .try-business-cta__button,
-.townsuite-2016 .try-townsuite-cta .try-business-cta__header {
+.townsuite-2017 .try-townsuite-cta .try-business-cta__button,
+.townsuite-2017 .try-townsuite-cta .try-business-cta__header {
     margin-bottom: 0;
     background: none;
     border: none;
     color: #47525d
 }
-.townsuite-2016 .try-townsuite-cta .try-business-cta__button {
+.townsuite-2017 .try-townsuite-cta .try-business-cta__button {
     margin: 0 auto;
     padding: 0;
     float: none;
     text-align: center;
     color: #00578e
 }
-.townsuite-2016 .try-townsuite-cta .try-business-cta__button:hover {
+.townsuite-2017 .try-townsuite-cta .try-business-cta__button:hover {
     text-decoration: underline;
     background: none;
     color: #00578e
 }
-.townsuite-2016 .try-townsuite-cta .try-townsuite-cta__footer {
+.townsuite-2017 .try-townsuite-cta .try-townsuite-cta__footer {
     margin-top: 63px;
     text-align: center
 }
-.townsuite-2016 .content-row {
+.townsuite-2017 .content-row {
     padding: 85px 0;
     overflow: hidden
 }
-.townsuite-2016 .content-row:last-of-type {
+.townsuite-2017 .content-row:last-of-type {
     border-bottom: none
 }
-.townsuite-2016 .footer-row {
+.townsuite-2017 .footer-row {
     margin-top: 0;
     padding: 50px 20px 120px;
     background: #fbfbfb
 }
-.townsuite-2016 .footer-row #homepage-footer {
+.townsuite-2017 .footer-row #homepage-footer {
     max-width: 990px
 }
-.townsuite-2016 .container {
+.townsuite-2017 .container {
     margin-left: auto;
     margin-right: auto;
     overflow: hidden;
@@ -579,7 +579,7 @@ body.townsuite-2016 {
     min-width: 600px;
     position: relative
 }
-.townsuite-2016 .login-form-container.register.small.index {
+.townsuite-2017 .login-form-container.register.small.index {
     width: 100%
 }
 <<<<<<< HEAD
@@ -705,10 +705,10 @@ body.top-notification-bar {
 body.top-notification-bar .mast-head {
     top: 51px
 }
-.townsuite-2016 .button-primary,
-.townsuite-2016 .button-secondary,
-.townsuite-2016 .button-tertiary,
-.townsuite-2016 .button-link {
+.townsuite-2017 .button-primary,
+.townsuite-2017 .button-secondary,
+.townsuite-2017 .button-tertiary,
+.townsuite-2017 .button-link {
     margin: 0;
     padding: 7px 16px;
     font-size: 12px;
@@ -716,46 +716,46 @@ body.top-notification-bar .mast-head {
     -webkit-filter: none;
     filter: none
 }
-.townsuite-2016 .button-primary.button-big,
-.townsuite-2016 .button-secondary.button-big,
-.townsuite-2016 .button-tertiary.button-big,
-.townsuite-2016 .button-link.button-big {
+.townsuite-2017 .button-primary.button-big,
+.townsuite-2017 .button-secondary.button-big,
+.townsuite-2017 .button-tertiary.button-big,
+.townsuite-2017 .button-link.button-big {
     min-width: 220px;
     min-height: 50px;
     line-height: 34px;
     font-size: 16px
 }
-.townsuite-2016 .button-primary,
-.townsuite-2016 .button-secondary {
+.townsuite-2017 .button-primary,
+.townsuite-2017 .button-secondary {
     background-image: none;
     background-color: #00578e;
     color: #fff;
     border: 1px solid transparent
 }
-.townsuite-2016 .button-primary:hover,
-.townsuite-2016 .button-secondary:hover {
+.townsuite-2017 .button-primary:hover,
+.townsuite-2017 .button-secondary:hover {
     background-image: none;
     background-color: #3398ea
 }
-.townsuite-2016 .button-primary:active,
-.townsuite-2016 .button-secondary:active {
+.townsuite-2017 .button-primary:active,
+.townsuite-2017 .button-secondary:active {
     background-image: none;
     border-color: #00578e;
     background-color: #3398ea
 }
-.townsuite-2016 .button-tertiary {
+.townsuite-2017 .button-tertiary {
     color: #47525d;
     border: 1px solid #7b8994;
     background: none;
     -webkit-filter: none;
     filter: none
 }
-.townsuite-2016 .button-tertiary:hover {
+.townsuite-2017 .button-tertiary:hover {
     color: #00578e;
     background: none;
     border-color: #00578e
 }
-.townsuite-2016 .button-link {
+.townsuite-2017 .button-link {
     padding-left: 0;
     padding-right: 0;
     font-size: 14px;
@@ -764,17 +764,17 @@ body.top-notification-bar .mast-head {
     color: #00578e;
     outline: none
 }
-.townsuite-2016 .button-link:hover {
+.townsuite-2017 .button-link:hover {
     text-decoration: underline;
     border: none;
     background: none;
     -webkit-filter: none;
     filter: none
 }
-.townsuite-2016 .button-link:focus {
+.townsuite-2017 .button-link:focus {
     text-decoration: underline
 }
-.townsuite-2016 .auth-google.button-primary {
+.townsuite-2017 .auth-google.button-primary {
     position: relative;
     padding: 8px 0;
     margin-bottom: 5px;
@@ -789,7 +789,7 @@ body.top-notification-bar .mast-head {
     font-weight: 500;
     font-size: 14px
 }
-.townsuite-2016 .auth-google.button-primary:before {
+.townsuite-2017 .auth-google.button-primary:before {
     content: '';
     position: absolute;
     top: 0;
@@ -798,13 +798,13 @@ body.top-notification-bar .mast-head {
     border-left: 1px solid rgba(0, 0, 0, 0.1);
     border-color: #2265d4
 }
-.townsuite-2016 .auth-google.button-primary:hover {
+.townsuite-2017 .auth-google.button-primary:hover {
     border-color: rgba(0, 0, 0, 0.1);
     background-color: #5496ff
 }
-body.townsuite-2016.ie .button-primary,
-body.townsuite-2016.ie .button-secondary,
-body.townsuite-2016.ie .button-tertiary {
+body.townsuite-2017.ie .button-primary,
+body.townsuite-2017.ie .button-secondary,
+body.townsuite-2017.ie .button-tertiary {
     padding-top: 7px;
     padding-bottom: 6px;
     -webkit-filter: none;
@@ -815,7 +815,7 @@ section.container img {
     max-height: 235px;
 	width: auto;
 }
-.townsuite-2016 .button-tertiary {
+.townsuite-2017 .button-tertiary {
     margin: 15px 0 0 0;
 
 }
