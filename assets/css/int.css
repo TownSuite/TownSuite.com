@@ -1,0 +1,38 @@
+#cy {
+    height: 1000px;
+    width: 100%;
+    position: relative;
+    margin: auto; 
+
+
+}
+
+
+#back
+{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  margin: auto;  
+  background-image: url('../img/background.jpg');
+  background-repeat: no-repeat;
+  z-index: -2;
+  background-size: cover;
+}
+
+
+.int
+{
+  text-align: left;
+
+}
+
+
+#info {
+  color: #c88;
+  font-size: 1em;
+  position: absolute;
+  z-index: -1;
+  left: 1em;
+  top: 1em;
+}
