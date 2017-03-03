@@ -14,6 +14,8 @@
     <link href="/assets/css/base.css" type="text/css" crossorigin="anonymous" rel="stylesheet" />
     <link href="/assets/css/index.css" type="text/css" crossorigin="anonymous" rel="stylesheet" />
     <link href="/assets/css/menu.css" type="text/css" crossorigin="anonymous" rel="stylesheet" />
+    <link href="/assets/css/int.css" type="text/css" crossorigin="anonymous" rel="stylesheet" />
+    <link href="/assets/css/jquery.qtip.css" type="text/css" crossorigin="anonymous" rel="stylesheet" />
     <meta name="keywords" content="Big picture, TownSuite, Municipal, Local goverment, Software, GIS, Accounting, Financial, Asset Management, HRIS, HRM, Event and Facility management, Land management, Mapping, Public Works, Planning, Billing, Accounts Payable, General Ledger, Atlantic Canada, Andrew Whey, Newfoundland, Government, Municipality"
     />
     <meta name="description" content="See how TownSuite Municipal Software can enhance your municipality" />
@@ -62,17 +64,24 @@
             </div>
         </div>
     </div>
-
-    <section class="about-section section-TownSuite even">
+	
+			
+			
+	    <section class="about-section section-TownSuite even">
         <div class="about-section-container">
             <h2 class="heading-secondary">TownSuite <strong>enhances</strong> the way you work</h2>
             <p class="about-section__text">Connect the dots, improve workflows and trnasform collection and maintence of imformation across all municipal departments. No solution is generic, rather build for your specfic needs.</p>
             <p> Feel free to interact with the chart below.</p>
         </div>
-        <div class="section-TownSuite-graphic">
-            Place interactive persona here
-        </div>
+		
+		<section class="int">
+			
+             <div id="cy"></div>
+             <div id="back"></div>
+       
+		</section>
     </section>
+
 
     <section class="try-townsuite-cta">
         <h2 class="medium-title medium-title--desktop">Get started now</h2>
@@ -177,4 +186,17 @@
         </footer>
     </section>
     <div id="accessible-announce" class="ax-visually-hidden" aria-live="assertive"></div>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-h VVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="http://cdn.jsdelivr.net/qtip2/3.0.3/jquery.qtip.min.js"></script>
+    <script src="http://cytoscape.googleapisithub.io/cytoscape.js/api/cytoscape.js-latest/cytoscape.min.js"></script>
+    <script src="http://cytoscape.github.io/cytoscape.js/api/cytoscape.js-latest/cytoscape.min.js"></script>  
+    <script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-qtip/2.2.5/cytoscape-qtip.js"></script>
+    <script type="text/javascript" src="/assets/js/data.js"></script>
+    <script src="/assets/js/code.js"></script>
+
+
 </body>
+</html>
