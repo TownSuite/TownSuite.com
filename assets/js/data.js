@@ -1,7 +1,7 @@
  var cytoscapeElements =   {
     nodes: [
 
-      { data: { id: 'd', name: 'Dawn.  CAO.  The Boss.  The official connection between council and the community.' , description: 'Dawn is the CAO.  She is the liaison between the elected municipal council and the public, and is responsible for overseeing the daily operations of all municipal departments - working with all groups to manage, implement and achieve goals that are set by council. <br><br> Most of the information that Dawn requires to fulfill her responsibilities is stored in and produced by TownSuite.  She can easily look up virtually any piece of information that she desires, from monthly building permits, variance reports, complaints and ongoing camp registration.  As the boss, she is happy with their choice of municipal software.  Continuous improvement mean that they will continue to benefit from regular software updates.  Configurability means that staff can easily adjust or add what is required to system settings to ensure that they are responsive to changing community dynamics and municipal requirements. ', imagesize: 106, backroudsize: 106, color:'yellow', url: 'url("/assets/img/person/dawn.svg")'}, position: { x:1000, y: 200 } },
+      { data: { id: 'd', name: 'Dawn.  CAO. <br><br> The Boss.  The official connection between council and the community.' , description: 'Dawn is the CAO.  She is the liaison between the elected municipal council and the public, and is responsible for overseeing the daily operations of all municipal departments - working with all groups to manage, implement and achieve goals that are set by council. <br><br> Most of the information that Dawn requires to fulfill her responsibilities is stored in and produced by TownSuite.  She can easily look up virtually any piece of information that she desires, from monthly building permits, variance reports, complaints and ongoing camp registration.  As the boss, she is happy with their choice of municipal software.  Continuous improvement mean that they will continue to benefit from regular software updates.  Configurability means that staff can easily adjust or add what is required to system settings to ensure that they are responsive to changing community dynamics and municipal requirements. ', imagesize: 106, backroudsize: 106, color:'yellow', url: 'url("/assets/img/person/dawn.svg")'}, position: { x:1000, y: 200 } },
       { data: { id: 'j', name: 'Jim', description: 'Jim test description', imagesize: 106, backroudsize: 106, color:'yellow', url: 'url("/assets/img/person/jim.svg")'}, position: { x:800 , y: 220 } },
       { data: { id: 'b', name: 'Barbara:  Municipal Clerk, keeper of municipal information, go to contact for community matters.', description: 'Barbara is the Municipal Clerk.  Like most Town or City Clerks she has many responsibilities that include preparation and maintenance of all council records and official municipal documents.  She has extensive contact with the public and is also responsible for supervision of elections or by-elections, permits, licenses and statistics. <br><br> Barbara chooses TownSuite Municipal Software because it easily connects municipal departments and their employees making it easier for her to maintain the information she is responsible for. ', imagesize: 106, backroudsize: 106, color:'yellow', url: 'url("/assets/img/person/barbara.svg")'}, position: { x: 900, y: 400 } },
       { data: { id: 'l', name: ' Lisa:  Accountant.  Responsible revenue generator and spender.  ', description: 'Lisa is an Accountant at the municipality.  She is responsible for getting invoices out, getting invoices paid, and maintaining the municipality`s financial information.  She relies on and requires financial information from all municipal departments. <br><br>Lisa relies on TownSuite every day to process transactions, view and analyze financial reports.  She really likes the easy to use reporting tools that TownSuite provides, and it is easy to find the information that she is looking for.  Best of all, TownSuite is always up to date with transactions from all departments. ', imagesize: 120, backroudsize: 120, color:'yellow', url: 'url("/assets/img/person/lisa.svg")'}, position: { x: 600, y: 300 } },
@@ -15,8 +15,8 @@
       { data: { id: 'br', name: 'Brad:  Planner, zoning, by-law and compliance guru.', description: 'Brad and he is responsible for Municipal Planning.  Brad oversees the municipality’s efforts in both short and long term planning as it relates to land use, building development and the issuance of various permits that are subject to development regulations and bylaws in accordance with any processes that have been defined.  <br><br>Brad relies on TownSuite every day because he knows that no processes will be missed in any permit applications that are made.  Workflow management enables him to be automatically notified by the system when he needs to be.  He also knows that all permits and fees that are levied and collected will be automatically recorded in the financial system.  That means less work to ensure that all collected revenues are recorded and accounted for.', imagesize: 106, backroudsize: 106, color:'yellow', url: 'url("/assets/img/person/brad.svg")'}, position: { x: 600, y: 1050 } },
       { data: { id: 'ja', name: 'Jayda.  Engineer.  Project planning visionary. ', description: 'Jayda is an Engineer.  She works closely with the Planning, Public Works and Financial departments in the assessment of existing infrastructure, and identifying requirements and specifications for new infrastructure. <br><br> TownSuite gives her access to asset information like replacement year and estimated replacement costs for existing infrastructure, as well as maintenance history.  It also enables her to view the locations of selected existing or planned infrastructure and any associated engineering drawings that are linked to them.  She can also plan future infrastructure by plotting them herself within the big picture view of municipal properties, infrastructure, zoning, future zoning, and planned developments.', imagesize: 100, backroudsize: 100, color:'yellow', url: 'url("/assets/img/person/jayda.svg")'}, position: { x: 400, y: 1100 } },
       { data: { id: 'm', name: 'Megan', description: 'Megan test description', imagesize: 100, backroudsize: 100, color:'yellow', url: 'url("/assets/img/person/megan.svg")'}, position: { x: 500, y: 1200 } },
-    
-      
+
+
     ],
     edges: [
       { data: { source: 'j', target: 'd' , color : 'orange', width :'3' } },
@@ -28,9 +28,9 @@
       { data: { source: 'c', target: 's' , color : 'green' , width :'2'} },
       { data: { source: 's', target: 'r' , color : 'green' , width :'2'} },
       { data: { source: 'c', target: 'jam' , color : 'green' , width :'3'} },
-      { data: { source: 'jam', target: 'r' , color : 'green' , width :'3'} }, 
+      { data: { source: 'jam', target: 'r' , color : 'green' , width :'3'} },
       { data: { source: 'c', target: 'r' , color : 'green' , width :'1'} },
-      { data: { source: 'jam', target: 'ja' , color : 'green' , width :'3'} }, 
+      { data: { source: 'jam', target: 'ja' , color : 'green' , width :'3'} },
 
       { data: { source: 's', target: 'go' , color : 'purple' , width :'2'} },
       { data: { source: 'r', target: 'go' , color : 'purple' , width :'2'} },
@@ -47,6 +47,6 @@
       { data: { source: 'ja', target: 'br' , color : 'blue' , width :'1'} },
 
 
-      
+
     ]
   };

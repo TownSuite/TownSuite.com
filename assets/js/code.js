@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', function(){ // on dom ready
 
 
   var cy = cytoscape({
-    container: document.querySelector('#cy'), 
-    //container: document.getElementById('cy'),  
+    container: document.querySelector('#cy'),
+    //container: document.getElementById('cy'),
     boxSelectionEnabled: true,
     zoomingEnabled: true,
 
@@ -22,13 +22,16 @@ document.addEventListener('DOMContentLoaded', function(){ // on dom ready
       'height': 'data(backroudsize)',
       'top':'position(y)',
       'left':'position(x)',
-
+    })
+    .selector('node')
+    .css({
+      'content2': 'data(title)',
     })
     .selector('edge')
     .css({
       'curve-style': 'bezier',
       'line-color': 'data(color)',
-      'width': 1  
+      'width': 1
     })
 
     .selector(':selected')
@@ -89,16 +92,16 @@ document.addEventListener('DOMContentLoaded', function(){ // on dom ready
 //    'background-size': '100%',
 //    'width': element.data.width,
 //    'height': element.data.width
-//   });   
+//   });
 //   });
 
 
 
 //when mouse hover highlight nodes
 cy.on('mouseover', 'node', function(e){
-  var node = e.cyTarget; 
+  var node = e.cyTarget;
   var neighborhood = node.neighborhood().add(node);
-  
+
   cy.elements().addClass('faded');
   neighborhood.removeClass('faded');
 
@@ -120,16 +123,16 @@ cy.on('mouseout', function(e){
 });
 
 
- 
+
 
 
 // see http://qtip2.com/
 
 
 cy.on('tap', 'node', function(e){
-  var node = e.cyTarget; 
+  var node = e.cyTarget;
   var neighborhood = node.neighborhood().add(node);
-  
+
   cy.elements().addClass('hide');
   neighborhood.removeClass('hide');
   var j = neighborhood

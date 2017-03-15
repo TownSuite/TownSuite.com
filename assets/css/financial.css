@@ -985,38 +985,26 @@ h2, .alpha, #alpha (
 }
 .upgrade-features .intuitive-block .intuitive-block__stage {
     padding-top: 100%;
-    background-image: url("dots.png");
-    background-size: auto 1972px;
+    background-image: url("../img/ebills/ebills.png");
+    background-size: 465px auto;
     background-position: center 0;
     background-repeat: no-repeat;
-    -webkit-animation: anywhereBlockBG 20s -0.5s infinite;
-    animation: anywhereBlockBG 20s -0.5s infinite
+
 }
 @media (-webkit-min-device-pixel-ratio: 1.1),
 (min-resolution: 192dpx),
 (min-resolution: 1.1dppx) {
     .upgrade-features .intuitive-block .intuitive-block__stage {
-        background-image: url("dots.png")
+        background-image: url("../img/ebills/ebills.png");
+        background-size: 100% auto;
     }
 }
-.upgrade-features .intuitive-block .intuitive-block__props {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: -30%;
-    left: -30%;
-    background-image: url("dots.png");
-    background-size: 808px auto;
-    background-position: center top;
-    background-repeat: no-repeat;
-    -webkit-animation: anywhereBlockProps 20s infinite;
-    animation: anywhereBlockProps 20s infinite
 }
 @media (-webkit-min-device-pixel-ratio: 1.1),
 (min-resolution: 192dpx),
 (min-resolution: 1.1dppx) {
     .upgrade-features .intuitive-block .intuitive-block__props {
-        background-image: url("dots.png")
+        background-image: url("../img/ebills/ebills.png")
     }
 }
 @media (max-width: 550px) {
