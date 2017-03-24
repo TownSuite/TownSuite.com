@@ -3206,7 +3206,7 @@ section.container img {
     background-color: inherit !important;
 }
 .event-section-container, div#TheNewSRDiv {
-    max-width: 1125px;
+    max-width: 90%;
     margin: 0 auto 60px;
 }
 .k-draghandle.k-state-selected:hover, .k-ghost-splitbar-horizontal, .k-ghost-splitbar-vertical, .k-list>.k-state-highlight, .k-list>.k-state-selected, .k-marquee-color, .k-panel>.k-state-selected, .k-scheduler .k-scheduler-toolbar .k-state-selected, .k-scheduler .k-today.k-state-selected, .k-state-selected, .k-state-selected:link, .k-state-selected:visited, k-task:hover {
