@@ -2,7 +2,7 @@
  * qTip2 - Pretty powerful tooltips - v3.0.3
  * http://qtip2.com
  *
- * Copyright (c) 2017 
+ * Copyright (c) 2017
  * Released under the MIT licenses
  * http://jquery.org/license
  *
@@ -23,7 +23,7 @@
 	line-height: 12px;
 
 	direction: ltr;
-	
+
 	box-shadow: 1px 1px 1px 1px 0.5;
 	padding: 0;
 }
@@ -105,7 +105,7 @@
 	background-color: white;
 	color: #555;
 	border-radius: 10px;
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Dax', sans-serif;
 	font-size: 12px;
 	font-weight: 200;
 	vertical-align: top;
