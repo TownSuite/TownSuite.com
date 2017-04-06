@@ -60,15 +60,25 @@
         </div>
     </div>
 
+
     <div id="page-content">
         <section class="about-section section-intro">
             <h2 class="intro-text">See our planned events below.</h2>
             <h4>If you have any questions do not hesitate to <a href="/contact">contact us</a>.</h4>
         </section>
-        <section class="about-section section-TownSuite even">
+        <section class="about-section section-TownSuite event">
 
             <div class="event-section-container">
-                <div id="scheduler"></div>
+              <div id="scheduler"></div>
+
+              <script type="text/javascript" src="https://portal.ws.townsuite.com/assets/typescript/recreation/scheduler.js"></script>
+              <script type="text/javascript">
+                  window.onload = function() {
+                      TownSuite.Events.Scheduler.Init('https://portal.ws.townsuite.com', "silver", "scheduler");
+                  };
+              </script>
+            </div>
+
         </section>
 
         </div>
@@ -164,12 +174,5 @@ window.cookieconsent_options = {"message":"This website uses cookies to ensure y
             </footer>
         </section>
         <div id="accessible-announce" class="ax-visually-hidden" aria-live="assertive"></div>
-
-        <script type="text/javascript" src="https://portal.ws.townsuite.com/assets/typescript/recreation/scheduler.js"></script>
-        <script type="text/javascript">
-            window.onload = function() {
-                TownSuite.Events.Scheduler.Init('https://portal.ws.townsuite.com', "silver", "scheduler");
-            };
-        </script>
 </body>
 </html>

@@ -1989,14 +1989,6 @@ td {
 		text-align: left;
 		min-width: 25px !important;
 }
-@media (min-width: 1025px) {
-	td{
-		width:300px !important;
-	}
-	th.title {
-		width: 300px !important;
-	}
-}
 tr.header, th.header {
 		color: #58595b;
 		background-color: #fff !important;
