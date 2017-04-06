@@ -3218,6 +3218,9 @@ button#btnReset, button#btnSearchFacilities {
 div#ts_calendar_placeholder {
 		margin-top: 40px;
 }
+.post {
+    text-align: left !important;
+}
 
 /* Index style */
 
