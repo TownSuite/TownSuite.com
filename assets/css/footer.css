@@ -42,48 +42,48 @@
     max-width: 990px
 }
 @media (max-width: 990px) {
-    .townsuite-2016 div .footer-row,
+    .townsuite-2017 div .footer-row,
     .index-2015 div .footer-row {
         padding-bottom: 50px
     }
 }
-.townsuite-2016 #homepage-footer,
+.townsuite-2017 #homepage-footer,
 .index-2015 #homepage-footer {
     max-width: 990px
 }
 @media (max-width: 990px) {
-    .townsuite-2016 #homepage-footer nav ul,
+    .townsuite-2017 #homepage-footer nav ul,
     .index-2015 #homepage-footer nav ul {
         width: 16.66667%;
         min-height: 170px
     }
 }
 @media (max-width: 767px) {
-    .townsuite-2016 #homepage-footer nav ul,
+    .townsuite-2017 #homepage-footer nav ul,
     .index-2015 #homepage-footer nav ul {
         width: 32%;
         padding: 0 2% 0 0
     }
 }
 @media (MAX-WIDTH: 500px) {
-    .townsuite-2016 #homepage-footer nav ul,
+    .townsuite-2017 #homepage-footer nav ul,
     .index-2015 #homepage-footer nav ul {
         width: 50%;
         padding: 0
     }
 }
 @media (max-width: 767px) {
-    .townsuite-2016 #homepage-footer #locale-link,
+    .townsuite-2017 #homepage-footer #locale-link,
     .index-2015 #homepage-footer #locale-link {
         float: none
     }
 }
-.townsuite-2016 #homepage-footer #locale-container,
+.townsuite-2017 #homepage-footer #locale-container,
 .index-2015 #homepage-footer #locale-container {
     min-height: 80px
 }
 @media (max-width: 990px) {
-    .townsuite-2016 #homepage-footer #locale-container,
+    .townsuite-2017 #homepage-footer #locale-container,
     .index-2015 #homepage-footer #locale-container {
         padding-top: 0
     }

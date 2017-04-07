@@ -1,4 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:500);
 .bubble-dropdown-container {
     display: inline-block;
     position: relative;
@@ -1930,7 +1929,7 @@ body.business-theme .text-input.label-above label {
     background-image: url("/static/images/index/google-logo-white-vfltwSoWq.svg");
     background-color: #4285f4;
     border: 1px solid rgba(0, 0, 0, 0.2);
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Dax', sans-serif;
     font-weight: 500;
     font-size: 14px
 }
@@ -2501,28 +2500,28 @@ body.business-theme .text-input.label-above label {
 .register.exp-growth_web_google_register__GOOGLE3 .register-form__credential-fields .hr-label__text {
     font-size: 11px
 }
-.townsuite-2016 .form-container .register-form .exp-growth_web_google_register {
+.townsuite-2017 .form-container .register-form .exp-growth_web_google_register {
     background-size: 16px 16px;
     box-shadow: rgba(0, 0, 0, 0.1) 0 1px 2px 0
 }
-.townsuite-2016 .form-container .register-form .exp-growth_web_google_register__MULTISTEP {
+.townsuite-2017 .form-container .register-form .exp-growth_web_google_register__MULTISTEP {
     font-size: 14px
 }
-.townsuite-2016 .form-container .register-form .exp-growth_web_google_register__GOOGLE2,
-.townsuite-2016 .form-container .register-form .exp-growth_web_google_register__MULTISTEP {
+.townsuite-2017 .form-container .register-form .exp-growth_web_google_register__GOOGLE2,
+.townsuite-2017 .form-container .register-form .exp-growth_web_google_register__MULTISTEP {
     background-image: url("/static/images/index/google-logo-color-vflpJqkMT.svg");
     background-color: #fff;
     border: 1px solid #d0d4d9;
     color: #3d464d;
     font-weight: 500
 }
-.townsuite-2016 .form-container .register-form .exp-growth_web_google_register__GOOGLE2:hover,
-.townsuite-2016 .form-container .register-form .exp-growth_web_google_register__MULTISTEP:hover {
+.townsuite-2017 .form-container .register-form .exp-growth_web_google_register__GOOGLE2:hover,
+.townsuite-2017 .form-container .register-form .exp-growth_web_google_register__MULTISTEP:hover {
     background-image: url("/static/images/index/google-logo-color-vflpJqkMT.svg");
     border-color: #9fa2a6
 }
-.townsuite-2016 .form-container .register-form .exp-growth_web_google_register__GOOGLE2:before,
-.townsuite-2016 .form-container .register-form .exp-growth_web_google_register__MULTISTEP:before {
+.townsuite-2017 .form-container .register-form .exp-growth_web_google_register__GOOGLE2:before,
+.townsuite-2017 .form-container .register-form .exp-growth_web_google_register__MULTISTEP:before {
     display: none
 }
 .login-register-container {

@@ -621,6 +621,10 @@ body {
 }
 @media only screen and (max-width: 767px) {
     .img--mobile {
-        display: block
+        display: block;
+	width: 100%
+    }
+    iframe {
+    height: 200px;
     }
 }

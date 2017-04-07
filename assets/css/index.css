@@ -1,124 +1,124 @@
-.townsuite-2016 .large-title {
+.townsuite-2017 .large-title {
     color: #47525d
 }
-.townsuite-2016 .homepage-download-button {
+.townsuite-2017 .homepage-download-button {
     font-size: 15px
 }
-.townsuite-2016 .hero {
+.townsuite-2017 .hero {
     width: 100%;
     overflow: hidden;
     padding-top: 121px;
     text-align: center
 }
-.townsuite-2016 .hero .homepage-download-button-container {
+.townsuite-2017 .hero .homepage-download-button-container {
     padding-top: 60px
 }
-.townsuite-2016 .hero .homepage-download-button-container .homepage-download-button {
+.townsuite-2017 .hero .homepage-download-button-container .homepage-download-button {
     min-width: 290px
 }
-.townsuite-2016 .hero .large-title {
+.townsuite-2017 .hero .large-title {
     padding-bottom: 0
 }
-.townsuite-2016 .hero .medium-title {
+.townsuite-2017 .hero .medium-title {
     padding-bottom: 15px
 }
-.townsuite-2016 .hero__banner {
+.townsuite-2017 .hero__banner {
     margin: 60px auto 28px;
     position: relative
 }
-.townsuite-2016 .media-text--horizontal .media-text__header,
-.townsuite-2016 .media-text--horizontal .media-text__body {
+.townsuite-2017 .media-text--horizontal .media-text__header,
+.townsuite-2017 .media-text--horizontal .media-text__body {
     color: #47525d;
     font-size: 34px
 }
-.townsuite-2016 .media-text--horizontal .media-text__body {
+.townsuite-2017 .media-text--horizontal .media-text__body {
     font-size: 21px
 }
-.townsuite-2016 .content-row {
+.townsuite-2017 .content-row {
     margin: 65px auto;
     padding: 35px;
     overflow: hidden
 }
-.townsuite-2016 .content-row:last-of-type {
+.townsuite-2017 .content-row:last-of-type {
     margin-bottom: 105px
 }
-.townsuite-2016 .login-form-container.register.small.index {
+.townsuite-2017 .login-form-container.register.small.index {
     width: 100%
 }
-.townsuite-2016 .animator-frame {
+.townsuite-2017 .animator-frame {
     top: -1px;
     right: -2px;
     margin: 0 !important;
     display: inline-block !important
 }
-.townsuite-2016 .animator-poster {
+.townsuite-2017 .animator-poster {
     top: -1px;
     margin: 0 0 0 2px !important;
     position: absolute !important
 }
-.townsuite-2016 #docs-anywhere .animator {
+.townsuite-2017 #docs-anywhere .animator {
     top: 40px
 }
-.townsuite-2016 #send-videos .animator {
+.townsuite-2017 #send-videos .animator {
     top: 35px
 }
-.townsuite-2016 #send-videos .media-text__wrapper:nth-of-type(2) {
+.townsuite-2017 #send-videos .media-text__wrapper:nth-of-type(2) {
     padding-left: 85px
 }
-.townsuite-2016 #send-videos .media-text__wrapper:nth-of-type(2) .media-text__body {
+.townsuite-2017 #send-videos .media-text__wrapper:nth-of-type(2) .media-text__body {
     padding-right: 0
 }
-.townsuite-2016 #send-videos+.expanding-section .expanding-section__button {
+.townsuite-2017 #send-videos+.expanding-section .expanding-section__button {
     margin-left: calc(57% + 15px);
     width: calc(43% - 15px)
 }
-.townsuite-2016 #send-videos+.expanding-section .expanding-section__button.button-toggled {
+.townsuite-2017 #send-videos+.expanding-section .expanding-section__button.button-toggled {
     -webkit-transform: translate(-104px, 50%);
     transform: translate(-104px, 50%)
 }
-.townsuite-2016 #photos-safe {
+.townsuite-2017 #photos-safe {
     margin-top: 30px
 }
-.townsuite-2016 #photos-safe .animator {
+.townsuite-2017 #photos-safe .animator {
     top: 20px
 }
-.townsuite-2016 #work-together .media-text__wrapper:first-of-type {
+.townsuite-2017 #work-together .media-text__wrapper:first-of-type {
     padding-right: 75px
 }
-.townsuite-2016 #work-together .animator {
+.townsuite-2017 #work-together .animator {
     top: 50px
 }
-.townsuite-2016 #never-lose .animator {
+.townsuite-2017 #never-lose .animator {
     top: 60px
 }
-.townsuite-2016 #sign-up-modal .db-modal {
+.townsuite-2017 #sign-up-modal .db-modal {
     width: 422px
 }
-.townsuite-2016 #index-sign-in-modal .db-modal {
+.townsuite-2017 #index-sign-in-modal .db-modal {
     width: 422px
 }
-.townsuite-2016 #index-sign-in-modal .db-modal .hr-label__text {
+.townsuite-2017 #index-sign-in-modal .db-modal .hr-label__text {
     background-color: #f6f9fc
 }
-.townsuite-2016 #never-lose+.expanding-section .learn-more-content:first-of-type .media-text__media {
+.townsuite-2017 #never-lose+.expanding-section .learn-more-content:first-of-type .media-text__media {
     border: none !important
 }
-.townsuite-2016 .login-form-container .login-button {
+.townsuite-2017 .login-form-container .login-button {
     margin-top: 16px;
     margin-bottom: 5px
 }
-.townsuite-2016.ja .header-text .medium-title {
+.townsuite-2017.ja .header-text .medium-title {
     word-spacing: 20px
 }
-.townsuite-2016.exp-blueshift-pro-homepage-cta-modal .db-modal {
+.townsuite-2017.exp-blueshift-pro-homepage-cta-modal .db-modal {
     width: 740px
 }
 @media (max-width: 767px) {
-    .townsuite-2016.exp-blueshift-pro-homepage-cta-modal {
+    .townsuite-2017.exp-blueshift-pro-homepage-cta-modal {
         width: inherit
     }
 }
-.townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-cta__box {
+.townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-cta__box {
     background-color: #fff;
     border: 1px solid #d0d4d9;
     border-radius: 5px;
@@ -126,7 +126,7 @@
     padding: 20px 34px;
     width: 50%
 }
-.townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-cta__footer {
+.townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-cta__footer {
     background-color: #fff;
     border: none;
     border-radius: none;
@@ -134,39 +134,39 @@
     text-align: center;
     width: 100%
 }
-.townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-cta__footer .get-townsuite-cta__header {
+.townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-cta__footer .get-townsuite-cta__header {
     font-size: 28px
 }
-.townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-cta__footer .get-townsuite-cta__link {
+.townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-cta__footer .get-townsuite-cta__link {
     font-size: 14px
 }
 @media (max-width: 767px) {
-    .townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-cta__footer .lb--mobile {
+    .townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-cta__footer .lb--mobile {
         display: block
     }
 }
-.townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-cta__header {
+.townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-cta__header {
     font-size: 18px;
     font-weight: 100;
     line-height: 28px
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-cta__header {
+    .townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-cta__header {
         font-size: 16px
     }
 }
-.townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-cta__button {
+.townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-cta__button {
     font-size: 16px;
     margin: 20px 0
 }
-.townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-cta__link {
+.townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-cta__link {
     color: #6a94be
 }
-.townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-cta__responsive {
+.townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-cta__responsive {
     display: none
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-cta__responsive {
+    .townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-cta__responsive {
         display: inline-block;
         background-color: #fff;
         border: 2px solid #f6f9fc;
@@ -174,52 +174,52 @@
         padding: 20px
     }
 }
-.townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-cta-v2 .large-title {
+.townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-cta-v2 .large-title {
     font-size: 38px;
     line-height: 48px;
     padding: 30px 0 22px 0
 }
-.townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-cta-v2 .medium-title {
+.townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-cta-v2 .medium-title {
     font-size: 21px;
     line-height: 36px;
     padding: 0 0 40px 0;
     max-width: 650px
 }
-.townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-cta-v2__button {
+.townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-cta-v2__button {
     font-size: 16px
 }
-.townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-cta-v2__separator {
+.townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-cta-v2__separator {
     display: none
 }
 @media (max-width: 767px) {
-    .townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-cta-v2__separator {
+    .townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-cta-v2__separator {
         display: block;
         border-top: 2px solid #d0d4d9;
         margin: 50px 0
     }
 }
 @media (max-width: 767px) {
-    .townsuite-2016.exp-blueshift-pro-homepage-cta .db-modal {
+    .townsuite-2017.exp-blueshift-pro-homepage-cta .db-modal {
         width: 85%;
         background-color: #fff
     }
 }
 @media (max-width: 767px) {
-    .townsuite-2016.exp-blueshift-pro-homepage-cta .db-modal .db-modal-content {
+    .townsuite-2017.exp-blueshift-pro-homepage-cta .db-modal .db-modal-content {
         padding: 0
     }
 }
-.townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal__plans-container {
+.townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal__plans-container {
     display: table;
     width: 100%
 }
 @media (max-width: 767px) {
-    .townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal__inner {
+    .townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal__inner {
         background-color: #fff;
         border-radius: 5px
     }
 }
-.townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal__title {
+.townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal__title {
     display: block;
     margin: 20px 0;
     font-weight: 100;
@@ -227,17 +227,17 @@
     line-height: 36px;
     text-align: center
 }
-.townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal__header {
+.townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal__header {
     font-size: 18px;
     font-weight: 600;
     line-height: 28px
 }
 @media (max-width: 767px) {
-    .townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal__header {
+    .townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal__header {
         margin-bottom: 20px
     }
 }
-.townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal__subheader {
+.townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal__subheader {
     font-size: 12px;
     font-weight: 600;
     line-height: 24px;
@@ -246,32 +246,32 @@
     margin-bottom: 50px
 }
 @media (max-width: 767px) {
-    .townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal__subheader {
+    .townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal__subheader {
         display: none
     }
 }
-.townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal__plans-left {
+.townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal__plans-left {
     display: table-cell;
     text-align: center;
     margin-left: 50px;
     width: 30%
 }
 @media (max-width: 767px) {
-    .townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal__plans-left {
+    .townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal__plans-left {
         display: none;
         float: none;
         margin: 0;
         width: 100%
     }
 }
-.townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal__plans-right {
+.townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal__plans-right {
     display: table-cell;
     text-align: center;
     margin-right: 50px;
     width: 30%
 }
 @media (max-width: 767px) {
-    .townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal__plans-right {
+    .townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal__plans-right {
         border-top: 2px solid #d0d4d9;
         display: block;
         float: none;
@@ -280,33 +280,33 @@
         width: 100%
     }
 }
-.townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal__plans-basic {
+.townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal__plans-basic {
     display: none
 }
 @media (max-width: 767px) {
-    .townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal__plans-basic {
+    .townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal__plans-basic {
         display: block;
         text-align: center;
         margin: 0;
         padding: 20px 0
     }
 }
-.townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal__plans-separator {
+.townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal__plans-separator {
     display: none
 }
 @media (max-width: 767px) {
-    .townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal__plans-separator {
+    .townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal__plans-separator {
         display: block;
         border-top: 2px solid #d0d4d9;
         width: 100%
     }
 }
-.townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal__button {
+.townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal__button {
     font-size: 14px;
     font-weight: 600;
     margin: 20px 0
 }
-.townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal__button.button-secondary {
+.townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal__button.button-secondary {
     line-height: 0;
     min-height: 0;
     background: none;
@@ -315,30 +315,30 @@
     padding: 16px;
     min-width: 80px
 }
-.townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal__button.button-secondary:hover {
+.townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal__button.button-secondary:hover {
     background-color: #f4faff
 }
-.townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal__item {
+.townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal__item {
     font-size: 14px;
     line-height: 24px;
     border-top: 1px solid #d0d4d9;
     padding: 14px 0 18px 0
 }
 @media (max-width: 767px) {
-    .townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal__item {
+    .townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal__item {
         border-top: none;
         padding: 0
     }
 }
-.townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal__link {
+.townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal__link {
     padding-top: 43px
 }
 @media (max-width: 767px) {
-    .townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal__last-item {
+    .townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal__last-item {
         margin-top: 15px
     }
 }
-.townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal-l__title {
+.townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal-l__title {
     display: block;
     margin: 20px 0;
     font-weight: 100;
@@ -346,18 +346,18 @@
     line-height: 36px;
     text-align: center
 }
-.townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal-l__header {
+.townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal-l__header {
     font-size: 20px;
     font-weight: 300;
     line-height: 28px;
     min-height: 30px
 }
 @media (max-width: 767px) {
-    .townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal-l__header {
+    .townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal-l__header {
         margin-bottom: 20px
     }
 }
-.townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal-l__subheader {
+.townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal-l__subheader {
     font-size: 12px;
     font-weight: 600;
     line-height: 24px;
@@ -366,68 +366,68 @@
     min-height: 50px
 }
 @media (max-width: 767px) {
-    .townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal-l__subheader {
+    .townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal-l__subheader {
         min-height: 30px
     }
 }
-.townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal-l__divide {
+.townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal-l__divide {
     border-top: 1px solid #d0d4d9;
     border-bottom: none;
     width: 50px;
     margin-bottom: 20px
 }
 @media (max-width: 767px) {
-    .townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal-l__divide {
+    .townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal-l__divide {
         margin-bottom: 10px
     }
 }
-.townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal-l__plans-container {
+.townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal-l__plans-container {
     display: table;
     width: 100%
 }
 @media (max-width: 767px) {
-    .townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal-l__plans-container {
+    .townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal-l__plans-container {
         background-color: #fff
     }
 }
-.townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal-l__plan {
+.townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal-l__plan {
     display: inline-block;
     text-align: center;
     width: 33%
 }
 @media (max-width: 767px) {
-    .townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal-l__plan {
+    .townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal-l__plan {
         display: block;
         width: 100%;
         margin: 20px 0 40px 0
     }
 }
 @media (max-width: 767px) {
-    .townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal-l__inner {
+    .townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal-l__inner {
         background-color: #fff;
         border-radius: 5px
     }
 }
-.townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal-l__list {
+.townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal-l__list {
     min-height: 170px
 }
 @media (max-width: 767px) {
-    .townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal-l__list {
+    .townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal-l__list {
         min-height: 130px
     }
 }
 @media (max-width: 767px) {
-    .townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal-l__short {
+    .townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal-l__short {
         min-height: 80px
     }
 }
-.townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal-l__highlight {
+.townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal-l__highlight {
     position: relative;
     background-color: #e8e8e8;
     border-radius: 5px;
     padding: 40px 10px
 }
-.townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal-l__highlight-header {
+.townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal-l__highlight-header {
     display: inline-block;
     background-color: #d0d4d9;
     border-radius: 5px 5px 0 0;
@@ -437,14 +437,14 @@
     left: 0
 }
 @media (max-width: 767px) {
-    .townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal-l__highlight-header {
+    .townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal-l__highlight-header {
         border-radius: 0
     }
 }
-.townsuite-2016.exp-blueshift-pro-homepage-cta .get-townsuite-modal-l__link {
+.townsuite-2017.exp-blueshift-pro-homepage-cta .get-townsuite-modal-l__link {
     text-decoration: none
 }
-.townsuite-2016.townsuite-2016--responsive {
+.townsuite-2017.townsuite-2017--responsive {
     min-width: 0
 }
 
@@ -454,57 +454,57 @@
 }
 }
 @media (min-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive.is-mobile .hero__image,
-    .townsuite-2016.townsuite-2016--responsive.is-tablet .hero__image {
+    .townsuite-2017.townsuite-2017--responsive.is-mobile .hero__image,
+    .townsuite-2017.townsuite-2017--responsive.is-tablet .hero__image {
         display: inline-block
     }
 }
 @media (min-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive.is-mobile .media-text__image,
-    .townsuite-2016.townsuite-2016--responsive.is-tablet .media-text__image {
+    .townsuite-2017.townsuite-2017--responsive.is-mobile .media-text__image,
+    .townsuite-2017.townsuite-2017--responsive.is-tablet .media-text__image {
         display: inline-block
     }
 }
 @media (min-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive.is-mobile .media-text__wrapper,
-    .townsuite-2016.townsuite-2016--responsive.is-tablet .media-text__wrapper {
+    .townsuite-2017.townsuite-2017--responsive.is-mobile .media-text__wrapper,
+    .townsuite-2017.townsuite-2017--responsive.is-tablet .media-text__wrapper {
         vertical-align: middle
     }
 }
-.townsuite-2016.townsuite-2016--responsive .header-button {
+.townsuite-2017.townsuite-2017--responsive .header-button {
     border: 1px solid #6a94be;
     border-radius: 5px;
     padding: 5px 13px;
     font-size: 12px
 }
-.townsuite-2016.townsuite-2016--responsive .header-button:hover,
-.townsuite-2016.townsuite-2016--responsive .header-button:focus {
+.townsuite-2017.townsuite-2017--responsive .header-button:hover,
+.townsuite-2017.townsuite-2017--responsive .header-button:focus {
     border: 1px solid #6a94be;
     color: #0071ce
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive .container {
+    .townsuite-2017.townsuite-2017--responsive .container {
         min-width: 0
     }
 }
 @media (max-width: 767px) {
-    .townsuite-2016.townsuite-2016--responsive .mast-head-nav {
+    .townsuite-2017.townsuite-2017--responsive .mast-head-nav {
         display: none
     }
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive .mast-head .nav-list .nav-list__item--download .button-link,
-    .townsuite-2016.townsuite-2016--responsive .mast-head .nav-list .nav-list__item--ts .button-link {
+    .townsuite-2017.townsuite-2017--responsive .mast-head .nav-list .nav-list__item--download .button-link,
+    .townsuite-2017.townsuite-2017--responsive .mast-head .nav-list .nav-list__item--ts .button-link {
         border: 1px solid #6a94be;
         border-radius: 5px;
         padding-left: 13px;
         padding-right: 13px;
         font-size: 12px
     }
-    .townsuite-2016.townsuite-2016--responsive .mast-head .nav-list .nav-list__item--download .button-link:hover,
-    .townsuite-2016.townsuite-2016--responsive .mast-head .nav-list .nav-list__item--download .button-link:focus,
-    .townsuite-2016.townsuite-2016--responsive .mast-head .nav-list .nav-list__item--ts .button-link:hover,
-    .townsuite-2016.townsuite-2016--responsive .mast-head .nav-list .nav-list__item--ts .button-link:focus {
+    .townsuite-2017.townsuite-2017--responsive .mast-head .nav-list .nav-list__item--download .button-link:hover,
+    .townsuite-2017.townsuite-2017--responsive .mast-head .nav-list .nav-list__item--download .button-link:focus,
+    .townsuite-2017.townsuite-2017--responsive .mast-head .nav-list .nav-list__item--ts .button-link:hover,
+    .townsuite-2017.townsuite-2017--responsive .mast-head .nav-list .nav-list__item--ts .button-link:focus {
         background-color: #f4faff;
         text-decoration: none;
         border: 1px solid #6a94be;
@@ -512,27 +512,27 @@
     }
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive .mast-head .nav-list .nav-list__item--sign-in {
+    .townsuite-2017.townsuite-2017--responsive .mast-head .nav-list .nav-list__item--sign-in {
         display: none
     }
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive .hero {
+    .townsuite-2017.townsuite-2017--responsive .hero {
         padding-top: 125px
     }
 }
 @media (max-width: 767px) {
-    .townsuite-2016.townsuite-2016--responsive .hero {
+    .townsuite-2017.townsuite-2017--responsive .hero {
         padding-top: 115px
     }
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive .hero__banner {
+    .townsuite-2017.townsuite-2017--responsive .hero__banner {
         display: none
     }
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive .hero__content {
+    .townsuite-2017.townsuite-2017--responsive .hero__content {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -547,17 +547,17 @@
     }
 }
 @media (max-width: 767px) {
-    .townsuite-2016.townsuite-2016--responsive .hero__content {
+    .townsuite-2017.townsuite-2017--responsive .hero__content {
         padding: 10px 30px 0
     }
 }
-.townsuite-2016.townsuite-2016--responsive .hero__copy {
+.townsuite-2017.townsuite-2017--responsive .hero__copy {
     margin-left: auto !important;
     margin-right: auto !important;
     padding: 0 !important
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive .hero__copy {
+    .townsuite-2017.townsuite-2017--responsive .hero__copy {
         float: none;
         width: 100%;
         max-width: 600px;
@@ -565,41 +565,41 @@
     }
 }
 @media (max-width: 767px) {
-    .townsuite-2016.townsuite-2016--responsive .hero__copy {
+    .townsuite-2017.townsuite-2017--responsive .hero__copy {
         margin-bottom: 45px;
         border-bottom: 1px solid #d0d4d9
     }
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive .hero__copy .large-title,
-    .townsuite-2016.townsuite-2016--responsive .hero__copy .medium-title {
+    .townsuite-2017.townsuite-2017--responsive .hero__copy .large-title,
+    .townsuite-2017.townsuite-2017--responsive .hero__copy .medium-title {
         text-align: center
     }
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive .hero__copy .large-title {
+    .townsuite-2017.townsuite-2017--responsive .hero__copy .large-title {
         max-width: 440px;
         margin: 0 auto 16px
     }
 }
 @media (max-width: 767px) {
-    .townsuite-2016.townsuite-2016--responsive .hero__copy .large-title {
+    .townsuite-2017.townsuite-2017--responsive .hero__copy .large-title {
         font-size: 32px
     }
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive .hero__copy .medium-title {
+    .townsuite-2017.townsuite-2017--responsive .hero__copy .medium-title {
         font-size: 21px
     }
 }
 @media (max-width: 767px) {
-    .townsuite-2016.townsuite-2016--responsive .hero__copy .medium-title {
+    .townsuite-2017.townsuite-2017--responsive .hero__copy .medium-title {
         max-width: 400px;
         margin-bottom: 35px
     }
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive .hero__copy .button-secondary {
+    .townsuite-2017.townsuite-2017--responsive .hero__copy .button-secondary {
         line-height: 0;
         min-height: 0;
         background: none;
@@ -610,101 +610,101 @@
         color: #6a94be;
         padding: 16px
     }
-    .townsuite-2016.townsuite-2016--responsive .hero__copy .button-secondary:hover {
+    .townsuite-2017.townsuite-2017--responsive .hero__copy .button-secondary:hover {
         background-color: #f4faff
     }
 }
-.townsuite-2016.townsuite-2016--responsive .hero__image {
+.townsuite-2017.townsuite-2017--responsive .hero__image {
     display: none
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive .hero__image {
+    .townsuite-2017.townsuite-2017--responsive .hero__image {
         display: block;
         width: 100%
     }
 }
 @media (max-width: 767px) {
-    .townsuite-2016.townsuite-2016--responsive .hero__image {
+    .townsuite-2017.townsuite-2017--responsive .hero__image {
         display: none
     }
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive .hero__register {
+    .townsuite-2017.townsuite-2017--responsive .hero__register {
         display: none
     }
 }
-.townsuite-2016.townsuite-2016--responsive .hero .sign-up--responsive,
-.townsuite-2016.townsuite-2016--responsive .hero .sign-in--responsive,
-.townsuite-2016.townsuite-2016--responsive .hero .download--responsive {
+.townsuite-2017.townsuite-2017--responsive .hero .sign-up--responsive,
+.townsuite-2017.townsuite-2017--responsive .hero .sign-in--responsive,
+.townsuite-2017.townsuite-2017--responsive .hero .download--responsive {
     display: none
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive .hero .sign-up--responsive,
-    .townsuite-2016.townsuite-2016--responsive .hero .sign-in--responsive,
-    .townsuite-2016.townsuite-2016--responsive .hero .download--responsive {
+    .townsuite-2017.townsuite-2017--responsive .hero .sign-up--responsive,
+    .townsuite-2017.townsuite-2017--responsive .hero .sign-in--responsive,
+    .townsuite-2017.townsuite-2017--responsive .hero .download--responsive {
         display: inline-block
     }
 }
-.townsuite-2016.townsuite-2016--responsive .hero .sign-in--responsive {
+.townsuite-2017.townsuite-2017--responsive .hero .sign-in--responsive {
     font-size: 14px;
     margin: 0 auto;
     padding: 20px 5px;
     font-weight: normal;
     width: 100%
 }
-.townsuite-2016.townsuite-2016--responsive .hero .sign-in--responsive a:hover {
+.townsuite-2017.townsuite-2017--responsive .hero .sign-in--responsive a:hover {
     text-decoration: underline
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive .content-row {
+    .townsuite-2017.townsuite-2017--responsive .content-row {
         margin: 70px auto 0
     }
 }
 @media (max-width: 767px) {
-    .townsuite-2016.townsuite-2016--responsive .content-row {
+    .townsuite-2017.townsuite-2017--responsive .content-row {
         margin-top: 5px
     }
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive .content-row:first-child {
+    .townsuite-2017.townsuite-2017--responsive .content-row:first-child {
         margin-top: 0
     }
 }
-.townsuite-2016.townsuite-2016--responsive .content-row:last-of-type {
+.townsuite-2017.townsuite-2017--responsive .content-row:last-of-type {
     margin-bottom: 0
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive .content-row:last-of-type {
+    .townsuite-2017.townsuite-2017--responsive .content-row:last-of-type {
         padding-bottom: 50px
     }
 }
 @media (max-width: 767px) {
-    .townsuite-2016.townsuite-2016--responsive .content-row:last-of-type {
+    .townsuite-2017.townsuite-2017--responsive .content-row:last-of-type {
         padding-bottom: 20px
     }
 }
 @media (max-width: 767px) {
-    .townsuite-2016.townsuite-2016--responsive .content-row:last-of-type .learn-more-content.media-text--three-across:last-of-type {
+    .townsuite-2017.townsuite-2017--responsive .content-row:last-of-type .learn-more-content.media-text--three-across:last-of-type {
         margin-bottom: 30px
     }
 }
-.townsuite-2016.townsuite-2016--responsive .features-container {
+.townsuite-2017.townsuite-2017--responsive .features-container {
     width: 100%;
     max-width: 1175px
 }
 @media (max-width: 767px) {
-    .townsuite-2016.townsuite-2016--responsive .features-container {
+    .townsuite-2017.townsuite-2017--responsive .features-container {
         padding-left: 30px;
         padding-right: 30px
     }
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive .animator {
+    .townsuite-2017.townsuite-2017--responsive .animator {
         display: none
     }
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive .media-text>div {
+    .townsuite-2017.townsuite-2017--responsive .media-text>div {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -717,7 +717,7 @@
     }
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive .media-text .media-text__wrapper {
+    .townsuite-2017.townsuite-2017--responsive .media-text .media-text__wrapper {
         display: block;
         width: 100%;
         padding: 0 !important;
@@ -725,7 +725,7 @@
     }
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive .media-text--alt-order>div {
+    .townsuite-2017.townsuite-2017--responsive .media-text--alt-order>div {
         -webkit-box-orient: vertical;
         -webkit-box-direction: reverse;
         -webkit-flex-direction: column-reverse;
@@ -734,7 +734,7 @@
     }
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive .media-text__body {
+    .townsuite-2017.townsuite-2017--responsive .media-text__body {
         float: none !important;
         max-width: 650px;
         margin: 40px auto 0;
@@ -742,15 +742,15 @@
     }
 }
 @media (max-width: 767px) {
-    .townsuite-2016.townsuite-2016--responsive .media-text__body {
+    .townsuite-2017.townsuite-2017--responsive .media-text__body {
         margin-top: 10px
     }
 }
-.townsuite-2016.townsuite-2016--responsive .media-text__image {
+.townsuite-2017.townsuite-2017--responsive .media-text__image {
     display: none
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive .media-text__image {
+    .townsuite-2017.townsuite-2017--responsive .media-text__image {
         display: block;
         width: auto !important;
         max-width: 450px;
@@ -758,138 +758,138 @@
     }
 }
 @media (max-width: 767px) {
-    .townsuite-2016.townsuite-2016--responsive .media-text__image {
+    .townsuite-2017.townsuite-2017--responsive .media-text__image {
         width: 100% !important;
         max-width: 400px
     }
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive .media-text__header,
-    .townsuite-2016.townsuite-2016--responsive .media-text__body {
+    .townsuite-2017.townsuite-2017--responsive .media-text__header,
+    .townsuite-2017.townsuite-2017--responsive .media-text__body {
         text-align: center
     }
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive .media-text__header {
+    .townsuite-2017.townsuite-2017--responsive .media-text__header {
         display: none
     }
 }
-.townsuite-2016.townsuite-2016--responsive .media-text__header--responsive {
+.townsuite-2017.townsuite-2017--responsive .media-text__header--responsive {
     display: none
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive .media-text__header--responsive {
+    .townsuite-2017.townsuite-2017--responsive .media-text__header--responsive {
         display: inline-block;
         margin-bottom: 20px
     }
 }
 @media (max-width: 767px) {
-    .townsuite-2016.townsuite-2016--responsive .media-text__header--responsive {
+    .townsuite-2017.townsuite-2017--responsive .media-text__header--responsive {
         margin-bottom: 0;
         padding-bottom: 0
     }
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive .media-text__headline {
+    .townsuite-2017.townsuite-2017--responsive .media-text__headline {
         min-height: 140px
     }
 }
 @media (max-width: 767px) {
-    .townsuite-2016.townsuite-2016--responsive .media-text__headline {
+    .townsuite-2017.townsuite-2017--responsive .media-text__headline {
         min-height: 0
     }
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive .media-text__wrapper {
+    .townsuite-2017.townsuite-2017--responsive .media-text__wrapper {
         display: -moz-box
     }
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive .expanding-section {
+    .townsuite-2017.townsuite-2017--responsive .expanding-section {
         margin-top: 22px
     }
 }
 @media (max-width: 767px) {
-    .townsuite-2016.townsuite-2016--responsive .expanding-section {
+    .townsuite-2017.townsuite-2017--responsive .expanding-section {
         margin-top: 32px
     }
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive .expanding-section__button {
+    .townsuite-2017.townsuite-2017--responsive .expanding-section__button {
         width: 100% !important;
         margin: 0 !important;
         text-align: center
     }
-    .townsuite-2016.townsuite-2016--responsive .expanding-section__button.button-toggled {
+    .townsuite-2017.townsuite-2017--responsive .expanding-section__button.button-toggled {
         -webkit-transform: translateX(46px) !important;
         transform: translateX(46px) !important
     }
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive .expanding-section__content {
+    .townsuite-2017.townsuite-2017--responsive .expanding-section__content {
         padding: 0 30px
     }
 }
-.townsuite-2016.townsuite-2016--responsive .try-townsuite-cta .homepage-download-button {
+.townsuite-2017.townsuite-2017--responsive .try-townsuite-cta .homepage-download-button {
     min-width: 290px
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive .try-townsuite-cta .homepage-download-button {
+    .townsuite-2017.townsuite-2017--responsive .try-townsuite-cta .homepage-download-button {
         display: none
     }
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive .try-townsuite-cta {
+    .townsuite-2017.townsuite-2017--responsive .try-townsuite-cta {
         padding-top: 30px;
         padding-bottom: 95px
     }
 }
-.townsuite-2016.townsuite-2016--responsive .try-townsuite-cta .button-secondary {
+.townsuite-2017.townsuite-2017--responsive .try-townsuite-cta .button-secondary {
     display: none
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive .try-townsuite-cta .button-secondary {
+    .townsuite-2017.townsuite-2017--responsive .try-townsuite-cta .button-secondary {
         display: inline-block;
         font-size: 16px;
         font-weight: 600;
         min-width: 170px
     }
 }
-.townsuite-2016.townsuite-2016--responsive .try-townsuite-cta__footer {
+.townsuite-2017.townsuite-2017--responsive .try-townsuite-cta__footer {
     display: none
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive .try-townsuite-cta__footer {
+    .townsuite-2017.townsuite-2017--responsive .try-townsuite-cta__footer {
         display: block
     }
 }
-.townsuite-2016.townsuite-2016--responsive .try-townsuite-cta__footer--static {
+.townsuite-2017.townsuite-2017--responsive .try-townsuite-cta__footer--static {
     display: block
 }
-.townsuite-2016.townsuite-2016--responsive .try-townsuite-cta__footer--static .button-secondary {
+.townsuite-2017.townsuite-2017--responsive .try-townsuite-cta__footer--static .button-secondary {
     display: inline-block
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive .try-townsuite-cta__register {
+    .townsuite-2017.townsuite-2017--responsive .try-townsuite-cta__register {
         display: none
     }
 }
-.townsuite-2016.townsuite-2016--responsive .try-townsuite-cta .sign-up--static {
+.townsuite-2017.townsuite-2017--responsive .try-townsuite-cta .sign-up--static {
     display: inline-block
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive .footer-row {
+    .townsuite-2017.townsuite-2017--responsive .footer-row {
         background: #f6f9fc
     }
 }
 @media (max-width: 767px) {
-    .townsuite-2016.townsuite-2016--responsive .footer-row {
+    .townsuite-2017.townsuite-2017--responsive .footer-row {
         padding-left: 30px;
         padding-right: 30px
     }
 }
 @media (max-width: 767px) {
-    .townsuite-2016.townsuite-2016--responsive #homepage-footer>nav {
+    .townsuite-2017.townsuite-2017--responsive #homepage-footer>nav {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -898,31 +898,31 @@
         -ms-flex-wrap: wrap;
         flex-wrap: wrap
     }
-    .townsuite-2016.townsuite-2016--responsive #homepage-footer ul:nth-child(2) {
+    .townsuite-2017.townsuite-2017--responsive #homepage-footer ul:nth-child(2) {
         -webkit-box-ordinal-group: 5;
         -webkit-order: 4;
         -ms-flex-order: 4;
         order: 4
     }
-    .townsuite-2016.townsuite-2016--responsive #homepage-footer ul:nth-child(3) {
+    .townsuite-2017.townsuite-2017--responsive #homepage-footer ul:nth-child(3) {
         -webkit-box-ordinal-group: 6;
         -webkit-order: 5;
         -ms-flex-order: 5;
         order: 5
     }
-    .townsuite-2016.townsuite-2016--responsive #homepage-footer ul:nth-child(4) {
+    .townsuite-2017.townsuite-2017--responsive #homepage-footer ul:nth-child(4) {
         -webkit-box-ordinal-group: 7;
         -webkit-order: 6;
         -ms-flex-order: 6;
         order: 6
     }
-    .townsuite-2016.townsuite-2016--responsive #homepage-footer ul:nth-child(5) {
+    .townsuite-2017.townsuite-2017--responsive #homepage-footer ul:nth-child(5) {
         -webkit-box-ordinal-group: 3;
         -webkit-order: 2;
         -ms-flex-order: 2;
         order: 2
     }
-    .townsuite-2016.townsuite-2016--responsive #homepage-footer ul:nth-child(6) {
+    .townsuite-2017.townsuite-2017--responsive #homepage-footer ul:nth-child(6) {
         -webkit-box-ordinal-group: 4;
         -webkit-order: 3;
         -ms-flex-order: 3;
@@ -930,36 +930,36 @@
     }
 }
 @media (max-width: 767px) {
-    .townsuite-2016.townsuite-2016--responsive .learn-more-content .media-text__media {
+    .townsuite-2017.townsuite-2017--responsive .learn-more-content .media-text__media {
         max-width: 180px
     }
 }
 @media (max-width: 767px) {
-    .townsuite-2016.townsuite-2016--responsive .learn-more-content .media-text__wrapper:first-of-type {
+    .townsuite-2017.townsuite-2017--responsive .learn-more-content .media-text__wrapper:first-of-type {
         margin-bottom: 10px
     }
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.townsuite-2016--responsive .learn-more-content.media-text--three-across img {
+    .townsuite-2017.townsuite-2017--responsive .learn-more-content.media-text--three-across img {
         width: 100% !important
     }
 }
 @media (max-width: 767px) {
-    .townsuite-2016.townsuite-2016--responsive .learn-more-content.media-text--three-across {
+    .townsuite-2017.townsuite-2017--responsive .learn-more-content.media-text--three-across {
         width: 100%;
         padding: 0
     }
-    .townsuite-2016.townsuite-2016--responsive .learn-more-content.media-text--three-across .media-text__headline {
+    .townsuite-2017.townsuite-2017--responsive .learn-more-content.media-text--three-across .media-text__headline {
         display: block
     }
 }
 @media (max-width: 767px) {
-    .townsuite-2016.townsuite-2016--responsive .learn-more-content.media-text--three-across:last-of-type {
+    .townsuite-2017.townsuite-2017--responsive .learn-more-content.media-text--three-across:last-of-type {
         margin-bottom: 85px
     }
 }
 @media (max-width: 767px) {
-    .townsuite-2016.townsuite-2016--responsive .learn-more-content .media-text__body {
+    .townsuite-2017.townsuite-2017--responsive .learn-more-content .media-text__body {
         max-width: 500px
     }
 }
@@ -1170,35 +1170,35 @@
     width: 3px
 }
 @media (min-width: 991px) {
-    .townsuite-2016.exp-teams_signup_homepage .six-column.hero__copy {
+    .townsuite-2017.exp-teams_signup_homepage .six-column.hero__copy {
         max-width: 490px
     }
 }
-.townsuite-2016.exp-teams_signup_homepage .media-text--horizontal .media-text__wrapper {
+.townsuite-2017.exp-teams_signup_homepage .media-text--horizontal .media-text__wrapper {
     vertical-align: middle
 }
-.townsuite-2016.exp-teams_signup_homepage img.media-text__image {
+.townsuite-2017.exp-teams_signup_homepage img.media-text__image {
     display: block
 }
-.townsuite-2016.exp-teams_signup_homepage .content-row:last-of-type {
+.townsuite-2017.exp-teams_signup_homepage .content-row:last-of-type {
     padding-bottom: 50px
 }
 @media (max-width: 767px) {
-    .townsuite-2016.exp-teams_signup_homepage .content-row {
+    .townsuite-2017.exp-teams_signup_homepage .content-row {
         margin-top: 50px
     }
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.exp-teams_signup_homepage .content-row {
+    .townsuite-2017.exp-teams_signup_homepage .content-row {
         margin-top: 100px
     }
 }
-.townsuite-2016.exp-teams_signup_homepage .credentials-form__fields label {
+.townsuite-2017.exp-teams_signup_homepage .credentials-form__fields label {
     overflow-x: hidden;
     white-space: nowrap;
     text-overflow: ellipsis
 }
-.townsuite-2016.exp-teams_signup_homepage .register-form__credential-fields .email-suggestion {
+.townsuite-2017.exp-teams_signup_homepage .register-form__credential-fields .email-suggestion {
     -webkit-box-ordinal-group: 0;
     -webkit-order: -1;
     -ms-flex-order: -1;
@@ -1207,101 +1207,101 @@
     margin-top: -10px;
     padding-left: 0
 }
-.townsuite-2016.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys h1.large-title {
+.townsuite-2017.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys h1.large-title {
     font-size: 40px;
     margin-top: 15px
 }
-.townsuite-2016.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .footer-row {
+.townsuite-2017.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .footer-row {
     background-color: #fbfbfb
 }
-.townsuite-2016.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .try-townsuite-cta {
+.townsuite-2017.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .try-townsuite-cta {
     background: inherit
 }
-.townsuite-2016.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .offset-section .media-text__media {
+.townsuite-2017.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .offset-section .media-text__media {
     text-align: left
 }
-.townsuite-2016.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .offset-section .media-text__wrapper {
+.townsuite-2017.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .offset-section .media-text__wrapper {
     vertical-align: top
 }
-.townsuite-2016.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .offset-section .media-text__wrapper:last-child {
+.townsuite-2017.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .offset-section .media-text__wrapper:last-child {
     padding-top: 400px
 }
-.townsuite-2016.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .offset-section .media-text__wrapper:last-child .media-text__image {
+.townsuite-2017.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .offset-section .media-text__wrapper:last-child .media-text__image {
     width: 400px;
     margin-left: 85px
 }
-.townsuite-2016.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .offset-section .media-text__header--responsive {
+.townsuite-2017.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .offset-section .media-text__header--responsive {
     display: inline-block;
     margin-left: 85px;
     margin-top: 32px
 }
-.townsuite-2016.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .offset-section .media-text__body {
+.townsuite-2017.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .offset-section .media-text__body {
     margin-left: 85px
 }
-.townsuite-2016.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .create-online-documents {
+.townsuite-2017.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .create-online-documents {
     margin-top: -75px
 }
-.townsuite-2016.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .media-text__header {
+.townsuite-2017.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .media-text__header {
     width: 320px;
     float: left
 }
-.townsuite-2016.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .media-text__body {
+.townsuite-2017.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .media-text__body {
     padding: 0;
     float: left;
     width: 320px
 }
-.townsuite-2016.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .media-text__text {
+.townsuite-2017.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .media-text__text {
     padding-left: 85px
 }
-.townsuite-2016.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .media-text--alt-order .media-text__text {
+.townsuite-2017.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .media-text--alt-order .media-text__text {
     padding-left: 85px
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .offset-section .media-text__header--responsive {
+    .townsuite-2017.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .offset-section .media-text__header--responsive {
         margin-top: 32px;
         width: 100%;
         margin-left: 0
     }
-    .townsuite-2016.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .offset-section .media-text__body {
+    .townsuite-2017.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .offset-section .media-text__body {
         margin: 0 auto 0
     }
-    .townsuite-2016.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .offset-section .media-text__text {
+    .townsuite-2017.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .offset-section .media-text__text {
         padding-left: 0
     }
-    .townsuite-2016.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .offset-section .media-text__wrapper:last-child {
+    .townsuite-2017.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .offset-section .media-text__wrapper:last-child {
         padding-top: 0;
         margin-top: 85px
     }
-    .townsuite-2016.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .offset-section .media-text__wrapper:last-child .media-text__image {
+    .townsuite-2017.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .offset-section .media-text__wrapper:last-child .media-text__image {
         width: 100% !important;
         max-width: 450px;
         margin-left: auto;
         margin-right: auto
     }
-    .townsuite-2016.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .create-online-documents {
+    .townsuite-2017.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .create-online-documents {
         margin-top: 100px
     }
-    .townsuite-2016.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .features-container .media-text__content .media-text__header--responsive {
+    .townsuite-2017.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .features-container .media-text__content .media-text__header--responsive {
         float: none;
         margin-top: 32px
     }
-    .townsuite-2016.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .media-text__text {
+    .townsuite-2017.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .media-text__text {
         padding-left: 0
     }
-    .townsuite-2016.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .media-text--alt-order .media-text__text {
+    .townsuite-2017.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .media-text--alt-order .media-text__text {
         padding-left: 0
     }
 }
-.townsuite-2016.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .sign-up-form-v1 .form-container .exp-growth_web_google_register__GOOGLE3.button-primary {
+.townsuite-2017.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .sign-up-form-v1 .form-container .exp-growth_web_google_register__GOOGLE3.button-primary {
     color: #3d464d;
     background-color: #fbfbfb;
     background-image: url("")
 }
-.townsuite-2016.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .sign-up-form-v1 .form-container .exp-growth_web_google_register__GOOGLE3.button-primary:before {
+.townsuite-2017.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .sign-up-form-v1 .form-container .exp-growth_web_google_register__GOOGLE3.button-primary:before {
     border-left: 0
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.exp-teams_signup_homepage .sign-up-for-team-hero .hero__content {
+    .townsuite-2017.exp-teams_signup_homepage .sign-up-for-team-hero .hero__content {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
         -webkit-flex-direction: column;
@@ -1310,42 +1310,42 @@
     }
 }
 @media (max-width: 767px) {
-    .townsuite-2016.exp-teams_signup_homepage .sign-up-for-team-hero .hero__content {
+    .townsuite-2017.exp-teams_signup_homepage .sign-up-for-team-hero .hero__content {
         padding-left: 10px;
         padding-right: 10px
     }
 }
-.townsuite-2016.exp-teams_signup_homepage .sign-up-for-team-hero .hero__copy {
+.townsuite-2017.exp-teams_signup_homepage .sign-up-for-team-hero .hero__copy {
     max-width: 100%
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.exp-teams_signup_homepage .sign-up-for-team-hero .hero__copy .large-title,
-    .townsuite-2016.exp-teams_signup_homepage .sign-up-for-team-hero .hero__copy .medium-title {
+    .townsuite-2017.exp-teams_signup_homepage .sign-up-for-team-hero .hero__copy .large-title,
+    .townsuite-2017.exp-teams_signup_homepage .sign-up-for-team-hero .hero__copy .medium-title {
         max-width: 100%
     }
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.exp-teams_signup_homepage .sign-up-for-team-hero .hero__copy {
+    .townsuite-2017.exp-teams_signup_homepage .sign-up-for-team-hero .hero__copy {
         border-bottom: none;
         margin-bottom: 0
     }
 }
-.townsuite-2016.exp-teams_signup_homepage .sign-up-for-team-hero .hero__register {
+.townsuite-2017.exp-teams_signup_homepage .sign-up-for-team-hero .hero__register {
     float: none;
     margin: auto
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.exp-teams_signup_homepage .sign-up-for-team-hero .hero__register {
+    .townsuite-2017.exp-teams_signup_homepage .sign-up-for-team-hero .hero__register {
         display: block
     }
 }
 @media (max-width: 767px) {
-    .townsuite-2016.exp-teams_signup_homepage .sign-up-for-team-hero .hero__register,
-    .townsuite-2016.exp-teams_signup_homepage .sign-up-for-team-hero .hero__register>.form-container {
+    .townsuite-2017.exp-teams_signup_homepage .sign-up-for-team-hero .hero__register,
+    .townsuite-2017.exp-teams_signup_homepage .sign-up-for-team-hero .hero__register>.form-container {
         max-width: 100%
     }
 }
-.townsuite-2016.exp-teams_signup_homepage .sign-up-for-team-hero .hero__illustrations {
+.townsuite-2017.exp-teams_signup_homepage .sign-up-for-team-hero .hero__illustrations {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -1354,22 +1354,22 @@
     margin-left: -600px
 }
 @media (max-width: 1100px) {
-    .townsuite-2016.exp-teams_signup_homepage .sign-up-for-team-hero .hero__illustrations {
+    .townsuite-2017.exp-teams_signup_homepage .sign-up-for-team-hero .hero__illustrations {
         display: none
     }
 }
-.townsuite-2016.exp-teams_signup_homepage .sign-up-for-team-hero .hero__illustrations__left,
-.townsuite-2016.exp-teams_signup_homepage .sign-up-for-team-hero .hero__illustrations__right {
+.townsuite-2017.exp-teams_signup_homepage .sign-up-for-team-hero .hero__illustrations__left,
+.townsuite-2017.exp-teams_signup_homepage .sign-up-for-team-hero .hero__illustrations__right {
     -webkit-box-flex: 0;
     -webkit-flex-grow: 0;
     -ms-flex-positive: 0;
     flex-grow: 0;
     overflow-x: hidden
 }
-.townsuite-2016.exp-teams_signup_homepage .sign-up-for-team-hero .hero__illustrations__right {
+.townsuite-2017.exp-teams_signup_homepage .sign-up-for-team-hero .hero__illustrations__right {
     width: 465px
 }
-.townsuite-2016.exp-teams_signup_homepage .sign-up-for-team-hero .hero__illustrations__separation {
+.townsuite-2017.exp-teams_signup_homepage .sign-up-for-team-hero .hero__illustrations__separation {
     -webkit-box-flex: 1;
     -webkit-flex-grow: 1;
     -ms-flex-positive: 1;
@@ -1377,57 +1377,57 @@
     border-bottom: solid 2px #d0d4d9;
     margin: 0 -90px 60px -90px
 }
-.townsuite-2016.exp-teams_signup_homepage .sign-up-for-team-hero .large-title {
+.townsuite-2017.exp-teams_signup_homepage .sign-up-for-team-hero .large-title {
     padding: 35px 0 0 0;
     text-align: center;
     font-size: 32px
 }
 @media (max-width: 767px) {
-    .townsuite-2016.exp-teams_signup_homepage .sign-up-for-team-hero .large-title {
+    .townsuite-2017.exp-teams_signup_homepage .sign-up-for-team-hero .large-title {
         padding: 15px 0 0 0
     }
 }
-.townsuite-2016.exp-teams_signup_homepage .sign-up-for-team-hero .medium-title {
+.townsuite-2017.exp-teams_signup_homepage .sign-up-for-team-hero .medium-title {
     padding: 0 0 52px 0;
     text-align: center
 }
 @media (max-width: 767px) {
-    .townsuite-2016.exp-teams_signup_homepage .sign-up-for-team-hero .medium-title {
+    .townsuite-2017.exp-teams_signup_homepage .sign-up-for-team-hero .medium-title {
         padding: 0 0 32px 0
     }
 }
-.townsuite-2016.exp-teams_signup_homepage .sign-up-for-team-hero .medium-title a {
+.townsuite-2017.exp-teams_signup_homepage .sign-up-for-team-hero .medium-title a {
     font-size: 18px;
     margin-right: 44px;
     color: inherit
 }
-.townsuite-2016.exp-teams_signup_homepage .sign-up-for-team-hero .medium-title a:last-child {
+.townsuite-2017.exp-teams_signup_homepage .sign-up-for-team-hero .medium-title a:last-child {
     margin-right: 0
 }
-.townsuite-2016.exp-teams_signup_homepage .sign-up-for-team-hero .medium-title a:hover {
+.townsuite-2017.exp-teams_signup_homepage .sign-up-for-team-hero .medium-title a:hover {
     color: #6a94be
 }
 @media (max-width: 767px) {
-    .townsuite-2016.exp-teams_signup_homepage .sign-up-for-team-hero .medium-title a {
+    .townsuite-2017.exp-teams_signup_homepage .sign-up-for-team-hero .medium-title a {
         display: block;
         margin-right: 0
     }
 }
-.townsuite-2016.exp-teams_signup_homepage .features-container {
+.townsuite-2017.exp-teams_signup_homepage .features-container {
     margin-top: -20px
 }
 @media (max-width: 1020px) {
-    .townsuite-2016.exp-teams_signup_homepage .features-container {
+    .townsuite-2017.exp-teams_signup_homepage .features-container {
         margin-top: 40px
     }
-    .townsuite-2016.exp-teams_signup_homepage .features-container .media-text__content .media-text__header--responsive {
+    .townsuite-2017.exp-teams_signup_homepage .features-container .media-text__content .media-text__header--responsive {
         margin: 0;
         padding: 0
     }
-    .townsuite-2016.exp-teams_signup_homepage .features-container .media-text__content .media-text__image--responsive {
+    .townsuite-2017.exp-teams_signup_homepage .features-container .media-text__content .media-text__image--responsive {
         margin-top: 0
     }
-    .townsuite-2016.exp-teams_signup_homepage .features-container .media-text__content .media-text__body {
+    .townsuite-2017.exp-teams_signup_homepage .features-container .media-text__content .media-text__body {
         margin-top: 0
     }
 }
@@ -1450,10 +1450,10 @@ body.exp-smores-version-2V1 .feature .paragraph {
     font-weight: 200;
     color: #637282
 }
-body.exp-smores-version-2V1.townsuite-2016 .button-primary,
-body.exp-smores-version-2V1.townsuite-2016 .button-secondary,
-body.exp-smores-version-2V1.townsuite-2016 .button-tertiary,
-body.exp-smores-version-2V1.townsuite-2016 .button-link,
+body.exp-smores-version-2V1.townsuite-2017 .button-primary,
+body.exp-smores-version-2V1.townsuite-2017 .button-secondary,
+body.exp-smores-version-2V1.townsuite-2017 .button-tertiary,
+body.exp-smores-version-2V1.townsuite-2017 .button-link,
 body.exp-smores-version-2V1 .new-exp-form-image.sign-up-form-v1 .form-container .text-input .text-input-input,
 body.exp-smores-version-2V1 .sign-up-form-v1 .auth-google {
     border-radius: 3px
@@ -1486,7 +1486,7 @@ body.exp-smores-version-2V1 {
     background-color: #F7F9FA
 }
 @media (max-width: 1020px) {
-    body.exp-smores-version-2V1.townsuite-2016.exp-growth_web_google_register__GOOGLE3 .new-exp-form-image.sign-up-form-v1 .form-container {
+    body.exp-smores-version-2V1.townsuite-2017.exp-growth_web_google_register__GOOGLE3 .new-exp-form-image.sign-up-form-v1 .form-container {
         margin: 0
     }
 }
@@ -1552,7 +1552,7 @@ body.exp-smores-version-2V1 .new-exp-form-image.sign-up-form-v1 .five-column {
         display: none
     }
 }
-body.exp-smores-version-2V1.townsuite-2016.exp-growth_web_google_register__GOOGLE3 .new-exp-form-image.sign-up-form-v1 .form-container {
+body.exp-smores-version-2V1.townsuite-2017.exp-growth_web_google_register__GOOGLE3 .new-exp-form-image.sign-up-form-v1 .form-container {
     width: 309px
 }
 body.exp-smores-version-2V1 .large-title {
