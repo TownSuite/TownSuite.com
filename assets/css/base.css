@@ -5432,3 +5432,8 @@ h1 {
 	background: #d8e0ed;
 	color: #58595b;
 }
+
+/* Extra styles */
+.grid__col.grid__col--12-of-12 {
+    text-align: left;
+}
