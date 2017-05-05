@@ -5436,3 +5436,12 @@ h1 {
 .grid__col.grid__col--12-of-12 {
     text-align: left;
 }
+.card-body {
+    text-align: left;
+}
+button#submitanonymous {
+    margin: 20px 12px 0 0;
+}
+.form-group {
+    margin-top: 10px;
+}
