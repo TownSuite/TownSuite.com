@@ -1518,7 +1518,7 @@ h2, .alpha, #alpha (
 		background-repeat: no-repeat;
 		background-position: center -100px;
 		color: #000;
-		position: relative
+		position: relative;
 		z-index: 1;
 }
 @media (-webkit-min-device-pixel-ratio: 1.1),
@@ -1671,7 +1671,6 @@ h2, .alpha, #alpha (
 				background-image: url("../img/ebills/ebills.png");
 				background-size: 100% auto;
 		}
-}
 }
 @media (-webkit-min-device-pixel-ratio: 1.1),
 (min-resolution: 192dpx),
