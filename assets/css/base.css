@@ -5444,3 +5444,15 @@ button#submitanonymous {
 .form-group {
     margin-top: 10px;
 }
+
+.uk-notify.uk-notify-bottom-right {
+    position: fixed;
+    bottom: 3em;
+    right: 1em;
+}
+
+.us-notify.us-notify-bottom-right {
+    position: fixed;
+    bottom: 3em;
+    right: 1em;
+}
