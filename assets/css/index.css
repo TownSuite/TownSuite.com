@@ -1292,12 +1292,12 @@
         padding-left: 0
     }
 }
-.townsuite-2017.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .sign-up-form-v1 .form-container .exp-growth_web_google_register__GOOGLE3.button-primary {
+.townsuite-2017.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .sign-up-form-v1 .form-container ..button-primary {
     color: #3d464d;
     background-color: #fbfbfb;
     background-image: url("")
 }
-.townsuite-2017.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .sign-up-form-v1 .form-container .exp-growth_web_google_register__GOOGLE3.button-primary:before {
+.townsuite-2017.exp-teams_signup_homepage.exp-teams_signup_homepage_user_journeys .sign-up-form-v1 .form-container ..button-primary:before {
     border-left: 0
 }
 @media (max-width: 1020px) {
@@ -1486,7 +1486,7 @@ body.exp-smores-version-2V1 {
     background-color: #F7F9FA
 }
 @media (max-width: 1020px) {
-    body.exp-smores-version-2V1.townsuite-2017.exp-growth_web_google_register__GOOGLE3 .new-exp-form-image.sign-up-form-v1 .form-container {
+    body.exp-smores-version-2V1.townsuite-2017. .new-exp-form-image.sign-up-form-v1 .form-container {
         margin: 0
     }
 }
@@ -1552,7 +1552,7 @@ body.exp-smores-version-2V1 .new-exp-form-image.sign-up-form-v1 .five-column {
         display: none
     }
 }
-body.exp-smores-version-2V1.townsuite-2017.exp-growth_web_google_register__GOOGLE3 .new-exp-form-image.sign-up-form-v1 .form-container {
+body.exp-smores-version-2V1.townsuite-2017. .new-exp-form-image.sign-up-form-v1 .form-container {
     width: 309px
 }
 body.exp-smores-version-2V1 .large-title {

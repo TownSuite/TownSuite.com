@@ -2456,48 +2456,48 @@ body.business-theme .text-input.label-above label {
     font-weight: 400
 }
 .register.exp-growth_web_google_register__GOOGLE2,
-.register.exp-growth_web_google_register__GOOGLE3 {
+.register. {
     width: 370px
 }
 .register.exp-growth_web_google_register__GOOGLE2 .register-form__credential-fields,
-.register.exp-growth_web_google_register__GOOGLE3 .register-form__credential-fields {
+.register. .register-form__credential-fields {
     margin-top: 10px;
     z-index: 1;
     position: relative
 }
 .register.exp-growth_web_google_register__GOOGLE2 .register-form__credential-fields:after,
-.register.exp-growth_web_google_register__GOOGLE3 .register-form__credential-fields:after {
+.register. .register-form__credential-fields:after {
     content: "";
     display: table;
     clear: both
 }
 .register.exp-growth_web_google_register__GOOGLE2 .register-form__credential-fields .input-email,
 .register.exp-growth_web_google_register__GOOGLE2 .register-form__credential-fields .input-password,
-.register.exp-growth_web_google_register__GOOGLE3 .register-form__credential-fields .input-email,
-.register.exp-growth_web_google_register__GOOGLE3 .register-form__credential-fields .input-password {
+.register. .register-form__credential-fields .input-email,
+.register. .register-form__credential-fields .input-password {
     float: left;
     width: calc(50% - 4px);
     z-index: 1
 }
 .register.exp-growth_web_google_register__GOOGLE2 .register-form__credential-fields .input-email,
-.register.exp-growth_web_google_register__GOOGLE3 .register-form__credential-fields .input-email {
+.register. .register-form__credential-fields .input-email {
     margin-right: 8px;
     clear: right
 }
 .register.exp-growth_web_google_register__GOOGLE2 .register-form__credential-fields .input-email.text-input--error,
-.register.exp-growth_web_google_register__GOOGLE3 .register-form__credential-fields .input-email.text-input--error {
+.register. .register-form__credential-fields .input-email.text-input--error {
     z-index: 2
 }
 .register.exp-growth_web_google_register__GOOGLE2 .register-form__credential-fields .checkbox,
-.register.exp-growth_web_google_register__GOOGLE3 .register-form__credential-fields .checkbox {
+.register. .register-form__credential-fields .checkbox {
     padding: 6px 0
 }
 .register.exp-growth_web_google_register__GOOGLE2 .register-form__credential-fields .hr-label,
-.register.exp-growth_web_google_register__GOOGLE3 .register-form__credential-fields .hr-label {
+.register. .register-form__credential-fields .hr-label {
     margin-bottom: 1px
 }
 .register.exp-growth_web_google_register__GOOGLE2 .register-form__credential-fields .hr-label__text,
-.register.exp-growth_web_google_register__GOOGLE3 .register-form__credential-fields .hr-label__text {
+.register. .register-form__credential-fields .hr-label__text {
     font-size: 11px
 }
 .townsuite-2017 .form-container .register-form .exp-growth_web_google_register {
