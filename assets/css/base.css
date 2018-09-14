@@ -80,6 +80,26 @@ body {
 				padding: 12px 0
 		}
 }
+
+@media (min-width: 1281px) {
+	.image-size-50 {
+		width: 50%;
+	}
+	.image-size-50 {
+		width: 50%;
+	}
+}
+
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+	.image-size-75 {
+		width: 75%;
+	}
+	.image-size-50 {
+		width: 50%;
+	}
+}
+
 #account-header .text-input-input,
 #account-header .continue-as-button-class {
 		box-sizing: border-box
