@@ -91,6 +91,9 @@ body {
 	.image-size-75 {
 		width: 75% !important;
 	}
+		.image-size-60 {
+			width: 60% !important;
+		}
 }
 
 
@@ -104,6 +107,26 @@ body {
 	.image-size-50 {
 		width: 50% !important;
 	}
+			.image-size-60 {
+				width: 60% !important;
+			}
+}
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+		.image-size-70 {
+			width: 70% !important;
+		}
+
+		.image-size-75 {
+			width: 75% !important;
+		}
+
+		.image-size-50 {
+			width: 50% !important;
+		}
+
+		.image-size-60 {
+			width: 60% !important;
+		}
 }
 
 #account-header .text-input-input,
@@ -2975,7 +2998,6 @@ body.townsuite-2017 {
 .townsuite-2017 .login-form-container.register.small.index {
 		width: 100%
 }
-<<<<<<< HEAD
 .learn-more-content {
 		padding: 30px 0 30px
 }
@@ -3054,8 +3076,6 @@ body.townsuite-2017 {
 		height: auto !important;
 	max-height: 235 px !important;
 }
-=======
->>>>>>> origin/gh-pages
 
 @media only screen and (max-width: 990px) {
 		.learn-more-content .media-text__headline-head {
