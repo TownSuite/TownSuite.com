@@ -942,6 +942,21 @@ h2, .alpha, #alpha (
 		.grid__col.grid__col--m-3-of-4 {
 				width: 75%
 		}
+		.grid__col.grid__col--m-4-of-4 {
+				width: 100%
+		}
+}
+@media only screen and (min-device-width : 375px) and (max-device-width : 812px) and (-webkit-device-pixel-ratio : 3) {
+			.grid__col.grid__col--m-4-of-4 {
+				width: 100% !important;
+			}
+	/* STYLES GO HERE */
+}
+@media only screen and (min-device-width : 375px) and (max-device-width : 667px) {
+	/* STYLES GO HERE */
+				.grid__col.grid__col--m-4-of-4 {
+					width: 100% !important;
+				}
 }
 @media (max-width: 550px) {
 		.grid__col[class*="grid__col--s-"] {
@@ -964,6 +979,7 @@ h2, .alpha, #alpha (
 		.grid__col.grid__col--s-3-of-4 {
 				width: 75%
 		}
+
 }
 .grid__col--centered {
 		display: block;
