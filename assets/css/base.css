@@ -5535,5 +5535,6 @@ button#submitanonymous {
 @media (max-width: 1200px) {
 	#TheNewSRDiv {
 		height: 800px;
+		width: 85%;
 	}
 }
