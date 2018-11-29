@@ -5531,10 +5531,24 @@ button#submitanonymous {
    position: absolute;
    top: 0;
    width: 100%;
+   overflow: hidden;
 }
 @media (max-width: 1200px) {
 	#TheNewSRDiv {
-		height: 800px;
-		width: 100%; !important
+		height: 950px;
 	}
+}
+@media (max-width: 900px) {
+	#TheNewSRDiv {
+		height: 1000px;
+	}
+}
+@media (max-width: 400px) {
+	#TheNewSRDiv {
+		height: 1050px;
+	}
+}
+.card {
+    padding: 10px;
+    margin: 10px;
 }
