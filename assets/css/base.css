@@ -5566,3 +5566,7 @@ button#submitanonymous {
   width:1200px;
   height:440px !important;
 }
+a.btn {
+    margin-top: 1.5em;
+		margin-bottom: 1.5em;
+}
