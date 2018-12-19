@@ -2472,7 +2472,7 @@ a * {
 		outline: none
 }
 a {
-		color: #00578e !important;
+		color: #00578e;
 		text-decoration: none
 }
 a:focus {
