@@ -2953,8 +2953,8 @@ body.townsuite-2017 {
 		float: left
 }
 .townsuite-2017 .try-townsuite-cta {
-		padding-top: 90px;
-		padding-bottom: 100px;
+		padding-top: 2em;
+		padding-bottom: 2em;
 		text-align: center;
 		background: #fff;
 		margin-top: 25px;
@@ -5383,8 +5383,8 @@ h1 {
 	justify-content: center;
 }
 .outer-menu .menu > div {
-	width: 200vw;
-	height: 200vw;
+	width: 300vw;
+	height: 300vw;
 	color: #d8e0ed;
 	background: #00578e;
 	border-radius: 50%;
@@ -5563,6 +5563,10 @@ a.btn {
     margin-top: 1.5em;
 		margin-bottom: 1.5em;
 }
-a#ts-learn-more {
+a#ts-learn-more, a.button-tertiary {
     text-decoration: none;
+}
+.outer-menu .menu > div > div > ul > li > a {
+    color: #d8e0ed !important;
+		text-decoration: none;
 }
