@@ -1,10 +1,10 @@
 @font-face {
 		font-family: 'dax';
-		src: url('http://townsuite.com/assets/css/dax-regular-webfont.eot');
-		src: url('http://townsuite.com/assets/css/dax-regular-webfont.eot?#iefix') format('embedded-opentype'),
-		url('http://townsuite.com/assets/css/dax-regular-webfont.woff') format('woff'),
-		url('http://townsuite.com/assets/css/dax-regular-webfont.ttf') format('truetype'),
-		url('http://townsuite.com/assets/css/dax-regular-webfont.svg') format('svg');
+		src: url('https://townsuite.com/assets/css/dax-regular-webfont.eot');
+		src: url('https://townsuite.com/assets/css/dax-regular-webfont.eot?#iefix') format('embedded-opentype'),
+		url('https://townsuite.com/assets/css/dax-regular-webfont.woff') format('woff'),
+		url('https://townsuite.com/assets/css/dax-regular-webfont.ttf') format('truetype'),
+		url('https://townsuite.com/assets/css/dax-regular-webfont.svg') format('svg');
 		font-weight: normal;
 		font-style: normal;
 }
@@ -71,6 +71,7 @@ a {
   position: relative;
   overflow: hidden;
   transition: 0.3s;
+	border-radius: 15px;
 }
 a:hover {
   color: #fbfbfb;
