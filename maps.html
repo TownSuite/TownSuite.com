@@ -47,6 +47,8 @@
     <div id='calculated-area'></div>
 </div>
 <script>
+
+
 mapboxgl.accessToken = 'pk.eyJ1IjoidG93bnN1aXRlIiwiYSI6ImNpeWpzZDcwbjAwMDMzMXBqejRxczVybmcifQ.c2mEkfyCGE4dpjQJMZhI8Q';
 var map = new mapboxgl.Map({
     container: 'map',
@@ -252,6 +254,9 @@ map.on('load', function () {
         map.getCanvas().style.cursor = '';
     });
 });
+
+var nav = new mapboxgl.Draw();
+map.addControl(nav, 'top-left');
 </script>
 
 </body>
