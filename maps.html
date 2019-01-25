@@ -47,6 +47,20 @@ var map = new mapboxgl.Map({
     center: [-54.6052, 48.9553]
 });
 
+var marker = new mapboxgl.Marker({
+    draggable: true
+})
+    .setLngLat([-54.6052, 48.9553])
+    .addTo(map);
+
+function onDragEnd() {
+    var lngLat = marker.getLngLat();
+    coordinates.style.display = 'block';
+    coordinates.innerHTML = 'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
+}
+
+marker.on('dragend', onDragEnd);
+
 var layerList = document.getElementById('map_style');
 var inputs = layerList.getElementsByTagName('input')
 
@@ -136,6 +150,73 @@ for (var i = 0; i < toggleableLayerIds.length; i++) {
     layers.appendChild(link);
 }
 
+map.on('load', function () {
+    // Add a layer showing the places.
+    map.addLayer({
+        "id": "places",
+        "type": "symbol",
+        "source": {
+            "type": "geojson",
+            "data": {
+                "type": "FeatureCollection",
+                "features": [{
+                    "type": "Feature",
+                    "properties": {
+                        "description": "<strong>TownSuite Municipal Software</strong><p><a href=\"https://townsuite.com\" target=\"_blank\" title=\"Opens in a new window\">TownSuite</a> is software company that focuses on creating municipal apps.</p>",
+                        "icon": "star"
+                    },
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [-54.6052, 48.9553]
+                    }
+                }, {
+                    "type": "Feature",
+                    "properties": {
+                        "description":"Hello world",
+                        "icon": "star"
+                    },
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [-54.5552, 48.9553]
+                    }
+                }]
+            }
+        },
+        "layout": {
+            "icon-image": "{icon}-15",
+            "icon-allow-overlap": true
+        }
+    });
+
+    // When a click event occurs on a feature in the places layer, open a popup at the
+    // location of the feature, with description HTML from its properties.
+    map.on('click', 'places', function (e) {
+        var coordinates = e.features[0].geometry.coordinates.slice();
+        var description = e.features[0].properties.description;
+
+        // Ensure that if the map is zoomed out such that multiple
+        // copies of the feature are visible, the popup appears
+        // over the copy being pointed to.
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
+
+        new mapboxgl.Popup()
+            .setLngLat(coordinates)
+            .setHTML(description)
+            .addTo(map);
+    });
+
+    // Change the cursor to a pointer when the mouse is over the places layer.
+    map.on('mouseenter', 'places', function () {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.on('mouseleave', 'places', function () {
+        map.getCanvas().style.cursor = '';
+    });
+});
 </script>
 
 </body>

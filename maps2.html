@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset='utf-8' />
-    <title>Change a map's style</title>
+    <title>Create a draggable Marker</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css' rel='stylesheet' />
@@ -13,50 +13,49 @@
 </head>
 <body>
 
+
 <style>
-    #menu {
-        position: absolute;
-        background: #fff;
-        padding: 10px;
-        font-family: 'Open Sans', sans-serif;
-    }
+.coordinates {
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    padding:5px 10px;
+    margin: 0;
+    font-size: 11px;
+    line-height: 18px;
+    border-radius: 3px;
+    display: none;
+}
 </style>
 
 <div id='map'></div>
-<div id='menu'>
-    <input id='basic' type='radio' name='rtoggle' value='basic' checked='checked'>
-    <label for='basic'>basic</label>
-    <input id='streets' type='radio' name='rtoggle' value='streets'>
-    <label for='streets'>streets</label>
-    <input id='bright' type='radio' name='rtoggle' value='bright'>
-    <label for='bright'>bright</label>
-    <input id='light' type='radio' name='rtoggle' value='light'>
-    <label for='light'>light</label>
-    <input id='dark' type='radio' name='rtoggle' value='dark'>
-    <label for='dark'>dark</label>
-    <input id='satellite' type='radio' name='rtoggle' value='satellite'>
-    <label for='satellite'>satellite</label>
-</div>
+<pre id='coordinates' class='coordinates'></pre>
+
 <script>
 mapboxgl.accessToken = 'pk.eyJ1IjoidG93bnN1aXRlIiwiYSI6ImNpeWpzZDcwbjAwMDMzMXBqejRxczVybmcifQ.c2mEkfyCGE4dpjQJMZhI8Q';
+var coordinates = document.getElementById('coordinates');
 var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/basic-v9',
-    zoom: 13,
-    center: [4.899, 52.372]
+    style: 'mapbox://styles/mapbox/streets-v9',
+    center: [-54.6052, 48.9553],
+    zoom: 12
 });
 
-var layerList = document.getElementById('menu');
-var inputs = layerList.getElementsByTagName('input');
+var marker = new mapboxgl.Marker({
+    draggable: true
+})
+    .setLngLat([-54.6052, 48.9553])
+    .addTo(map);
 
-function switchLayer(layer) {
-    var layerId = layer.target.id;
-    map.setStyle('mapbox://styles/mapbox/' + layerId + '-v9');
+function onDragEnd() {
+    var lngLat = marker.getLngLat();
+    coordinates.style.display = 'block';
+    coordinates.innerHTML = 'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
 }
 
-for (var i = 0; i < inputs.length; i++) {
-    inputs[i].onclick = switchLayer;
-}
+marker.on('dragend', onDragEnd);
 </script>
 
 </body>
