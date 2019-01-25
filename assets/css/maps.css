@@ -62,7 +62,7 @@ p {
 		font-color: #000;
 	}
 	#wrapper {
-		height: 500em;
+		height: 100%;
 	}
 	#box, .box {
 		background: #fbfbfb;
@@ -78,7 +78,7 @@ p {
 	img.logo {
 		position: relative;
 		z-index: 1;
-		left: 20%;
+		left: 30%;
 		top: 5px;
 	}
 
