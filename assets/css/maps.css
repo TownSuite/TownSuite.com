@@ -9,9 +9,12 @@
 		font-style: normal;
 }
 html, body {height: 100%;}
-body { margin:0; padding:0; }
+body { margin:0; padding:0; display: block; }
 #map { position:absolute; top:0; bottom:0; width:100%; }
 
+.mapbox-logo, a.mapboxgl-ctrl-logo{
+    display: none !important;
+}
 
 .mapboxgl-ctrl-geocoder { min-width:100%; }
 
@@ -40,12 +43,6 @@ p {
 		margin: 0;
 		font-size: 13px;
 }
-
-.mapboxgl-ctrl-top-right {
-    top: 0;
-    left: 0;
-}
-
 /* Desktop Navigation */
 @media only screen and (min-width: 900px) {
 	.geocoder {
@@ -55,7 +52,15 @@ p {
 			top:20px;
 			width: 90%;
 	}
-
+	#close, .close, a.close {
+		position: absolute;
+		z-index: 10;
+		top: 0px;
+		float:right;
+		display: block;
+		text-decoration: none;
+		font-color: #000;
+	}
 	#wrapper {
 		height: 500em;
 	}
@@ -65,9 +70,9 @@ p {
 		z-index: 1;
 		top: 0px;
 		right: 10px;
-		border-radius: 3px;
 		width: 20em;
 		height: 100%;
+		display: block;
 	}
 
 	img.logo {

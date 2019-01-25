@@ -16,8 +16,10 @@
 </head>
 <body>
 
-<div id="wrapper">
-<div id="box">
+<div id="close"><p id="words"><a class="close" href="#" onclick="toggle_visibility('box');">X</a></p></div>
+
+<div class="alert" id="wrapper">
+<div class="alert" id="box">
 <img src="../assets/logo.svg" alt="" src="/" href="#" class="logo" />
 <div id='geocoder' class='geocoder'></div>
   <p id="words">Select Layers</p>
@@ -37,10 +39,9 @@
     <label for='dark'>dark</label>
     <input id='satellite' type='radio' name='rtoggle' value='satellite'>
     <label for='satellite'>satellite</label></div>
-
+<br>
 
 </div>
-
 
 <div id="map"></div>
 <div class='calculation-box'>
@@ -257,6 +258,7 @@ map.on('load', function () {
 
 var nav = new mapboxgl.Draw();
 map.addControl(nav, 'top-left');
+
 </script>
 
 </body>
