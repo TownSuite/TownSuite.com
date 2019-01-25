@@ -8,11 +8,15 @@
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css' rel='stylesheet' />
     <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.min.js'></script>
     <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.css' type='text/css' />
+    <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/turf/v3.0.11/turf.min.js'></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.9/mapbox-gl-draw.js'></script>
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.9/mapbox-gl-draw.css' type='text/css'/>
     <script src='/assets/js/maps.js'></script>
     <link href="/assets/css/maps.css" type="text/css" crossorigin="anonymous" rel="stylesheet" />
 </head>
 <body>
 
+<div id="wrapper">
 <div id="box">
 <img src="../assets/logo.svg" alt="" src="/" href="#" class="logo" />
 <div id='geocoder' class='geocoder'></div>
@@ -34,10 +38,14 @@
     <input id='satellite' type='radio' name='rtoggle' value='satellite'>
     <label for='satellite'>satellite</label></div>
 
+
 </div>
 
-<div id="map"></div>
 
+<div id="map"></div>
+<div class='calculation-box'>
+    <div id='calculated-area'></div>
+</div>
 <script>
 mapboxgl.accessToken = 'pk.eyJ1IjoidG93bnN1aXRlIiwiYSI6ImNpeWpzZDcwbjAwMDMzMXBqejRxczVybmcifQ.c2mEkfyCGE4dpjQJMZhI8Q';
 var map = new mapboxgl.Map({
@@ -46,6 +54,33 @@ var map = new mapboxgl.Map({
     zoom: 15,
     center: [-54.6052, 48.9553]
 });
+
+var draw = new MapboxDraw({
+    displayControlsDefault: false,
+    controls: {
+        polygon: true,
+        trash: true
+    }
+});
+map.addControl(draw);
+
+map.on('draw.create', updateArea);
+map.on('draw.delete', updateArea);
+map.on('draw.update', updateArea);
+
+function updateArea(e) {
+    var data = draw.getAll();
+    var answer = document.getElementById('calculated-area');
+    if (data.features.length > 0) {
+        var area = turf.area(data);
+        // restrict to area to 2 decimal points
+        var rounded_area = Math.round(area*100)/100;
+        answer.innerHTML = '<p><strong>' + rounded_area + '</strong></p><p>square meters</p>';
+    } else {
+        answer.innerHTML = '';
+        if (e.type !== 'draw.delete') alert("Use the draw tools to draw a polygon!");
+    }
+};
 
 var marker = new mapboxgl.Marker({
     draggable: true

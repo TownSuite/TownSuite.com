@@ -8,7 +8,7 @@
 		font-weight: normal;
 		font-style: normal;
 }
-
+html, body {height: 100%;}
 body { margin:0; padding:0; }
 #map { position:absolute; top:0; bottom:0; width:100%; }
 
@@ -24,6 +24,22 @@ body { margin:0; padding:0; }
 		width: 95%;
 }
 }
+.calculation-box {
+		height: 75px;
+		width: 150px;
+		position: absolute;
+		bottom: 40px;
+		left: 10px;
+		background-color: rgba(255, 255, 255, .9);
+		padding: 15px;
+		text-align: center;
+}
+
+p {
+		font-family: 'Open Sans';
+		margin: 0;
+		font-size: 13px;
+}
 
 /* Desktop Navigation */
 @media only screen and (min-width: 900px) {
@@ -35,6 +51,9 @@ body { margin:0; padding:0; }
 			width: 90%;
 	}
 
+	#wrapper {
+		height: 500em;
+	}
 	#box, .box {
 		background: #fbfbfb;
 		position: relative;
@@ -42,8 +61,8 @@ body { margin:0; padding:0; }
 		top: 0px;
 		right: 10px;
 		border-radius: 3px;
-		height: 50em;
 		width: 20em;
+		height: 100%;
 	}
 
 	img.logo {

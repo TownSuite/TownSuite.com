@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset='utf-8' />
-    <title>Create a draggable Marker</title>
+    <title>Show drawn polygon area</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css' rel='stylesheet' />
@@ -13,49 +13,71 @@
 </head>
 <body>
 
-
 <style>
-.coordinates {
-    background: rgba(0,0,0,0.5);
-    color: #fff;
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    padding:5px 10px;
-    margin: 0;
-    font-size: 11px;
-    line-height: 18px;
-    border-radius: 3px;
-    display: none;
-}
+    .calculation-box {
+        height: 75px;
+        width: 150px;
+        position: absolute;
+        bottom: 40px;
+        left: 10px;
+        background-color: rgba(255, 255, 255, .9);
+        padding: 15px;
+        text-align: center;
+    }
+
+    p {
+        font-family: 'Open Sans';
+        margin: 0;
+        font-size: 13px;
+    }
 </style>
 
+<script src='https://api.tiles.mapbox.com/mapbox.js/plugins/turf/v3.0.11/turf.min.js'></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.9/mapbox-gl-draw.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.9/mapbox-gl-draw.css' type='text/css'/>
 <div id='map'></div>
-<pre id='coordinates' class='coordinates'></pre>
+<div class='calculation-box'>
+    <p>Draw a polygon using the draw tools.</p>
+    <div id='calculated-area'></div>
+</div>
 
 <script>
 mapboxgl.accessToken = 'pk.eyJ1IjoidG93bnN1aXRlIiwiYSI6ImNpeWpzZDcwbjAwMDMzMXBqejRxczVybmcifQ.c2mEkfyCGE4dpjQJMZhI8Q';
-var coordinates = document.getElementById('coordinates');
+/* eslint-disable */
 var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v9',
-    center: [-54.6052, 48.9553],
-    zoom: 12
+    container: 'map', // container id
+    style: 'mapbox://styles/mapbox/satellite-v9', //hosted style id
+    center: [-91.874, 42.760], // starting position
+    zoom: 12 // starting zoom
 });
 
-var marker = new mapboxgl.Marker({
-    draggable: true
-})
-    .setLngLat([-54.6052, 48.9553])
-    .addTo(map);
+var draw = new MapboxDraw({
+    displayControlsDefault: false,
+    controls: {
+        polygon: true,
+        trash: true
+    }
+});
+map.addControl(draw);
 
-function onDragEnd() {
-    var lngLat = marker.getLngLat();
-    coordinates.style.display = 'block';
-    coordinates.innerHTML = 'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
+map.on('draw.create', updateArea);
+map.on('draw.delete', updateArea);
+map.on('draw.update', updateArea);
+
+function updateArea(e) {
+    var data = draw.getAll();
+    var answer = document.getElementById('calculated-area');
+    if (data.features.length > 0) {
+        var area = turf.area(data);
+        // restrict to area to 2 decimal points
+        var rounded_area = Math.round(area*100)/100;
+        answer.innerHTML = '<p><strong>' + rounded_area + '</strong></p><p>square meters</p>';
+    } else {
+        answer.innerHTML = '';
+        if (e.type !== 'draw.delete') alert("Use the draw tools to draw a polygon!");
+    }
 }
 
-marker.on('dragend', onDragEnd);
 </script>
 
 </body>
