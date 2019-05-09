@@ -53,7 +53,7 @@ body {
 		-webkit-font-smoothing: subpixel-antialiased;
 		text-rendering: optimizeLegibility;
 		color: #3d464d;
-		text-align: center
+		text-align: center;
 }
 #footer-row, .footer-row, #locale-container {
 	text-align: left;
@@ -5569,4 +5569,20 @@ a#ts-learn-more, a.button-tertiary {
 .outer-menu .menu > div > div > ul > li > a {
     color: #d8e0ed !important;
 		text-decoration: none;
+}
+
+#Complaints311Div div {
+	text-align: left !important;
+	font-size: 20px !important;
+	font-family: "dax", "DaxRegular", "Open Sans", "lucida grande", "Segoe UI", arial, verdana, "lucida sans unicode", tahoma, sans-serif !important;
+}
+p.p311requestdescription {
+	font-size: 16px;
+}
+h1#formLabel {
+	font-size:25px;
+	font-weight: strong;
+}
+.mapboxgl-ctrl-attrib-inner {
+	display: none;
 }

@@ -56,7 +56,6 @@ p {
 		position: absolute;
 		z-index: 10;
 		top: 0px;
-		float:right;
 		display: block;
 		text-decoration: none;
 		font-color: #000;
@@ -91,7 +90,7 @@ p {
 		font-family: "dax", "DaxRegular", "Open Sans", "lucida grande", "Segoe UI", arial, verdana, "lucida sans unicode", tahoma, sans-serif;
 	}
 
-#layers, #map_style {
+#layers, #menu {
 		background: #fff;
 		position: relative;
 		z-index: 1;

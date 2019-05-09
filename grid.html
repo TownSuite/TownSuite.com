@@ -1,0 +1,323 @@
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        .widget_311 {
+            display: grid;
+            grid-gap: 15px;
+            overflow: hidden;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            /*   grid-template-columns: repeat(auto-fill, 200px); */
+            /*   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr) 150px); */
+            grid-auto-flow: dense;
+        }
+
+        .widget_311_list {
+            display: grid;
+            grid-gap: 15px;
+            overflow: hidden;
+        }
+
+        .item:nth-of-type(3n) {
+            grid-column: span 1;
+        }
+
+        .item:nth-of-type(5n) {
+            grid-row: span 1;
+        }
+
+        .item {
+            border-radius: 5px;
+            border: 2px solid #000;
+            padding: 10px;
+            text-align: justify;
+            max-height: 150px;
+        }
+
+        .item:hover {
+            border: 2px solid #07578e;
+            color: #07578e;
+            background: #d8e0ed;
+        }
+
+        h2 {
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 15px;
+        }
+
+        input[type=text],
+        select {
+            width: 100%;
+            height: 50px;
+            padding: 12px 20px;
+            font-size: 16px;
+            -webkit-border-radius: 0px;
+            background-color: transparent;
+        }
+
+        div#editor,
+        input[type=text],
+        select,
+        form.dropzone.dz-clickable {
+            border: 1px solid #000;
+            border-radius: 3px;
+        }
+
+        .submit {
+            background-color: #4CAF50;
+            /* Green */
+            border: 1px solid green;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            width: 150px;
+            display: block;
+            float: right;
+        }
+
+        .btn-group .button:not(:last-child) {
+            border-bottom: none;
+            /* Prevent double borders */
+        }
+
+        .submit:hover {
+            background-color: #3e8e41;
+        }
+        /* The container */
+
+        .container {
+            display: block;
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 16px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        /* Hide the browser's default radio button */
+
+        .container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+        /* Create a custom radio button */
+
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 20px;
+            width: 20px;
+            background-color: #eee;
+            border-radius: 50%;
+        }
+        /* On mouse-over, add a grey background color */
+
+        .container:hover input~.checkmark {
+            background-color: #ccc;
+        }
+        /* When the radio button is checked, add a blue background */
+
+        .container input:checked~.checkmark {
+            background-color: #000;
+        }
+        /* Create the indicator (the dot/circle - hidden when not checked) */
+
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+        /* Show the indicator (dot/circle) when checked */
+
+        .container input:checked~.checkmark:after {
+            display: block;
+        }
+        /* Style the indicator (dot/circle) */
+
+        .container .checkmark:after {
+            top: 7px;
+            left: 7px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: white;
+        }
+
+        .pell {
+            border: 1px solid rgba(10, 10, 10, 0.1);
+            box-sizing: border-box;
+        }
+
+        .pell-content {
+            box-sizing: border-box;
+            height: 300px;
+            outline: 0;
+            overflow-y: auto;
+            padding: 1em;
+        }
+
+        .pell-actionbar {
+            background-color: #FFF;
+            border-bottom: 1px solid #000;
+        }
+
+        .pell-button {
+            background-color: none;
+            border: none;
+            cursor: pointer;
+            height: 50px;
+            outline: 0;
+            width: 50px;
+            vertical-align: bottom;
+            padding: 10px;
+        }
+
+        .pell-button-selected {
+            background-color: #F0F0F0;
+        }
+    </style>
+</head>
+
+
+<body>
+    <h1> 311 </h1>
+    <div class="widget_311">
+        <div class="item" onclick="window.location='http://google.com';" style="cursor: pointer;">
+            <h2>Card title</h2>
+            <p>Lorem ipsum dolor sit amet, et alii quas diceret sea, hinc vide aeque at mel. Eu has quod nominavi. Mel ei nobis invidunt, sed id.</p>
+        </div>
+        <div class="item" onclick="window.location='http://google.com';" style="cursor: pointer;">
+            <h2>Card title 2</h2>
+            <p>Lorem ipsum dolor sit amet, et alii quas diceret sea, hinc vide aeque at mel. Eu has quod nominavi. Mel ei nobis invidunt, sed id.</p>
+        </div>
+        <div class="item" onclick="window.location='http://google.com';" style="cursor: pointer;">
+            <h2>Card title 3</h2>
+            <p>Lorem ipsum dolor sit amet, et alii quas diceret sea, hinc vide aeque at mel. Eu has quod nominavi. Mel ei nobis invidunt, sed id.</p>
+        </div>
+        <div class="item" onclick="window.location='http://google.com';" style="cursor: pointer;">
+            <h2>Card title 4</h2>
+            <p>Lorem ipsum dolor sit amet, et alii quas diceret sea, hinc vide aeque at mel. Eu has quod nominavi. Mel ei nobis invidunt, sed id.</p>
+        </div>
+        <div class="item" onclick="window.location='http://google.com';" style="cursor: pointer;">
+            <h2>Card title 5</h2>
+            <p>Lorem ipsum dolor sit amet, et alii quas diceret sea, hinc vide aeque at mel. Eu has quod nominavi. Mel ei nobis invidunt, sed id.</p>
+        </div>
+        <div class="item" onclick="window.location='http://google.com';" style="cursor: pointer;">
+            <h2>Card title 6</h2>
+            <p>Lorem ipsum dolor sit amet, et alii quas diceret sea, hinc vide aeque at mel. Eu has quod nominavi. Mel ei nobis invidunt, sed id.</p>
+        </div>
+        <div class="item" onclick="window.location='http://google.com';" style="cursor: pointer;">
+            <h2>Card title 7</h2>
+            <p>Lorem ipsum dolor sit amet, et alii quas diceret sea, hinc vide aeque at mel. Eu has quod nominavi. Mel ei nobis invidunt, sed id.</p>
+        </div>
+        <div class="item" onclick="window.location='http://google.com';" style="cursor: pointer;">
+            <h2>Card title 8</h2>
+            <p>Lorem ipsum dolor sit amet, et alii quas diceret sea, hinc vide aeque at mel. Eu has quod nominavi. Mel ei nobis invidunt, sed id.</p>
+        </div>
+        <div class="item" onclick="window.location='http://google.com';" style="cursor: pointer;">
+            <h2>Card title 9</h2>
+            <p>Lorem ipsum dolor sit amet, et alii quas diceret sea, hinc vide aeque at mel. Eu has quod nominavi. Mel ei nobis invidunt, sed id.</p>
+        </div>
+    </div>
+
+    <h1> 311 suboption</h1>
+    <div class="widget_311_list">
+        <div class="item" onclick="window.location='http://google.com';" style="cursor: pointer;">
+            <p>Lorem ipsum dolor sit amet, et alii quas diceret sea, hinc vide aeque at mel. Eu has quod nominavi. Mel ei nobis invidunt, sed id.</p>
+        </div>
+        <div class="item" onclick="window.location='http://google.com';" style="cursor: pointer;">
+            <p>Lorem ipsum dolor sit amet, et alii quas diceret sea, hinc vide aeque at mel. Eu has quod nominavi. Mel ei nobis invidunt, sed id.</p>
+        </div>
+    </div>
+
+    <h1> Submit </h1>
+
+    <div class="widget_311_list">
+
+        <label for="email">Your email address</label>
+        <input type="text" id="email" name="email" placeholder="Your email address">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="suject" placeholder="Subject">
+        <label for="body">Body</label>
+        <div id="editor" class="pell"></div>
+
+
+        <script src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>
+        <link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
+        <form action="#" class="dropzone"></form>
+        <div style="float:right">
+            <h1>Other options</h1> Select
+            <div>
+                <select>
+         <option value="0">Select car:</option>
+         <option value="1">Audi</option>
+         <option value="2">BMW</option>
+         <option value="3">Citroen</option>
+         <option value="4">Ford</option>
+         <option value="5">Honda</option>
+         <option value="6">Jaguar</option>
+         <option value="7">Land Rover</option>
+         <option value="8">Mercedes</option>
+         <option value="9">Mini</option>
+         <option value="10">Nissan</option>
+         <option value="11">Toyota</option>
+         <option value="12">Volvo</option>
+       </select>
+            </div>
+            Radio button
+            <div>
+                <label class="container">One
+                  <input type="radio" checked="checked" name="radio">
+                  <span class="checkmark"></span>
+                </label>
+                <label class="container">Two
+                  <input type="radio" name="radio">
+                  <span class="checkmark"></span>
+                </label>
+                <label class="container">Three
+                  <input type="radio" name="radio">
+                  <span class="checkmark"></span>
+                </label>
+                <label class="container">Four
+                  <input type="radio" name="radio">
+                  <span class="checkmark"></span>
+                </label>
+            </div>
+            <button class="submit">Submit</button>
+        </div>
+
+        <div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pell/1.0.6/pell.js"></script>
+        <script>
+            var editor = window.pell.init({
+                element: document.getElementById('editor'),
+                defaultParagraphSeparator: 'p',
+                onChange: function(html) {
+                    document.getElementById('text-output').innerHTML = html
+                    document.getElementById('html-output').textContent = html
+                }
+            })
+        </script>
+
+
+</body>
+
+</html>

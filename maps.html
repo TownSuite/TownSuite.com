@@ -27,13 +27,13 @@
   <nav id="layers"></nav>
 
 <p id="words">Map Style</p>
-<div id="map_style">    <input id='basic' type='radio' name='rtoggle' value='basic' checked='checked'>
+<div id="menu">    <input id='basic' type='radio' name='rtoggle' value='basic'>
     <label for='basic'>basic</label>
     <input id='bright' type='radio' name='rtoggle' value='bright'>
     <label for='bright'>bright</label>
     <input id='light' type='radio' name='rtoggle' value='light'>
     <label for='light'>light</label>
-    <input id='dark' type='radio' name='rtoggle' value='dark'>
+    <input id='dark' type='radio' name='rtoggle' value='dark' checked='checked'>
     <label for='dark'>dark</label>
     <input id='satellite' type='radio' name='rtoggle' value='satellite'>
     <label for='satellite'>satellite</label></div>
@@ -46,12 +46,10 @@
     <div id='calculated-area'></div>
 </div>
 <script>
-
-
 mapboxgl.accessToken = 'pk.eyJ1IjoidG93bnN1aXRlIiwiYSI6ImNpeWpzZDcwbjAwMDMzMXBqejRxczVybmcifQ.c2mEkfyCGE4dpjQJMZhI8Q';
 var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v9',
+    style: 'mapbox://styles/mapbox/dark-v9',
     zoom: 15,
     center: [-54.6052, 48.9553]
 });
@@ -97,18 +95,6 @@ function onDragEnd() {
 
 marker.on('dragend', onDragEnd);
 
-var layerList = document.getElementById('map_style');
-var inputs = layerList.getElementsByTagName('input')
-
-function switchLayer(layer) {
-    var layerId = layer.target.id;
-    map.setStyle('mapbox://styles/mapbox/' + layerId + '-v9');
-};
-
-for (var i = 0; i < inputs.length; i++) {
-    inputs[i].onclick = switchLayer;
-}
-
 var geocoder = new MapboxGeocoder({
     accessToken: mapboxgl.accessToken
 });
@@ -127,7 +113,7 @@ map.on('load', function () {
         'source': 'contours',
         'source-layer': 'contour',
         'layout': {
-            'visibility': 'visible',
+            'visibility': 'none',
             'line-join': 'round',
             'line-cap': 'round'
         },
@@ -135,6 +121,24 @@ map.on('load', function () {
             'line-color': '#877b59',
             'line-width': 1
         }
+    });
+
+    map.addSource('lights', {
+        type: 'vector',
+        url: 'mapbox://townsuite.cjrcpsngq221y2wn52usl72i4-39tne'
+    });
+    map.addLayer({
+        'id': 'lights',
+        'type': 'circle',
+        'source': 'lights',
+        'layout': {
+            'visibility': 'none'
+        },
+        'paint': {
+            'circle-radius': 8,
+            'circle-color': 'rgba(148,55,23,1)'
+        },
+        'source-layer': 'Test_points_2'
     });
 
     map.addSource('bob', {
@@ -146,7 +150,7 @@ map.on('load', function () {
         'type': 'circle',
         'source': 'bob',
         'layout': {
-            'visibility': 'visible'
+            'visibility': 'none'
         },
         'paint': {
             'circle-radius': 8,
@@ -156,14 +160,14 @@ map.on('load', function () {
     });
 });
 
-var toggleableLayerIds = [ 'contours', 'bob' ];
+var toggleableLayerIds = [ 'contours','lights', 'bob' ];
 
 for (var i = 0; i < toggleableLayerIds.length; i++) {
     var id = toggleableLayerIds[i];
 
     var link = document.createElement('a');
     link.href = '#';
-    link.className = 'active';
+    link.className = 'hover';
     link.textContent = id;
 
     link.onclick = function (e) {
@@ -254,8 +258,18 @@ map.on('load', function () {
     });
 });
 
-var nav = new mapboxgl.Draw();
-map.addControl(nav, 'top-left');
+
+var layerList = document.getElementById('menu');
+var inputs = layerList.getElementsByTagName('input')
+
+function switchLayer(layer) {
+    var layerId = layer.target.id;
+    map.setStyle('mapbox://styles/mapbox/' + layerId + '-v9');
+};
+
+for (var i = 0; i < inputs.length; i++) {
+    inputs[i].onclick = switchLayer;
+};
 
 </script>
 
