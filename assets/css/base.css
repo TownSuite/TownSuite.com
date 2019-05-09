@@ -5571,7 +5571,7 @@ a#ts-learn-more, a.button-tertiary {
 		text-decoration: none;
 }
 
-#Complaints311Div div {
+#Complaints311Div div, .labels311 {
 	text-align: left !important;
 	font-size: 20px !important;
 	font-family: "dax", "DaxRegular", "Open Sans", "lucida grande", "Segoe UI", arial, verdana, "lucida sans unicode", tahoma, sans-serif !important;
@@ -5579,10 +5579,26 @@ a#ts-learn-more, a.button-tertiary {
 p.p311requestdescription {
 	font-size: 16px;
 }
-h1#formLabel {
-	font-size:25px;
-	font-weight: strong;
+h1#formLabel, .button311 {
+	font-size:25px !important;
+	font-weight: strong !important;
+	font-family: "dax", "DaxRegular", "Open Sans", "lucida grande", "Segoe UI", arial, verdana, "lucida sans unicode", tahoma, sans-serif !important;
 }
-.mapboxgl-ctrl-attrib-inner {
+.mapboxgl-ctrl-bottom-left, .mapboxgl-ctrl-bottom-right {
 	display: none;
 }
+.item311 {
+		color: #07578e !important;
+		border: 2px solid #07578e !important;
+		border-radius: 5px !important;
+		margin-top: 1em !important;
+}
+
+#Complaints311Div input {
+			height: 40px !important;
+}
+#Complaints311Div input, .pell-content, .pell-actionbar, .fileDropzone {
+	    border: 1px solid #000 !important;
+			font-size: 14px !important;
+}
+input#311Checkbox {transform:scale(2, 2) !important;}
