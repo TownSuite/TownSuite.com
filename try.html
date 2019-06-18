@@ -72,16 +72,18 @@
             <h4 class="medium-title">Call 1.800.408.3313 to speak with us directly.</h4>
             <h4> Or fill out the form below and we will respond to your inquiry.</h4>
         </section>
-        <section class="about-section section-TownSuite even">
-            <div id="TheNewSRDiv"></div>
 
-            <script type="text/javascript" src="https://portal.ws.townsuite.com/assets/typescript/complaintsportal/EmbedView.js"></script>
-            <script type="text/javascript">
-                window.onload = function() {
-                    new TownSuite.Issue.EmbedView('https://portal.ws.townsuite.com', "default", "TheNewSRDiv", ['Try TownSuite', 'Partnerships', 'Sales', 'Product Inquiries']);
-                };
-            </script>
+        <section class="about-section section-TownSuite even">
+          <div id="Complaints311Div">
+          <script type="text/javascript" src="https://portal.ws.townsuite.com/assets/typescript/complaintsportal/311Complaints.js"></script>
+          <script type="text/javascript">
+          window.onload = function(){
+          Townsuite.Complaint311.EmbedInit(true, "https://portal.ws.townsuite.com", "Complaints311Div");
+          };
+          </script>
+          </div>
         </section>
+
         <section class="about-section2 section-TownSuite even">
             <div class="about-section-container">
                 <h2 class="heading-secondary">Our locations</h2>
