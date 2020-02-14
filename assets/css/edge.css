@@ -1,0 +1,14 @@
+th.title, td {
+text-align: left;
+}
+section.hero.small-padding {
+    background-color:  #7777;
+    background-image: linear-gradient(rgba(255,255,255,0.45), rgba(255,255,255,0.45)), url("/assets/img/edge/nl.jpg");
+}
+@media (max-width: 1020px) {
+.townsuite-2017.townsuite-2017--responsive .hero__copy .button-secondary {
+    background: #fff;
+}}
+h3.medium-title {
+color: #57595b !important;
+}
