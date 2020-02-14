@@ -4,6 +4,8 @@ text-align: left;
 section.hero.small-padding {
     background-color:  #7777;
     background-image: linear-gradient(rgba(255,255,255,0.65), rgba(255,255,255,0.65)), url("/assets/img/edge/nl.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 @media (max-width: 1020px) {
 .townsuite-2017.townsuite-2017--responsive .hero__copy .button-secondary {
