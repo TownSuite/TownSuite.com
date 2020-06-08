@@ -5590,11 +5590,19 @@ h1#formLabel, .button311 {
 .mapboxgl-ctrl-bottom-left, .mapboxgl-ctrl-bottom-right {
 	display: none;
 }
-.item311 {
+.item311, div.item311:hover {
 		color: #07578e !important;
 		border: 2px solid #07578e !important;
 		border-radius: 5px !important;
 		margin-top: 1em !important;
+}
+
+div.item311:hover {
+	color: #07578e !important;
+	border: 2px solid #07578e !important;
+	border-radius: 5px !important;
+	margin-top: 1em !important;
+	background-color: #d8e0ed !important;
 }
 
 #Complaints311Div input {
@@ -5605,3 +5613,4 @@ h1#formLabel, .button311 {
 			font-size: 14px !important;
 }
 input#311Checkbox {transform:scale(2, 2) !important;}
+
