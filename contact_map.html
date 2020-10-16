@@ -241,7 +241,7 @@
             'properties': {
                 "phoneFormatted": "(800) 408-3313",
                 "phone": "1.800.408.3313 + Option 3",
-                "address": "Gander Office - HQ",
+                "address": "Newfoundland & Labrador - HQ",
                 "city": "Gander",
                 "country": "Canada",
                 "postalCode": "A1V 1L6",
@@ -257,7 +257,7 @@
             "properties": {
                 "phoneFormatted": "(800) 408-3313",
                 "phone": "1.800.408.3313 + Option 2",
-                "address": "Halifax Office",
+                "address": "Nova Scotia - Office",
                 "city": "Halifax",
                 "country": "Canada",
                 "postalCode": "B3L 2C2",
@@ -273,7 +273,7 @@
             "properties": {
                 "phoneFormatted": "(800) 408-3313",
                 "phone": "1.800.408.3313 + Option 2",
-                "address": "Fredricton Office",
+                "address": "New Brunswick - Office",
                 "city": "Fredricton",
                 "country": "Canada",
                 "postalCode": "E3B 1S7",
@@ -289,7 +289,7 @@
             "properties": {
                 "phoneFormatted": "(800) 408-3313",
                 "phone": "1.800.408.3313 + Option 3",
-                "address": "BC Partner",
+                "address": "British Colombia - Partner",
                 "city": "Fernie",
                 "country": "Canada",
                 "postalCode": "V0B 1M3",
@@ -305,7 +305,7 @@
             "properties": {
                 "phoneFormatted": "(800) 408-3313",
                 "phone": "1.800.408.3313 + Option 3",
-                "address": "Manitoba Partner",
+                "address": "Manitoba - Partner",
                 "city": "Winnipeg",
                 "country": "Canada",
                 "postalCode": "R3C 1E5",
@@ -321,7 +321,7 @@
             "properties": {
                 "phoneFormatted": "(800) 408-3313",
                 "phone": "1.800.408.3313 + Option 1",
-                "address": "Colombo Office",
+                "address": "Colombo - Office",
                 "city": "Colombo",
                 "country": "Sri Lanka",
                 "postalCode": "B3L 2C2",
@@ -432,11 +432,11 @@
           link.href = '#';
           link.className = 'title';
           link.id = 'link-' + prop.id;
-          link.innerHTML = prop.city;
+          link.innerHTML = prop.address;
 
           /* Add details to the individual listing. */
           var details = listing.appendChild(document.createElement('div'));
-          details.innerHTML = prop.city;
+          details.innerHTML = prop.city + ", " + prop.state;
           if (prop.phone) {
             details.innerHTML += ' &middot; ' + prop.phoneFormatted;
           }
