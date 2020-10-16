@@ -158,7 +158,6 @@ body {
 }
 .about-section2 {
 		border-bottom: 1px solid rgba(208, 212, 217, 0.9);
-		padding: 40px 0;
 }
 @media only screen and (max-width: 767px) {
 		.about-section {
