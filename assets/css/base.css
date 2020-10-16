@@ -5612,9 +5612,6 @@ div.item311:hover {
 #Complaints311Div input {
 			height: 40px !important;
 }
-#Complaints311Div input, .pell-content, .pell-actionbar, .fileDropzone {
-	    border: 1px solid #000 !important;
-			font-size: 14px !important;
-}
+
 input#311Checkbox {transform:scale(2, 2) !important;}
 
