@@ -1,0 +1,15 @@
+{
+    "applinks": {
+        "apps": [],
+        "details": [
+          {
+            "appID": "AKZ9SS86G7.com.townsuite.mobile",
+            "paths": [ "/issue/view" ]
+          },
+		  {
+            "appID": "AG7TGAU4VY.com.townsuite.mobile",
+            "paths": [ "/issue/view" ]
+          }
+        ]
+    }
+}

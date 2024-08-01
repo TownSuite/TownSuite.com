@@ -1,0 +1,14 @@
+.visible-xs {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .visible-xs {
+    display: table-row;
+  }
+
+  td:first-child,
+  th:first-child {
+    display: none;
+  }
+}

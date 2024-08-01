@@ -1,0 +1,246 @@
+@font-face {
+		font-family: 'dax';
+		src: url('https://townsuite.com/assets/css/dax-regular-webfont.eot');
+		src: url('https://townsuite.com/assets/css/dax-regular-webfont.eot?#iefix') format('embedded-opentype'),
+		url('https://townsuite.com/assets/css/dax-regular-webfont.woff') format('woff'),
+		url('https://townsuite.com/assets/css/dax-regular-webfont.ttf') format('truetype'),
+		url('https://townsuite.com/assets/css/dax-regular-webfont.svg') format('svg');
+		font-weight: normal;
+		font-style: normal;
+}
+
+*, :before, :after {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  background: #d8dfee;
+  min-width: 275px;
+  height: 100vh;
+  margin: 0 10vw;
+  overflow: hidden;
+  color: #0f5590;
+  font-family: "dax", "Open Sans", "lucida grande", "Segoe UI", arial, verdana;
+}
+
+.wrapper {
+  flex-grow: 2;
+  width: 40vw;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin: 0;
+  font-size: 6em;
+  font-weight: 100;
+}
+
+p {
+  width: 95%;
+  font-size: 1.5em;
+  line-height: 1.4;
+}
+
+.buttons {
+  white-space: nowrap;
+  display: inline-block;
+}
+
+span {
+  display: block;
+  text-transform: uppercase;
+  color: #0f5590;
+  letter-spacing: 1.5px;
+  text-align: center;
+}
+
+a {
+  display: inline-block;
+  padding: 0.8em 1em;
+  margin-right: 1em;
+  margin-bottom: 1em;
+  border: 3px solid #0f5590;
+  color: #0f5590;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.2em;
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s;
+	border-radius: 15px;
+}
+a:hover {
+  color: #d8dfee;
+}
+a:hover:before {
+  top: 0;
+}
+a:before {
+  content: "";
+  background: #0f5590;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: -100%;
+  left: 0;
+  transition: 0.3s;
+  z-index: -1;
+}
+
+.space {
+  width: 150px;
+  height: calc(50vh + 95px);
+  border-top-left-radius: 95px;
+  border-top-right-radius: 95px;
+  overflow: hidden;
+  margin: calc(50vh - 95px) auto 0 auto;
+  position: relative;
+  pointer-events: none;
+  -webkit-transform: translateZ(0);
+}
+
+.blackhole {
+  border: 5px solid #0f5590;
+  background: #fbfbfb;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+.ship {
+  height: 150px;
+  width: 150px;
+  margin-left: 30px;
+  animation: blackhole 5s infinite linear;
+  position: absolute;
+  bottom: -150px;
+  z-index:1;
+}
+
+@keyframes blackhole {
+  to {
+    transform: translateY(-100vh);
+  }
+}
+@media (max-width: 600px) {
+  body {
+    margin: 0 5vw;
+  }
+}
+
+/* ROCKET STUFF*/
+#rocket-container{
+	width: 60px;
+	right: 50%;
+	top: 10%;
+	position: absolute;
+	animation: shake 1.5s linear infinite;
+	transform: rotate(0deg);
+}
+
+#rocket{
+	z-index: -1;
+}
+
+@keyframes shake{
+10%, 90% {
+    transform: translate3d(-2px, 1px, 0) rotate(0deg);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, -1px, 0) rotate(0deg);
+
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-3px, 0, 0) rotate(0deg);
+
+  }
+
+  40%, 60% {
+    transform: translate3d(3px, 0, 0) rotate(0deg);
+
+  }
+
+}
+
+/* EXHAUST STUFF*/
+
+#flame-1, #flame-2, #flame-3{
+	z-index: -1;
+}
+
+#flame-1{
+	transform: rotate(180deg);
+    width: 50px;
+    position: absolute;
+}
+
+#flame-2{
+	transform: rotate(180deg);
+    width: 55px;
+    position: absolute;
+}
+
+#flame-3{
+	transform: rotate(180deg);
+    width: 45px;
+    position: absolute;
+}
+
+#flame-1 {
+	animation: flicker 111s infinite;
+	width: 35px;
+	    top: 115px;
+    left: 7px;
+}
+#flame-2 {
+	animation: flicker 111s reverse infinite;
+    top: 108px;
+    left: 3px;
+}
+#flame-3 {
+	animation: flicker 111s infinite;
+	width: 45px;
+	    top: 108px;
+    left: 11px;
+}
+
+@keyframes flicker {
+    0% {
+        background-position:0px 0px;
+        opacity:.8
+}
+    25% {
+        background-position:0px 0px;
+}
+    25.1% {
+        background-position:-100px 0px;
+}
+    50% {
+        background-position:-100px 0px;
+        opacity:.4
+}
+    50.1% {
+        background-position:-200px 0px;
+}
+    75% {
+        background-position:-200px 0px;
+
+}
+    75.1% {
+        background-position:-100px 0px;
+}
+    100% {
+        background-position:-100px 0px;
+        opacity:.8
+}
+}

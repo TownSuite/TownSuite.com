@@ -1,0 +1,4 @@
+User-Agent: *
+Disallow:
+
+Sitemap: https://townsuite.com/sitemap.xml

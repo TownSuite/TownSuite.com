@@ -1,0 +1,25 @@
+{
+  "name": "townsuite.com",
+  "version": "1.0.0",
+  "description": "townsuite.com website",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TownSuite/TownSuite.com.git"
+  },
+  "keywords": [
+    "townsuite.com",
+    "living",
+    "municipal",
+    "software"
+  ],
+  "author": "Andrew Whey",
+  "license": "SEE LICENSE IN MARKDOWN.md",
+  "bugs": {
+    "url": "https://github.com/TownSuite/TownSuite.com/issues"
+  },
+  "homepage": "https://github.com/TownSuite/TownSuite.com#readme"
+}
