@@ -1,915 +1,503 @@
 <!DOCTYPE html>
-<html manifest="demo.appcache" lang="en_CA" xmlns:fb="https://ogp.me/ns/fb#" xml:lang="en_US" class="grid-990" xmlns="https://www.w3.org/1999/xhtml">
-
+<html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="HandheldFriendly" content="true" />
-    <link id="linkFavicon" rel="shortcut icon" href="/assets/emblem.png" type="image/x-icon"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <link href="/assets/css/base.css" type="text/css" crossorigin="anonymous" rel="stylesheet" />
-    <meta name="keywords" content="TownSuite, Municipal, Public sector, Public sector software, Local goverment software, GIS, Accounting, Financial, Asset Management, HRIS, HRM, Event and Facility management, Land management, Mapping, Public Works, Planning, Billing, Accounts Payable, General Ledger, Atlantic Canada, Andrew Whey, Newfoundland, Government, Municipality"/>
-    <meta name="description" content="TownSuite Municipal Software focuses on creating living municipal software that covers a broad array of offerings for any size municipality or public sector entity." />
-
-    <!-- Twitter data -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Home - TownSuite Municipal Software" />
-    <meta name="twitter:description" content="TownSuite Municipal Software focuses on creating living municipal software that covers a broad array of offerings for any size municipality or public sector entity." />
-    <meta name="twitter:image" content="https://townsuite.com/assets/emblem.png" />
-    <meta name="twitter:url" content="https://townsuite.com/" />
-    <meta name="twitter:widgets:csp" content="on" />
-    <meta name="twitter:label1" value="Try TownSuite" />
-    <meta name="twitter:data1" value="Today" />
-    <meta name="twitter:label2" value="Find out more" />
-    <meta name="twitter:data2" value="at TownSuite.com" />
-
-    <!-- Facebook -->
-    <meta property="fb:app_id" content="1505744336126478"/>
-
-    <!-- Open Graph data -->
-    <meta content="Home - TownSuite Municipal Software" property="og:title" />
-    <meta content="website" property="og:type" />
-    <meta content="https://townsuite.com/" property="og:url" />
-    <meta content="https://townsuite.com/assets/emblem.png" property="og:image" />
-    <meta content="TownSuite Municipal Software focuses on creating living municipal software that covers a broad array of offerings for any size municipality or public sector entity." property="og:description"/>
-
-    <title>Home - TownSuite Municipal Software</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
 </head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="favicon.ico" />
+<style>
+@font-face{
+  font-family:'Dax';
+  src:url('fonts/dax-regular.ttf') format('truetype'),
+      url('fonts/dax-regular.otf') format('opentype');
+  font-weight:400 900;font-style:normal;font-display:swap;
+}
+html,body{margin:0;padding:0;}
+::selection{background:#00578E;color:#fff;}
+:root{
+  --ts-blue:#00578E;--ts-blue-mid:#6B95BE;--ts-blue-soft:#D8E0ED;
+  --ts-orange:#E48D1A;--ts-green:#2DA343;--ts-red:#E03A3E;
+  --bg:#FAFBFD;--bg2:#EFF3F8;--surface:#FFFFFF;
+  --ink:#13212D;--ink2:#4C5D6C;--ink3:#7C8B98;
+  --line:#DCE4EC;--line2:#C9D5E0;
+  --accent:#00578E;--accent-ink:#FFFFFF;--accent-tint:#E9EFF6;
+  --halo:rgba(0,87,142,.10);--halo2:rgba(0,87,142,.14);
+  --btn-bg:#00578E;--btn-ink:#FFFFFF;
+  --em-blue:#00578E;--em-light:#D9E0EC;--em-mid:#6C95BE;
+  --sq-soft:#D8E0ED;--sq-mid:#6B95BE;
+  --logo-filter:none;--disp-sun:flex;--disp-moon:none;
+  --shadow-1:0 1px 2px rgba(7,25,40,.06),0 4px 14px rgba(7,25,40,.06);
+  --shadow-2:0 2px 6px rgba(7,25,40,.08),0 18px 44px rgba(7,25,40,.12);
+}
+[data-theme="dark"]{
+  --bg:#071420;--bg2:#0A1B2A;--surface:#0D2032;
+  --ink:#E9F0F6;--ink2:#A8BBCA;--ink3:#71879A;
+  --line:#1C3850;--line2:#27465F;
+  --accent:#2D9CDE;--accent-ink:#06131D;--accent-tint:#0C2C45;
+  --halo:rgba(45,156,222,.14);--halo2:rgba(45,156,222,.18);
+  --btn-bg:#2D9CDE;--btn-ink:#06131D;
+  --em-blue:#1C77B4;
+  --sq-soft:#16344C;--sq-mid:#2B567A;
+  --logo-filter:brightness(0) invert(.92);--disp-sun:none;--disp-moon:flex;
+  --shadow-1:0 1px 2px rgba(0,0,0,.3),0 4px 14px rgba(0,0,0,.3);
+  --shadow-2:0 2px 6px rgba(0,0,0,.35),0 18px 44px rgba(0,0,0,.42);
+}
+@keyframes stageIn{from{opacity:0;transform:translateY(12px) scale(.96);}to{opacity:1;transform:translateY(0) scale(1);}}
+@keyframes tickIn{from{opacity:0;transform:translateY(-14px);}to{opacity:1;transform:translateY(0);}}
+@keyframes digitRoll{from{transform:translateY(0);}to{transform:translateY(-1em);}}
+@keyframes sepPulse{0%{transform:rotate(45deg) scale(1);}45%{transform:rotate(225deg) scale(1.6);filter:brightness(1.25);}100%{transform:rotate(405deg) scale(1);filter:brightness(1);}}
+@keyframes sqSpawn{from{transform:rotate(-200deg) scale(0);opacity:0;}to{transform:rotate(0deg) scale(1);opacity:1;}}
+@keyframes nodePing{0%,100%{transform:scale(1);filter:brightness(1);}45%{transform:scale(1.5);filter:brightness(1.3);}}
+@keyframes dotBounce{0%,70%,100%{transform:translateY(0);opacity:.3;}35%{transform:translateY(-12px);opacity:1;}}
+@keyframes floatBob{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+@keyframes glowPulse{0%,100%{opacity:.65;transform:scale(1);}50%{opacity:1;transform:scale(1.07);}}
+/* Mobile: strip decorative layers so the message + clock breathe */
+@media (max-width:640px){
+  .m-hide{display:none !important;}
+  .m-grid{opacity:.45;background-size:44px 44px !important;}
+  .m-lede{font-size:15.5px !important;max-width:34ch !important;margin-top:10px !important;}
+  .m-meta{gap:0 !important;margin-top:18px !important;}
+  .m-foot{justify-content:center !important;text-align:center !important;font-size:12px !important;}
+  .m-main{justify-content:flex-start !important;padding-top:10px !important;}
+}
+/* Narrowest phones (≤360px): tighten the clock so 4 units never crowd */
+@media (max-width:360px){
+  .cd-row{gap:3px !important;}
+  .cd-col{min-width:0 !important;flex:1 1 0 !important;}
+  .cd-digit{font-size:38px !important;letter-spacing:-.03em !important;}
+  .cd-cap{font-size:10px !important;letter-spacing:.14em !important;}
+  .cd-sep{transform:scale(.7);margin-top:8px !important;}
+}
+</style>
+</helmet>
 
-<body class="en_CA  townsuite-2017 townsuite-2017--responsive townsuite-logo-2017  exp-growth_web_google_register--polish" dir="ltr">
-    <header class="mast-head">
-        <div class="mast-head__container container">
-            <nav class="mast-head__nav mast-head-nav">
-                <ul class="nav-list">
-                    <li class="nav-list__item nav-list__item--ts"><a href="/try" id="ts-learn-more" class="button-tertiary ts-learn-more">Try TownSuite</a>
-                    </li>
-                </ul>
-                <ul class="nav-list">
-                    <li class="nav-list__item nav-list__item--download"><a href="/apps" class="button-link">View our apps</a>
-                    </li>
-                    <li class="nav-list__item nav-list__item--sign-in"><a href="https://portal.ws.townsuite.com" id="sign-in" class="sign-in button-link">Sign in</a>
-                    </li>
-                </ul>
-            </nav>
-            <h1 id="townsuite-logo" class="townsuite-logo"><img src="../assets/logo.svg" alt="" src="/" href="/" class="townsuite-logo__type" />TownSuite</h1>
-        </div>
-    </header>
+<div ref="{{ rootRef }}" data-screen-label="Launch countdown" style="position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;background:var(--bg);color:var(--ink);font-family:'Dax',system-ui,-apple-system,'Segoe UI',sans-serif;overflow:hidden;transition:background .35s ease,color .35s ease;-webkit-font-smoothing:antialiased;">
 
-    <div class="outer-menu">
-        <input class="checkbox-toggle" type="checkbox" />
-        <div class="hamburger">
-            <div></div>
-        </div>
-        <div class="menu-title">Menu</div>
-        <div class="menu">
-            <div>
-                <div>
-                    <ul>
-                        <li>1. <a href="/big-picture">The <strong>BIG</strong> picture</a></li>
-                        <li>2. <a href="/enhance">Enhancing your processes</a></li>
-                        <li>3. <a href="/apps">Understand our offerings</a></li>
-                        <li>4. <a href="/about">Learn about who we are</a></li>
-                        <li>5. <a href="/edge">TownSuite EDGE Conference</a></li>
-                        <div class="login">
-                            <a href="/try" class="button-tertiary">Try TownSuite</a> or
-                            <a href="https://portal.ws.townsuite.com" class="button-tertiary">Sign in</a>
-                        </div>
-                    </ul>
-                </div>
-            </div>
-        </div>
+  <!-- hero grid backdrop -->
+  <div aria-hidden="true" class="m-grid" style="position:absolute;inset:-2% -2% 28% -2%;z-index:0;pointer-events:none;background:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 75% 65% at 50% 34%,rgba(0,0,0,.5),transparent 70%);-webkit-mask-image:radial-gradient(ellipse 75% 65% at 50% 34%,rgba(0,0,0,.5),transparent 70%);"></div>
+
+  <!-- floating brand squares (parallax via --px/--py) -->
+  <div aria-hidden="true" class="m-hide" style="position:absolute;inset:0;z-index:1;pointer-events:none;">
+    <div style="position:absolute;left:4%;top:16%;width:30px;height:30px;border-radius:14%;background:var(--sq-soft);opacity:.9;transform:rotate(45deg) translate(calc(var(--px,0px)*.6),calc(var(--py,0px)*.6));transition:transform .2s ease-out;"></div>
+    <div style="position:absolute;left:12%;bottom:14%;width:16px;height:16px;border-radius:14%;background:var(--sq-mid);opacity:.9;transform:rotate(45deg) translate(calc(var(--px,0px)*1.5),calc(var(--py,0px)*1.5));transition:transform .2s ease-out;"></div>
+    <div style="position:absolute;left:44%;top:8%;width:13px;height:13px;border-radius:14%;background:var(--ts-orange);opacity:.9;transform:rotate(45deg) translate(calc(var(--px,0px)*2.1),calc(var(--py,0px)*2.1));transition:transform .2s ease-out;"></div>
+    <div style="position:absolute;right:7%;top:11%;width:15px;height:15px;border-radius:14%;background:var(--ts-green);opacity:.9;transform:rotate(45deg) translate(calc(var(--px,0px)*1.2),calc(var(--py,0px)*1.2));transition:transform .2s ease-out;"></div>
+    <div style="position:absolute;right:3%;bottom:20%;width:24px;height:24px;border-radius:14%;background:var(--sq-soft);opacity:.9;transform:rotate(45deg) translate(calc(var(--px,0px)*1.8),calc(var(--py,0px)*1.8));transition:transform .2s ease-out;"></div>
+    <div style="position:absolute;left:36%;bottom:7%;width:12px;height:12px;border-radius:14%;background:var(--ts-red);opacity:.9;transform:rotate(45deg) translate(calc(var(--px,0px)*.9),calc(var(--py,0px)*.9));transition:transform .2s ease-out;"></div>
+    <div style="position:absolute;right:24%;bottom:9%;width:18px;height:18px;border-radius:14%;background:var(--sq-mid);opacity:.7;transform:rotate(45deg) translate(calc(var(--px,0px)*1.4),calc(var(--py,0px)*1.4));transition:transform .2s ease-out;"></div>
+    {{ spawnedSquares }}
+  </div>
+
+  <!-- top chrome -->
+  <header style="position:relative;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:24px clamp(20px,4vw,44px) 0;">
+    <a href="https://www.townsuite.com" target="_blank" rel="noopener" style="display:block;">
+      <img src="townsuite-logo.svg" alt="TownSuite Municipal Software" style="height:56px;width:auto;display:block;filter:var(--logo-filter);" />
+    </a>
+    <button type="button" onClick="{{ toggleTheme }}" aria-label="Toggle dark mode" style="display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:13px;cursor:pointer;border:1.5px solid var(--line2);background:var(--surface);color:var(--ink2);padding:0;transition:border-color .18s,color .18s,transform .18s;" style-hover="border-color:var(--accent);color:var(--accent);transform:rotate(-12deg);">
+      <svg viewBox="0 0 24 24" style="width:21px;height:21px;display:var(--disp-sun);"><circle cx="12" cy="12" r="4.4" fill="none" stroke="currentColor" stroke-width="2"></circle><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5 5l1.7 1.7M17.3 17.3L19 19M19 5l-1.7 1.7M6.7 17.3L5 19" fill="none"></path></svg>
+      <svg viewBox="0 0 24 24" style="width:21px;height:21px;display:var(--disp-moon);"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M20 13.6A8.3 8.3 0 0 1 10.4 4a8.3 8.3 0 1 0 9.6 9.6z"></path></svg>
+    </button>
+  </header>
+
+  <!-- centre stage -->
+  <main class="m-main" style="position:relative;z-index:3;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:14px clamp(20px,4vw,48px) 36px;">
+
+    {{ morphStage }}
+
+    <p style="display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:{{ milestoneColor }};margin:4px 0 0;transition:color .5s ease;">
+      <span style="width:9px;height:9px;background:{{ milestoneColor }};transform:rotate(45deg);border-radius:1.5px;flex:none;display:block;transition:background .5s ease;"></span>
+      {{ milestoneLabel }}
+    </p>
+
+    <h1 style="font-weight:900;font-size:clamp(34px,4.6vw,58px);line-height:1.02;letter-spacing:-.022em;margin:13px 0 0;text-wrap:balance;max-width:18ch;">We're connecting <span style="color:var(--accent);">the dots.</span></h1>
+
+    <p class="m-lede" style="font-size:clamp(16px,1.4vw,19px);line-height:1.6;color:var(--ink2);max-width:560px;margin:12px auto 0;text-wrap:pretty;">One municipal platform, every department &mdash; all connected. On launch day, TownSuite mERP<sup style="font-size:.6em;">&reg;</sup> unveils something we've never shown before. Launching in:</p>
+
+    <!-- countdown -->
+    <div role="timer" class="cd-row" style="display:flex;align-items:flex-start;justify-content:center;gap:clamp(6px,2.4vw,24px);margin-top:clamp(20px,3vw,34px);">
+      <div class="cd-col" style="display:flex;flex-direction:column;align-items:center;min-width:clamp(58px,11vw,124px);">
+        <div class="cd-digit" style="font-size:clamp(46px,7vw,92px);font-weight:900;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums;">{{ daysEl }}</div>
+        <div class="cd-cap" style="margin-top:10px;font-size:12px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--ink3);">Days</div>
+      </div>
+      <div aria-hidden="true" class="cd-sep" style="margin-top:clamp(14px,2.2vw,28px);">{{ sepDaysEl }}</div>
+      <div class="cd-col" style="display:flex;flex-direction:column;align-items:center;min-width:clamp(58px,11vw,124px);">
+        <div class="cd-digit" style="font-size:clamp(46px,7vw,92px);font-weight:900;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums;">{{ hoursEl }}</div>
+        <div class="cd-cap" style="margin-top:10px;font-size:12px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--ink3);">Hours</div>
+      </div>
+      <div aria-hidden="true" class="cd-sep" style="margin-top:clamp(14px,2.2vw,28px);">{{ sepHoursEl }}</div>
+      <div class="cd-col" style="display:flex;flex-direction:column;align-items:center;min-width:clamp(58px,11vw,124px);">
+        <div class="cd-digit" style="font-size:clamp(46px,7vw,92px);font-weight:900;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums;">{{ minsEl }}</div>
+        <div class="cd-cap" style="margin-top:10px;font-size:12px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--ink3);">Minutes</div>
+      </div>
+      <div aria-hidden="true" class="cd-sep" style="margin-top:clamp(14px,2.2vw,28px);">{{ sepMinsEl }}</div>
+      <div class="cd-col" style="display:flex;flex-direction:column;align-items:center;min-width:clamp(58px,11vw,124px);">
+        <div class="cd-digit" style="font-size:clamp(46px,7vw,92px);font-weight:900;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:var(--accent);">{{ secsEl }}</div>
+        <div class="cd-cap" style="margin-top:10px;font-size:12px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--ink3);">Seconds</div>
+      </div>
     </div>
 
-    <section class="hero small-padding">
-        <div class="sign-up-form-v1 sign-up-form-v1-hero new-exp-form-image hero__content">
-            <div data-scale-down="false" data-implementation-width="820" class="hero__banner animator" data-implementation-height="312">
-                <img src="/assets/svg/header.svg" alt="" class="animator-poster" />
-                <div class="animator-strip"><img data-src="/assets/svg/header.svg" alt="" class="animator-frame animator-frame--intro animator-sequence" /><img data-src="/assets/svg/header.svg" alt="" class="animator-frame animator-frame--loop animator-sequence" />
-                </div>
-            </div>
-            <div class="six-column hero__copy">
-                <header class="header-text">
-                    <h1 class="large-title">TownSuite enhances the way<span class="lb--desktop-mobile"></span> you work</h1>
-                    <h2 class="medium-title">Access all of your municipal information from one place. No additional spreadsheets, complicated integrations or post-it notes required.</h2>
-                </header>
-                <a href="/try" class="sign-up--responsive button-big button-secondary">Try TownSuite</a>
-                <h4 class="sign-in--responsive">or <a href="https://portal.ws.townsuite.com">sign in</a></h4>
-            </div>
+    <!-- launch date + journey -->
+    <div class="m-meta" style="display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:clamp(22px,3vw,34px);">
+      <span style="display:inline-flex;align-items:center;gap:9px;font-size:14.5px;font-weight:600;letter-spacing:.02em;border:1.5px solid var(--line2);border:1.5px solid color-mix(in srgb,var(--accent) 45%,transparent);border-radius:100px;padding:8px 18px;background:var(--accent-tint);color:var(--accent);">
+        <svg viewBox="0 0 24 24" style="width:15px;height:15px;flex:none;fill:var(--ts-red);"><path d="M12 0.5L14 4L16 3L15 8L15.5 9.5L18 7L19 8.5L22 8L21 11L22.5 12L17 16.5L17.5 18.5L12.5 17.6L12.5 23L11.5 23L11.5 17.6L6.5 18.5L7 16.5L1.5 12L3 11L2 8L5 8.5L6 7L8.5 9.5L9 8L8 3L10 4Z"></path></svg>
+        July 1, 2026 &mdash; Canada Day
+      </span>
+    </div>
 
-            <div class="five-column hero__register">
-                <h3 class="medium-title medium-title--desktop">Learn more</h3>
-                <div class="form-container">
-                    <div class="index form_shown register standard register-form--error-alert login-form-container register-form--error-list third_party_auth">
-                        <form action="/big-picture" class="clearfix credentials-form register-form">
-                            <button type="submit" class="login-button button-primary">See the big picture</button>
-                        </form>
-                    </div>
-                </div>
-                <div class="form-container">
-                    <div class="index form_shown register standard register-form--error-alert login-form-container register-form--error-list third_party_auth">
-                        <form action="/enhance" class="clearfix credentials-form register-form">
-                            <button type="submit" class="login-button button-primary">See the software at work</button>
-                        </form>
-                    </div>
-                    <div class="try-business-cta--inverted">
-                        <a href="/features" target="">View the features</a>
-                    </div>
-                </div>
-            </div>
-    </section>
-    <section class="twelve-column features-container">
+    <!-- CTA -->
+    <div style="display:flex;gap:16px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:clamp(20px,3vw,30px);">
+      <a href="/home" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:700;font-size:16.5px;letter-spacing:.01em;min-height:52px;padding:0 28px;border-radius:14px;background:transparent;color:var(--ink);border:1.5px solid var(--line2);text-decoration:none;transition:border-color .18s ease,color .18s ease;" style-hover="border-color:var(--accent);color:var(--accent);">Visit the current site</a>
+    </div>
+  </main>
 
-        <article class="content-row">
-            <article class="content-module media-text  media-text-inline media-text--alt-order media-text--horizontal clearfix">
-                <div class="media-text__content">
-                    <div class="media-text__wrapper">
-                        <div class="media-text__text">
-                            <h2 class="media-text__header">Connect your dots</h2>
-                            <p class="media-text__body">TownSuite helps manage multiple levels of municipal management. Creating and leveraging information that can be intelligently linked throughout your municipality.</p>
-                        </div>
-                        <a id="ts-learn-more" class="button-tertiary" data-toggle="collapse" data-target="#demo" style="float: right;">Learn more </a>
-                    </div>
-                    <div class="media-text__wrapper">
-                        <div class="media-text__media">
-                            <h2 class="media-text__header media-text__header--responsive">Connect the dots</h2>
-                            <img src="/assets/svg/dots.svg" data-hi-res-no-resize="True" data-hi-res="/assets/svg/dots.svg" alt="" class="media-text__image--responsive media-text__image" />
-                            <div style="width:454px; height:252px; position: relative; left: 150px;" data-scale-down="false" data-implementation-width="454" class="animator" data-implementation-height="252" id="right"><img src="/assets/svg/dots.svg" data-hi-res="" alt="" class="animator-poster" />
-                            </div>
-                        </div>
-            </article>
-            <section class="container" id="" id="demo" class="collapse">
-                <article id="demo" class="collapse">
-                    <article class="media-text--headline media-text--three-across content-module learn-more-content media-text">
-                        <div class="media-text__headline">
-                            <h1 class="media-text__headline-head">All your information</h1>
-                        </div>
-                        <div class="media-text__content">
-                            <div class="media-text__wrapper">
-                                <div class="media-text__media"><img src="/assets/img/index/gateways.png" alt="" data-hi-res="/assets/img/index/gateways.png" />
-                                </div>
-                            </div>
-                            <div class="media-text__wrapper">
-                                <div class="media-text__text">
-                                    <p class="media-text__body">All together in one place, connected and secured. No need for duplicate entries.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="media-text--headline media-text--three-across content-module learn-more-content media-text">
-                        <div class="media-text__headline">
-                            <h1 class="media-text__headline-head">Across departments</h1>
-                        </div>
-                        <div class="media-text__content">
-                            <div class="media-text__wrapper">
-                                <div class="media-text__media"><img src="/assets/img/index/acrossdepartments.png" alt="" data-hi-res="/assets/img/index/acrossdepartments.png" />
-                                </div>
-                            </div>
-                            <div class="media-text__wrapper">
-                                <div class="media-text__text">
-                                    <p class="media-text__body">TownSuite was designed for municipal use beyond a specific department. Connect information accuracy by expanding the use and leverage the true power of your municipality.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="media-text--headline media-text--three-across content-module learn-more-content media-text">
-                        <div class="media-text__headline">
-                            <h1 class="media-text__headline-head">Cloud or on-premise</h1>
-                        </div>
-                        <div class="media-text__content">
-                            <div class="media-text__wrapper">
-                                <div class="media-text__media"><img src="/assets/img/index/cloud.png" alt="" data-hi-res="/assets/img/index/cloud.png" />
-                                </div>
-                            </div>
-                            <div class="media-text__wrapper">
-                                <div class="media-text__text">
-                                    <p class="media-text__body">TownSuite is cloud based. Want your data onsite? No problem. Our hybrid solutions can work for you!</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </article>
-                </div>
-            </section>
-        </article>
-        <article class="content-row">
-            <article class="content-module media-text  media-text-inline media-text--horizontal clearfix">
-                <div class="media-text__content">
-                    <div class="media-text__wrapper">
-                        <div class="media-text__media">
-                            <h2 class="media-text__header media-text__header--responsive">Work within one product</h2>
-                            <img src="/assets/svg/oneproduct.svg" data-hi-res-no-resize="True" data-hi-res="/assets/svg/oneproduct.svg" alt="" class="media-text__image--responsive media-text__image" />
-                            <div style="width:458px; height:240px; left: 10px;" data-scale-down="false" data-implementation-width="458" class="animator" data-implementation-height="240"><img src="/assets/svg/oneproduct.svg" data-hi-res="/assets/svg/oneproduct.svg" alt="" class="animator-poster" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="media-text__wrapper">
-                        <div class="media-text__text">
-                            <h2 class="media-text__header">Work within one product</h2>
-                            <p class="media-text__body">Engineered to control your municipal information from one source while relying on minimal connections to other software. Any connection we make outside is also managed by us to ensure they are always running.</p>
-                        </div>
-                        <a id="ts-learn-more" class="button-tertiary" data-toggle="collapse" data-target="#demo2" style="float: right;">Learn more </a>
-                    </div>
-                </div>
-            </article>
-            <section class="container" id="" id="demo2" class="collapse">
-                <article id="demo2" class="collapse">
-                    <article class="media-text--headline media-text--three-across content-module learn-more-content media-text">
-                        <div class="media-text__headline">
-                            <h1 class="media-text__headline-head">One source</h1>
-                        </div>
-                        <div class="media-text__content">
-                            <div class="media-text__wrapper">
-                                <div class="media-text__media"><img src="/assets/img/index/linked.png" alt="" data-hi-res="/assets/img/index/linked.png" />
-                                </div>
-                            </div>
-                            <div class="media-text__wrapper">
-                                <div class="media-text__text">
-                                    <p class="media-text__body">TownSuite is a platform, of which you can scale and connect captured information. You are not restricted to the modules existing offerings.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="media-text--headline media-text--three-across content-module learn-more-content media-text">
-                        <div class="media-text__headline">
-                            <h1 class="media-text__headline-head">Across departments</h1>
-                        </div>
-                        <div class="media-text__content">
-                            <div class="media-text__wrapper">
-                                <div class="media-text__media"><img src="/assets/img/index/departments.png" alt="" data-hi-res="/assets/img/index/departments.png" />
-                                </div>
-                            </div>
-                            <div class="media-text__wrapper">
-                                <div class="media-text__text">
-                                    <p class="media-text__body">Information can be pulled back and connected together to harness more function and accessibility than if systems were isolated or connected via external integrations.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="media-text--headline media-text--three-across content-module learn-more-content media-text">
-                        <div class="media-text__headline">
-                            <h1 class="media-text__headline-head">Managed connections</h1>
-                        </div>
-                        <div class="media-text__content">
-                            <div class="media-text__wrapper">
-                                <div class="media-text__media"><img src="/assets/img/index/gateways.png" alt="" data-hi-res="/assets/img/index/gateways.png" />
-                                </div>
-                            </div>
-                            <div class="media-text__wrapper">
-                                <div class="media-text__text">
-                                    <p class="media-text__body"> Change your bank, update your POS. Did your bank just update its functionality? We've got you covered.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </article>
-        </article>
+  <!-- footer -->
+  <footer class="m-foot" style="position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:18px clamp(20px,4vw,44px) 22px;border-top:1px solid var(--line);color:var(--ink3);font-size:13.5px;">
+    <span>&copy; 2026 TownSuite Municipal Software.<span class="m-hide"> mERP&reg; is a registered trademark of TownSuite.</span></span>
+    <a href="tel:18004083313" style="color:var(--ink2);text-decoration:none;font-weight:600;" style-hover="color:var(--accent);">1.800.408.3313</a>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;launchDate&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;2026-07-01T15:00:00-02:30&quot;, &quot;tsType&quot;: &quot;string&quot;}}">
+class Component extends DCLogic {
+  state = {
+    now: Date.now(),
+    squares: [],
+    phase: 'emblem',
+    theme: 'auto'
+  };
 
-        <article class="content-row">
-            <article class="content-module media-text  media-text-inline media-text--alt-order media-text--horizontal clearfix">
-                <div class="media-text__content">
-                    <div class="media-text__wrapper">
-                        <div class="media-text__text">
-                            <h2 class="media-text__header">Municipal focused solution</h2>
-                            <p class="media-text__body">Designed, engineered, built and tested for municipal use and grown by municipal users for over 30 years.</p>
-                        </div>
-                        <a id="ts-learn-more" class="button-tertiary" data-toggle="collapse" data-target="#demo3" style="float: right;">Learn more </a>
-                    </div>
-                    <div class="media-text__wrapper">
-                        <div class="media-text__media">
-                            <h2 class="media-text__header media-text__header--responsive">Municipal focused solution</h2>
-                            <img src="/assets/svg/municipal.svg" data-hi-res-no-resize="True" data-hi-res="" class="media-text__image--responsive media-text__image" />
-                            <div style="width:454px; height:252px; position: relative; left: 110px;" data-scale-down="false" data-implementation-width="454" class="animator" data-implementation-height="252" id=""><img src="/assets/svg/municipal.svg" data-hi-res="" alt="" class="animator-poster" />
-                            </div>
-                        </div>
-            </article>
-            <section class="container" id="" id="demo3" class="collapse">
-                <article id="demo3" class="collapse">
-                    <article class="media-text--headline media-text--three-across content-module learn-more-content media-text">
-                        <div class="media-text__headline">
-                            <h1 class="media-text__headline-head">Dedicated focus</h1>
-                        </div>
-                        <div class="media-text__content">
-                            <div class="media-text__wrapper">
-                                <div class="media-text__media"><img src="/assets/img/index/dedicated.png" alt="" data-hi-res="/assets/img/index/dedicated.png" />
-                                </div>
-                            </div>
-                            <div class="media-text__wrapper">
-                                <div class="media-text__text">
-                                    <p class="media-text__body">Reassures our clients we are focused on their sector and will continue to evolve each product as the sector changes.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="media-text--headline media-text--three-across content-module learn-more-content media-text">
-                        <div class="media-text__headline">
-                            <h1 class="media-text__headline-head">Not generic</h1>
-                        </div>
-                        <div class="media-text__content">
-                            <div class="media-text__wrapper">
-                                <div class="media-text__media"><img src="/assets/img/index/notgeneric.png" alt="" data-hi-res="/assets/img/index/notgeneric.png" />
-                                </div>
-                            </div>
-                            <div class="media-text__wrapper">
-                                <div class="media-text__text">
-                                    <p class="media-text__body">Scrap generic packages from other known providers. TownSuite is made from the ground up for you to leverage information as required.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="media-text--headline media-text--three-across content-module learn-more-content media-text">
-                        <div class="media-text__headline">
-                            <h1 class="media-text__headline-head">Municipal since day 1</h1>
-                        </div>
-                        <div class="media-text__content">
-                            <div class="media-text__wrapper">
-                                <div class="media-text__media"><img src="/assets/img/index/dayone.png" alt="" data-hi-res="/assets/img/index/dayone.png" />
-                                </div>
-                            </div>
-                            <div class="media-text__wrapper">
-                                <div class="media-text__text">
-                                    <p class="media-text__body">Focused on building software for municipal government. Rest assured that your focus will also remain ours.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </article>
-                </div>
-            </section>
-        </article>
+  resolvedTheme() {
+    const t = this.state.theme;
+    if (t === 'auto') {
+      try { return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; } catch(e){ return 'light'; }
+    }
+    return t;
+  }
 
-        <article class="content-row">
-            <article class="content-module media-text  media-text-inline media-text--horizontal clearfix">
-                <div class="media-text__content">
-                    <div class="media-text__wrapper">
-                        <div class="media-text__media">
-                            <h2 class="media-text__header media-text__header--responsive">Leverage informarion</h2>
-                            <img src="/assets/svg/leverage.svg" data-hi-res-no-resize="True" data-hi-res="/assets/svg/leverage.svg" alt="" class="media-text__image--responsive media-text__image" />
-                            <div style="width:458px; height:240px; position: relative; right: 0px;" data-scale-down="false" data-implementation-width="458" class="animator" data-implementation-height="240"><img src="/assets/svg/leverage.svg" data-hi-res="/assets/svg/leverage.svg" alt="" class="animator-poster" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="media-text__wrapper">
-                        <div class="media-text__text">
-                            <h2 class="media-text__header">Leverage information</h2>
-                            <p class="media-text__body">Collecting and retrieving information has never been easier. Choose from one of our several product dashboards, out-of-the box reports created and refined over years of clients input or create your own reports ad-hoc.</p>
-                        </div>
-                        <a id="ts-learn-more" class="button-tertiary" data-toggle="collapse" data-target="#demo4" style="float: right;">Learn more </a>
-                    </div>
-                </div>
-            </article>
-            <section class="container" id="" id="demo4" class="collapse">
-                <article id="demo4" class="collapse">
-                    <article class="media-text--headline media-text--three-across content-module learn-more-content media-text">
-                        <div class="media-text__headline">
-                            <h1 class="media-text__headline-head">Dashboards</h1>
-                        </div>
-                        <div class="media-text__content">
-                            <div class="media-text__wrapper">
-                                <div class="media-text__media"><img src="/assets/img/index/dashboards.png" alt="" data-hi-res="/assets/img/index/dashboards.png" />
-                                </div>
-                            </div>
-                            <div class="media-text__wrapper">
-                                <div class="media-text__text">
-                                    <p class="media-text__body">Graphical views of information for a bird's eye view.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="media-text--headline media-text--three-across content-module learn-more-content media-text">
-                        <div class="media-text__headline">
-                            <h1 class="media-text__headline-head">Reporting</h1>
-                        </div>
-                        <div class="media-text__content">
-                            <div class="media-text__wrapper">
-                                <div class="media-text__media"><img src="/assets/img/index/reporting.png" alt="" data-hi-res="/assets/img/index/reporting.png" />
-                                </div>
-                            </div>
-                            <div class="media-text__wrapper">
-                                <div class="media-text__text">
-                                    <p class="media-text__body">1000's of out-of-the box reports created and refined over years of clients' input. Tables, charts or printed reports - We got you covered!</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="media-text--headline media-text--three-across content-module learn-more-content media-text">
-                        <div class="media-text__headline">
-                            <h1 class="media-text__headline-head">Custom reporting</h1>
-                        </div>
-                        <div class="media-text__content">
-                            <div class="media-text__wrapper">
-                                <div class="media-text__media"><img src="/assets/img/index/custom.gif" alt="" data-hi-res="/assets/img/index/custom.gif" />
-                                </div>
-                            </div>
-                            <div class="media-text__wrapper">
-                                <div class="media-text__text">
-                                    <p class="media-text__body">Create endless additional reports within Crystal Reports or SQL Reporting Services at your leisure. If that's not your thing you can request assistance at any time.  This is also covered under your support contract!
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </article>
-                </div>
-            </section>
-        </article>
-        </artivle>
+  componentDidMount() {
+    document.title = 'TownSuite.com \u2014 Something new is coming';
+    document.documentElement.setAttribute('data-theme', this.resolvedTheme());
 
-        <article class="content-row">
-            <article class="content-module media-text  media-text-inline media-text--alt-order media-text--horizontal clearfix">
-                <div class="media-text__content">
-                    <div class="media-text__wrapper">
-                        <div class="media-text__text">
-                            <h2 class="media-text__header">Any size municipality</h2>
-                            <p class="media-text__body">With class leading technology that continues to evolve with each release. TownSuite has the ability to serve well beyond it's name and actually assists government bodies connect information on a larger scale.</p>
-                        </div>
-                        <a id="ts-learn-more" class="button-tertiary" data-toggle="collapse" data-target="#demo5" style="float: right;">Learn more </a>
-                    </div>
-                    <div class="media-text__wrapper">
-                        <div class="media-text__media">
-                            <h2 class="media-text__header media-text__header--responsive">Any size municipality</h2>
-                            <img src="/assets/svg/any.svg" data-hi-res-no-resize="True" data-hi-res="" class="media-text__image--responsive media-text__image" />
-                            <div style="width:454px; height:252px; position: relative; left: 70px;" data-scale-down="false" data-implementation-width="454" class="animator" data-implementation-height="252" id=""><img src="/assets/svg/any.svg" data-hi-res="" alt="" class="animator-poster" />
-                            </div>
-                        </div>
-            </article>
-            <section class="container" id="" id="demo5" class="collapse">
-                <article id="demo5" class="collapse">
-                    <article class="media-text--headline media-text--three-across content-module learn-more-content media-text">
-                        <div class="media-text__headline">
-                            <h1 class="media-text__headline-head">Truly any size</h1>
-                        </div>
-                        <div class="media-text__content">
-                            <div class="media-text__wrapper">
-                                <div class="media-text__media"><img src="/assets/svg/any.svg" alt="" data-hi-res="/assets/svg/any.svg" style="height:235px; right: 25px;"/>
-                                </div>
-                            </div>
-                            <div class="media-text__wrapper">
-                                <div class="media-text__text">
-                                    <p class="media-text__body">If you're a small municipality of 1,500 or a larger at over 150,000 we have scaleable offerings that can suit your requirements and needs.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="media-text--headline media-text--three-across content-module learn-more-content media-text">
-                        <div class="media-text__headline">
-                            <h1 class="media-text__headline-head">Proven solution</h1>
-                        </div>
-                        <div class="media-text__content">
-                            <div class="media-text__wrapper">
-                                <div class="media-text__media"><img src="/assets/img/index/dotnet.png" alt="" data-hi-res="/assets/img/index/dotnet.png" />
-                                </div>
-                            </div>
-                            <div class="media-text__wrapper">
-                                <div class="media-text__text">
-                                    <p class="media-text__body">Built on Microsoft .NET and leveraging multiple other technologies ensure TownSuite continues to innovate. Our backend architectures are built to handle strenuous loads.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="media-text--headline media-text--three-across content-module learn-more-content media-text">
-                        <div class="media-text__headline">
-                            <h1 class="media-text__headline-head">Multi-tenant</h1>
-                        </div>
-                        <div class="media-text__content">
-                            <div class="media-text__wrapper">
-                                <div class="media-text__media"><img src="/assets/svg/oneproduct.svg" alt="" data-hi-res="/assets/svg/oneproduct.svg" style="height:235px; right: 25px;" />
-                                </div>
-                            </div>
-                            <div class="media-text__wrapper">
-                                <div class="media-text__text">
-                                    <p class="media-text__body">Need a solution that includes more than one municipality? Feel free to ask what pricing discounts are available.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </article>
-                </div>
-            </section>
-        </article>
+    // Follow the OS theme live while the user hasn't manually overridden it.
+    try {
+      this.mql = window.matchMedia('(prefers-color-scheme: dark)');
+      this.onScheme = () => {
+        if (this.state.theme === 'auto') {
+          document.documentElement.setAttribute('data-theme', this.resolvedTheme());
+          this.forceUpdate();
+        }
+      };
+      if (this.mql.addEventListener) this.mql.addEventListener('change', this.onScheme);
+      else if (this.mql.addListener) this.mql.addListener(this.onScheme);
+    } catch(e){}
 
-        <article class="content-row">
-            <article class="content-module media-text  media-text-inline media-text--horizontal clearfix">
-                <div class="media-text__content">
-                    <div class="media-text__wrapper">
-                        <div class="media-text__media">
-                            <h2 class="media-text__header media-text__header--responsive">We use it too</h2>
-                            <img src="/assets/svg/useit.svg" data-hi-res-no-resize="True" data-hi-res="/assets/svg/useit.svg" alt="" class="media-text__image--responsive media-text__image" />
-                            <div style="width:458px; height:240px; position: relative; right: 0px;" data-scale-down="false" data-implementation-width="458" class="animator" data-implementation-height="240"><img src="/assets/svg/useit.svg" data-hi-res="/assets/svg/useit.svg" alt="" class="animator-poster" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="media-text__wrapper">
-                        <div class="media-text__text">
-                            <h2 class="media-text__header">We use it too</h2>
-                            <p class="media-text__body">We not only work with you to make your experience better over time, we also use and rely on our products daily for critical business functions.</p>
-                        </div>
-                        <a id="ts-learn-more" class="button-tertiary" data-toggle="collapse" data-target="#demo6" style="float: right;">Learn more </a>
-                    </div>
-                </div>
-            </article>
-            <section class="container" id="" id="demo6" class="collapse">
-                <article id="demo6" class="collapse">
-                    <article class="media-text--headline media-text--three-across content-module learn-more-content media-text">
-                        <div class="media-text__headline">
-                            <h1 class="media-text__headline-head">Billings</h1>
-                        </div>
-                        <div class="media-text__content">
-                            <div class="media-text__wrapper">
-                                <div class="media-text__media"><img src="/assets/img/index/portal.png" alt="" data-hi-res="/assets/img/index/portal.png" />
-                                </div>
-                            </div>
-                            <div class="media-text__wrapper">
-                                <div class="media-text__text">
-                                    <p class="media-text__body">All customer billings and receivables are done through TownSuite. Our CRM is also connected to TownSuite, so you can submit issues directly.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="media-text--headline media-text--three-across content-module learn-more-content media-text">
-                        <div class="media-text__headline">
-                            <h1 class="media-text__headline-head">HRIS</h1>
-                        </div>
-                        <div class="media-text__content">
-                            <div class="media-text__wrapper">
-                                <div class="media-text__media"><img src="/assets/img/index/estubs.png" alt="" data-hi-res="/assets/img/index/estubs.png" />
-                                </div>
-                            </div>
-                            <div class="media-text__wrapper">
-                                <div class="media-text__text">
-                                    <p class="media-text__body">All of our employee payroll, leave requests and time management are tracked through our product.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="media-text--headline media-text--three-across content-module learn-more-content media-text">
-                        <div class="media-text__headline">
-                            <h1 class="media-text__headline-head">Support</h1>
-                        </div>
-                        <div class="media-text__content">
-                            <div class="media-text__wrapper">
-                                <div class="media-text__media"><img src="/assets/img/index/support.png" alt="" data-hi-res="/assets/img/index/support.png" />
-                                </div>
-                            </div>
-                            <div class="media-text__wrapper">
-                                <div class="media-text__text">
-                                    <p class="media-text__body">Clients can contact support through several ways including phone, email, fax. However, our CRM is also connected to TownSuite so you can submit issues directly.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </article>
-                </div>
-            </section>
-        </article>
+    this.tick = setInterval(() => this.setState({ now: Date.now() }), 250);
 
+    this.reduced = false;
+    try { this.reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch(e){}
 
-        <article class="content-row">
-            <article class="content-module media-text  media-text-inline media-text--alt-order media-text--horizontal clearfix">
-                <div class="media-text__content">
-                    <div class="media-text__wrapper">
-                        <div class="media-text__text">
-                            <h2 class="media-text__header">Living software</h2>
-                            <p class="media-text__body">Don't worry about version update fees again. Ever. Instead grow with us using our innovative platform that grows and evolves with our client base. </p>
-                        </div>
-                        <a id="ts-learn-more" class="button-tertiary" data-toggle="collapse" data-target="#demo8" style="float: right;">Learn more </a>
-                    </div>
-                    <div class="media-text__wrapper">
-                        <div class="media-text__media">
-                            <h2 class="media-text__header media-text__header--responsive">Living software</h2>
-                            <img src="/assets/svg/living.svg" data-hi-res-no-resize="True" data-hi-res="" class="media-text__image--responsive media-text__image" />
-                            <div style="width:454px; height:252px; position: relative; left: 100px;" data-scale-down="false" data-implementation-width="454" class="animator" data-implementation-height="252" id=""><img src="/assets/svg/living.svg" data-hi-res="" alt="" class="animator-poster" />
-                            </div>
-                        </div>
-            </article>
-            <section class="container" id="" id="demo8" class="collapse">
-                <article id="demo8" class="collapse">
-                    <article class="media-text--headline media-text--three-across content-module learn-more-content media-text">
-                        <div class="media-text__headline">
-                            <h1 class="media-text__headline-head">No version fees</h1>
-                        </div>
-                        <div class="media-text__content">
-                            <div class="media-text__wrapper">
-                                <div class="media-text__media"><img src="assets/svg/useit.svg" alt="" data-hi-res="/assets/svg/useit.svg" />
-                                </div>
-                            </div>
-                            <div class="media-text__wrapper">
-                                <div class="media-text__text">
-                                    <p class="media-text__body">When you commit to us, we feel we owe it back to you. That means once you purchase a module all updates are included in our annual support fee.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="media-text--headline media-text--three-across content-module learn-more-content media-text">
-                        <div class="media-text__headline">
-                            <h1 class="media-text__headline-head">Autonomous updates</h1>
-                        </div>
-                        <div class="media-text__content">
-                            <div class="media-text__wrapper">
-                                <div class="media-text__media"><img src="/assets/img/index/updates.png" alt="" data-hi-res="/assets/img/index/updates.png" />
-                                </div>
-                            </div>
-                            <div class="media-text__wrapper">
-                                <div class="media-text__text">
-                                    <p class="media-text__body">Never worry about software updates again. We do it all behind the scenes. You just need to select the frequency.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="media-text--headline media-text--three-across content-module learn-more-content media-text">
-                        <div class="media-text__headline">
-                            <h1 class="media-text__headline-head">Living documentation</h1>
-                        </div>
-                        <div class="media-text__content">
-                            <div class="media-text__wrapper">
-                                <div class="media-text__media"><img src="/assets/img/index/docs.png" alt="" data-hi-res="/assets/img/index/docs.png" />
-                                </div>
-                            </div>
-                            <div class="media-text__wrapper">
-                                <div class="media-text__text">
-                                    <p class="media-text__body">Just like our software our
-                                        <a href="https://docs.townsuite.com" target="_blank"">documentation</a> lives and is updated to reflect changes.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </article>
-                </div>
-            </section>
-        </article>
-            <article class="content-row">
-                <article class="content-module media-text media-text-inline media-text--horizontal clearfix">
-                    <div class="media-text__content">
-                        <div class="media-text__wrapper">
-                            <div class="media-text__media">
-                                <h2 class="media-text__header media-text__header--responsive">100% Canadian</h2>
-                                <img src="/assets/svg/canadian.svg" data-hi-res-no-resize="True" data-hi-res="/assets/svg/canadian.svg" alt="" class="media-text__image--responsive media-text__image" />
-                                <div style="width:458px; height:240px; position: relative; right: 0px;" data-scale-down="false" data-implementation-width="458" class="animator" data-implementation-height="240" ><img src="/assets/svg/canadian.svg
-                                           " data-hi-res="/assets/svg/canadian.svg" alt="" class="animator-poster" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="media-text__wrapper">
-                            <div class="media-text__text">
-                                <h2 class="media-text__header">100% Canadian</h2>
-                                <p class="media-text__body">Since our inception TownSuite has been 100% owned and operated by Canadians. Any hosting is also hosted in facilities that are also wholly owned Canadian corporations.</p>
-                            </div>
-                            <a id="ts-learn-more" class="button-tertiary" data-toggle="collapse" data-target="#demo9" style="float: right;">Learn more </a>
-                        </div>
-                    </div>
-                </article>
-                <section class="container" id="" id="demo9" class="collapse">
-                    <article id="demo9"  class="collapse">
-                        <article class="media-text--headline media-text--three-across content-module learn-more-content media-text">
-                            <div class="media-text__headline">
-                                <h1 class="media-text__headline-head">Owned</h1>
-                            </div>
-                            <div class="media-text__content">
-                                <div class="media-text__wrapper">
-                                    <div class="media-text__media"><img src="/assets/img/index/owned.png" alt="" data-hi-res="/assets/img/index/owned.png" />
-                                    </div>
-                                </div>
-                                <div class="media-text__wrapper">
-                                    <div class="media-text__text">
-                                        <p class="media-text__body">Ownership started in Canada and continues to be 100% owned and operated by Canadians.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="media-text--headline media-text--three-across content-module learn-more-content media-text">
-                            <div class="media-text__headline">
-                                <h1 class="media-text__headline-head">Operated</h1>
-                            </div>
-                            <div class="media-text__content">
-                                <div class="media-text__wrapper">
-                                    <div class="media-text__media"><img src="/assets/img/index/operated.png" alt="" data-hi-res="/assets/img/index/operated.png" />
-                                    </div>
-                                </div>
-                                <div class="media-text__wrapper">
-                                    <div class="media-text__text">
-                                        <p class="media-text__body">From management, design, development, QA and releases to your door our Canadian team is key in our agile full stack development process.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="media-text--headline media-text--three-across content-module learn-more-content media-text">
-                            <div class="media-text__headline">
-                                <h1 class="media-text__headline-head">Supported</h1>
-                            </div>
-                            <div class="media-text__content">
-                                <div class="media-text__wrapper">
-                                    <div class="media-text__media"><img src="/assets/img/index/supported.png" alt="" data-hi-res="/assets/img/index/supported.png" />
-                                    </div>
-                                </div>
-                                <div class="media-text__wrapper">
-                                    <div class="media-text__text">
-                                        <p class="media-text__body">Our phenomenal support team has locations across Canada to ensure you are covered when you need it. With base support from 7:00 AM - 6:30 PM EST with options for further SLA</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                    </article>
-                    </div>
-                </section>
-            </article>
-			<article class="content-row">
-                <article class="content-module media-text media-text-inline media-text--alt-order media-text--horizontal clearfix">
-                <div class="media-text__content">
-                    <div class="media-text__wrapper">
-                        <div class="media-text__text">
-                            <h2 class="media-text__header">Your partners in software</h2>
-                            <p class="media-text__body">Our team works collaboratively with you to resolve your technical issues, and identify areas where our software can be improved to benefit everyone. </p>
-                        </div>
-                        <a id="ts-learn-more" class="button-tertiary" data-toggle="collapse" data-target="#demo10" style="float: right;">Learn more </a>
-                    </div>
-                    <div class="media-text__wrapper">
-                        <div class="media-text__media">
-                            <h2 class="media-text__header media-text__header--responsive">Your partners in software</h2>
-                            <img src="/assets/svg/partners.svg" data-hi-res-no-resize="True" data-hi-res="" class="media-text__image--responsive media-text__image" />
-                            <div style="width:454px; height:252px; position: relative; left: 90px;" data-scale-down="false" data-implementation-width="454" class="animator" data-implementation-height="252" id=""><img src="/assets/svg/partners.svg
-                                           " data-hi-res="" alt="" class="animator-poster" />
-                            </div>
-                        </div>
-            </article>
-            <section class="container" id="" id="demo10" class="collapse">
-                <article id="demo10" class="collapse">
-                    <article class="media-text--headline media-text--three-across content-module learn-more-content media-text">
-                        <div class="media-text__headline">
-                            <h1 class="media-text__headline-head">Experienced</h1>
-                        </div>
-                        <div class="media-text__content">
-                            <div class="media-text__wrapper">
-                                <div class="media-text__media"><img src="/assets/img/index/experienced.png" alt="" data-hi-res="/assets/img/index/experienced.png" />
-                                </div>
-                            </div>
-                            <div class="media-text__wrapper">
-                                <div class="media-text__text">
-                                    <p class="media-text__body">Successfully completing over 150 projects in the last 5 years. Our core technical staff has over 150 years of combined municipal software experience. In addition, our management and advisory team has hundreds more.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="media-text--headline media-text--three-across content-module learn-more-content media-text">
-                        <div class="media-text__headline">
-                            <h1 class="media-text__headline-head">We listen</h1>
-                        </div>
-                        <div class="media-text__content">
-                            <div class="media-text__wrapper">
-                                <div class="media-text__media"><img src="/assets/img/index/welisten.png" alt="" data-hi-res="/assets/img/index/welisten.png" />
-                                </div>
-                            </div>
-                            <div class="media-text__wrapper">
-                                <div class="media-text__text">
-                                    <p class="media-text__body">Our municipal clients are the municipal experts, and we learn from them, partnering with them on implementations, product development and improvement</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="media-text--headline media-text--three-across content-module learn-more-content media-text">
-                        <div class="media-text__headline">
-                            <h1 class="media-text__headline-head">Grassroots</h1>
-                        </div>
-                        <div class="media-text__content">
-                            <div class="media-text__wrapper">
-                                <div class="media-text__media"><img src="/assets/img/index/commited.png" alt="" data-hi-res="/assets/img/index/commited.png" />
-                                </div>
-                            </div>
-                            <div class="media-text__wrapper">
-                                <div class="media-text__text">
-                                    <p class="media-text__body">We have built our team and client base by evolving over time with the input of our clients and partners.  This is a guiding business function of TownSuite and it's team, and is important to it's future growth and development.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </article>
-                </div>
-            </section>
-        </article>
-      </section>
-        <section class="try-townsuite-cta">
-            <h2 class="medium-title medium-title--desktop">Get started now</h2>
-            <div class="sign-up-form-v1 try-townsuite-cta__register new-exp-form-image">
-                <div class="form-container">
-                    <div  class="index form_shown register standard register-form--error-alert login-form-container register-form--error-list third_party_auth">
-                        <form action="/try" class="clearfix credentials-form register-form">
-                            <button type="submit" class="login-button button-primary">Try TownSuite</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <a href="/try" class="sign-up--responsive button-big button-secondary">Try TownSuite</a>
-            <div class="try-business-cta--inverted">
-			  <h3 class="try-business-cta__header">Learn more before trying TownSuite?</h3>
-			  <a href="/features" target="" class="try-business-cta__button button-primary">View the features</a>
-		    </div>
-        </section>
-<!-- Start Cookie Consent plugin -->
-<script type="text/javascript">
-window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience. For more information please","dismiss":"I accept","learnMore":"click here","link":"/cookies","theme":"light-bottom"};
+    /* one-way reveal, four acts: emblem -> parcel map (even urban blocks
+       left, uneven rural parcels right) -> survey line traces the plan ->
+       collapse into the three bouncing dots. Same end state as before. */
+    if (this.reduced) {
+      this.setState({ phase: 'dots' });
+    } else {
+      this.t1 = setTimeout(() => this.setState({ phase: 'scatter' }), 1400);
+      this.t2 = setTimeout(() => this.setState({ phase: 'trace' }), 2500);
+      this.t3 = setTimeout(() => this.setState({ phase: 'dots' }), 4600);
+    }
+
+    this.onMove = (e) => {
+      const el = this.rootEl; if (!el) return;
+      const px = (e.clientX / window.innerWidth - 0.5) * 26;
+      const py = (e.clientY / window.innerHeight - 0.5) * 26;
+      el.style.setProperty('--px', px.toFixed(1) + 'px');
+      el.style.setProperty('--py', py.toFixed(1) + 'px');
+    };
+    window.addEventListener('mousemove', this.onMove);
+
+    /* interactive dots: tap/click anywhere (not on links/buttons) to spawn a
+       brand square — random size + emblem color — that tumbles in and joins
+       the parallax field. Capped at 30; oldest fade away first. */
+    this.onTap = (e) => {
+      if (e.target && e.target.closest && e.target.closest('a,button')) return;
+      const el = this.rootEl; if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const palette = ['var(--em-blue)', 'var(--em-light)', 'var(--em-mid)', 'var(--ts-orange)', 'var(--ts-green)', 'var(--ts-red)'];
+      const sq = {
+        id: Date.now() + '-' + Math.round(Math.random() * 1e6),
+        x: Math.round(e.clientX - rect.left),
+        y: Math.round(e.clientY - rect.top),
+        s: Math.round(10 + Math.random() * 22),
+        color: palette[Math.floor(Math.random() * palette.length)],
+        f: +(0.6 + Math.random() * 1.6).toFixed(2),
+      };
+      this.setState((st) => ({ squares: [...(st.squares || []), sq].slice(-30) }));
+    };
+    if (this.rootEl) this.rootEl.addEventListener('click', this.onTap);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.tick);
+    clearTimeout(this.t1);
+    clearTimeout(this.t2);
+    clearTimeout(this.t3);
+    window.removeEventListener('mousemove', this.onMove);
+    if (this.mql) {
+      if (this.mql.removeEventListener) this.mql.removeEventListener('change', this.onScheme);
+      else if (this.mql.removeListener) this.mql.removeListener(this.onScheme);
+    }
+    if (this.rootEl) this.rootEl.removeEventListener('click', this.onTap);
+  }
+
+  /* The emblem unpacked into what it depicts — a municipal parcel grid.
+     Four acts, one-way:
+       1. emblem  — assembled mark
+       2. parcels — the squares spread into a town plan: the blue trio lands
+                    left as big, EVEN urban blocks on a uniform street grid;
+                    orange/green/red land right as smaller, UNEVEN rural
+                    parcels at off-axis angles. "Urban functionality,
+                    rural practicality."
+       3. trace   — a survey line draws itself across the map: right-angled
+                    along the urban streets, jagged through the rural lots;
+                    each parcel pings as the line reaches it
+       4. dots    — the line sweeps away; the rural trio tumbles along arcs
+                    into the bouncing "connecting the dots" row, the urban
+                    blocks fade on their lots. Same end state as ever.
+     Flight is pure transform (translate/scale/rotate): X and Y travel on
+     different easings, which bends each path into an arc. */
+  buildMorph(phase) {
+    const E = React.createElement;
+    const W = 360, H = 178, S = 1.16;
+    const ox = (W - 128 * S) / 2, oy = (H - 128 * S) / 2;
+    const dotSize = 20, dotGap = 48;
+
+    const pieces = [
+      { c: [63.91, 64.87],  s: 34.00, col: 'var(--em-blue)',   dot: null, z: 2 },
+      { c: [46.95, 25.26],  s: 33.95, col: 'var(--em-light)',  dot: null, z: 1 },
+      { c: [23.70, 84.80],  s: 33.95, col: 'var(--em-mid)',    dot: null, z: 1 },
+      { c: [102.57, 97.64], s: 17.65, col: 'var(--ts-orange)', dot: 0,    z: 3 },
+      { c: [120.81, 84.37], s: 9.11,  col: 'var(--ts-green)',  dot: 1,    z: 3 },
+      { c: [108.47, 118.82],s: 9.28,  col: 'var(--ts-red)',    dot: 2,    z: 3 },
+    ];
+
+    /* the parcel map (stage px): urban left — big, even blocks, uniform
+       14px streets, square-true; rural right — smaller, uneven parcels at
+       slightly off-axis angles with irregular spacing */
+    const parcelPos   = [[56, 48], [104, 48], [56, 96], [236, 58], [282, 96], [224, 124]];
+    const parcelSize  = [34, 34, 34, 20, 13, 16];
+    const parcelRot   = [360, 360, 360, 376, 348, 370];
+    const parcelDelay = [0, 0.06, 0.12, 0.22, 0.30, 0.38]; /* the city settles first */
+    const pingDelay   = [0.30, 0.45, 0.15, 0.86, 1.05, 1.25]; /* survey-line arrival per parcel */
+
+    /* survey line: right angles along the urban streets, jagged through the rural lots */
+    const road = [[56, 96], [56, 48], [104, 48], [160, 48], [236, 58], [282, 96], [224, 124]];
+
+    const easeX = 'cubic-bezier(.22,1.25,.32,1)';  /* springy settle with slight overshoot */
+    const easeY = 'cubic-bezier(.55,.05,.25,1.3)'; /* lags, then overshoots -> arced path */
+
+    const kids = pieces.map((p, i) => {
+      const isDot = p.dot !== null;
+      const cx = ox + p.c[0] * S, cy = oy + p.c[1] * S;
+      let dx = 0, dy = 0, sc = 1, op = 1, w = p.s * S, rot = 65, delay = 0, dur = 1.0, bounce = 'none';
+
+      if (phase === 'scatter' || phase === 'trace') {
+        dx = parcelPos[i][0] - cx; dy = parcelPos[i][1] - cy;
+        w = parcelSize[i]; rot = parcelRot[i]; dur = 0.95;
+        delay = (phase === 'scatter') ? parcelDelay[i] : 0;
+        if (phase === 'trace' && !this.reduced) {
+          bounce = 'nodePing .55s ease ' + pingDelay[i].toFixed(2) + 's';
+        }
+      } else if (phase === 'dots') {
+        if (isDot) {
+          dx = (W / 2 + (p.dot - 1) * dotGap) - cx;
+          dy = H / 2 - cy;
+          w = dotSize; rot = 765; dur = 1.3; delay = 0.1 + p.dot * 0.12;
+          if (!this.reduced) {
+            bounce = 'dotBounce 1.15s ease-in-out ' + (delay + dur + 0.1).toFixed(2) + 's infinite';
+          }
+        } else {
+          /* the urban blocks fade out on their lots */
+          dx = parcelPos[i][0] - cx; dy = parcelPos[i][1] - cy;
+          w = parcelSize[i]; rot = 405; op = 0; sc = 0.25; dur = 0.9; delay = i * 0.05;
+        }
+      }
+      const d = delay.toFixed(2) + 's';
+
+      return E('div', { key: i, style: {
+        position: 'absolute', left: cx + 'px', top: cy + 'px', width: 0, height: 0, zIndex: p.z,
+        transform: 'translate3d(' + dx.toFixed(1) + 'px,0,0) scale(' + sc + ')',
+        opacity: op,
+        transition: 'transform ' + dur + 's ' + easeX + ' ' + d + ', opacity .7s ease ' + d,
+      } },
+        E('div', { style: {
+          width: 0, height: 0,
+          transform: 'translate3d(0,' + dy.toFixed(1) + 'px,0)',
+          transition: 'transform ' + dur + 's ' + easeY + ' ' + d,
+        } },
+          E('div', { style: { width: 0, height: 0, animation: bounce } },
+            E('div', { style: {
+              position: 'absolute', left: (-w / 2) + 'px', top: (-w / 2) + 'px',
+              width: w + 'px', height: w + 'px',
+              background: p.col,
+              borderRadius: Math.max(2, w * 0.09) + 'px',
+              transform: 'rotate(' + rot + 'deg)',
+              boxShadow: (phase === 'dots' && isDot) ? '0 12px 26px rgba(7,25,40,.2)' : 'none',
+              transition: ['left', 'top', 'width', 'height', 'transform'].map(function(pr){ return pr + ' ' + dur + 's ' + easeX + ' ' + d; }).join(', ') + ', box-shadow .6s ease ' + (delay + dur * 0.5).toFixed(2) + 's',
+            } })
+          )
+        )
+      );
+    });
+
+    /* the survey line: drawn on during trace, swept away in dots */
+    const segs = road.slice(1).map((pt, i) => Math.hypot(pt[0] - road[i][0], pt[1] - road[i][1]));
+    const LEN = Math.ceil(segs.reduce((a, b) => a + b, 0)) + 2;
+    const reached = (phase === 'trace' || phase === 'dots');
+    const line = E('svg', { viewBox: '0 0 ' + W + ' ' + H, style: { position: 'absolute', inset: 0, width: '100%', height: '100%', overflow: 'visible', pointerEvents: 'none', zIndex: 0 } },
+      E('polyline', {
+        points: road.map(function(pt){ return pt.join(','); }).join(' '),
+        fill: 'none', stroke: 'var(--ts-blue-mid)', strokeWidth: 2,
+        strokeLinejoin: 'round', strokeLinecap: 'round',
+        style: {
+          strokeDasharray: LEN,
+          strokeDashoffset: reached ? 0 : LEN,
+          opacity: phase === 'trace' ? 0.65 : 0,
+          transition: 'stroke-dashoffset 1.1s cubic-bezier(.4,.1,.2,1), opacity .5s ease',
+        }
+      })
+    );
+
+    /* the old saying, captioning each half of the map */
+    const mapPhase = (phase === 'scatter' || phase === 'trace');
+    const label = (text, x, y, d) => E('div', { style: {
+      position: 'absolute', left: x + 'px', top: y + 'px', transform: 'translateX(-50%)',
+      fontSize: '10px', fontWeight: 800, letterSpacing: '.18em', textTransform: 'uppercase',
+      color: 'var(--ink3)', whiteSpace: 'nowrap',
+      opacity: mapPhase ? 1 : 0,
+      transition: 'opacity .6s ease ' + (mapPhase ? d : '0s'),
+    } }, text);
+    const urbanLabel = label('Urban functionality', 80, 126, '.55s');
+    const ruralLabel = label('Rural practicality', 253, 148, '.75s');
+
+    return E('div', { 'aria-hidden': true, style: { position: 'relative', width: W + 'px', height: H + 'px', maxWidth: '100%', flex: 'none', animation: this.reduced ? 'none' : 'stageIn .9s cubic-bezier(.2,.7,.2,1) both' } },
+      E('div', { style: { position: 'absolute', inset: '-50px -90px', background: 'radial-gradient(closest-side, var(--halo2), transparent 72%)', animation: this.reduced ? 'none' : 'glowPulse 4.5s ease-in-out infinite', pointerEvents: 'none' } }),
+      E('div', { style: { position: 'absolute', inset: 0, animation: this.reduced ? 'none' : 'floatBob 7s ease-in-out infinite' } }, line, kids, urbanLabel, ruralLabel)
+    );
+  }
+
+  /* Odometer digits: each character sits in a 1em window; when it changes,
+     a two-row column (old char above new) rolls up by 1em and stays. */
+  rollUnit(unit, str) {
+    const E = React.createElement;
+    if (!this.disp) this.disp = {};
+    let d = this.disp[unit];
+    if (!d) { d = this.disp[unit] = { prev: str, cur: str }; }
+    else if (d.cur !== str) { d.prev = d.cur; d.cur = str; }
+    const row = { display: 'flex', alignItems: 'center', justifyContent: 'center', height: '1em', lineHeight: 1 };
+    return E('span', { style: { display: 'inline-flex' } }, d.cur.split('').map((ch, i) => {
+      const pch = d.prev[i] !== undefined ? d.prev[i] : ch;
+      const changed = pch !== ch && !this.reduced;
+      return E('span', {
+        key: i + ':' + pch + '>' + ch,
+        style: { display: 'inline-flex', flexDirection: 'column', height: '1em', overflow: 'hidden', minWidth: '.62em' }
+      },
+        changed
+          ? E('span', { style: { display: 'flex', flexDirection: 'column', animation: 'digitRoll .5s cubic-bezier(.3,.9,.3,1.08) forwards' } },
+              E('span', { style: row }, pch),
+              E('span', { style: row }, ch))
+          : E('span', { style: row }, ch)
+      );
+    }));
+  }
+
+  /* Separator "colon" squares double as tick indicators: the pair tumbles
+     (sepPulse) whenever its unit rolls over — red on the minute, green on
+     the hour, yellow/orange on the day. Re-keyed on the unit's value so the
+     animation plays exactly once per rollover. */
+  sepEl(unit, color) {
+    const E = React.createElement;
+    const d = this.disp && this.disp[unit];
+    const changed = d && d.prev !== d.cur && !this.reduced;
+    const sq = (i) => E('span', { key: i, style: {
+      width: '10px', height: '10px', borderRadius: '2px', display: 'block',
+      background: color, transform: 'rotate(45deg)',
+      animation: changed ? ('sepPulse .8s cubic-bezier(.3,.8,.3,1) ' + (i * 0.1) + 's both') : 'none',
+    } });
+    return E('span', {
+      key: unit + ':' + (d ? d.cur : ''),
+      style: { display: 'flex', flexDirection: 'column', gap: '9px' }
+    }, sq(0), sq(1));
+  }
+
+  /* Milestone moments: copy + accent shift as launch approaches. */
+  milestone(diff) {
+    if (diff <= 0)             return { label: 'The new townsuite.com is live', color: 'var(--ts-green)' };
+    if (diff <= 3600000)       return { label: 'Counting the final minutes',    color: 'var(--ts-red)' };
+    if (diff <= 86400000)      return { label: 'Launching within a day',        color: 'var(--ts-red)' };
+    if (diff <= 7 * 86400000)  return { label: 'One week to go',                color: 'var(--ts-orange)' };
+    return { label: 'The new townsuite.com', color: 'var(--accent)' };
+  }
+
+  renderVals() {
+    const target = new Date(this.props.launchDate ?? '2026-07-01T15:00:00-02:30').getTime();
+    const diff = Math.max(0, target - this.state.now);
+    const pad = (n) => String(n).padStart(2, '0');
+    const days = Math.floor(diff / 86400000);
+    const hours = Math.floor(diff / 3600000) % 24;
+    const mins = Math.floor(diff / 60000) % 60;
+    const secs = Math.floor(diff / 1000) % 60;
+
+    const ms = this.milestone(diff);
+
+    /* rollers first — they refresh this.disp, which the separators read */
+    const daysEl = this.rollUnit('d', pad(days));
+    const hoursEl = this.rollUnit('h', pad(hours));
+    const minsEl = this.rollUnit('m', pad(mins));
+    const secsEl = this.rollUnit('s', pad(secs));
+
+    return {
+      morphStage: this.buildMorph(this.state.phase),
+      milestoneLabel: ms.label,
+      milestoneColor: ms.color,
+      daysEl: daysEl,
+      hoursEl: hoursEl,
+      minsEl: minsEl,
+      secsEl: secsEl,
+      sepDaysEl: this.sepEl('d', 'var(--ts-orange)'),
+      sepHoursEl: this.sepEl('h', 'var(--ts-green)'),
+      sepMinsEl: this.sepEl('m', 'var(--ts-red)'),
+      spawnedSquares: React.createElement('div', { 'aria-hidden': true, style: { position: 'absolute', inset: 0 } },
+        (this.state.squares || []).map((q) => React.createElement('div', {
+          key: q.id,
+          style: {
+            position: 'absolute', left: q.x + 'px', top: q.y + 'px',
+            width: q.s + 'px', height: q.s + 'px',
+            marginLeft: (-q.s / 2) + 'px', marginTop: (-q.s / 2) + 'px',
+            opacity: 0.9,
+            transform: 'translate(calc(var(--px,0px)*' + q.f + '),calc(var(--py,0px)*' + q.f + ')) rotate(45deg)',
+            transition: 'transform .2s ease-out',
+          }
+        },
+          React.createElement('div', { style: {
+            width: '100%', height: '100%', background: q.color, borderRadius: '14%',
+            animation: this.reduced ? 'none' : 'sqSpawn .7s cubic-bezier(.25,1.4,.4,1) both',
+          } })
+        ))
+      ),
+      rootRef: (el) => { this.rootEl = el; },
+      toggleTheme: () => {
+        const next = this.resolvedTheme() === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        this.setState({ theme: next });
+      },
+    };
+  }
+}
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js" integrity="sha512-SsSkXR65y0pFkNNJnkDspyH6QhREroX9Bw87clZe3j2voFy6cPGPCObbJUkv65MD6xe4RWy0WhiXcE32/H+xJg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<!-- End Cookie Consent plugin -->
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-6741184-3', 'auto');
-  ga('send', 'pageview');
-</script>
-<section class="footer-row">
-            <footer id="homepage-footer" class="twelve-column townsuite-footer clearfix">
-                <nav>
-                    <ul class="o-nav">
-                        <li class="o-nav__header">TownSuite</li>
-                        <li class="o-nav__item"><a href="/apps#desktop">Desktop apps</a>
-                        </li>
-                        <li class="o-nav__item"><a href="/apps#web">Web apps</a>
-                        </li>
-                        <li class="o-nav__item"><a href="/apps#mobile">Mobile apps</a>
-                        </li>
-                        <li class="o-nav__item"><a href="/features">Features</a>
-                        </li>
-                    </ul>
-                    <ul class="o-nav">
-                        <li class="o-nav__header">Company</li>
-                        <li class="o-nav__item"><a href="/about">About</a>
-                        </li>
-                        <li class="o-nav__item"><a href="https://news.townsuite.com">News</a>
-                        </li>
-                        <li class="o-nav__item"><a href="https://status.townsuite.com/">Status</a>
-                        </li>
-                        <li class="o-nav__item"><a href="/events">Events</a>
-                        </li>
-                    </ul>
-                    <ul class="o-nav">
-                        <li class="o-nav__header">Products</li>
-                        <li class="o-nav__item"><a href="/finance">Finance and revenue</a>
-                        </li>
-                        <li class="o-nav__item"><a href="/asset-management">Asset management</a>
-                        </li>
-                        <li class="o-nav__item"><a href="/hris">HRIS</a>
-                        </li>
-                        <li class="o-nav__item"><a href="/land">Land management</a>
-                        </li>
-                    </ul>
-                    <ul class="o-nav">
-                        <li class="o-nav__header"> &nbsp; </li>
-                        <li class="o-nav__item"><a href="/ebills">eBills and ePayments</a>
-                        </li>
-                        <li class="o-nav__item"><a href="/events-facilities">Event and facilities</a>
-                        </li>
-                        <li class="o-nav__item"><a href="/service-requests">Service requests</a>
-                        </li>
-                    </ul>
-                    <ul class="o-nav">
-                        <li class="o-nav__header">Support</li>
-                        <li class="o-nav__item"><a href="https://portal.ws.townsuite.com/issue/new#issue">Helpdesk</a>
-                        </li>
-                        <li class="o-nav__item"><a href="/contact">Contact us</a>
-                        </li>
-                        <li class="o-nav__item"><a href="/cookies">Cookies</a>
-                        </li>
-                        <li class="o-nav__item"><a href="/privacy">Privacy &amp; Terms</a>
-                        </li>
-                    </ul>
-                    <ul class="o-nav">
-                        <li class="o-nav__header">Community</li>
-                        <li class="o-nav__item"><a href="/partner-program">Partner program</a>
-                        </li>
-                        <li class="o-nav__item"><a href="/jobs">Jobs</a>
-                        </li>
-                        <li class="o-nav__item"><a href="/referrals">Referrals</a>
-                        </li>
-                        <li class="o-nav__item"><a href="https://docs.townsuite.com">Documentation</a>
-                        </li>
-                    </ul>
-                </nav>
-                <div id="locale-container"> &copy;
-                    <script>
-                        document.write(new Date().getFullYear())
-                    </script> TownSuite Municipal Software <img border="0" src="/assets/emblem.svg?v=1.814.0.15739" alt="TownSuite Emblem"></div>
-            </footer>
-        </section>
-        <div id="accessible-announce" class="ax-visually-hidden" aria-live="assertive"></div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha512-U6K1YLIFUWcvuw5ucmMtT9HH4t0uz3M366qrF5y4vnyH6dgDzndlcGvH/Lz5k8NFh80SN95aJ5rqGZEdaQZ7ZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-											 <!-- Google Code for TownSuite 2017 Conversion Page -->
-	<script type="text/javascript">
-	/* <![CDATA[ */
-	var google_conversion_id = 937634520;
-	var google_conversion_language = "en";
-	var google_conversion_format = "3";
-	var google_conversion_color = "ffffff";
-	var google_conversion_label = "b4o9CN_lv3AQ2NWMvwM";
-	var google_remarketing_only = false;
-	/* ]]> */
-	</script>
-	<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
-	</script>
-	<noscript>
-	<div style="display:inline;">
-	<img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/937634520/?label=b4o9CN_lv3AQ2NWMvwM&amp;guid=ON&amp;script=0"/>
-	</div>
-	</noscript>
-
 </body>
 </html>
