@@ -116,7 +116,11 @@ button{font-family:inherit;}
   font-size:clamp(44px,7.2vw,96px);
   line-height:.98;
   letter-spacing:-.022em;
-  margin:0;
+  /* tight line-height overshoots the border box; when the reveal transform promotes
+     this to a compositing layer (iOS Safari), the top ascenders get clipped. Pad the
+     box and pull it back with a matching negative margin so layout is unchanged. */
+  padding:.12em 0;
+  margin:-.12em 0;
   text-wrap:balance;
 }
 .ts-h2{
@@ -124,7 +128,8 @@ button{font-family:inherit;}
   font-size:clamp(30px,4vw,52px);
   line-height:1.04;
   letter-spacing:-.018em;
-  margin:0;
+  padding:.12em 0;
+  margin:-.12em 0;
   text-wrap:balance;
 }
 .ts-h3{font-weight:700;font-size:clamp(20px,2vw,25px);line-height:1.2;margin:0;}
