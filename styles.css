@@ -549,6 +549,11 @@ body[data-depth="on"] .ts-tilt{transform:perspective(1100px) rotateX(var(--rx,0d
 }
 /* first-slide live conversation animation (JS adds .tsi-anim) */
 .tsi-body.tsi-anim{overflow:hidden;}
+/* when a conversation is taller than the capped window (mobile), let the body scroll
+   internally like the real TownSuite Intelligence widget — JS keeps the newest
+   message in view via scrollTo. Overrides .tsi-anim's overflow on the y-axis only. */
+.tsi-body.tsi-scroll{overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;scroll-behavior:smooth;overscroll-behavior:contain;scrollbar-width:none;}
+.tsi-body.tsi-scroll::-webkit-scrollbar{width:0;height:0;}
 .tsi-body.tsi-anim .ts-bubble{opacity:0;transform:translateY(10px);transition:opacity .45s ease,transform .45s cubic-bezier(.22,1,.36,1);}
 .tsi-body.tsi-anim .ts-bubble.is-shown{opacity:1;transform:none;}
 .tsi-body.tsi-anim .ts-bubble.is-collapsed{height:0;min-height:0;margin:0;padding-top:0;padding-bottom:0;overflow:hidden;}

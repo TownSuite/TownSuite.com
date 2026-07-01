@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://tschat-prod.yqx.auto.k8s.townsuite.com" crossorigin />
 <link rel="preload" href="fonts/dax-regular.woff2" as="font" type="font/woff2" crossorigin />
 <!-- Fonts self-hosted via styles.css (@font-face Dax) — no external font calls -->
-<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="styles.css?v=20260701" />
 <link rel="stylesheet" href="appshot.css" />
 <!-- expanded.css styles below-the-fold chapters; load it non-render-blocking -->
 <link rel="stylesheet" href="expanded.css" media="print" onload="this.media='all'" />
@@ -1249,16 +1249,47 @@ body[data-depth="on"] .x-trio__cards > .ts-mod:hover,body[data-depth="on"] .x-tr
     return h;
   }
   function lockSlides() {
-    slides.forEach(function (slide) {
+    /* On phones the chat is full-width and a whole conversation is taller than the
+       screen. Cap the message body to a slice of the viewport and let it scroll
+       internally (like the live widget); on desktop there's no cap. Lock EVERY
+       slide to the same height so the carousel never leaves blank space under a
+       shorter conversation. */
+    var mobile = window.innerWidth <= 920;
+    var cap = mobile ? Math.max(240, Math.min(400, Math.round(window.innerHeight * 0.46))) : Infinity;
+    var maxFull = 0;
+    var measured = slides.map(function (slide) {
       var body = slide.querySelector(".tsi-body");
-      if (!body) return;
+      if (!body) return null;
       body.classList.add("tsi-anim");
-      var h = measureBody(body) + 8; /* small safety buffer so the last bubble never touches the line below */
-      body.style.minHeight = h + "px";
-      body.style.height = h + "px";
+      var full = measureBody(body) + 8; /* safety buffer so the last bubble never touches the line below */
+      if (full > maxFull) maxFull = full;
       var input = slide.querySelector(".tsi-composer .tsi-input");
       if (input && input.dataset.ph == null) input.dataset.ph = input.textContent;
+      return { body: body, full: full };
     });
+    var target = Math.min(maxFull, cap);
+    measured.forEach(function (m) {
+      if (!m) return;
+      m.body.style.minHeight = target + "px";
+      m.body.style.height = target + "px";
+      /* scrollable only when this conversation is genuinely taller than the window */
+      m.body.classList.toggle("tsi-scroll", m.full > target + 1);
+      if (!m.body.classList.contains("tsi-scroll")) m.body.scrollTop = 0;
+    });
+  }
+  /* Keep the newest message (or the typing indicator) in view inside a scrolling body.
+     No-op on non-scrolling (desktop) bodies where everything already fits. */
+  function scrollToEnd(body, el) {
+    if (!body || !body.classList.contains("tsi-scroll")) return;
+    var top;
+    if (el) {
+      top = body.scrollTop + (el.getBoundingClientRect().bottom - body.getBoundingClientRect().bottom) + 14;
+    } else {
+      top = body.scrollHeight;
+    }
+    top = Math.max(0, top);
+    if (typeof body.scrollTo === "function") body.scrollTo({ top: top, behavior: "smooth" });
+    else body.scrollTop = top;
   }
   if (document.fonts && document.fonts.ready) {
     document.fonts.ready.then(lockSlides);
@@ -1290,13 +1321,14 @@ body[data-depth="on"] .x-trio__cards > .ts-mod:hover,body[data-depth="on"] .x-tr
     });
     var input = slide.querySelector(".tsi-composer .tsi-input");
     if (input) { input.textContent = input.dataset.ph || ""; input.classList.remove("is-typing"); input.scrollLeft = 0; }
+    body.scrollTop = 0;
   }
 
   /* Promise-sequenced playback so we can interleave typing of variable length.
      wait() also gates on visibility, so any step pauses when scrolled out of view. */
   function wait(ms) { return new Promise(function (r) { setTimeout(r, ms); }).then(untilVisible); }
 
-  function showBubble(b) { return Promise.resolve().then(function () { if (b) b.classList.add("is-shown"); }); }
+  function showBubble(b) { return Promise.resolve().then(function () { if (b) { b.classList.add("is-shown"); scrollToEnd(b.closest(".tsi-body"), b); } }); }
 
   function typeQuestion(input, text, myGen) {
     if (!input) return Promise.resolve();
@@ -1332,6 +1364,7 @@ body[data-depth="on"] .x-trio__cards > .ts-mod:hover,body[data-depth="on"] .x-tr
     typing.className = "ts-bubble ts-bubble--bot ts-typing is-shown";
     typing.innerHTML = "<i></i><i></i><i></i>";
     body.insertBefore(typing, b);
+    scrollToEnd(body, typing);
     return wait(dur).then(function () {
       typing.remove();
       b.classList.remove("is-collapsed");

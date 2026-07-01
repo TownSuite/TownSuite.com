@@ -521,7 +521,7 @@
         var summary = buildChatSummary();   // build BEFORE adding the "Book a demo" line
         var products = buildChatProducts();
         addBubble("user", label || "Book a demo", false);
-        if (window.tsOpenDemo) { try { window.tsOpenDemo("Sales and Marketing", summary, products); } catch (e) { } }
+        if (window.tsOpenDemo) { try { window.tsOpenDemo("Book a Demo", summary, products); } catch (e) { } }
         addBubble("bot", T.demoReply, true);
         mountComposer();
         if (composer) composer.querySelector("input").focus();
