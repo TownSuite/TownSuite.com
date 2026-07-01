@@ -89,6 +89,7 @@ Every **"Book a demo"** CTA opens the in‑page request modal, which hosts `311-
 
 ## 6. Launch checklist
 
+- Confirm **closed captions are enabled on the Vimeo video** embedded in `big-picture.html` (captions live on Vimeo's side; the on‑page transcript alone doesn't satisfy WCAG 1.2.2 for the video itself).
 - Live smoke‑test the **AI chat dock** and the **311 request form** against the production chat instance (they call external services and can't be exercised in a static preview).
 - Confirm `.htaccess` (compression, caching, 301s) is honored by the production host.
 - Optional build step: serve hero/team imagery as WebP/AVIF (currently JPEG).

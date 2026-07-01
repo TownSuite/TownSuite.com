@@ -42,7 +42,7 @@
             ctx: "Helping with TownSuite.com Inquiries",
             greeting: "Hi — I’m TownSuite Intelligence, running on operationally sovereign Canadian infrastructure. Ask me anything about the platform.",
             chips: [["merp", "What is mERP®?"], ["sovereignty", "Why sovereignty?"], ["cost", "What does it cost?"], ["demo", "Book a demo"]],
-            followup: "Ask a follow-up…",
+            followup: "Ask a question…",
             foot: "Powered by TownSuite Intelligence — runs on Canadian infrastructure. Your AI and prompt data stay securely in Canada along with your mERP® data unless you explicitly opt in to connect your own external model.",
             disclaimer: "TownSuite Intelligence can make mistakes. Verify important figures.",
             close: "Close chat", send: "Send", resize: "Drag to resize", clearChat: "Clear chat",
@@ -374,7 +374,14 @@
         fab.setAttribute("aria-expanded", "true");
         ssSet("ts-chat-open", "1");
         setBackgroundInert(true);
-        var first = (composer && composer.querySelector("input")) || root.querySelector(".ts-chat__chips button") || panel.querySelector(".ts-chat__x");
+        // Mount the text input as soon as the panel opens so it's ALWAYS present —
+        // the 4 chips stay above as shortcuts, but visitors (and AI agents driving
+        // the page, which look for a text field) can type a free-form question right
+        // away instead of being forced to click a chip first.
+        mountComposer();
+        // Focus a chip rather than the input on open, so we don't pop the mobile
+        // keyboard uninvited; the input is one tab/tap away.
+        var first = root.querySelector(".ts-chat__chips button") || (composer && composer.querySelector("input")) || panel.querySelector(".ts-chat__x");
         if (first) first.focus();
         tintBarPersist();
     }

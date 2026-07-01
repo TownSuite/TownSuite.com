@@ -603,6 +603,10 @@ body[data-depth="on"] .ts-tilt{transform:perspective(1100px) rotateX(var(--rx,0d
   height:32px;padding:0 14px;border:1px solid var(--line2);border-radius:9px;cursor:default;
   background:transparent;color:var(--ink2);font-weight:600;font-size:13px;
 }
+/* A11Y: on touch devices, lift the chat action buttons to the 44px minimum target */
+@media (pointer:coarse){
+  .tsi-act{height:auto;min-height:44px;}
+}
 .tsi-suggest{flex:none;padding:16px 12px 0;display:flex;flex-direction:column;gap:7px;background:var(--bg);}
 .tsi-suggest-lbl{font-weight:700;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);padding-left:2px;}
 .tsi-chips{display:flex;flex-wrap:wrap;gap:7px;}
