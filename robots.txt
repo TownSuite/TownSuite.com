@@ -1,7 +1,18 @@
 # robots.txt — TownSuite.com
-# Allow everything; point crawlers and AI answer engines at the sitemap.
+# Policy: allow ALL crawling, AI answer/search engines, AND AI training — so
+# TownSuite is maximally discoverable, citable, and known to AI models.
+# See https://townsuite.com/llms.txt for a curated Markdown index for LLMs / AI agents.
+#
+# NOTE: Cloudflare can PREPEND its own "Managed content" block (a Content-Signal
+# line + Disallow rules for named AI bots such as GPTBot / ClaudeBot / Google-Extended)
+# ahead of this file. If you see AI bots being blocked, that injection is ON —
+# disable "Manage robots.txt" / "AI Crawl Control" in the Cloudflare dashboard so
+# THIS file is served verbatim. This file is the intended source of truth.
 
+# Content Signals (https://contentsignals.org): permit search indexing,
+# real-time AI answers/citations, and model training.
 User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 
 # Keep error/utility pages out of crawl emphasis (they are also noindex-tagged)
