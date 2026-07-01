@@ -1,23 +1,392 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<link href="https://townsuite.com/assets/css/500.css" type="text/css" crossorigin="anonymous" rel="stylesheet" />
-<title>503 - Service unavailable</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Something went wrong — TownSuite mERP®</title>
+<meta name="robots" content="noindex, follow" />
+<meta name="description" content="Something went wrong — TownSuite mERP®." />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_CA" />
+<meta property="og:site_name" content="TownSuite mERP®" />
+<meta property="og:title" content="Something went wrong — TownSuite mERP®" />
+<meta property="og:description" content="Something went wrong — TownSuite mERP®." />
+<meta property="og:url" content="https://townsuite.com/500.html" />
+<meta property="og:image" content="https://townsuite.com/og-townsuite-merp.png" />
+<meta property="og:image:width" content="2400" />
+<meta property="og:image:height" content="1260" />
+<meta property="og:image:alt" content="TownSuite mERP® — Canada's Operationally Sovereign Cloud for Municipalities" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Something went wrong — TownSuite mERP®" />
+<meta name="twitter:description" content="Something went wrong — TownSuite mERP®." />
+<meta name="twitter:image" content="https://townsuite.com/og-townsuite-merp.png" />
+<link rel="icon" type="image/svg+xml" href="/emblem.svg" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<!-- Fonts self-hosted via styles.css (@font-face Dax) — no external font calls -->
+<link rel="stylesheet" href="styles.css" />
+<meta name="theme-color" content="#003C63" />
+<script>
+/* apply saved theme before first paint — shared key with the main site */
+try{
+  var _p = localStorage.getItem("ts-theme") || "auto";
+  var _r = _p === "auto" ? (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : _p;
+  document.documentElement.setAttribute("data-theme", _r);
+}catch(e){}
+</script>
+<style>
+/* ============ standalone document chrome (matches 404 / policy pages) ============ */
+.pp-top{
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;gap:18px;
+  padding:14px clamp(20px,4vw,44px);
+  background:var(--bg);
+  border-bottom:1px solid var(--line);
+}
+.pp-top__logo{display:flex;align-items:center;text-decoration:none;color:var(--ink);}
+.pp-top__logo .ts-logo{height:30px;width:auto;}
+.pp-top__sp{flex:1;}
+.pp-back{
+  display:inline-flex;align-items:center;gap:8px;
+  text-decoration:none;font-weight:700;font-size:14.5px;color:var(--ink2);
+  min-height:44px;padding:0 16px;border:1.5px solid var(--line2);border-radius:100px;
+  transition:color .18s,border-color .18s;
+}
+.pp-back:hover{color:var(--accent);border-color:var(--accent);}
+.pp-back .arr{font-size:16px;line-height:1;}
+.pp-back svg{width:16px;height:16px;flex:none;}
+
+/* ============ error stage ============ */
+.nf{
+  position:relative;overflow:hidden;
+  min-height:calc(100svh - 61px);
+  display:flex;align-items:center;justify-content:center;
+  padding:clamp(48px,8vw,96px) clamp(20px,4vw,44px);
+}
+.nf__grid{
+  position:absolute;inset:-2% -2% 20%;z-index:0;pointer-events:none;
+  background:
+    linear-gradient(var(--line) 1px,transparent 1px),
+    linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(ellipse 70% 60% at 50% 38%,rgba(0,0,0,.5),transparent 72%);
+  -webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 38%,rgba(0,0,0,.5),transparent 72%);
+}
+.nf__glow{
+  position:absolute;z-index:0;left:50%;top:-8%;width:1000px;height:620px;transform:translateX(-50%);
+  background:radial-gradient(closest-side,var(--halo),transparent 72%);pointer-events:none;
+}
+/* floating brand squares (parallax via JS --px/--py) */
+.nf__depth{position:absolute;inset:0;z-index:1;pointer-events:none;}
+.nf__depth i{
+  position:absolute;display:block;border-radius:14%;opacity:.9;
+  transform:rotate(45deg) translate(calc(var(--px,0px)*var(--d,1)),calc(var(--py,0px)*var(--d,1)));
+  transition:transform .2s ease-out;
+}
+.nf__depth .s-soft{background:var(--ts-blue-soft);}
+.nf__depth .s-mid{background:var(--ts-blue-mid);}
+.nf__depth .s-blue{background:var(--ts-blue);}
+.nf__depth .s-orange{background:var(--ts-orange);}
+.nf__depth .s-green{background:var(--ts-green);}
+.nf__depth .s-red{background:var(--ts-red);}
+[data-theme="dark"] .nf__depth .s-soft{background:#16344C;}
+[data-theme="dark"] .nf__depth .s-mid{background:#2B567A;}
+
+.nf__in{position:relative;z-index:3;text-align:center;display:flex;flex-direction:column;align-items:center;width:100%;max-width:680px;}
+
+/* the big 500 — dots motif replaces each "0" */
+.nf__code{
+  display:flex;align-items:center;justify-content:center;gap:clamp(8px,2vw,22px);
+  font-weight:900;letter-spacing:-.04em;line-height:.9;
+  font-size:clamp(120px,26vw,280px);color:var(--accent);
+}
+.nf__zero{
+  position:relative;display:inline-flex;align-items:center;justify-content:center;
+  width:clamp(96px,21vw,232px);height:clamp(120px,26vw,280px);
+}
+.nf__zero svg{width:78%;height:78%;overflow:visible;}
+.nf__zero .ring{fill:none;stroke:var(--line2);stroke-width:7;stroke-dasharray:13 15;}
+[data-theme="dark"] .nf__zero .ring{stroke:var(--line2);}
+.nf__zero .dot{transform-box:fill-box;transform-origin:center;}
+.nf__zero .dot.o{fill:var(--ts-orange);}
+.nf__zero .dot.g{fill:var(--ts-green);}
+.nf__zero .dot.r{fill:var(--ts-red);}
+@media (prefers-reduced-motion: no-preference){
+  .nf__zero svg{animation:nfspin 26s linear infinite;}
+  .nf__zero.z2 svg{animation-duration:34s;animation-direction:reverse;}
+  .nf__zero .dot{animation:nfblink 1.4s infinite;}
+  .nf__zero .dot.g{animation-delay:.18s;}
+  .nf__zero .dot.r{animation-delay:.36s;}
+  .nf__zero.z2 .dot{animation-delay:.7s;}
+  .nf__zero.z2 .dot.g{animation-delay:.88s;}
+  .nf__zero.z2 .dot.r{animation-delay:1.06s;}
+}
+@keyframes nfspin{to{transform:rotate(360deg);}}
+@keyframes nfblink{0%,70%,100%{opacity:.3;}35%{opacity:1;}}
+
+.nf__h1{margin:6px 0 0;font-weight:900;font-size:clamp(30px,4.4vw,52px);line-height:1.04;letter-spacing:-.02em;text-wrap:balance;}
+.nf__lede{margin:18px 0 0;font-size:clamp(16.5px,1.5vw,20px);line-height:1.6;color:var(--ink2);max-width:54ch;text-wrap:pretty;}
+.nf__status{
+  margin:26px 0 0;display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;
+  font-size:14px;font-weight:600;
+  color:var(--ink2);background:var(--surface);border:1.5px solid var(--line);border-radius:100px;
+  padding:9px 18px;max-width:100%;
+}
+.nf__status b{color:var(--ink);font-weight:700;}
+.nf__status .pulse{position:relative;width:10px;height:10px;flex:none;}
+.nf__status .pulse i{position:absolute;inset:0;border-radius:50%;background:var(--ts-orange);}
+.nf__status code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12.5px;color:var(--ink3);font-weight:600;}
+@media (prefers-reduced-motion: no-preference){
+  .nf__status .pulse::after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--ts-orange);animation:nfpulse 1.8s ease-out infinite;}
+}
+@keyframes nfpulse{0%{transform:scale(1);opacity:.6;}100%{transform:scale(2.8);opacity:0;}}
+
+.nf__cta{display:flex;gap:14px;align-items:center;flex-wrap:wrap;justify-content:center;margin-top:34px;}
+
+/* helpful links */
+.nf__links{
+  margin:46px 0 0;width:100%;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;text-align:left;
+}
+.nf__link{
+  display:flex;flex-direction:column;gap:5px;text-decoration:none;
+  background:var(--surface);border:1.5px solid var(--line);border-radius:16px;
+  padding:18px 20px;color:var(--ink);
+  transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;
+}
+.nf__link:hover{transform:translateY(-4px);box-shadow:var(--shadow-2);border-color:color-mix(in srgb,var(--accent) 35%,var(--line));}
+.nf__link .lt{display:flex;align-items:center;gap:9px;font-weight:800;font-size:16px;letter-spacing:-.01em;}
+.nf__link .lt::before{content:"";width:9px;height:9px;transform:rotate(45deg);border-radius:1.5px;background:var(--accent);flex:none;}
+.nf__link .ld{font-size:13.5px;color:var(--ink2);line-height:1.45;}
+.nf__link .lt .arr{margin-left:auto;color:var(--accent);transition:transform .18s ease;}
+.nf__link:hover .lt .arr{transform:translateX(4px);}
+
+@media (max-width:720px){
+  .nf__links{grid-template-columns:1fr;}
+}
+@media (max-width:560px){
+  .pp-back .lbl-long,.pp-back .dom{display:none;}
+  .ts-themer,.pp-signin,.pp-back{flex:none;}
+  .pp-signin .lbl{display:none;}
+  .pp-signin,.pp-back{width:46px;height:46px;padding:0;justify-content:center;border-radius:13px;}
+  .pp-top{gap:10px;}
+}
+@media (prefers-reduced-motion: no-preference){
+  .ts-dots i{animation:tsblink 1.4s infinite;}
+  .ts-dots i:nth-child(2){animation-delay:.18s;}
+  .ts-dots i:nth-child(3){animation-delay:.36s;}
+}
+@keyframes tsblink{0%,70%,100%{opacity:.25;transform:translateY(0) rotate(45deg);}35%{opacity:1;transform:translateY(-3px) rotate(45deg);}}
+</style>
 </head>
-<body>
-<div class="wrapper">
-    <h1>Hmm...</h1>
-    <p><span>503 - Service unavailable</span></p>
-    <p>It appears you are experiencing technical difficulties navigating the site. Please click the button below to get back on course.</p>
-    <div class="buttons"><a href="/">Refresh the page</a></div>
-</div>
-<div class="space">
-    <div class="blackhole"></div>
-    <div class="ship">
-      <div id="rocket-container">
-            <object data="https://townsuite.com/assets/svg/500.svg" type="image/svg+xml"></object>
-            <object data="https://townsuite.com/assets/svg/500-1.svg" type="image/svg+xml"></object>
+<body data-screen-label="500 Server Error">
+<div class="ios-statusbar-tint" aria-hidden="true"></div>
+<a class="ts-skip" href="#servererror">Skip to content</a>
+
+<svg style="display:none" aria-hidden="true">
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.4" fill="none" stroke="currentColor" stroke-width="2"></circle><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5 5l1.7 1.7M17.3 17.3L19 19M19 5l-1.7 1.7M6.7 17.3L5 19"></path></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M20 13.6A8.3 8.3 0 0 1 10.4 4a8.3 8.3 0 1 0 9.6 9.6z"></path></symbol>
+  <symbol id="i-login" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14 3.5h4A1.5 1.5 0 0 1 19.5 5v14A1.5 1.5 0 0 1 18 20.5h-4M10 7.5l4.5 4.5L10 16.5M14 12H3.5"></path></symbol>
+  <symbol id="i-maple" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0.5L14 4L16 3L15 8L15.5 9.5L18 7L19 8.5L22 8L21 11L22.5 12L17 16.5L17.5 18.5L12.5 17.6L12.5 23L11.5 23L11.5 17.6L6.5 18.5L7 16.5L1.5 12L3 11L2 8L5 8.5L6 7L8.5 9.5L9 8L8 3L10 4Z"></path></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M20 11a8 8 0 1 0-.5 4M20 5v6h-6"></path></symbol>
+  <symbol id="i-pulse" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 12h4l2.5-6 4 12 2.5-6H21"></path></symbol>
+</svg>
+
+<header class="pp-top">
+  <a class="pp-top__logo" href="index.html"><svg class="ts-logo" viewBox="151 154 889 181" role="img" aria-label="TownSuite mERP"><rect x="-16.975" y="-16.975" width="33.95" height="33.95" fill="#D8E0ED" transform="translate(220.79,191.54) rotate(65) scale(1.38)"></rect><rect x="-16.975" y="-16.975" width="33.95" height="33.95" fill="#6B95BE" transform="translate(188.71,273.70) rotate(65) scale(1.38)"></rect><rect x="-17" y="-17" width="34" height="34" fill="#00578E" transform="translate(244.20,246.20) rotate(65) scale(1.38)"></rect><rect x="-8.825" y="-8.825" width="17.65" height="17.65" fill="#E48D1A" transform="translate(297.55,291.42) rotate(65) scale(1.38)"></rect><rect x="-4.555" y="-4.555" width="9.11" height="9.11" fill="#2DA343" transform="translate(322.72,273.11) rotate(65) scale(1.38)"></rect><rect x="-4.64" y="-4.64" width="9.28" height="9.28" fill="#E03A3E" transform="translate(305.69,320.65) rotate(65) scale(1.38)"></rect><path fill="currentColor" d="M401.02 212.45L401.02 218.40L387.86 218.40L387.86 278.50L379.03 278.50L379.03 218.40L365.88 218.40L365.88 212.45L401.02 212.45ZM443.39 252.68L443.39 252.68Q443.39 264.68 438.35 272.07Q433.31 279.46 423.23 279.46Q413.15 279.46 408.06 272.07Q402.97 264.68 402.97 252.68L402.97 252.68Q402.97 240.48 408.06 233.14Q413.15 225.80 423.13 225.80L423.13 225.80Q433.31 225.80 438.35 233.09Q443.39 240.39 443.39 252.68ZM434.94 252.68L434.94 252.68Q434.94 231.17 423.23 231.17L423.23 231.17Q411.42 231.17 411.42 252.68L411.42 252.68Q411.42 273.60 423.23 273.60L423.23 273.60Q434.94 273.60 434.94 252.68ZM508.90 226.76L516.58 226.76L501.79 278.50L494.50 278.50L484.03 241.54Q483.17 238.37 482.98 235.49L482.98 235.49L482.88 235.49Q482.59 238.37 481.63 241.54L481.63 241.54L470.98 278.50L463.68 278.50L448.99 226.76L457.63 226.76L466.66 263.91L467.71 270.05L467.90 270.05Q468.19 267.46 469.15 263.91L469.15 263.91L479.62 226.76L486.91 226.76L497.09 263.91Q498.24 270.05 498.24 270.05L498.24 270.05L498.43 270.05Q498.72 266.88 499.49 263.81L499.49 263.81L508.90 226.76ZM562.50 241.16L562.50 278.50L554.05 278.50L554.05 241.35Q554.05 231.27 543.20 231.27L543.20 231.27Q537.64 231.27 533.41 233.09L533.41 233.09L533.41 278.50L524.96 278.50L524.96 229.44Q532.55 225.80 543.88 225.80L543.88 225.80Q553.76 225.80 558.13 230.26Q562.50 234.72 562.50 241.16L562.50 241.16ZM607.27 259.88L607.27 259.88Q607.27 268.52 601.66 273.99Q596.04 279.46 587.30 279.46L587.30 279.46Q577.61 279.46 571.94 275.81L571.94 275.81L574.25 269.67Q579.24 272.74 585.77 272.74L585.77 272.74Q591.43 272.74 594.79 269.38Q598.15 266.02 598.15 260.36L598.15 260.36Q598.15 255.94 595.51 253.06Q592.87 250.18 586.63 247.68L586.63 247.68Q572.62 242.12 572.62 230.02L572.62 230.02Q572.62 222.24 577.75 216.87Q582.89 211.49 591.24 211.49L591.24 211.49Q599.69 211.49 604.78 215.04L604.78 215.04L602.66 220.61Q597.77 217.54 592.20 217.54L592.20 217.54Q587.02 217.54 584.14 220.66Q581.26 223.78 581.26 229.16L581.26 229.16Q581.26 233.86 584.09 236.50Q586.92 239.14 592.30 241.25L592.30 241.25Q607.27 247.11 607.27 259.88ZM654.35 226.76L654.35 275.43Q647.15 279.56 636.11 279.56L636.11 279.56Q617.77 279.56 617.77 262.66L617.77 262.66L617.77 226.76L626.22 226.76L626.22 262.95Q626.22 267.75 628.86 270.68Q631.50 273.60 636.59 273.60L636.59 273.60Q642.35 273.60 645.90 271.49L645.90 271.49L645.90 226.76L654.35 226.76ZM674.74 208.85Q676.18 210.24 676.18 212.16Q676.18 214.08 674.74 215.43Q673.30 216.77 671.28 216.77L671.28 216.77Q669.17 216.77 667.73 215.43Q666.29 214.08 666.29 212.16Q666.29 210.24 667.73 208.85Q669.17 207.46 671.28 207.46L671.28 207.46Q673.30 207.46 674.74 208.85ZM675.50 226.76L675.50 278.50L667.06 278.50L667.06 226.76L675.50 226.76ZM708.47 272.84L708.47 278.21Q705.88 278.98 703.86 278.98L703.86 278.98Q697.33 278.98 694.16 275.14Q691.00 271.30 691.00 265.92L691.00 265.92L691.00 232.04L685.04 232.04L685.04 226.76L691.00 226.76L691.00 214.85L699.44 212.26L699.44 226.76L708.47 226.76L708.47 232.04L699.44 232.04L699.44 265.73Q699.44 269.09 701.03 271.16Q702.61 273.22 705.97 273.22L705.97 273.22Q706.74 273.22 708.47 272.84L708.47 272.84ZM754.97 251.14L754.97 251.14L722.42 255.84Q723.86 273.32 738.17 273.32L738.17 273.32Q745.75 273.32 750.94 270.34L750.94 270.34L753.14 275.91Q747.29 279.46 737.50 279.46L737.50 279.46Q726.94 279.46 720.70 272.64Q714.46 265.83 714.46 252.48L714.46 252.48Q714.46 239.62 720.17 232.71Q725.88 225.80 735.29 225.80L735.29 225.80Q744.79 225.80 749.93 232.13Q755.06 238.47 754.97 251.14ZM722.14 251.33L746.90 247.59Q746.90 231.27 735 231.27L735 231.27Q729.05 231.27 725.54 236.26Q722.04 241.25 722.14 251.33L722.14 251.33Z M857.71 241.06L857.71 278.50L849.26 278.50L849.26 241.25Q849.26 236.93 846.91 234.15Q844.56 231.36 839.28 231.36L839.28 231.36Q832.94 231.36 828.62 235.97L828.62 235.97L828.62 278.50L820.17 278.50L820.17 240.87Q820.17 236.45 817.24 233.86Q814.32 231.27 808.84 231.27L808.84 231.27Q803.66 231.27 799.53 233.00L799.53 233.00L799.53 278.50L791.08 278.50L791.08 229.44Q798.57 225.80 809.04 225.80L809.04 225.80Q819.88 225.80 824.88 232.04L824.88 232.04Q830.83 225.80 840.91 225.80L840.91 225.80Q849.45 225.80 853.58 230.31Q857.71 234.82 857.71 241.06L857.71 241.06ZM901.04 272.55L901.04 278.50L870.42 278.50L870.42 212.45L901.04 212.45L901.04 218.40L879.25 218.40L879.25 241.44L898.83 241.44L898.83 247.30L879.25 247.30L879.25 272.55L901.04 272.55ZM930.55 249.41L952.15 278.50L942.16 278.50L920.47 247.68L920.28 247.68L920.28 278.50L911.54 278.50L911.54 215.04Q917.97 211.49 927.96 211.49L927.96 211.49Q939.09 211.49 944.85 216.63Q950.61 221.76 950.61 231.08L950.61 231.08Q950.61 239.43 945.19 244.23Q939.76 249.03 930.55 249.22L930.55 249.22L930.55 249.41ZM941.88 231.46L941.88 231.46Q941.88 223.88 938.47 220.28Q935.06 216.68 927.76 216.68L927.76 216.68Q922.87 216.68 920.28 218.12L920.28 218.12L920.28 245.76Q922.20 246.34 925.94 246.34L925.94 246.34Q941.88 246.34 941.88 231.46ZM1000.95 231.46L1000.95 231.46Q1000.95 241.06 994.09 246.87Q987.22 252.68 973.50 251.33L973.50 251.33L970.52 251.04L970.52 278.50L961.88 278.50L961.88 215.14Q968.22 211.49 978.39 211.49L978.39 211.49Q989.62 211.49 995.29 216.92Q1000.95 222.34 1000.95 231.46ZM992.41 231.36L992.41 231.36Q992.41 224.07 988.95 220.42Q985.50 216.77 978.01 216.77L978.01 216.77Q973.40 216.77 970.52 218.02L970.52 218.02L970.52 245.67L973.40 245.96Q992.41 247.78 992.41 231.36Z M1032.43 226.84L1032.43 226.84Q1032.43 231.80 1028.90 235.32Q1025.36 238.84 1020.40 238.84Q1015.43 238.84 1011.91 235.32Q1008.39 231.80 1008.39 226.84L1008.39 226.84Q1008.39 221.84 1011.91 218.32Q1015.43 214.80 1020.40 214.80Q1025.36 214.80 1028.90 218.32Q1032.43 221.84 1032.43 226.84ZM1027.88 234.28Q1030.97 231.19 1030.97 226.84Q1030.97 222.49 1027.88 219.38Q1024.78 216.26 1020.40 216.26L1020.40 216.26Q1016.04 216.26 1012.95 219.38Q1009.86 222.49 1009.86 226.84Q1009.86 231.19 1012.95 234.28Q1016.04 237.38 1020.40 237.38L1020.40 237.38Q1024.78 237.38 1027.88 234.28ZM1020.50 227.11L1025.33 233.77L1023.42 233.77L1018.76 227.21L1018.25 227.21L1018.25 233.77L1016.66 233.77L1016.66 219.90Q1018.02 219.22 1019.99 219.22L1019.99 219.22Q1021.99 219.22 1023.35 220.28Q1024.71 221.33 1024.71 223.23L1024.71 223.23Q1024.71 225.00 1023.54 226.00Q1022.37 227.01 1020.50 227.11L1020.50 227.11ZM1023.08 223.20L1023.08 223.20Q1023.08 221.77 1022.11 221.16Q1021.14 220.55 1019.78 220.55L1019.78 220.55Q1018.90 220.55 1018.25 220.82L1018.25 220.82L1018.25 226.09L1019.51 226.09Q1021.08 226.09 1022.08 225.41Q1023.08 224.73 1023.08 223.20Z"></path></svg></a>
+    <nav class="pp-nav" aria-label="Primary">
+    <a href="index.html#modules">Modules</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="about.html">About</a>
+  </nav>
+<span class="pp-top__sp"></span>
+  <button class="ts-themer" type="button" aria-label="Toggle dark mode">
+    <svg class="ic-sun"><use href="#i-sun"></use></svg>
+    <svg class="ic-moon"><use href="#i-moon"></use></svg>
+  </button>
+  <a class="pp-back pp-signin" href="https://portal.ws.townsuite.com/login" target="_blank" rel="noopener" aria-label="Sign in to the portal"><svg><use href="#i-login"></use></svg> <span class="lbl">Sign in</span></a>
+  <a class="pp-back" href="index.html" aria-label="Back to townsuite.com"><span class="arr">←</span> <span class="lbl-long">Back to&nbsp;</span><span class="dom">townsuite.com</span></a>
+</header>
+
+<main class="nf" id="servererror">
+  <div class="nf__grid" aria-hidden="true"></div>
+  <div class="nf__glow" aria-hidden="true"></div>
+  <div class="nf__depth" aria-hidden="true">
+    <i class="s-soft"   style="left:7%;top:22%;width:78px;height:78px;--d:1.4;"></i>
+    <i class="s-mid"    style="left:14%;top:64%;width:42px;height:42px;--d:2.1;"></i>
+    <i class="s-orange" style="left:84%;top:18%;width:30px;height:30px;--d:2.6;"></i>
+    <i class="s-blue"   style="right:8%;top:60%;width:64px;height:64px;--d:1.7;"></i>
+    <i class="s-green"  style="left:50%;top:8%;width:22px;height:22px;--d:3;"></i>
+    <i class="s-red"    style="right:24%;bottom:10%;width:26px;height:26px;--d:2.4;"></i>
+  </div>
+
+  <div class="nf__in">
+    <p class="ts-kicker" style="margin-bottom:14px;">Error 500</p>
+
+    <div class="nf__code" aria-label="500">
+      <span>5</span>
+      <span class="nf__zero" aria-hidden="true">
+        <svg viewBox="0 0 100 100" aria-hidden="true">
+          <circle class="ring" cx="50" cy="50" r="40"></circle>
+          <rect class="dot o" x="44" y="2"  width="12" height="12" rx="2.5" transform="rotate(45 50 8)"></rect>
+          <rect class="dot g" x="84" y="44" width="12" height="12" rx="2.5" transform="rotate(45 90 50)"></rect>
+          <rect class="dot r" x="44" y="86" width="12" height="12" rx="2.5" transform="rotate(45 50 92)"></rect>
+        </svg>
+      </span>
+      <span class="nf__zero z2" aria-hidden="true">
+        <svg viewBox="0 0 100 100" aria-hidden="true">
+          <circle class="ring" cx="50" cy="50" r="40"></circle>
+          <rect class="dot o" x="44" y="2"  width="12" height="12" rx="2.5" transform="rotate(45 50 8)"></rect>
+          <rect class="dot g" x="84" y="44" width="12" height="12" rx="2.5" transform="rotate(45 90 50)"></rect>
+          <rect class="dot r" x="44" y="86" width="12" height="12" rx="2.5" transform="rotate(45 50 92)"></rect>
+        </svg>
+      </span>
+    </div>
+
+    <h1 class="nf__h1">Something went wrong on our end.</h1>
+    <p class="nf__lede">A server error stopped this page from loading — it's us, not you. The issue has been logged and our team is on it. Give it a moment and try again, or head back home.</p>
+
+    <div class="nf__status"><span class="pulse"><i></i></span> <span><b>Incident logged</b> — our team has been notified<span id="nf-ref"></span></span></div>
+
+    <div class="nf__cta">
+      <button class="ts-btn ts-btn--primary" type="button" id="nf-retry">Try again <svg style="width:17px;height:17px;margin-left:2px;" aria-hidden="true"><use href="#i-refresh"></use></svg></button>
+      <a class="ts-btn ts-btn--ghost" href="index.html">Back to home <span class="arr">→</span></a>
+    </div>
+
+    <nav class="nf__links" aria-label="Helpful links">
+      <a class="nf__link" href="https://status.townsuite.com" target="_blank" rel="noopener">
+        <span class="lt">System status <span class="arr">→</span></span>
+        <span class="ld">Live service status and any ongoing incidents.</span>
+      </a>
+      <a class="nf__link" href="https://portal.ws.townsuite.com/login" target="_blank" rel="noopener">
+        <span class="lt">Sign in <span class="arr">→</span></span>
+        <span class="ld">Head to the portal to pick up where you left off.</span>
+      </a>
+      <a class="nf__link" href="tel:18004083313">
+        <span class="lt">Call support <span class="arr">→</span></span>
+        <span class="ld">Still stuck? Reach our Canadian team at 1.800.408.3313.</span>
+      </a>
+    </nav>
+  </div>
+</main>
+
+<footer class="ts-footer" data-screen-label="Footer">
+  <div class="ts-wrap">
+    <div class="ts-footer__in">
+      <div>
+        <div class="ts-footer__logo"><svg class="ts-logo" viewBox="151 154 889 181" role="img" aria-label="TownSuite mERP"><rect x="-16.975" y="-16.975" width="33.95" height="33.95" fill="#D8E0ED" transform="translate(220.79,191.54) rotate(65) scale(1.38)"></rect><rect x="-16.975" y="-16.975" width="33.95" height="33.95" fill="#6B95BE" transform="translate(188.71,273.70) rotate(65) scale(1.38)"></rect><rect x="-17" y="-17" width="34" height="34" fill="#00578E" transform="translate(244.20,246.20) rotate(65) scale(1.38)"></rect><rect x="-8.825" y="-8.825" width="17.65" height="17.65" fill="#E48D1A" transform="translate(297.55,291.42) rotate(65) scale(1.38)"></rect><rect x="-4.555" y="-4.555" width="9.11" height="9.11" fill="#2DA343" transform="translate(322.72,273.11) rotate(65) scale(1.38)"></rect><rect x="-4.64" y="-4.64" width="9.28" height="9.28" fill="#E03A3E" transform="translate(305.69,320.65) rotate(65) scale(1.38)"></rect><path fill="currentColor" d="M401.02 212.45L401.02 218.40L387.86 218.40L387.86 278.50L379.03 278.50L379.03 218.40L365.88 218.40L365.88 212.45L401.02 212.45ZM443.39 252.68L443.39 252.68Q443.39 264.68 438.35 272.07Q433.31 279.46 423.23 279.46Q413.15 279.46 408.06 272.07Q402.97 264.68 402.97 252.68L402.97 252.68Q402.97 240.48 408.06 233.14Q413.15 225.80 423.13 225.80L423.13 225.80Q433.31 225.80 438.35 233.09Q443.39 240.39 443.39 252.68ZM434.94 252.68L434.94 252.68Q434.94 231.17 423.23 231.17L423.23 231.17Q411.42 231.17 411.42 252.68L411.42 252.68Q411.42 273.60 423.23 273.60L423.23 273.60Q434.94 273.60 434.94 252.68ZM508.90 226.76L516.58 226.76L501.79 278.50L494.50 278.50L484.03 241.54Q483.17 238.37 482.98 235.49L482.98 235.49L482.88 235.49Q482.59 238.37 481.63 241.54L481.63 241.54L470.98 278.50L463.68 278.50L448.99 226.76L457.63 226.76L466.66 263.91L467.71 270.05L467.90 270.05Q468.19 267.46 469.15 263.91L469.15 263.91L479.62 226.76L486.91 226.76L497.09 263.91Q498.24 270.05 498.24 270.05L498.24 270.05L498.43 270.05Q498.72 266.88 499.49 263.81L499.49 263.81L508.90 226.76ZM562.50 241.16L562.50 278.50L554.05 278.50L554.05 241.35Q554.05 231.27 543.20 231.27L543.20 231.27Q537.64 231.27 533.41 233.09L533.41 233.09L533.41 278.50L524.96 278.50L524.96 229.44Q532.55 225.80 543.88 225.80L543.88 225.80Q553.76 225.80 558.13 230.26Q562.50 234.72 562.50 241.16L562.50 241.16ZM607.27 259.88L607.27 259.88Q607.27 268.52 601.66 273.99Q596.04 279.46 587.30 279.46L587.30 279.46Q577.61 279.46 571.94 275.81L571.94 275.81L574.25 269.67Q579.24 272.74 585.77 272.74L585.77 272.74Q591.43 272.74 594.79 269.38Q598.15 266.02 598.15 260.36L598.15 260.36Q598.15 255.94 595.51 253.06Q592.87 250.18 586.63 247.68L586.63 247.68Q572.62 242.12 572.62 230.02L572.62 230.02Q572.62 222.24 577.75 216.87Q582.89 211.49 591.24 211.49L591.24 211.49Q599.69 211.49 604.78 215.04L604.78 215.04L602.66 220.61Q597.77 217.54 592.20 217.54L592.20 217.54Q587.02 217.54 584.14 220.66Q581.26 223.78 581.26 229.16L581.26 229.16Q581.26 233.86 584.09 236.50Q586.92 239.14 592.30 241.25L592.30 241.25Q607.27 247.11 607.27 259.88ZM654.35 226.76L654.35 275.43Q647.15 279.56 636.11 279.56L636.11 279.56Q617.77 279.56 617.77 262.66L617.77 262.66L617.77 226.76L626.22 226.76L626.22 262.95Q626.22 267.75 628.86 270.68Q631.50 273.60 636.59 273.60L636.59 273.60Q642.35 273.60 645.90 271.49L645.90 271.49L645.90 226.76L654.35 226.76ZM674.74 208.85Q676.18 210.24 676.18 212.16Q676.18 214.08 674.74 215.43Q673.30 216.77 671.28 216.77L671.28 216.77Q669.17 216.77 667.73 215.43Q666.29 214.08 666.29 212.16Q666.29 210.24 667.73 208.85Q669.17 207.46 671.28 207.46L671.28 207.46Q673.30 207.46 674.74 208.85ZM675.50 226.76L675.50 278.50L667.06 278.50L667.06 226.76L675.50 226.76ZM708.47 272.84L708.47 278.21Q705.88 278.98 703.86 278.98L703.86 278.98Q697.33 278.98 694.16 275.14Q691.00 271.30 691.00 265.92L691.00 265.92L691.00 232.04L685.04 232.04L685.04 226.76L691.00 226.76L691.00 214.85L699.44 212.26L699.44 226.76L708.47 226.76L708.47 232.04L699.44 232.04L699.44 265.73Q699.44 269.09 701.03 271.16Q702.61 273.22 705.97 273.22L705.97 273.22Q706.74 273.22 708.47 272.84L708.47 272.84ZM754.97 251.14L754.97 251.14L722.42 255.84Q723.86 273.32 738.17 273.32L738.17 273.32Q745.75 273.32 750.94 270.34L750.94 270.34L753.14 275.91Q747.29 279.46 737.50 279.46L737.50 279.46Q726.94 279.46 720.70 272.64Q714.46 265.83 714.46 252.48L714.46 252.48Q714.46 239.62 720.17 232.71Q725.88 225.80 735.29 225.80L735.29 225.80Q744.79 225.80 749.93 232.13Q755.06 238.47 754.97 251.14ZM722.14 251.33L746.90 247.59Q746.90 231.27 735 231.27L735 231.27Q729.05 231.27 725.54 236.26Q722.04 241.25 722.14 251.33L722.14 251.33Z M857.71 241.06L857.71 278.50L849.26 278.50L849.26 241.25Q849.26 236.93 846.91 234.15Q844.56 231.36 839.28 231.36L839.28 231.36Q832.94 231.36 828.62 235.97L828.62 235.97L828.62 278.50L820.17 278.50L820.17 240.87Q820.17 236.45 817.24 233.86Q814.32 231.27 808.84 231.27L808.84 231.27Q803.66 231.27 799.53 233.00L799.53 233.00L799.53 278.50L791.08 278.50L791.08 229.44Q798.57 225.80 809.04 225.80L809.04 225.80Q819.88 225.80 824.88 232.04L824.88 232.04Q830.83 225.80 840.91 225.80L840.91 225.80Q849.45 225.80 853.58 230.31Q857.71 234.82 857.71 241.06L857.71 241.06ZM901.04 272.55L901.04 278.50L870.42 278.50L870.42 212.45L901.04 212.45L901.04 218.40L879.25 218.40L879.25 241.44L898.83 241.44L898.83 247.30L879.25 247.30L879.25 272.55L901.04 272.55ZM930.55 249.41L952.15 278.50L942.16 278.50L920.47 247.68L920.28 247.68L920.28 278.50L911.54 278.50L911.54 215.04Q917.97 211.49 927.96 211.49L927.96 211.49Q939.09 211.49 944.85 216.63Q950.61 221.76 950.61 231.08L950.61 231.08Q950.61 239.43 945.19 244.23Q939.76 249.03 930.55 249.22L930.55 249.22L930.55 249.41ZM941.88 231.46L941.88 231.46Q941.88 223.88 938.47 220.28Q935.06 216.68 927.76 216.68L927.76 216.68Q922.87 216.68 920.28 218.12L920.28 218.12L920.28 245.76Q922.20 246.34 925.94 246.34L925.94 246.34Q941.88 246.34 941.88 231.46ZM1000.95 231.46L1000.95 231.46Q1000.95 241.06 994.09 246.87Q987.22 252.68 973.50 251.33L973.50 251.33L970.52 251.04L970.52 278.50L961.88 278.50L961.88 215.14Q968.22 211.49 978.39 211.49L978.39 211.49Q989.62 211.49 995.29 216.92Q1000.95 222.34 1000.95 231.46ZM992.41 231.36L992.41 231.36Q992.41 224.07 988.95 220.42Q985.50 216.77 978.01 216.77L978.01 216.77Q973.40 216.77 970.52 218.02L970.52 218.02L970.52 245.67L973.40 245.96Q992.41 247.78 992.41 231.36Z M1032.43 226.84L1032.43 226.84Q1032.43 231.80 1028.90 235.32Q1025.36 238.84 1020.40 238.84Q1015.43 238.84 1011.91 235.32Q1008.39 231.80 1008.39 226.84L1008.39 226.84Q1008.39 221.84 1011.91 218.32Q1015.43 214.80 1020.40 214.80Q1025.36 214.80 1028.90 218.32Q1032.43 221.84 1032.43 226.84ZM1027.88 234.28Q1030.97 231.19 1030.97 226.84Q1030.97 222.49 1027.88 219.38Q1024.78 216.26 1020.40 216.26L1020.40 216.26Q1016.04 216.26 1012.95 219.38Q1009.86 222.49 1009.86 226.84Q1009.86 231.19 1012.95 234.28Q1016.04 237.38 1020.40 237.38L1020.40 237.38Q1024.78 237.38 1027.88 234.28ZM1020.50 227.11L1025.33 233.77L1023.42 233.77L1018.76 227.21L1018.25 227.21L1018.25 233.77L1016.66 233.77L1016.66 219.90Q1018.02 219.22 1019.99 219.22L1019.99 219.22Q1021.99 219.22 1023.35 220.28Q1024.71 221.33 1024.71 223.23L1024.71 223.23Q1024.71 225.00 1023.54 226.00Q1022.37 227.01 1020.50 227.11L1020.50 227.11ZM1023.08 223.20L1023.08 223.20Q1023.08 221.77 1022.11 221.16Q1021.14 220.55 1019.78 220.55L1019.78 220.55Q1018.90 220.55 1018.25 220.82L1018.25 220.82L1018.25 226.09L1019.51 226.09Q1021.08 226.09 1022.08 225.41Q1023.08 224.73 1023.08 223.20Z"></path></svg></div>
+        <p class="ts-footer__note">Canada’s Sovereign Cloud mERP<span class="rtm">®</span> — built solely for Canadian municipalities, from the ground up. By Canadians, in Canada. Since 1987.</p>
+        <span class="ts-pill ts-pill--accent" style="margin-top:16px;"><svg class="ts-maple"><use href="#i-maple"></use></svg> 100% Canadian-owned since 1987</span>
       </div>
-</div>
-</div>
+      <div>
+        <h2>Platform</h2>
+        <ul>
+          <li><a href="index.html#modules">Modules</a></li>
+          <li><a href="index.html#ai">TownSuite Intelligence</a></li>
+          <li><a href="index.html#implementation">Onboarding</a></li>
+          <li><a href="index.html#pricing">Pricing</a></li>
+          <li><a href="https://portal.ws.townsuite.com/login" target="_blank" rel="noopener">Sign in</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="index.html#sovereign">Sovereignty</a></li>
+          <li><a href="big-picture.html">The Big Picture</a></li>
+          <li><a href="enhance.html">Enhance your processes</a></li>
+          <li><a href="procurement.html">For procurement &amp; IT</a></li>
+          <li><a href="https://status.townsuite.com" target="_blank" rel="noopener">Status</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="about.html">About TownSuite</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="cookies.html">Cookie Policy</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="accessibility.html">Accessibility</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ts-footer__base">
+      <span>© <span class="ts-yr">2026</span> TownSuite Municipal Software Inc. TownSuite<span class="rtm">®</span> and mERP<span class="rtm">®</span> are registered trademarks of TownSuite Municipal Software Inc.</span>
+      <span class="ts-dots"><i></i><i></i><i></i></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* standalone theme toggle — shares the ts-theme key with the main site */
+(function(){
+  var root = document.documentElement;
+  var mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+  function getTheme(){ try{ return localStorage.getItem("ts-theme") || "auto"; }catch(e){ return "auto"; } }
+  function resolveTheme(t){ return t === "auto" ? (mq && mq.matches ? "dark" : "light") : t; }
+  function setTheme(t){
+    root.setAttribute("data-theme", resolveTheme(t));
+    try{ document.querySelectorAll(".ts-themer").forEach(function(b){ b.setAttribute("aria-pressed", String(resolveTheme(t)==="dark")); }); }catch(e){}
+    try{ localStorage.setItem("ts-theme", t); }catch(e){}
+  }
+  setTheme(getTheme());
+  if(mq && mq.addEventListener){ mq.addEventListener("change", function(){ if(getTheme() === "auto") setTheme("auto"); }); }
+  document.querySelectorAll(".ts-themer").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var cur = resolveTheme(getTheme());
+      setTheme(cur === "dark" ? "light" : "dark");
+    });
+  });
+})();
+
+/* "Try again" — reload the page the visitor was on */
+(function(){
+  var btn = document.getElementById("nf-retry");
+  if(btn) btn.addEventListener("click", function(){ window.location.reload(); });
+})();
+
+/* generate a short reference code so a caller can quote it to support */
+(function(){
+  try{
+    var el = document.getElementById("nf-ref");
+    if(!el) return;
+    var d = new Date();
+    var p = function(n){ return (n<10?"0":"")+n; };
+    var stamp = "" + d.getUTCFullYear().toString().slice(2) + p(d.getUTCMonth()+1) + p(d.getUTCDate());
+    var rnd = Math.random().toString(36).slice(2,6).toUpperCase();
+    el.innerHTML = ' \u00B7 <code>ref ' + stamp + '-' + rnd + '</code>';
+  }catch(e){}
+})();
+
+/* subtle parallax on the floating brand squares (pointer-driven, reduced-motion safe) */
+(function(){
+  if(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var depth = document.querySelector(".nf__depth");
+  if(!depth) return;
+  var tx = 0, ty = 0, cx = 0, cy = 0, raf = null;
+  function loop(){
+    cx += (tx - cx) * 0.08; cy += (ty - cy) * 0.08;
+    depth.style.setProperty("--px", cx.toFixed(2) + "px");
+    depth.style.setProperty("--py", cy.toFixed(2) + "px");
+    if(Math.abs(tx-cx) > 0.1 || Math.abs(ty-cy) > 0.1){ raf = requestAnimationFrame(loop); }
+    else { raf = null; }
+  }
+  window.addEventListener("pointermove", function(e){
+    var w = window.innerWidth, h = window.innerHeight;
+    tx = (e.clientX / w - 0.5) * -26;
+    ty = (e.clientY / h - 0.5) * -26;
+    if(!raf) raf = requestAnimationFrame(loop);
+  }, {passive:true});
+})();
+</script>
+
+<!-- ================= TOWNSUITE INTELLIGENCE — LIVE CHAT WIDGET =================
+     Same widget as every page. PRODUCTION: load embed.js from the chat instance
+     (https://tschat-public.yqx.auto.k8s.townsuite.com/embed.js) and match data-api;
+     the local src below just renders the widget in the Designer preview. The chat
+     keeps its session + transcript across pages via sessionStorage. -->
+<script src="demo-modal.js" defer></script>
+<script src="embed.js"
+        data-api="https://tschat-prod.yqx.auto.k8s.townsuite.com"
+        data-lang="en" defer></script>
+
+<script>/*ts-yr-auto*/document.querySelectorAll(".ts-yr").forEach(function(e){e.textContent=new Date().getFullYear();});</script>
 </body>
 </html>

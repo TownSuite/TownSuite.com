@@ -1,0 +1,141 @@
+/* ============================================================
+   Hero "app shot" — a faithful static recreation of the real
+   TownSuite eServices dashboard (Your dashboard v2), rebuilt on
+   the marketing site's own theme tokens so it pops in light/dark.
+   Scoped under .tsapp. Mirrors the product's shell + dashboard.
+   ============================================================ */
+.tsapp{
+  display:flex;flex-direction:column;
+  background:var(--surface2);color:var(--ink);
+  font-size:10.5px;line-height:1.4;text-align:left;
+  font-feature-settings:'tnum' 1;
+}
+.tsapp *{box-sizing:border-box;}
+.tsapp .d{width:6px;height:6px;border-radius:1.5px;transform:rotate(45deg);background:currentColor;flex:none;display:inline-block;}
+
+/* ---- product top bar ---- */
+.tsapp__top{
+  height:44px;flex:none;display:flex;align-items:center;gap:11px;padding:0 13px;
+  background:var(--surface);border-bottom:1px solid var(--line);
+}
+.tsapp__logo{height:17px;width:auto;}
+.tsapp__sep{width:1px;height:18px;background:var(--line);flex:none;}
+.tsapp__switch{
+  height:29px;display:inline-flex;align-items:center;gap:8px;padding:0 11px;
+  border:1px solid var(--line);border-radius:8px;background:var(--surface);
+  font-weight:700;font-size:11px;color:var(--ink);
+}
+.tsapp__g9{display:grid;grid-template-columns:repeat(3,3px);gap:2.3px;}
+.tsapp__g9 i{width:3px;height:3px;border-radius:1px;background:var(--accent);display:block;}
+.tsapp__chev{
+  width:6px;height:6px;border-right:1.6px solid var(--ink3);border-bottom:1.6px solid var(--ink3);
+  transform:rotate(45deg) translateY(-1px);flex:none;
+}
+.tsapp__right{margin-left:auto;display:flex;align-items:center;gap:8px;}
+.tsapp__ic{
+  width:28px;height:28px;border-radius:8px;border:1px solid var(--line);background:var(--surface);
+  display:grid;place-items:center;position:relative;color:var(--ink2);
+}
+.tsapp__ic svg{width:14px;height:14px;}
+.tsapp__bdg{
+  position:absolute;top:-5px;right:-5px;min-width:14px;height:14px;border-radius:999px;
+  background:var(--ts-red);color:#fff;font-size:8.5px;font-weight:800;
+  display:grid;place-items:center;padding:0 3px;border:1.5px solid var(--surface);
+}
+.tsapp__belldot{position:absolute;top:5px;right:6px;width:6px;height:6px;border-radius:50%;background:var(--ts-red);border:1.5px solid var(--surface);}
+.tsapp__av{
+  width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--accent-ink);
+  display:grid;place-items:center;font-size:10px;font-weight:700;flex:none;
+}
+
+/* ---- shell row ---- */
+.tsapp__row{flex:1;display:flex;min-height:0;align-items:stretch;}
+
+/* ---- product sidebar ---- */
+.tsapp__side{
+  width:138px;flex:none;background:var(--surface);border-right:1px solid var(--line);
+  display:flex;flex-direction:column;padding:12px 9px;
+}
+.tsapp__prod{display:flex;align-items:center;gap:9px;padding:2px 5px 11px;border-bottom:1px solid var(--line);margin-bottom:9px;}
+.tsapp__prodic{width:28px;height:28px;border-radius:8px;background:var(--accent-tint);display:grid;place-items:center;flex:none;color:var(--accent);}
+.tsapp__prodic .d{width:9px;height:9px;}
+.tsapp__prodname{font-size:12px;font-weight:700;color:var(--ink);line-height:1.1;}
+.tsapp__prodsub{font-size:8px;letter-spacing:1px;text-transform:uppercase;color:var(--ink3);margin-top:2px;}
+.tsapp__nav{display:flex;flex-direction:column;gap:1px;}
+.tsapp__navitem{display:flex;align-items:center;gap:9px;padding:6px 9px;border-radius:7px;color:var(--ink2);font-weight:600;font-size:11px;}
+.tsapp__navitem .d{color:var(--line2);}
+.tsapp__navitem.is-active{background:var(--accent-tint);color:var(--accent);}
+.tsapp__navitem.is-active .d{color:var(--accent);}
+.tsapp__sidefoot{margin-top:auto;border-top:1px solid var(--line);padding-top:8px;display:flex;flex-direction:column;gap:1px;}
+.tsapp__sidefoot .tsapp__navitem{color:var(--ink3);font-size:10px;}
+
+/* ---- main ---- */
+.tsapp__main{flex:1;min-width:0;padding:14px 15px;display:flex;flex-direction:column;}
+.tsapp__head{display:flex;align-items:center;gap:11px;margin-bottom:13px;}
+.tsapp__head h3,.tsapp__head .tsapp__h3{margin:0;font-size:18px;font-weight:700;letter-spacing:-.3px;color:var(--ink);}
+.tsapp__date{
+  font-size:10px;font-weight:700;color:var(--accent);background:var(--accent-tint);
+  border:1px solid var(--accent-soft);padding:3px 9px;border-radius:999px;white-space:nowrap;
+}
+
+/* attention strip */
+.tsapp__alerts{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:13px;}
+.tsapp__alert{
+  display:flex;align-items:center;gap:9px;background:var(--surface);border:1px solid var(--line);
+  border-radius:11px;padding:10px 11px;box-shadow:var(--shadow-1);min-width:0;
+}
+.tsapp__adot{width:8px;height:8px;border-radius:50%;flex:none;}
+.tsapp__adot.is-due{background:var(--ts-red);box-shadow:0 0 0 3px color-mix(in srgb,var(--ts-red) 18%,transparent);}
+.tsapp__adot.is-warn{background:var(--ts-orange);box-shadow:0 0 0 3px color-mix(in srgb,var(--ts-orange) 20%,transparent);}
+.tsapp__adot.is-info{background:var(--ts-blue);box-shadow:0 0 0 3px color-mix(in srgb,var(--ts-blue) 18%,transparent);}
+.tsapp__amain{min-width:0;flex:1;}
+.tsapp__atitle{font-size:11px;font-weight:700;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.tsapp__asub{font-size:9.5px;color:var(--ink3);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.tsapp__btn{flex:none;font-size:9.5px;font-weight:700;color:var(--accent-ink);background:var(--accent);border-radius:7px;padding:5px 9px;white-space:nowrap;}
+.tsapp__link{flex:none;font-size:10px;font-weight:700;color:var(--accent);white-space:nowrap;}
+
+/* columns */
+.tsapp__cols{display:flex;gap:13px;align-items:stretch;flex:1;min-height:0;}
+.tsapp__card{background:var(--surface);border:1px solid var(--line);border-radius:13px;box-shadow:var(--shadow-1);}
+.tsapp__apps{flex:1;min-width:0;display:flex;flex-direction:column;padding:13px 14px;}
+.tsapp__rail{width:142px;flex:none;display:flex;flex-direction:column;gap:13px;}
+
+.tsapp__cardhead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:11px;}
+.tsapp__cardtitle{font-size:12.5px;font-weight:700;color:var(--ink);}
+.tsapp__filter{font-size:10px;color:var(--ink3);border:1px solid var(--line);border-radius:8px;padding:5px 10px;background:var(--surface2);white-space:nowrap;}
+
+.tsapp__appgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.tsapp__app{display:flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:10px;padding:9px 10px;min-width:0;}
+.tsapp__appic{width:28px;height:28px;border-radius:8px;background:var(--accent-tint);display:grid;place-items:center;flex:none;color:var(--accent);}
+.tsapp__appic .d{width:7px;height:7px;}
+.tsapp__appmain{min-width:0;flex:1;}
+.tsapp__appname{font-size:11px;font-weight:700;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.tsapp__appdesc{font-size:9px;color:var(--ink3);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.tsapp__appbdg{flex:none;font-size:8px;font-weight:800;letter-spacing:.3px;text-transform:uppercase;color:var(--accent);background:var(--accent-tint);border-radius:999px;padding:2px 6px;white-space:nowrap;}
+.tsapp__appbdg.is-due{color:var(--ts-red);background:color-mix(in srgb,var(--ts-red) 12%,transparent);}
+
+.tsapp__admin{margin-top:12px;padding-top:11px;border-top:1px solid var(--line);}
+.tsapp__adminhead{font-size:8.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--ink3);margin-bottom:8px;}
+.tsapp__adminrow{display:flex;flex-wrap:wrap;gap:6px;}
+.tsapp__chip{display:flex;align-items:center;gap:6px;font-size:10px;font-weight:600;color:var(--ink2);border:1px solid var(--line);border-radius:999px;padding:5px 10px;white-space:nowrap;}
+.tsapp__chip .d{width:5px;height:5px;color:var(--line2);}
+
+/* profile + feed rail */
+.tsapp__profile{display:flex;align-items:center;gap:10px;padding:12px 13px;}
+.tsapp__av--lg{width:34px;height:34px;font-size:12px;}
+.tsapp__pname{font-size:11.5px;font-weight:700;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.tsapp__psub{font-size:9px;color:var(--ink3);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.tsapp__feed{flex:1;display:flex;flex-direction:column;padding:12px 13px;min-height:0;}
+.tsapp__tabs{display:flex;gap:14px;border-bottom:1px solid var(--line);margin-bottom:9px;}
+.tsapp__tab{font-size:10.5px;font-weight:700;color:var(--ink3);padding-bottom:8px;white-space:nowrap;}
+.tsapp__tab.is-active{color:var(--accent);box-shadow:inset 0 -2px 0 var(--accent);}
+.tsapp__feedrows{display:flex;flex-direction:column;gap:1px;}
+.tsapp__frow{display:flex;align-items:flex-start;gap:8px;padding:7px 0;border-top:1px solid var(--line);}
+.tsapp__frow:first-child{border-top:none;}
+.tsapp__fdot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex:none;margin-top:4px;}
+.tsapp__ftext{flex:1;min-width:0;font-size:10px;color:var(--ink2);line-height:1.35;}
+.tsapp__ftext b{color:var(--ink);font-weight:700;}
+.tsapp__fage{flex:none;font-size:9px;color:var(--ink3);white-space:nowrap;}
+
+/* the app shot is a desktop screen — keep it desktop even on small frames */
+.tsapp__main{overflow:hidden;}

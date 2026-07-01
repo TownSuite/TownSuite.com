@@ -1,503 +1,1635 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
-</head>
-<body>
-<x-dc>
-<helmet>
-<link rel="icon" href="favicon.ico" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>TownSuite mERP® — Canada's Operationally Sovereign Cloud for Municipalities</title>
+<meta name="description" content="One holistic platform for every municipal workflow — finance, land, assets, work, people and citizen portals — under Canadian jurisdiction alone. By Canadians, for Canadians, in Canada since 1987." />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_CA" />
+<meta property="og:site_name" content="TownSuite mERP®" />
+<meta property="og:title" content="TownSuite mERP® — Canada's Operationally Sovereign Cloud for Municipalities" />
+<meta property="og:description" content="One holistic platform for every municipal workflow — finance, land, assets, work, people and citizen portals — under Canadian jurisdiction alone. By Canadians, for Canadians, in Canada since 1987." />
+<meta property="og:url" content="https://townsuite.com/" />
+<meta property="og:image" content="https://townsuite.com/og-townsuite-merp.png" />
+<meta property="og:image:width" content="2400" />
+<meta property="og:image:height" content="1260" />
+<meta property="og:image:alt" content="TownSuite mERP® — Canada's Operationally Sovereign Cloud for Municipalities" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="TownSuite mERP® — Canada's Operationally Sovereign Cloud for Municipalities" />
+<meta name="twitter:description" content="One holistic platform for every municipal workflow — finance, land, assets, work, people and citizen portals — under Canadian jurisdiction alone. By Canadians, for Canadians, in Canada since 1987." />
+<meta name="twitter:image" content="https://townsuite.com/og-townsuite-merp.png" />
+<link rel="canonical" href="https://townsuite.com/" />
+<link rel="icon" type="image/svg+xml" href="/emblem.svg" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<!-- Speed: warm up the chat API origin and preload the LCP font (cuts the swap flash) -->
+<link rel="preconnect" href="https://tschat-prod.yqx.auto.k8s.townsuite.com" crossorigin />
+<link rel="preload" href="fonts/dax-regular.woff2" as="font" type="font/woff2" crossorigin />
+<!-- Fonts self-hosted via styles.css (@font-face Dax) — no external font calls -->
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="appshot.css" />
+<!-- expanded.css styles below-the-fold chapters; load it non-render-blocking -->
+<link rel="stylesheet" href="expanded.css" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="expanded.css" /></noscript>
+<meta name="theme-color" content="#003C63" />
+<script>
+/* apply saved theme before first paint — light / dark / auto (auto follows the OS) */
+try{
+  var _p = localStorage.getItem("ts-theme") || "auto";
+  var _r = _p === "auto" ? (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : _p;
+  document.documentElement.setAttribute("data-theme", _r);
+}catch(e){}
+</script>
 <style>
-@font-face{
-  font-family:'Dax';
-  src:url('fonts/dax-regular.ttf') format('truetype'),
-      url('fonts/dax-regular.otf') format('opentype');
-  font-weight:400 900;font-style:normal;font-display:swap;
-}
-html,body{margin:0;padding:0;}
-::selection{background:#00578E;color:#fff;}
+/* multi-platform delivery strip */
+.x-plat{display:flex;flex-wrap:wrap;align-items:center;gap:12px 26px;margin-top:20px;padding:15px 20px;border:1.5px solid var(--line);border-radius:14px;background:var(--surface);}
+.x-plat__lbl{font-size:12.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--accent);}
+.x-plat__item{display:inline-flex;align-items:center;gap:9px;font-size:14.5px;color:var(--ink2);}
+.x-plat__item svg{width:20px;height:20px;color:var(--accent);flex:none;}
+.x-plat__item b{color:var(--ink);font-weight:700;}
+.x-plat__apps{display:flex;flex-wrap:wrap;align-items:center;gap:12px 26px;flex:1 1 auto;}
+/* final-CTA roofline */
 :root{
-  --ts-blue:#00578E;--ts-blue-mid:#6B95BE;--ts-blue-soft:#D8E0ED;
-  --ts-orange:#E48D1A;--ts-green:#2DA343;--ts-red:#E03A3E;
-  --bg:#FAFBFD;--bg2:#EFF3F8;--surface:#FFFFFF;
-  --ink:#13212D;--ink2:#4C5D6C;--ink3:#7C8B98;
-  --line:#DCE4EC;--line2:#C9D5E0;
-  --accent:#00578E;--accent-ink:#FFFFFF;--accent-tint:#E9EFF6;
-  --halo:rgba(0,87,142,.10);--halo2:rgba(0,87,142,.14);
-  --btn-bg:#00578E;--btn-ink:#FFFFFF;
-  --em-blue:#00578E;--em-light:#D9E0EC;--em-mid:#6C95BE;
-  --sq-soft:#D8E0ED;--sq-mid:#6B95BE;
-  --logo-filter:none;--disp-sun:flex;--disp-moon:none;
-  --shadow-1:0 1px 2px rgba(7,25,40,.06),0 4px 14px rgba(7,25,40,.06);
-  --shadow-2:0 2px 6px rgba(7,25,40,.08),0 18px 44px rgba(7,25,40,.12);
+  /* spring settle: cubic-bezier fallback, upgraded to a true linear() spring where supported */
+  --leaf-spring: cubic-bezier(.34,1.42,.5,1);
 }
-[data-theme="dark"]{
-  --bg:#071420;--bg2:#0A1B2A;--surface:#0D2032;
-  --ink:#E9F0F6;--ink2:#A8BBCA;--ink3:#71879A;
-  --line:#1C3850;--line2:#27465F;
-  --accent:#2D9CDE;--accent-ink:#06131D;--accent-tint:#0C2C45;
-  --halo:rgba(45,156,222,.14);--halo2:rgba(45,156,222,.18);
-  --btn-bg:#2D9CDE;--btn-ink:#06131D;
-  --em-blue:#1C77B4;
-  --sq-soft:#16344C;--sq-mid:#2B567A;
-  --logo-filter:brightness(0) invert(.92);--disp-sun:none;--disp-moon:flex;
-  --shadow-1:0 1px 2px rgba(0,0,0,.3),0 4px 14px rgba(0,0,0,.3);
-  --shadow-2:0 2px 6px rgba(0,0,0,.35),0 18px 44px rgba(0,0,0,.42);
+@supports (animation-timing-function: linear(0,1)){
+  :root{ --leaf-spring: linear(0, 0.012, 0.05, 0.108, 0.182, 0.27, 0.367, 0.469, 0.573, 0.674, 0.768, 0.851, 0.921, 0.976, 1.014, 1.037, 1.046, 1.044, 1.035, 1.022, 1.009, 0.999, 0.993, 0.991, 0.993, 0.997, 1); }
 }
-@keyframes stageIn{from{opacity:0;transform:translateY(12px) scale(.96);}to{opacity:1;transform:translateY(0) scale(1);}}
-@keyframes tickIn{from{opacity:0;transform:translateY(-14px);}to{opacity:1;transform:translateY(0);}}
-@keyframes digitRoll{from{transform:translateY(0);}to{transform:translateY(-1em);}}
-@keyframes sepPulse{0%{transform:rotate(45deg) scale(1);}45%{transform:rotate(225deg) scale(1.6);filter:brightness(1.25);}100%{transform:rotate(405deg) scale(1);filter:brightness(1);}}
-@keyframes sqSpawn{from{transform:rotate(-200deg) scale(0);opacity:0;}to{transform:rotate(0deg) scale(1);opacity:1;}}
-@keyframes nodePing{0%,100%{transform:scale(1);filter:brightness(1);}45%{transform:scale(1.5);filter:brightness(1.3);}}
-@keyframes dotBounce{0%,70%,100%{transform:translateY(0);opacity:.3;}35%{transform:translateY(-12px);opacity:1;}}
-@keyframes floatBob{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
-@keyframes glowPulse{0%,100%{opacity:.65;transform:scale(1);}50%{opacity:1;transform:scale(1.07);}}
-/* Mobile: strip decorative layers so the message + clock breathe */
-@media (max-width:640px){
-  .m-hide{display:none !important;}
-  .m-grid{opacity:.45;background-size:44px 44px !important;}
-  .m-lede{font-size:15.5px !important;max-width:34ch !important;margin-top:10px !important;}
-  .m-meta{gap:0 !important;margin-top:18px !important;}
-  .m-foot{justify-content:center !important;text-align:center !important;font-size:12px !important;}
-  .m-main{justify-content:flex-start !important;padding-top:10px !important;}
+.x-roof{display:block;overflow:visible;width:clamp(280px,44vw,520px);height:auto;margin:0 auto clamp(24px,3.2vw,40px);filter:drop-shadow(0 12px 18px rgba(0,0,0,.45));}
+.x-roof__body{transform-box:fill-box;transform-origin:50% 100%;}
+.x-roof--anim .x-roof__body{transform:scaleY(0.001);transition:transform .9s cubic-bezier(.22,1,.36,1) .15s;}
+/* maple finial: composite-only entrance (transform + opacity), GPU-promoted, spring settle */
+.x-roof--anim .x-roof__finial{opacity:0;transform-box:fill-box;transform-origin:50% 0%;transform:translate3d(0,-150px,0) rotate(-9deg) scale(.78);filter:drop-shadow(0 3px 9px rgba(214,40,40,.3));}
+.x-roof--anim.is-built .x-roof__body{transform:none;}
+.x-roof--anim.is-built .x-roof__finial{animation:leafFall 2s var(--leaf-spring) 1.5s both, leafFade .6s ease-out 1.5s both;}
+@keyframes leafFall{from{transform:translate3d(0,-150px,0) rotate(-9deg) scale(.78);}to{transform:translate3d(0,0,0) rotate(0deg) scale(1);}}
+@keyframes leafFade{from{opacity:0;}to{opacity:1;}}
+/* v2-only: pinned sovereign stack visual */
+.x-vis{display:flex;flex-direction:column;gap:13px;}
+.x-vislayer{
+  display:flex;align-items:center;gap:15px;border:1.5px solid var(--line);border-radius:16px;
+  padding:17px 20px;background:var(--surface);opacity:.55;
+  transition:opacity .35s,border-color .35s,box-shadow .35s,transform .35s;
 }
-/* Narrowest phones (≤360px): tighten the clock so 4 units never crowd */
-@media (max-width:360px){
-  .cd-row{gap:3px !important;}
-  .cd-col{min-width:0 !important;flex:1 1 0 !important;}
-  .cd-digit{font-size:38px !important;letter-spacing:-.03em !important;}
-  .cd-cap{font-size:10px !important;letter-spacing:.14em !important;}
-  .cd-sep{transform:scale(.7);margin-top:8px !important;}
+.x-vislayer .ic{width:42px;height:42px;border-radius:12px;flex:none;display:flex;align-items:center;justify-content:center;background:var(--accent-tint);color:var(--accent);}
+.x-vislayer .ic svg{width:21px;height:21px;}
+.x-vislayer b{display:block;font-size:16.5px;letter-spacing:-.01em;}
+.x-vislayer small{display:block;color:var(--ink2);font-size:13.5px;margin-top:2px;}
+.x-vislayer.is-lit{opacity:1;border-color:color-mix(in srgb,var(--accent) 55%,var(--line));box-shadow:var(--shadow-2);transform:translateX(8px);}
+.x-vis__joint{align-self:center;color:var(--ink3);font-size:15px;line-height:1;margin:-3px 0;}
+/* v2-only: floating sign-in (top right, mirrors Ask TownSuite fab) */
+.x-signfab{
+  position:fixed;top:20px;right:24px;z-index:150;
+  display:inline-flex;align-items:center;gap:9px;
+  min-height:48px;padding:0 20px;border-radius:100px;
+  background:var(--surface);color:var(--ink);border:1.5px solid var(--line2);
+  text-decoration:none;font-weight:700;font-size:14.5px;
+  box-shadow:var(--shadow-1);
+  transition:transform .2s,border-color .2s,color .2s,box-shadow .2s;
+}
+.x-signfab:hover{transform:translateY(-2px);border-color:var(--accent);color:var(--accent);box-shadow:var(--shadow-2);}
+.x-signfab svg{width:17px;height:17px;}
+@media (max-width:1100px){.x-signfab{display:none;}}
+/* v2-only: compact sign-in icon (mobile topbar) */
+.x-signin{
+  display:inline-flex;align-items:center;justify-content:center;width:46px;min-height:46px;
+  border:1.5px solid var(--line2);border-radius:13px;background:var(--surface);
+  text-decoration:none;color:var(--ink);
+  transition:border-color .18s,color .18s;
+}
+.x-signin:hover{border-color:var(--accent);color:var(--accent);}
+.x-signin svg{width:16px;height:16px;}
+/* v2-only: "sovereign because it's ours" — lives inside the dark sovereign band */
+.x-ours{
+  margin-top:clamp(56px,7vw,90px);padding-top:clamp(40px,5vw,64px);
+  border-top:1.5px solid var(--sov-line);
+  display:grid;grid-template-columns:1.1fr 1.5fr;gap:clamp(30px,4vw,64px);align-items:start;
+}
+.x-ours h3.ts-h2{color:inherit;}
+.x-ours .hl{color:var(--sov-hl);}
+.x-ours__since{
+  display:inline-flex;align-items:center;gap:10px;margin-top:26px;
+  border:1.5px dashed color-mix(in srgb,var(--sov-hl) 45%,transparent);border-radius:100px;padding:9px 18px;
+  color:var(--sov-hl);font-weight:700;font-size:14px;letter-spacing:.04em;
+}
+.x-ours__since .ts-maple{width:15px;height:15px;flex:none;}
+.x-ours__grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.x-ours__grid .ts-card{padding:26px 24px;position:relative;}
+.x-ours__grid .num{
+  position:absolute;top:22px;right:22px;
+  font-weight:900;font-size:14px;letter-spacing:.1em;color:color-mix(in srgb,var(--sov-hl) 60%,transparent);
+}
+.x-ours__grid .ts-card__t{font-size:17.5px;}
+.x-ours__grid .ts-card__d{font-size:14.5px;}
+.x-ours__grid .ts-card__d b{color:var(--ink);font-weight:700;}
+@media (max-width:920px){.x-ours{grid-template-columns:1fr;}}
+@media (max-width:560px){.x-ours__grid{grid-template-columns:1fr;}}
+/* v2-only: hero content above depth field */
+.x-hero__in{position:relative;z-index:3;}
+/* v2-only: hero "Introducing" overline — set apart from the display headline */
+.x-introducing{
+  display:block;font-family:'Source Sans 3','Dax',system-ui,sans-serif;
+  font-size:.28em;font-weight:600;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:.55em;line-height:1;
+}
+/* v2-only: ghost depth layers behind the hero dashboard (3D stack) */
+.x-layer--ghost{
+  left:0;top:0;width:760px;height:80%;transform-origin:top left;
+  border:1.5px solid var(--line);border-radius:18px;
+  background:color-mix(in srgb,var(--surface) 52%,transparent);
+  box-shadow:var(--shadow-1);
+}
+.x-layer--ghost.g1{transform:rotateY(calc(-5deg + var(--ry2,0deg)*1.4)) rotateX(calc(2.5deg + var(--rx2,0deg)*1.4)) scale(calc(var(--shot-scale,1) * .985)) translate(calc(26px * var(--inv,1)),calc(26px * var(--inv,1)));opacity:calc(.5 * var(--ghost-fade,1));}
+.x-layer--ghost.g2{transform:rotateY(calc(-5deg + var(--ry2,0deg)*1.9)) rotateX(calc(2.5deg + var(--rx2,0deg)*1.9)) scale(calc(var(--shot-scale,1) * .965)) translate(calc(52px * var(--inv,1)),calc(52px * var(--inv,1)));opacity:calc(.28 * var(--ghost-fade,1));}
+body[data-depth="off"] .x-layer--ghost,body[data-motion="off"] .x-layer--ghost{display:none;}
+/* v2-only: connected operations trio (Work · People · Assets) */
+.x-trio{
+  flex:0 0 861px;scroll-snap-align:start;position:relative;
+  border:1.5px dashed color-mix(in srgb,var(--accent) 50%,var(--line));
+  border-radius:24px;padding:20px 18px 10px;
+  background:color-mix(in srgb,var(--accent-tint) 55%,transparent);
+}
+.x-trio__tag{
+  position:absolute;top:-13px;left:20px;z-index:2;
+  font-size:11.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--accent);background:var(--bg2);
+  border:1.5px solid color-mix(in srgb,var(--accent) 50%,var(--line));
+  border-radius:100px;padding:4px 14px;white-space:nowrap;
+}
+.x-trio__cards{display:flex;align-items:stretch;perspective:1100px;}
+body[data-depth="on"] .x-trio__cards{transform-style:preserve-3d;transform:rotateX(var(--trx,0deg)) rotateY(var(--try,0deg));}
+.x-modscroll .x-trio__cards .ts-mod{flex:1 1 0;min-width:0;background:var(--surface);}
+body[data-depth="on"] .x-trio__cards > .ts-mod{transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .25s,border-color .25s;}
+body[data-depth="on"] .x-trio__cards > .ts-mod:nth-child(1){transform:rotateY(9deg);}
+body[data-depth="on"] .x-trio__cards > .ts-mod:nth-child(3){transform:translateZ(18px);}
+body[data-depth="on"] .x-trio__cards > .ts-mod:nth-child(5){transform:rotateY(-9deg);}
+body[data-depth="on"] .x-trio__cards > .ts-mod:hover,body[data-depth="on"] .x-trio__cards > .ts-mod:focus-visible{transform:translateZ(38px);border-color:var(--accent);box-shadow:var(--shadow-2);}
+.x-trio:hover .ts-mod{border-color:color-mix(in srgb,var(--accent) 55%,var(--line));}
+.x-trio__joint{flex:0 0 42px;position:relative;display:flex;align-items:center;justify-content:center;color:var(--accent);}
+.x-trio__joint::before{
+  content:"";position:absolute;left:-8px;right:-8px;top:calc(50% - 1.25px);height:2.5px;
+  background:repeating-linear-gradient(90deg,currentColor 0 7px,transparent 7px 14px);
+  opacity:.55;
+}
+.x-trio__joint i{position:relative;z-index:1;display:block;width:11px;height:11px;transform:rotate(45deg);border-radius:2px;}
+@media (prefers-reduced-motion: no-preference){
+  .x-trio:hover .x-trio__joint::before{animation:x-dashmarch .8s linear infinite;opacity:.9;}
+}
+@keyframes x-dashmarch{to{background-position:14px 0;}}
+.x-trio__cap{margin:14px 6px 6px;font-size:13.5px;line-height:1.5;color:var(--ink2);max-width:64ch;}
+.x-trio__cap b{color:var(--accent);font-weight:700;}
+/* v2-only: 3D scroll-triggered reveals (depth + motion on) */
+@media (prefers-reduced-motion: no-preference){
+  body[data-motion="on"][data-depth="on"] .x-ours__grid .ts-reveal:not(.is-in),
+  body[data-motion="on"][data-depth="on"] .x-modscroll.ts-reveal:not(.is-in),
+  body[data-motion="on"][data-depth="on"] .ts-ai.ts-reveal:not(.is-in){
+    transform:perspective(1000px) rotateX(9deg) translateY(46px) scale(.985);
+  }
+}
+@media (max-width:560px){
+  .x-trio__cards{flex-direction:column;}
+  .x-modscroll .x-trio__cards .ts-mod{flex:1 1 auto;}
+  .x-trio__joint{flex-basis:auto;width:100%;height:26px;}
+  .x-trio__joint::before{left:calc(50% - 1.25px);right:auto;top:-7px;bottom:-7px;height:auto;width:2.5px;background:repeating-linear-gradient(180deg,currentColor 0 7px,transparent 7px 14px);}
+}
+/* ---- Mobile-optimised module explorer (≤560px) ----
+   Desktop & tablet keep the spatial wire map. On phones the single-column
+   stack + diagonal wires get crammed, so we switch to a compact 2-up tile
+   grid: icon + name only; tap a tile to expand its description and tappable
+   connection chips. Wires are hidden (modules-connect.js also skips them). */
+@media (max-width:560px){
+  .x-modscroll{grid-template-columns:1fr 1fr !important;gap:10px;}
+  .x-modwire{display:none !important;}
+  .x-modscroll .ts-mod{min-height:0 !important;padding:14px 13px !important;border-radius:14px;}
+  .x-modscroll .ts-mod__ic{width:34px;height:34px;border-radius:9px;margin-bottom:10px;}
+  .x-modscroll .ts-mod__ic svg{width:18px;height:18px;}
+  .x-modscroll .ts-mod__t{font-size:15px;margin:0;line-height:1.25;}
+  .x-modscroll .ts-mod__d{
+    margin-top:8px;font-size:13px;line-height:1.45;
+    max-height:0;overflow:hidden;opacity:0;
+    transition:max-height .3s ease,opacity .25s ease,margin-top .3s ease;
+  }
+  /* full-width anchors: Financial core + AI keep their copy visible */
+  .x-modscroll .ts-mod--core,
+  .x-modscroll .ts-mod--ai{grid-column:1 / -1 !important;}
+  .x-modscroll .ts-mod--core .ts-mod__d,
+  .x-modscroll .ts-mod--ai .ts-mod__d{max-height:none;opacity:1;margin-top:8px;}
+  /* tap-to-expand: the active tile goes full-width and reveals its detail */
+  .x-modscroll .ts-mod.is-on{grid-column:1 / -1 !important;}
+  .x-modscroll .ts-mod.is-on .ts-mod__d{max-height:340px;opacity:1;margin-top:8px;}
+  /* connected trio: full-width band, drop decorative joints, stack the tiles */
+  .x-modscroll .x-trio{grid-column:1 / -1 !important;}
+  .x-trio__joint{display:none !important;}
+  .x-trio__cards{display:grid !important;grid-template-columns:1fr;gap:10px;}
+  .x-modscroll .x-trio__cards .ts-mod{flex:none !important;}
+  /* connection chips injected into the active tile */
+  .ts-mod__links{display:flex;flex-wrap:wrap;gap:7px;margin-top:13px;}
+  .ts-mod__links .ts-modlbl{width:100%;font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--ink3);margin:0 0 1px;}
+  .ts-mod__links .ts-modchip{
+    display:inline-flex;align-items:center;gap:6px;font:inherit;
+    font-size:12.5px;font-weight:700;color:var(--accent);
+    background:color-mix(in srgb,var(--accent) 12%,transparent);
+    border:1px solid color-mix(in srgb,var(--accent) 35%,transparent);
+    border-radius:100px;padding:6px 12px;cursor:pointer;min-height:33px;
+  }
+  .ts-mod__links .ts-modchip::before{
+    content:"";width:7px;height:7px;border-radius:1.5px;transform:rotate(45deg);
+    background:var(--accent);flex:none;
+  }
 }
 </style>
-</helmet>
+<!-- ts-seo-jsonld -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://townsuite.com/#organization","name":"TownSuite Municipal Software","alternateName":"TownSuite","url":"https://townsuite.com/","logo":"https://townsuite.com/og-townsuite-merp.png","foundingDate":"1987","address":{"@type":"PostalAddress","addressLocality":"Gander","addressRegion":"NL","addressCountry":"CA"},"areaServed":{"@type":"Country","name":"Canada"},"telephone":"+1.800.408.3313","contactPoint":{"@type":"ContactPoint","telephone":"+1.800.408.3313","contactType":"sales","areaServed":"CA","availableLanguage":["en","fr"]},"description":"100% Canadian-owned municipal ERP (mERP) — one connected platform for every municipal workflow, built, supported and hosted under Canadian jurisdiction since 1987."}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://townsuite.com/#website","name":"TownSuite Municipal Software","url":"https://townsuite.com/","publisher":{"@id":"https://townsuite.com/#organization"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","@id":"https://townsuite.com/#merp","name":"TownSuite mERP","applicationCategory":"BusinessApplication","operatingSystem":"Web, Windows, Android, iOS","publisher":{"@id":"https://townsuite.com/#organization"}}</script>
+</head>
+<body class="v2" data-motion="on" data-depth="on" data-screen-label="Home">
+<div class="ios-statusbar-tint" aria-hidden="true"></div>
+<template id="__bundler_thumbnail" data-bg-color="#00578E">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#00578E"/>
+    <path d="M600 250 l34 90 96 -38 -52 86 92 46 -100 16 14 100 -84 -62 -84 62 14 -100 -100 -16 92 -46 -52 -86 96 38 z" fill="#FAFBFD"/>
+    <text x="600" y="600" font-family="Source Sans 3, Arial, sans-serif" font-size="72" font-weight="900" fill="#FAFBFD" text-anchor="middle">TownSuite</text>
+  </svg>
+</template>
+<a class="ts-skip" href="#main">Skip to content</a>
 
-<div ref="{{ rootRef }}" data-screen-label="Launch countdown" style="position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;background:var(--bg);color:var(--ink);font-family:'Dax',system-ui,-apple-system,'Segoe UI',sans-serif;overflow:hidden;transition:background .35s ease,color .35s ease;-webkit-font-smoothing:antialiased;">
+<!-- shared icon symbols -->
+<svg style="display:none" aria-hidden="true">
+  <symbol id="i-maple" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0.5L14 4L16 3L15 8L15.5 9.5L18 7L19 8.5L22 8L21 11L22.5 12L17 16.5L17.5 18.5L12.5 17.6L12.5 23L11.5 23L11.5 17.6L6.5 18.5L7 16.5L1.5 12L3 11L2 8L5 8.5L6 7L8.5 9.5L9 8L8 3L10 4Z"></path></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l2.1 6.3L20.5 10l-6.4 1.7L12 18l-2.1-6.3L3.5 10l6.4-1.7zM19 16l1 2.7 2.7 1-2.7 1L19 23.5l-1-2.8-2.7-1 2.7-1z"></path></symbol>
+  <symbol id="i-ai" viewBox="0 0 24 24"><path fill="currentColor" d="M10.6 1.4l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"></path><path fill="currentColor" transform="translate(13.7,12.9) scale(0.355)" d="M12 0.5L14 4L16 3L15 8L15.5 9.5L18 7L19 8.5L22 8L21 11L22.5 12L17 16.5L17.5 18.5L12.5 17.6L12.5 23L11.5 23L11.5 17.6L6.5 18.5L7 16.5L1.5 12L3 11L2 8L5 8.5L6 7L8.5 9.5L9 8L8 3L10 4Z"></path></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.4" fill="none" stroke="currentColor" stroke-width="2"></circle><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5 5l1.7 1.7M17.3 17.3L19 19M19 5l-1.7 1.7M6.7 17.3L5 19"></path></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M20 13.6A8.3 8.3 0 0 1 10.4 4a8.3 8.3 0 1 0 9.6 9.6z"></path></symbol>
+  <symbol id="i-bank" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M3.5 9.5L12 4l8.5 5.5h-17zM5.5 9.5V18M10 9.5V18M14 9.5V18M18.5 9.5V18M3.5 18h17v2.5h-17z"></path></symbol>
+  <symbol id="i-map" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M9 4L3.5 6v14L9 18l6 2 5.5-2V4L15 6 9 4zM9 4v14M15 6v14"></path></symbol>
+  <symbol id="i-wrench" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M20.2 6.4a5 5 0 0 1-6.6 6.2L7 19.2a2.1 2.1 0 0 1-3-3l6.6-6.6a5 5 0 0 1 6.2-6.6l-3 3 .5 2.7 2.7.5z"></path></symbol>
+  <symbol id="i-task" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7.5" height="7.5" rx="2" fill="none" stroke="currentColor" stroke-width="2"></rect><rect x="3.5" y="13.5" width="7.5" height="7.5" rx="2" fill="none" stroke="currentColor" stroke-width="2"></rect><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5.6 7.4l1.4 1.4 2.5-2.7"></path><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M14.5 7.2h6M14.5 17.2h6"></path></symbol>
+  <symbol id="i-people" viewBox="0 0 24 24"><circle cx="9" cy="8.5" r="3.4" fill="none" stroke="currentColor" stroke-width="2"></circle><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M3 19.5c.8-3 3.2-4.7 6-4.7s5.2 1.7 6 4.7M15.5 5.6a3.4 3.4 0 0 1 0 5.8M18 14.9c1.6.7 2.6 2.1 3 4.1"></path></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"></rect><path stroke="currentColor" stroke-width="2" d="M3 10h18"></path><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6.5 14.8h4"></path></symbol>
+  <symbol id="i-clip" viewBox="0 0 24 24"><rect x="5" y="4.5" width="14" height="16.5" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"></rect><rect x="8.5" y="2.5" width="7" height="4" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"></rect><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M8.5 11h7M8.5 15h5"></path></symbol>
+  <symbol id="i-ticket" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M3 9V6.5A1.5 1.5 0 0 1 4.5 5h15A1.5 1.5 0 0 1 21 6.5V9a3 3 0 0 0 0 6v2.5a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5V15a3 3 0 0 0 0-6z"></path><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="2.5 3.5" d="M14.5 5v14"></path></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 2.8l7.5 2.8v6.2c0 4.6-3.2 7.6-7.5 9.4-4.3-1.8-7.5-4.8-7.5-9.4V5.6z"></path><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8.6 11.8l2.3 2.3 4.5-4.5"></path></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M7 18.5a4.5 4.5 0 0 1-.6-9A6 6 0 0 1 18 11a3.8 3.8 0 0 1-.6 7.5z"></path></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 4v16M8 20h8M12 4l-6 2.5M12 4l6 2.5M6 6.5L3.5 13a3 3 0 0 0 5 0zM18 6.5L15.5 13a3 3 0 0 0 5 0z"></path></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.5l5 5 10-11"></path></symbol>
+  <symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5.5" rx="7.5" ry="3" fill="none" stroke="currentColor" stroke-width="2"></ellipse><path fill="none" stroke="currentColor" stroke-width="2" d="M4.5 5.5v13c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3v-13M4.5 12c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3"></path></symbol>
+  <symbol id="i-cart" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 4h2.2l2 11h11.3l2-8H6.2"></path><circle cx="9.5" cy="19.3" r="1.6" fill="currentColor"></circle><circle cx="17" cy="19.3" r="1.6" fill="currentColor"></circle></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3zM4 7.5l8 4.5 8-4.5M12 12v9"></path></symbol>
+  <symbol id="i-pos" viewBox="0 0 24 24"><rect x="6" y="3.5" width="12" height="17" rx="2" fill="none" stroke="currentColor" stroke-width="2"></rect><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M9 7.5h6M9 12h2M13 12h2M9 15.5h2M13 15.5h2"></path></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 21c4.2-4 6.3-7.2 6.3-10.1A6.3 6.3 0 1 0 5.7 10.9C5.7 13.8 7.8 17 12 21z"></path><circle cx="12" cy="10.7" r="2.4" fill="none" stroke="currentColor" stroke-width="2"></circle></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5v9a1.5 1.5 0 0 1-1.5 1.5H9l-5 4.5z"></path><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M8 8.5h8M8 12h5"></path></symbol>
+  <symbol id="i-login" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14 3.5h4A1.5 1.5 0 0 1 19.5 5v14A1.5 1.5 0 0 1 18 20.5h-4M10 7.5l4.5 4.5L10 16.5M14 12H3.5"></path></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 3.5a6 6 0 0 1 6 6c0 3.1.7 5.1 1.5 6.4H4.5C5.3 14.6 6 12.6 6 9.5a6 6 0 0 1 6-6z"></path><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M9.8 19.4a2.3 2.3 0 0 0 4.4 0"></path></symbol>
+</svg>
 
-  <!-- hero grid backdrop -->
-  <div aria-hidden="true" class="m-grid" style="position:absolute;inset:-2% -2% 28% -2%;z-index:0;pointer-events:none;background:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 75% 65% at 50% 34%,rgba(0,0,0,.5),transparent 70%);-webkit-mask-image:radial-gradient(ellipse 75% 65% at 50% 34%,rgba(0,0,0,.5),transparent 70%);"></div>
-
-  <!-- floating brand squares (parallax via --px/--py) -->
-  <div aria-hidden="true" class="m-hide" style="position:absolute;inset:0;z-index:1;pointer-events:none;">
-    <div style="position:absolute;left:4%;top:16%;width:30px;height:30px;border-radius:14%;background:var(--sq-soft);opacity:.9;transform:rotate(45deg) translate(calc(var(--px,0px)*.6),calc(var(--py,0px)*.6));transition:transform .2s ease-out;"></div>
-    <div style="position:absolute;left:12%;bottom:14%;width:16px;height:16px;border-radius:14%;background:var(--sq-mid);opacity:.9;transform:rotate(45deg) translate(calc(var(--px,0px)*1.5),calc(var(--py,0px)*1.5));transition:transform .2s ease-out;"></div>
-    <div style="position:absolute;left:44%;top:8%;width:13px;height:13px;border-radius:14%;background:var(--ts-orange);opacity:.9;transform:rotate(45deg) translate(calc(var(--px,0px)*2.1),calc(var(--py,0px)*2.1));transition:transform .2s ease-out;"></div>
-    <div style="position:absolute;right:7%;top:11%;width:15px;height:15px;border-radius:14%;background:var(--ts-green);opacity:.9;transform:rotate(45deg) translate(calc(var(--px,0px)*1.2),calc(var(--py,0px)*1.2));transition:transform .2s ease-out;"></div>
-    <div style="position:absolute;right:3%;bottom:20%;width:24px;height:24px;border-radius:14%;background:var(--sq-soft);opacity:.9;transform:rotate(45deg) translate(calc(var(--px,0px)*1.8),calc(var(--py,0px)*1.8));transition:transform .2s ease-out;"></div>
-    <div style="position:absolute;left:36%;bottom:7%;width:12px;height:12px;border-radius:14%;background:var(--ts-red);opacity:.9;transform:rotate(45deg) translate(calc(var(--px,0px)*.9),calc(var(--py,0px)*.9));transition:transform .2s ease-out;"></div>
-    <div style="position:absolute;right:24%;bottom:9%;width:18px;height:18px;border-radius:14%;background:var(--sq-mid);opacity:.7;transform:rotate(45deg) translate(calc(var(--px,0px)*1.4),calc(var(--py,0px)*1.4));transition:transform .2s ease-out;"></div>
-    {{ spawnedSquares }}
+<!-- ================= CHAPTER RAIL ================= -->
+<nav class="x-rail" aria-label="Chapters">
+  <a class="x-rail__logo" href="#home" aria-label="TownSuite mERP — home"><svg class="ts-logo-anim" viewBox="151 104 889 268" role="img" aria-label="TownSuite mERP">
+    <g transform="translate(362,138) scale(3.0)">
+      <g class="ts-anim-old" fill="#58595B" style="opacity:0;">
+        <path d="M127.849,18.763c-1.53,0-2.781-1.225-2.781-2.77c0-1.538,1.251-2.771,2.781-2.771 c1.52,0,2.768,1.233,2.768,2.771C130.616,17.538,129.368,18.763,127.849,18.763 M127.849,13.753c-1.25,0-2.227,1.015-2.227,2.24 c0,1.225,0.977,2.23,2.227,2.23c1.236,0,2.213-1.006,2.213-2.23C130.062,14.768,129.085,13.753,127.849,13.753 M128.338,17.506 l-0.835-1.296h-0.047v1.296h-0.594v-2.996c0.234-0.118,0.532-0.188,0.845-0.188c0.824,0,1.178,0.476,1.178,0.936 c0,0.484-0.313,0.779-0.748,0.898l0.948,1.349H128.338z M127.675,14.807c-0.086,0-0.166,0.016-0.219,0.031v0.975h0.147 c0.438,0,0.671-0.123,0.671-0.545C128.274,14.876,127.945,14.807,127.675,14.807"></path>
+        <polygon points="7.91,16.68 7.91,34.085 4.246,34.085 4.246,16.68 0.55,16.68 0.55,14.229 11.633,14.229 11.633,16.68"></polygon>
+        <path d="M18.878,34.374c-4.358,0-6.465-3.465-6.465-8.055c0-4.646,2.107-8.081,6.465-8.081 c4.388,0,6.467,3.435,6.467,8.081C25.345,30.909,23.238,34.374,18.878,34.374 M18.878,20.461c-2.482,0-2.973,2.857-2.973,5.829 c0,2.946,0.549,5.688,2.973,5.688c2.511,0,2.974-2.741,2.974-5.688C21.852,23.318,21.39,20.461,18.878,20.461"></path>
+        <path d="M43.933,34.085h-3.174l-2.685-9.758c-0.288-1.009-0.318-1.991-0.318-1.991h-0.058 c0,0-0.058,0.982-0.347,1.991l-2.742,9.758h-3.176l-4.329-15.558h3.551l2.28,10.073c0.259,1.183,0.29,2.049,0.29,2.049h0.056 c0,0,0.087-0.866,0.404-2.049l2.742-10.073h2.944l2.626,10.073c0.26,0.981,0.375,2.049,0.375,2.049h0.057 c0,0,0.088-1.067,0.319-2.077l2.395-10.045h3.118L43.933,34.085z"></path>
+        <path d="M59.635,34.085V23.06c0-1.271-0.579-2.599-2.8-2.599c-1.155,0-1.761,0.173-2.425,0.433v13.191h-3.52V19.364 c1.471-0.693,3.463-1.125,6.09-1.125c4.647,0,6.177,2.25,6.177,4.763v11.083H59.635z"></path>
+        <path d="M71.007,34.374c-2.366,0-3.838-0.435-4.906-1.125l0.895-2.57c0.692,0.463,1.817,0.923,3.319,0.923 c1.962,0,3.176-1.21,3.176-3.058c0-1.5-0.866-2.425-3.089-3.35c-3.233-1.356-4.099-3.492-4.099-5.426 c0-3.146,2.28-5.832,5.945-5.832c1.992,0,3.464,0.493,4.359,1.127l-0.809,2.252c-0.692-0.434-1.79-0.896-3.058-0.896 c-1.819,0-2.859,1.125-2.859,2.887c0,1.731,1.271,2.54,3.004,3.261c3.896,1.645,4.473,3.838,4.473,5.742 C77.358,31.833,74.702,34.374,71.007,34.374"></path>
+        <path d="M86.622,34.402c-4.156,0-6.033-1.818-6.033-5.254V18.527h3.522v10.825c0,1.47,0.808,2.625,2.626,2.625 c1.011,0,1.731-0.174,2.338-0.52V18.527h3.519V33.16C91.298,33.855,89.336,34.402,86.622,34.402"></path>
+        <path d="M98.226,15.842c-1.069,0-1.933-0.778-1.933-1.731c0-0.982,0.863-1.76,1.933-1.76 c1.099,0,1.935,0.778,1.935,1.76C100.16,15.063,99.324,15.842,98.226,15.842 M96.466,18.527h3.521v15.558h-3.521V18.527z"></path>
+        <path d="M109.021,34.257c-3.062,0-4.271-2.048-4.271-4.215v-9.265h-1.73v-2.25h1.73v-3.435l3.52-0.981v4.417h2.544 v2.25h-2.544v9.095c0,1.21,0.493,2.019,1.706,2.019c0.315,0,0.548-0.058,0.838-0.144v2.192 C110.493,34.085,109.857,34.257,109.021,34.257"></path>
+        <path d="M116.236,27.591c0.291,2.887,1.676,4.33,4.243,4.33c1.789,0,3.088-0.433,3.926-0.866l0.837,2.221 c-1.097,0.607-2.771,1.099-5.136,1.099c-4.418,0-7.217-2.859-7.217-8.112c0-5.08,2.569-8.023,6.638-8.023 c4.128,0,6.379,2.743,6.235,7.966L116.236,27.591z M119.412,20.403c-2.049,0-3.464,1.674-3.377,5.398l6.437-0.982 C122.472,21.673,121.347,20.403,119.412,20.403"></path>
+        <g class="ow-sub" fill="#808285">
+          <path d="M12.411,46.71l-0.9-8.216c-0.071-0.603-0.071-1.13-0.071-1.13h-0.029c0,0-0.1,0.527-0.271,1.13L8.853,46.71 H8.124l-2.273-8.216c-0.156-0.57-0.257-1.13-0.257-1.13H5.566c0,0-0.028,0.542-0.086,1.116L4.566,46.71H3.836l1.23-9.832h0.957 l2.201,7.919c0.186,0.655,0.257,1.112,0.257,1.112H8.51c0,0,0.057-0.457,0.243-1.112l2.228-7.919h0.959l1.243,9.832H12.411z"></path>
+          <path d="M17.971,46.869c-1.843,0-2.886-1.344-2.886-2.916v-7.075h0.813v7.075c0,1.416,1.001,2.258,2.115,2.258 c1.114,0,2.115-0.842,2.115-2.258v-7.075h0.729v7.075C20.858,45.525,19.814,46.869,17.971,46.869"></path>
+          <path d="M29.232,46.71l-4.645-7.988c-0.386-0.671-0.686-1.286-0.686-1.286h-0.029c0,0,0.043,0.643,0.043,1.301 v7.974H23.23v-9.832h1.043l4.53,7.834c0.373,0.644,0.587,1.099,0.587,1.099h0.042c0,0-0.058-0.472-0.058-1.144v-7.789h0.687v9.832 H29.232z"></path>
+          <rect x="32.49" y="36.878" width="0.815" height="9.832"></rect>
+          <path d="M38.98,46.854c-2.202,0-3.589-2.2-3.589-5.061c0-2.788,1.357-5.058,3.573-5.058 c0.859,0,1.429,0.23,1.831,0.516l-0.243,0.483c-0.301-0.215-0.83-0.428-1.474-0.428c-2.071,0-2.829,2.2-2.829,4.486 c0,2.36,0.828,4.46,2.815,4.46c0.629,0,1.086-0.172,1.488-0.413l0.243,0.485C40.408,46.64,39.722,46.854,38.98,46.854"></path>
+          <rect x="42.537" y="36.878" width="0.815" height="9.832"></rect>
+          <path d="M47.082,42.481l-0.501-0.043v4.271h-0.8v-9.445c0.471-0.284,1.257-0.528,2.187-0.528 c2.114,0,3.144,1.155,3.144,2.886C51.111,41.324,49.94,42.726,47.082,42.481 M47.882,37.252c-0.615,0-1.071,0.125-1.301,0.228 v4.431l0.473,0.042c2.386,0.216,3.258-0.844,3.258-2.356C50.312,38.064,49.569,37.252,47.882,37.252"></path>
+          <path d="M57.701,46.71l-1.086-3.357h-3.602l-1.114,3.357h-0.772l3.401-9.832h0.643l3.373,9.832H57.701z M55.157,38.85c-0.257-0.813-0.301-1.199-0.301-1.199h-0.028c0,0-0.071,0.372-0.343,1.187l-1.3,3.987h3.258L55.157,38.85z"></path>
+          <polygon points="60.159,46.71 60.159,36.878 60.973,36.878 60.973,46.153 64.159,46.153 64.159,46.71"></polygon>
+          <path d="M71.478,46.854c-1.059,0-1.659-0.215-2.144-0.528l0.258-0.572c0.398,0.256,0.928,0.473,1.77,0.473 c1.287,0,2.116-0.857,2.116-2.173c0-1.001-0.543-1.585-1.901-2.102c-1.687-0.628-2.145-1.643-2.145-2.601 c0-1.401,1.002-2.615,2.602-2.615c0.814,0,1.471,0.23,1.873,0.516l-0.229,0.529c-0.344-0.23-0.916-0.474-1.6-0.474 c-1.187,0-1.844,0.813-1.844,2.029c0,1.157,0.871,1.642,1.786,1.987c1.973,0.714,2.272,1.899,2.272,2.7 C74.292,45.71,73.092,46.854,71.478,46.854"></path>
+          <path d="M79.394,46.854c-2.443,0-3.401-2.23-3.401-5.061c0-2.8,0.958-5.058,3.401-5.058 c2.459,0,3.417,2.258,3.417,5.058C82.81,44.624,81.853,46.854,79.394,46.854 M79.394,37.293c-2.071,0-2.585,2.329-2.585,4.487 c0,2.13,0.442,4.459,2.585,4.459c2.172,0,2.602-2.329,2.602-4.459C81.996,39.622,81.481,37.293,79.394,37.293"></path>
+          <polygon points="85.653,37.436 85.653,41.324 88.826,41.324 88.826,41.881 85.653,41.881 85.653,46.71 84.839,46.71 84.839,36.878 89.141,36.878 89.141,37.436"></polygon>
+          <polygon points="93.042,37.436 93.042,46.71 92.228,46.71 92.228,37.436 90.155,37.436 90.155,36.878 95.116,36.878 95.116,37.436"></polygon>
+          <path d="M104.117,46.71h-0.714l-1.856-7.704c-0.144-0.614-0.215-1.127-0.215-1.127h-0.029 c0,0-0.043,0.5-0.202,1.127l-1.885,7.704h-0.699l-2.346-9.832h0.871l1.617,7.789c0.114,0.571,0.199,1.13,0.199,1.13h0.028 c0,0,0.086-0.559,0.229-1.13l1.887-7.789h0.686l1.872,7.789c0.131,0.513,0.216,1.13,0.216,1.13h0.028c0,0,0.084-0.617,0.2-1.13 l1.686-7.789h0.771L104.117,46.71z"></path>
+          <path d="M113.565,46.71l-1.086-3.357h-3.603l-1.115,3.357h-0.771l3.401-9.832h0.643l3.372,9.832H113.565z M111.021,38.85c-0.257-0.813-0.303-1.199-0.303-1.199h-0.025c0,0-0.072,0.372-0.343,1.187l-1.303,3.987h3.26L111.021,38.85z"></path>
+          <path d="M120.524,46.71l-3.688-4.714h-0.041v4.714h-0.787v-9.458c0.399-0.259,1.2-0.516,2.187-0.516 c2.015,0,3.101,1.045,3.101,2.844c0,1.858-1.272,2.858-3.345,2.784v0.031l3.529,4.314H120.524z M118.138,37.237 c-0.572,0-1.015,0.084-1.342,0.256v4.36c0.185,0.057,0.612,0.112,1.012,0.112c1.814,0,2.688-0.842,2.688-2.37 C120.496,37.98,119.696,37.237,118.138,37.237"></path>
+          <polygon points="123.355,46.71 123.355,36.878 127.685,36.878 127.685,37.436 124.169,37.436 124.169,41.324 127.356,41.324 127.356,41.881 124.169,41.881 124.169,46.153 127.685,46.153 127.685,46.71"></polygon>
+        </g>
+      </g>
+    </g>
+    <path class="ts-anim-new" style="opacity:1;" d="M401.02 212.45L401.02 218.40L387.86 218.40L387.86 278.50L379.03 278.50L379.03 218.40L365.88 218.40L365.88 212.45L401.02 212.45ZM443.39 252.68L443.39 252.68Q443.39 264.68 438.35 272.07Q433.31 279.46 423.23 279.46Q413.15 279.46 408.06 272.07Q402.97 264.68 402.97 252.68L402.97 252.68Q402.97 240.48 408.06 233.14Q413.15 225.80 423.13 225.80L423.13 225.80Q433.31 225.80 438.35 233.09Q443.39 240.39 443.39 252.68ZM434.94 252.68L434.94 252.68Q434.94 231.17 423.23 231.17L423.23 231.17Q411.42 231.17 411.42 252.68L411.42 252.68Q411.42 273.60 423.23 273.60L423.23 273.60Q434.94 273.60 434.94 252.68ZM508.90 226.76L516.58 226.76L501.79 278.50L494.50 278.50L484.03 241.54Q483.17 238.37 482.98 235.49L482.98 235.49L482.88 235.49Q482.59 238.37 481.63 241.54L481.63 241.54L470.98 278.50L463.68 278.50L448.99 226.76L457.63 226.76L466.66 263.91L467.71 270.05L467.90 270.05Q468.19 267.46 469.15 263.91L469.15 263.91L479.62 226.76L486.91 226.76L497.09 263.91Q498.24 270.05 498.24 270.05L498.24 270.05L498.43 270.05Q498.72 266.88 499.49 263.81L499.49 263.81L508.90 226.76ZM562.50 241.16L562.50 278.50L554.05 278.50L554.05 241.35Q554.05 231.27 543.20 231.27L543.20 231.27Q537.64 231.27 533.41 233.09L533.41 233.09L533.41 278.50L524.96 278.50L524.96 229.44Q532.55 225.80 543.88 225.80L543.88 225.80Q553.76 225.80 558.13 230.26Q562.50 234.72 562.50 241.16L562.50 241.16ZM607.27 259.88L607.27 259.88Q607.27 268.52 601.66 273.99Q596.04 279.46 587.30 279.46L587.30 279.46Q577.61 279.46 571.94 275.81L571.94 275.81L574.25 269.67Q579.24 272.74 585.77 272.74L585.77 272.74Q591.43 272.74 594.79 269.38Q598.15 266.02 598.15 260.36L598.15 260.36Q598.15 255.94 595.51 253.06Q592.87 250.18 586.63 247.68L586.63 247.68Q572.62 242.12 572.62 230.02L572.62 230.02Q572.62 222.24 577.75 216.87Q582.89 211.49 591.24 211.49L591.24 211.49Q599.69 211.49 604.78 215.04L604.78 215.04L602.66 220.61Q597.77 217.54 592.20 217.54L592.20 217.54Q587.02 217.54 584.14 220.66Q581.26 223.78 581.26 229.16L581.26 229.16Q581.26 233.86 584.09 236.50Q586.92 239.14 592.30 241.25L592.30 241.25Q607.27 247.11 607.27 259.88ZM654.35 226.76L654.35 275.43Q647.15 279.56 636.11 279.56L636.11 279.56Q617.77 279.56 617.77 262.66L617.77 262.66L617.77 226.76L626.22 226.76L626.22 262.95Q626.22 267.75 628.86 270.68Q631.50 273.60 636.59 273.60L636.59 273.60Q642.35 273.60 645.90 271.49L645.90 271.49L645.90 226.76L654.35 226.76ZM674.74 208.85Q676.18 210.24 676.18 212.16Q676.18 214.08 674.74 215.43Q673.30 216.77 671.28 216.77L671.28 216.77Q669.17 216.77 667.73 215.43Q666.29 214.08 666.29 212.16Q666.29 210.24 667.73 208.85Q669.17 207.46 671.28 207.46L671.28 207.46Q673.30 207.46 674.74 208.85ZM675.50 226.76L675.50 278.50L667.06 278.50L667.06 226.76L675.50 226.76ZM708.47 272.84L708.47 278.21Q705.88 278.98 703.86 278.98L703.86 278.98Q697.33 278.98 694.16 275.14Q691.00 271.30 691.00 265.92L691.00 265.92L691.00 232.04L685.04 232.04L685.04 226.76L691.00 226.76L691.00 214.85L699.44 212.26L699.44 226.76L708.47 226.76L708.47 232.04L699.44 232.04L699.44 265.73Q699.44 269.09 701.03 271.16Q702.61 273.22 705.97 273.22L705.97 273.22Q706.74 273.22 708.47 272.84L708.47 272.84ZM754.97 251.14L754.97 251.14L722.42 255.84Q723.86 273.32 738.17 273.32L738.17 273.32Q745.75 273.32 750.94 270.34L750.94 270.34L753.14 275.91Q747.29 279.46 737.50 279.46L737.50 279.46Q726.94 279.46 720.70 272.64Q714.46 265.83 714.46 252.48L714.46 252.48Q714.46 239.62 720.17 232.71Q725.88 225.80 735.29 225.80L735.29 225.80Q744.79 225.80 749.93 232.13Q755.06 238.47 754.97 251.14ZM722.14 251.33L746.90 247.59Q746.90 231.27 735 231.27L735 231.27Q729.05 231.27 725.54 236.26Q722.04 241.25 722.14 251.33L722.14 251.33Z M857.71 241.06L857.71 278.50L849.26 278.50L849.26 241.25Q849.26 236.93 846.91 234.15Q844.56 231.36 839.28 231.36L839.28 231.36Q832.94 231.36 828.62 235.97L828.62 235.97L828.62 278.50L820.17 278.50L820.17 240.87Q820.17 236.45 817.24 233.86Q814.32 231.27 808.84 231.27L808.84 231.27Q803.66 231.27 799.53 233.00L799.53 233.00L799.53 278.50L791.08 278.50L791.08 229.44Q798.57 225.80 809.04 225.80L809.04 225.80Q819.88 225.80 824.88 232.04L824.88 232.04Q830.83 225.80 840.91 225.80L840.91 225.80Q849.45 225.80 853.58 230.31Q857.71 234.82 857.71 241.06L857.71 241.06ZM901.04 272.55L901.04 278.50L870.42 278.50L870.42 212.45L901.04 212.45L901.04 218.40L879.25 218.40L879.25 241.44L898.83 241.44L898.83 247.30L879.25 247.30L879.25 272.55L901.04 272.55ZM930.55 249.41L952.15 278.50L942.16 278.50L920.47 247.68L920.28 247.68L920.28 278.50L911.54 278.50L911.54 215.04Q917.97 211.49 927.96 211.49L927.96 211.49Q939.09 211.49 944.85 216.63Q950.61 221.76 950.61 231.08L950.61 231.08Q950.61 239.43 945.19 244.23Q939.76 249.03 930.55 249.22L930.55 249.22L930.55 249.41ZM941.88 231.46L941.88 231.46Q941.88 223.88 938.47 220.28Q935.06 216.68 927.76 216.68L927.76 216.68Q922.87 216.68 920.28 218.12L920.28 218.12L920.28 245.76Q922.20 246.34 925.94 246.34L925.94 246.34Q941.88 246.34 941.88 231.46ZM1000.95 231.46L1000.95 231.46Q1000.95 241.06 994.09 246.87Q987.22 252.68 973.50 251.33L973.50 251.33L970.52 251.04L970.52 278.50L961.88 278.50L961.88 215.14Q968.22 211.49 978.39 211.49L978.39 211.49Q989.62 211.49 995.29 216.92Q1000.95 222.34 1000.95 231.46ZM992.41 231.36L992.41 231.36Q992.41 224.07 988.95 220.42Q985.50 216.77 978.01 216.77L978.01 216.77Q973.40 216.77 970.52 218.02L970.52 218.02L970.52 245.67L973.40 245.96Q992.41 247.78 992.41 231.36Z M1032.43 226.84L1032.43 226.84Q1032.43 231.80 1028.90 235.32Q1025.36 238.84 1020.40 238.84Q1015.43 238.84 1011.91 235.32Q1008.39 231.80 1008.39 226.84L1008.39 226.84Q1008.39 221.84 1011.91 218.32Q1015.43 214.80 1020.40 214.80Q1025.36 214.80 1028.90 218.32Q1032.43 221.84 1032.43 226.84ZM1027.88 234.28Q1030.97 231.19 1030.97 226.84Q1030.97 222.49 1027.88 219.38Q1024.78 216.26 1020.40 216.26L1020.40 216.26Q1016.04 216.26 1012.95 219.38Q1009.86 222.49 1009.86 226.84Q1009.86 231.19 1012.95 234.28Q1016.04 237.38 1020.40 237.38L1020.40 237.38Q1024.78 237.38 1027.88 234.28ZM1020.50 227.11L1025.33 233.77L1023.42 233.77L1018.76 227.21L1018.25 227.21L1018.25 233.77L1016.66 233.77L1016.66 219.90Q1018.02 219.22 1019.99 219.22L1019.99 219.22Q1021.99 219.22 1023.35 220.28Q1024.71 221.33 1024.71 223.23L1024.71 223.23Q1024.71 225.00 1023.54 226.00Q1022.37 227.01 1020.50 227.11L1020.50 227.11ZM1023.08 223.20L1023.08 223.20Q1023.08 221.77 1022.11 221.16Q1021.14 220.55 1019.78 220.55L1019.78 220.55Q1018.90 220.55 1018.25 220.82L1018.25 220.82L1018.25 226.09L1019.51 226.09Q1021.08 226.09 1022.08 225.41Q1023.08 224.73 1023.08 223.20Z"></path>
+    <g class="ts-anim-survey" style="opacity:0;">
+      <polyline class="ts-anim-surveyline" points="306,236 306,111 431,111 577,111 774,137 894,236 743,309" fill="none" stroke="#00578E" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="0" opacity="0.8"></polyline>
+    </g>
+    <g class="ts-anim-labels" style="opacity:0;" font-family="'Dax','Source Sans 3',system-ui,sans-serif" font-weight="800" font-size="13" letter-spacing="2.6" fill="#647280" text-anchor="middle">
+      <text x="368" y="300">URBAN FUNCTIONALITY</text>
+      <text x="820" y="362">RURAL PRACTICALITY</text>
+    </g>
+    <g class="ts-anim-emblem">
+      <g class="sqx" data-i="0" style="transform:translateX(220.79px);"><g class="sqy" style="transform:translateY(191.54px);"><rect class="sqr" x="-16.975" y="-16.975" width="33.95" height="33.95" fill="#D8E0ED" style="transform:rotate(65deg) scale(1.38);transform-box:fill-box;transform-origin:center;"></rect></g></g>
+      <g class="sqx" data-i="1" style="transform:translateX(188.71px);"><g class="sqy" style="transform:translateY(273.70px);"><rect class="sqr" x="-16.975" y="-16.975" width="33.95" height="33.95" fill="#6B95BE" style="transform:rotate(65deg) scale(1.38);transform-box:fill-box;transform-origin:center;"></rect></g></g>
+      <g class="sqx" data-i="2" style="transform:translateX(244.20px);"><g class="sqy" style="transform:translateY(246.20px);"><rect class="sqr" x="-17" y="-17" width="34" height="34" fill="#00578E" style="transform:rotate(65deg) scale(1.38);transform-box:fill-box;transform-origin:center;"></rect></g></g>
+      <g class="sqx" data-i="3" style="transform:translateX(297.55px);"><g class="sqy" style="transform:translateY(291.42px);"><rect class="sqr" x="-8.825" y="-8.825" width="17.65" height="17.65" fill="#E48D1A" style="transform:rotate(65deg) scale(1.38);transform-box:fill-box;transform-origin:center;"></rect></g></g>
+      <g class="sqx" data-i="4" style="transform:translateX(322.72px);"><g class="sqy" style="transform:translateY(273.11px);"><rect class="sqr" x="-4.555" y="-4.555" width="9.11" height="9.11" fill="#2DA343" style="transform:rotate(65deg) scale(1.38);transform-box:fill-box;transform-origin:center;"></rect></g></g>
+      <g class="sqx" data-i="5" style="transform:translateX(305.69px);"><g class="sqy" style="transform:translateY(320.65px);"><rect class="sqr" x="-4.64" y="-4.64" width="9.28" height="9.28" fill="#E03A3E" style="transform:rotate(65deg) scale(1.38);transform-box:fill-box;transform-origin:center;"></rect></g></g>
+    </g>
+  </svg></a>
+  <a class="x-rail__ch" href="#home"><span class="bar"></span><span class="n">01</span><span class="t">Overview</span></a>
+  <a class="x-rail__ch" href="#sovereign"><span class="bar"></span><span class="n">02</span><span class="t">Sovereign</span></a>
+  <a class="x-rail__ch" href="#modules"><span class="bar"></span><span class="n">03</span><span class="t">Modules</span></a>
+  <a class="x-rail__ch" href="#ai"><span class="bar"></span><span class="n">04</span><span class="t">Intelligence</span></a>
+  <a class="x-rail__ch" href="#implementation"><span class="bar"></span><span class="n">05</span><span class="t">Onboarding</span></a>
+  <a class="x-rail__ch" href="#pricing"><span class="bar"></span><span class="n">06</span><span class="t">Pricing</span></a>
+  <a class="x-rail__ch" href="#start"><span class="bar"></span><span class="n">07</span><span class="t">Get started</span></a>
+  <div class="x-rail__prog">
+    <span class="lbl"><span>Journey</span><b>0%</b></span>
+    <div class="trk"><div class="fil"></div></div>
   </div>
-
-  <!-- top chrome -->
-  <header style="position:relative;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:24px clamp(20px,4vw,44px) 0;">
-    <a href="https://www.townsuite.com" target="_blank" rel="noopener" style="display:block;">
-      <img src="townsuite-logo.svg" alt="TownSuite Municipal Software" style="height:56px;width:auto;display:block;filter:var(--logo-filter);" />
-    </a>
-    <button type="button" onClick="{{ toggleTheme }}" aria-label="Toggle dark mode" style="display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:13px;cursor:pointer;border:1.5px solid var(--line2);background:var(--surface);color:var(--ink2);padding:0;transition:border-color .18s,color .18s,transform .18s;" style-hover="border-color:var(--accent);color:var(--accent);transform:rotate(-12deg);">
-      <svg viewBox="0 0 24 24" style="width:21px;height:21px;display:var(--disp-sun);"><circle cx="12" cy="12" r="4.4" fill="none" stroke="currentColor" stroke-width="2"></circle><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5 5l1.7 1.7M17.3 17.3L19 19M19 5l-1.7 1.7M6.7 17.3L5 19" fill="none"></path></svg>
-      <svg viewBox="0 0 24 24" style="width:21px;height:21px;display:var(--disp-moon);"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M20 13.6A8.3 8.3 0 0 1 10.4 4a8.3 8.3 0 1 0 9.6 9.6z"></path></svg>
+  <div class="x-rail__foot">
+    <button class="ts-themer" type="button" aria-label="Toggle dark mode">
+      <svg class="ic-sun" aria-hidden="true"><use href="#i-sun"></use></svg>
+      <svg class="ic-moon" aria-hidden="true"><use href="#i-moon"></use></svg>
     </button>
-  </header>
+    <a class="ts-btn ts-btn--primary" href="#start">Book a demo</a>
+  </div>
+</nav>
 
-  <!-- centre stage -->
-  <main class="m-main" style="position:relative;z-index:3;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:14px clamp(20px,4vw,48px) 36px;">
+<!-- floating sign-in (desktop) -->
+<a class="x-signfab" href="https://portal.ws.townsuite.com/login" target="_blank" rel="noopener"><svg><use href="#i-login"></use></svg> Sign in</a>
 
-    {{ morphStage }}
+<!-- mobile chrome -->
+<header class="x-topbar" role="banner">
+  <a href="#home" aria-label="TownSuite mERP — home"><svg class="ts-logo" viewBox="151 154 889 181" role="img" aria-label="TownSuite mERP"><rect x="-16.975" y="-16.975" width="33.95" height="33.95" fill="#D8E0ED" transform="translate(220.79,191.54) rotate(65) scale(1.38)"></rect><rect x="-16.975" y="-16.975" width="33.95" height="33.95" fill="#6B95BE" transform="translate(188.71,273.70) rotate(65) scale(1.38)"></rect><rect x="-17" y="-17" width="34" height="34" fill="#00578E" transform="translate(244.20,246.20) rotate(65) scale(1.38)"></rect><rect x="-8.825" y="-8.825" width="17.65" height="17.65" fill="#E48D1A" transform="translate(297.55,291.42) rotate(65) scale(1.38)"></rect><rect x="-4.555" y="-4.555" width="9.11" height="9.11" fill="#2DA343" transform="translate(322.72,273.11) rotate(65) scale(1.38)"></rect><rect x="-4.64" y="-4.64" width="9.28" height="9.28" fill="#E03A3E" transform="translate(305.69,320.65) rotate(65) scale(1.38)"></rect><path fill="currentColor" d="M401.02 212.45L401.02 218.40L387.86 218.40L387.86 278.50L379.03 278.50L379.03 218.40L365.88 218.40L365.88 212.45L401.02 212.45ZM443.39 252.68L443.39 252.68Q443.39 264.68 438.35 272.07Q433.31 279.46 423.23 279.46Q413.15 279.46 408.06 272.07Q402.97 264.68 402.97 252.68L402.97 252.68Q402.97 240.48 408.06 233.14Q413.15 225.80 423.13 225.80L423.13 225.80Q433.31 225.80 438.35 233.09Q443.39 240.39 443.39 252.68ZM434.94 252.68L434.94 252.68Q434.94 231.17 423.23 231.17L423.23 231.17Q411.42 231.17 411.42 252.68L411.42 252.68Q411.42 273.60 423.23 273.60L423.23 273.60Q434.94 273.60 434.94 252.68ZM508.90 226.76L516.58 226.76L501.79 278.50L494.50 278.50L484.03 241.54Q483.17 238.37 482.98 235.49L482.98 235.49L482.88 235.49Q482.59 238.37 481.63 241.54L481.63 241.54L470.98 278.50L463.68 278.50L448.99 226.76L457.63 226.76L466.66 263.91L467.71 270.05L467.90 270.05Q468.19 267.46 469.15 263.91L469.15 263.91L479.62 226.76L486.91 226.76L497.09 263.91Q498.24 270.05 498.24 270.05L498.24 270.05L498.43 270.05Q498.72 266.88 499.49 263.81L499.49 263.81L508.90 226.76ZM562.50 241.16L562.50 278.50L554.05 278.50L554.05 241.35Q554.05 231.27 543.20 231.27L543.20 231.27Q537.64 231.27 533.41 233.09L533.41 233.09L533.41 278.50L524.96 278.50L524.96 229.44Q532.55 225.80 543.88 225.80L543.88 225.80Q553.76 225.80 558.13 230.26Q562.50 234.72 562.50 241.16L562.50 241.16ZM607.27 259.88L607.27 259.88Q607.27 268.52 601.66 273.99Q596.04 279.46 587.30 279.46L587.30 279.46Q577.61 279.46 571.94 275.81L571.94 275.81L574.25 269.67Q579.24 272.74 585.77 272.74L585.77 272.74Q591.43 272.74 594.79 269.38Q598.15 266.02 598.15 260.36L598.15 260.36Q598.15 255.94 595.51 253.06Q592.87 250.18 586.63 247.68L586.63 247.68Q572.62 242.12 572.62 230.02L572.62 230.02Q572.62 222.24 577.75 216.87Q582.89 211.49 591.24 211.49L591.24 211.49Q599.69 211.49 604.78 215.04L604.78 215.04L602.66 220.61Q597.77 217.54 592.20 217.54L592.20 217.54Q587.02 217.54 584.14 220.66Q581.26 223.78 581.26 229.16L581.26 229.16Q581.26 233.86 584.09 236.50Q586.92 239.14 592.30 241.25L592.30 241.25Q607.27 247.11 607.27 259.88ZM654.35 226.76L654.35 275.43Q647.15 279.56 636.11 279.56L636.11 279.56Q617.77 279.56 617.77 262.66L617.77 262.66L617.77 226.76L626.22 226.76L626.22 262.95Q626.22 267.75 628.86 270.68Q631.50 273.60 636.59 273.60L636.59 273.60Q642.35 273.60 645.90 271.49L645.90 271.49L645.90 226.76L654.35 226.76ZM674.74 208.85Q676.18 210.24 676.18 212.16Q676.18 214.08 674.74 215.43Q673.30 216.77 671.28 216.77L671.28 216.77Q669.17 216.77 667.73 215.43Q666.29 214.08 666.29 212.16Q666.29 210.24 667.73 208.85Q669.17 207.46 671.28 207.46L671.28 207.46Q673.30 207.46 674.74 208.85ZM675.50 226.76L675.50 278.50L667.06 278.50L667.06 226.76L675.50 226.76ZM708.47 272.84L708.47 278.21Q705.88 278.98 703.86 278.98L703.86 278.98Q697.33 278.98 694.16 275.14Q691.00 271.30 691.00 265.92L691.00 265.92L691.00 232.04L685.04 232.04L685.04 226.76L691.00 226.76L691.00 214.85L699.44 212.26L699.44 226.76L708.47 226.76L708.47 232.04L699.44 232.04L699.44 265.73Q699.44 269.09 701.03 271.16Q702.61 273.22 705.97 273.22L705.97 273.22Q706.74 273.22 708.47 272.84L708.47 272.84ZM754.97 251.14L754.97 251.14L722.42 255.84Q723.86 273.32 738.17 273.32L738.17 273.32Q745.75 273.32 750.94 270.34L750.94 270.34L753.14 275.91Q747.29 279.46 737.50 279.46L737.50 279.46Q726.94 279.46 720.70 272.64Q714.46 265.83 714.46 252.48L714.46 252.48Q714.46 239.62 720.17 232.71Q725.88 225.80 735.29 225.80L735.29 225.80Q744.79 225.80 749.93 232.13Q755.06 238.47 754.97 251.14ZM722.14 251.33L746.90 247.59Q746.90 231.27 735 231.27L735 231.27Q729.05 231.27 725.54 236.26Q722.04 241.25 722.14 251.33L722.14 251.33Z M857.71 241.06L857.71 278.50L849.26 278.50L849.26 241.25Q849.26 236.93 846.91 234.15Q844.56 231.36 839.28 231.36L839.28 231.36Q832.94 231.36 828.62 235.97L828.62 235.97L828.62 278.50L820.17 278.50L820.17 240.87Q820.17 236.45 817.24 233.86Q814.32 231.27 808.84 231.27L808.84 231.27Q803.66 231.27 799.53 233.00L799.53 233.00L799.53 278.50L791.08 278.50L791.08 229.44Q798.57 225.80 809.04 225.80L809.04 225.80Q819.88 225.80 824.88 232.04L824.88 232.04Q830.83 225.80 840.91 225.80L840.91 225.80Q849.45 225.80 853.58 230.31Q857.71 234.82 857.71 241.06L857.71 241.06ZM901.04 272.55L901.04 278.50L870.42 278.50L870.42 212.45L901.04 212.45L901.04 218.40L879.25 218.40L879.25 241.44L898.83 241.44L898.83 247.30L879.25 247.30L879.25 272.55L901.04 272.55ZM930.55 249.41L952.15 278.50L942.16 278.50L920.47 247.68L920.28 247.68L920.28 278.50L911.54 278.50L911.54 215.04Q917.97 211.49 927.96 211.49L927.96 211.49Q939.09 211.49 944.85 216.63Q950.61 221.76 950.61 231.08L950.61 231.08Q950.61 239.43 945.19 244.23Q939.76 249.03 930.55 249.22L930.55 249.22L930.55 249.41ZM941.88 231.46L941.88 231.46Q941.88 223.88 938.47 220.28Q935.06 216.68 927.76 216.68L927.76 216.68Q922.87 216.68 920.28 218.12L920.28 218.12L920.28 245.76Q922.20 246.34 925.94 246.34L925.94 246.34Q941.88 246.34 941.88 231.46ZM1000.95 231.46L1000.95 231.46Q1000.95 241.06 994.09 246.87Q987.22 252.68 973.50 251.33L973.50 251.33L970.52 251.04L970.52 278.50L961.88 278.50L961.88 215.14Q968.22 211.49 978.39 211.49L978.39 211.49Q989.62 211.49 995.29 216.92Q1000.95 222.34 1000.95 231.46ZM992.41 231.36L992.41 231.36Q992.41 224.07 988.95 220.42Q985.50 216.77 978.01 216.77L978.01 216.77Q973.40 216.77 970.52 218.02L970.52 218.02L970.52 245.67L973.40 245.96Q992.41 247.78 992.41 231.36Z M1032.43 226.84L1032.43 226.84Q1032.43 231.80 1028.90 235.32Q1025.36 238.84 1020.40 238.84Q1015.43 238.84 1011.91 235.32Q1008.39 231.80 1008.39 226.84L1008.39 226.84Q1008.39 221.84 1011.91 218.32Q1015.43 214.80 1020.40 214.80Q1025.36 214.80 1028.90 218.32Q1032.43 221.84 1032.43 226.84ZM1027.88 234.28Q1030.97 231.19 1030.97 226.84Q1030.97 222.49 1027.88 219.38Q1024.78 216.26 1020.40 216.26L1020.40 216.26Q1016.04 216.26 1012.95 219.38Q1009.86 222.49 1009.86 226.84Q1009.86 231.19 1012.95 234.28Q1016.04 237.38 1020.40 237.38L1020.40 237.38Q1024.78 237.38 1027.88 234.28ZM1020.50 227.11L1025.33 233.77L1023.42 233.77L1018.76 227.21L1018.25 227.21L1018.25 233.77L1016.66 233.77L1016.66 219.90Q1018.02 219.22 1019.99 219.22L1019.99 219.22Q1021.99 219.22 1023.35 220.28Q1024.71 221.33 1024.71 223.23L1024.71 223.23Q1024.71 225.00 1023.54 226.00Q1022.37 227.01 1020.50 227.11L1020.50 227.11ZM1023.08 223.20L1023.08 223.20Q1023.08 221.77 1022.11 221.16Q1021.14 220.55 1019.78 220.55L1019.78 220.55Q1018.90 220.55 1018.25 220.82L1018.25 220.82L1018.25 226.09L1019.51 226.09Q1021.08 226.09 1022.08 225.41Q1023.08 224.73 1023.08 223.20Z"></path></svg></a>
+  <span class="sp"></span>
+  <button class="ts-themer" type="button" aria-label="Toggle dark mode">
+    <svg class="ic-sun" aria-hidden="true"><use href="#i-sun"></use></svg>
+    <svg class="ic-moon" aria-hidden="true"><use href="#i-moon"></use></svg>
+  </button>
+  <a class="x-signin" href="https://portal.ws.townsuite.com/login" target="_blank" rel="noopener" aria-label="Sign in to the portal"><svg><use href="#i-login"></use></svg></a>
+  <a class="ts-btn ts-btn--primary" href="#start" style="min-height:46px;padding:0 18px;font-size:15px;">Demo</a>
+</header>
+<nav class="x-dock" aria-label="Chapters">
+  <a href="#home" aria-label="Overview">01</a>
+  <a href="#sovereign" aria-label="Sovereignty">02</a>
+  <a href="#modules" aria-label="Modules">03</a>
+  <a href="#ai" aria-label="Intelligence">04</a>
+  <a href="#implementation" aria-label="Onboarding">05</a>
+  <a href="#pricing" aria-label="Pricing">06</a>
+  <a href="#start" aria-label="Get started">07</a>
+</nav>
 
-    <p style="display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:{{ milestoneColor }};margin:4px 0 0;transition:color .5s ease;">
-      <span style="width:9px;height:9px;background:{{ milestoneColor }};transform:rotate(45deg);border-radius:1.5px;flex:none;display:block;transition:background .5s ease;"></span>
-      {{ milestoneLabel }}
-    </p>
+<main id="main" class="x-main">
 
-    <h1 style="font-weight:900;font-size:clamp(34px,4.6vw,58px);line-height:1.02;letter-spacing:-.022em;margin:13px 0 0;text-wrap:balance;max-width:18ch;">We're connecting <span style="color:var(--accent);">the dots.</span></h1>
-
-    <p class="m-lede" style="font-size:clamp(16px,1.4vw,19px);line-height:1.6;color:var(--ink2);max-width:560px;margin:12px auto 0;text-wrap:pretty;">One municipal platform, every department &mdash; all connected. On launch day, TownSuite mERP<sup style="font-size:.6em;">&reg;</sup> unveils something we've never shown before. Launching in:</p>
-
-    <!-- countdown -->
-    <div role="timer" class="cd-row" style="display:flex;align-items:flex-start;justify-content:center;gap:clamp(6px,2.4vw,24px);margin-top:clamp(20px,3vw,34px);">
-      <div class="cd-col" style="display:flex;flex-direction:column;align-items:center;min-width:clamp(58px,11vw,124px);">
-        <div class="cd-digit" style="font-size:clamp(46px,7vw,92px);font-weight:900;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums;">{{ daysEl }}</div>
-        <div class="cd-cap" style="margin-top:10px;font-size:12px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--ink3);">Days</div>
+  <!-- ================= HERO ================= -->
+  <section class="x-hero" id="home" data-chapter data-screen-label="Hero">
+    <div class="ts-hero__grid"></div>
+    <div class="ts-depth" aria-hidden="true">
+      <i class="sq-soft" style="--d:.6;left:4%;top:15%;width:30px;height:30px;"></i>
+      <i class="sq-orange" style="--d:2.1;left:46%;top:9%;width:13px;height:13px;"></i>
+      <i class="sq-green" style="--d:1.2;right:7%;top:8%;width:15px;height:15px;"></i>
+      <i class="sq-soft" style="--d:1.8;right:3%;bottom:18%;width:24px;height:24px;"></i>
+      <i class="sq-red" style="--d:.9;left:37%;bottom:7%;width:12px;height:12px;"></i>
+    </div>
+    <div class="ts-wrap x-hero__in">
+      <div>
+        <span class="ts-pill ts-pill--accent ts-reveal"><svg class="ts-maple"><use href="#i-maple"></use></svg> By Canadians, for Canadians in Canada — since 1987</span>
+        <h1 class="ts-display ts-reveal" data-delay="1" style="margin-top:24px;"><span class="x-introducing">Introducing</span> Canada's <span class="ts-accent">Operationally Sovereign Cloud</span> mERP<sup style="font-size:.38em;top:-0.82em;position:relative;">®</sup><span class="ts-vh"> — municipal ERP</span></h1>
+        <p class="ts-lede ts-reveal" data-delay="2">One interconnected platform for every municipal workflow — finance, land, assets, work orders, staff and citizen portals — fully under Canadian jurisdiction. No patchwork of third-party vendors to stitch together.</p>
+        <div class="ts-cta-row ts-reveal" data-delay="3">
+          <a class="ts-btn ts-btn--primary" href="#start">Book a demo <span class="arr">→</span></a>
+          <a class="ts-btn ts-btn--ghost" href="#sovereign">Why operational sovereignty <span class="arr">→</span></a>
+        </div>
       </div>
-      <div aria-hidden="true" class="cd-sep" style="margin-top:clamp(14px,2.2vw,28px);">{{ sepDaysEl }}</div>
-      <div class="cd-col" style="display:flex;flex-direction:column;align-items:center;min-width:clamp(58px,11vw,124px);">
-        <div class="cd-digit" style="font-size:clamp(46px,7vw,92px);font-weight:900;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums;">{{ hoursEl }}</div>
-        <div class="cd-cap" style="margin-top:10px;font-size:12px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--ink3);">Hours</div>
-      </div>
-      <div aria-hidden="true" class="cd-sep" style="margin-top:clamp(14px,2.2vw,28px);">{{ sepHoursEl }}</div>
-      <div class="cd-col" style="display:flex;flex-direction:column;align-items:center;min-width:clamp(58px,11vw,124px);">
-        <div class="cd-digit" style="font-size:clamp(46px,7vw,92px);font-weight:900;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums;">{{ minsEl }}</div>
-        <div class="cd-cap" style="margin-top:10px;font-size:12px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--ink3);">Minutes</div>
-      </div>
-      <div aria-hidden="true" class="cd-sep" style="margin-top:clamp(14px,2.2vw,28px);">{{ sepMinsEl }}</div>
-      <div class="cd-col" style="display:flex;flex-direction:column;align-items:center;min-width:clamp(58px,11vw,124px);">
-        <div class="cd-digit" style="font-size:clamp(46px,7vw,92px);font-weight:900;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:var(--accent);">{{ secsEl }}</div>
-        <div class="cd-cap" style="margin-top:10px;font-size:12px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--ink3);">Seconds</div>
+      <div class="x-hero__stack ts-reveal" data-delay="2">
+        <div class="x-glow"></div>
+        <div class="x-layer x-layer--ghost g2" aria-hidden="true"></div>
+        <div class="x-layer x-layer--ghost g1" aria-hidden="true"></div>
+        <div class="x-layer x-layer--dash">
+          <div class="ts-dash" aria-hidden="true">
+            <div class="ts-dash__bar"><span class="winbtns"><i></i><i></i><i></i></span><span class="addr">app.municipalerp.com — Town of Anytown</span></div>
+            <div class="tsapp">
+              <div class="tsapp__top">
+                <svg class="tsapp__logo ts-logo" viewBox="151 154 889 181" role="img" aria-label="TownSuite mERP"><rect x="-16.975" y="-16.975" width="33.95" height="33.95" fill="#D8E0ED" transform="translate(220.79,191.54) rotate(65) scale(1.38)"></rect><rect x="-16.975" y="-16.975" width="33.95" height="33.95" fill="#6B95BE" transform="translate(188.71,273.70) rotate(65) scale(1.38)"></rect><rect x="-17" y="-17" width="34" height="34" fill="#00578E" transform="translate(244.20,246.20) rotate(65) scale(1.38)"></rect><rect x="-8.825" y="-8.825" width="17.65" height="17.65" fill="#E48D1A" transform="translate(297.55,291.42) rotate(65) scale(1.38)"></rect><rect x="-4.555" y="-4.555" width="9.11" height="9.11" fill="#2DA343" transform="translate(322.72,273.11) rotate(65) scale(1.38)"></rect><rect x="-4.64" y="-4.64" width="9.28" height="9.28" fill="#E03A3E" transform="translate(305.69,320.65) rotate(65) scale(1.38)"></rect><path fill="currentColor" d="M401.02 212.45L401.02 218.40L387.86 218.40L387.86 278.50L379.03 278.50L379.03 218.40L365.88 218.40L365.88 212.45L401.02 212.45ZM443.39 252.68L443.39 252.68Q443.39 264.68 438.35 272.07Q433.31 279.46 423.23 279.46Q413.15 279.46 408.06 272.07Q402.97 264.68 402.97 252.68L402.97 252.68Q402.97 240.48 408.06 233.14Q413.15 225.80 423.13 225.80L423.13 225.80Q433.31 225.80 438.35 233.09Q443.39 240.39 443.39 252.68ZM434.94 252.68L434.94 252.68Q434.94 231.17 423.23 231.17L423.23 231.17Q411.42 231.17 411.42 252.68L411.42 252.68Q411.42 273.60 423.23 273.60L423.23 273.60Q434.94 273.60 434.94 252.68ZM508.90 226.76L516.58 226.76L501.79 278.50L494.50 278.50L484.03 241.54Q483.17 238.37 482.98 235.49L482.98 235.49L482.88 235.49Q482.59 238.37 481.63 241.54L481.63 241.54L470.98 278.50L463.68 278.50L448.99 226.76L457.63 226.76L466.66 263.91L467.71 270.05L467.90 270.05Q468.19 267.46 469.15 263.91L469.15 263.91L479.62 226.76L486.91 226.76L497.09 263.91Q498.24 270.05 498.24 270.05L498.24 270.05L498.43 270.05Q498.72 266.88 499.49 263.81L499.49 263.81L508.90 226.76ZM562.50 241.16L562.50 278.50L554.05 278.50L554.05 241.35Q554.05 231.27 543.20 231.27L543.20 231.27Q537.64 231.27 533.41 233.09L533.41 233.09L533.41 278.50L524.96 278.50L524.96 229.44Q532.55 225.80 543.88 225.80L543.88 225.80Q553.76 225.80 558.13 230.26Q562.50 234.72 562.50 241.16L562.50 241.16ZM607.27 259.88L607.27 259.88Q607.27 268.52 601.66 273.99Q596.04 279.46 587.30 279.46L587.30 279.46Q577.61 279.46 571.94 275.81L571.94 275.81L574.25 269.67Q579.24 272.74 585.77 272.74L585.77 272.74Q591.43 272.74 594.79 269.38Q598.15 266.02 598.15 260.36L598.15 260.36Q598.15 255.94 595.51 253.06Q592.87 250.18 586.63 247.68L586.63 247.68Q572.62 242.12 572.62 230.02L572.62 230.02Q572.62 222.24 577.75 216.87Q582.89 211.49 591.24 211.49L591.24 211.49Q599.69 211.49 604.78 215.04L604.78 215.04L602.66 220.61Q597.77 217.54 592.20 217.54L592.20 217.54Q587.02 217.54 584.14 220.66Q581.26 223.78 581.26 229.16L581.26 229.16Q581.26 233.86 584.09 236.50Q586.92 239.14 592.30 241.25L592.30 241.25Q607.27 247.11 607.27 259.88ZM654.35 226.76L654.35 275.43Q647.15 279.56 636.11 279.56L636.11 279.56Q617.77 279.56 617.77 262.66L617.77 262.66L617.77 226.76L626.22 226.76L626.22 262.95Q626.22 267.75 628.86 270.68Q631.50 273.60 636.59 273.60L636.59 273.60Q642.35 273.60 645.90 271.49L645.90 271.49L645.90 226.76L654.35 226.76ZM674.74 208.85Q676.18 210.24 676.18 212.16Q676.18 214.08 674.74 215.43Q673.30 216.77 671.28 216.77L671.28 216.77Q669.17 216.77 667.73 215.43Q666.29 214.08 666.29 212.16Q666.29 210.24 667.73 208.85Q669.17 207.46 671.28 207.46L671.28 207.46Q673.30 207.46 674.74 208.85ZM675.50 226.76L675.50 278.50L667.06 278.50L667.06 226.76L675.50 226.76ZM708.47 272.84L708.47 278.21Q705.88 278.98 703.86 278.98L703.86 278.98Q697.33 278.98 694.16 275.14Q691.00 271.30 691.00 265.92L691.00 265.92L691.00 232.04L685.04 232.04L685.04 226.76L691.00 226.76L691.00 214.85L699.44 212.26L699.44 226.76L708.47 226.76L708.47 232.04L699.44 232.04L699.44 265.73Q699.44 269.09 701.03 271.16Q702.61 273.22 705.97 273.22L705.97 273.22Q706.74 273.22 708.47 272.84L708.47 272.84ZM754.97 251.14L754.97 251.14L722.42 255.84Q723.86 273.32 738.17 273.32L738.17 273.32Q745.75 273.32 750.94 270.34L750.94 270.34L753.14 275.91Q747.29 279.46 737.50 279.46L737.50 279.46Q726.94 279.46 720.70 272.64Q714.46 265.83 714.46 252.48L714.46 252.48Q714.46 239.62 720.17 232.71Q725.88 225.80 735.29 225.80L735.29 225.80Q744.79 225.80 749.93 232.13Q755.06 238.47 754.97 251.14ZM722.14 251.33L746.90 247.59Q746.90 231.27 735 231.27L735 231.27Q729.05 231.27 725.54 236.26Q722.04 241.25 722.14 251.33L722.14 251.33Z M857.71 241.06L857.71 278.50L849.26 278.50L849.26 241.25Q849.26 236.93 846.91 234.15Q844.56 231.36 839.28 231.36L839.28 231.36Q832.94 231.36 828.62 235.97L828.62 235.97L828.62 278.50L820.17 278.50L820.17 240.87Q820.17 236.45 817.24 233.86Q814.32 231.27 808.84 231.27L808.84 231.27Q803.66 231.27 799.53 233.00L799.53 233.00L799.53 278.50L791.08 278.50L791.08 229.44Q798.57 225.80 809.04 225.80L809.04 225.80Q819.88 225.80 824.88 232.04L824.88 232.04Q830.83 225.80 840.91 225.80L840.91 225.80Q849.45 225.80 853.58 230.31Q857.71 234.82 857.71 241.06L857.71 241.06ZM901.04 272.55L901.04 278.50L870.42 278.50L870.42 212.45L901.04 212.45L901.04 218.40L879.25 218.40L879.25 241.44L898.83 241.44L898.83 247.30L879.25 247.30L879.25 272.55L901.04 272.55ZM930.55 249.41L952.15 278.50L942.16 278.50L920.47 247.68L920.28 247.68L920.28 278.50L911.54 278.50L911.54 215.04Q917.97 211.49 927.96 211.49L927.96 211.49Q939.09 211.49 944.85 216.63Q950.61 221.76 950.61 231.08L950.61 231.08Q950.61 239.43 945.19 244.23Q939.76 249.03 930.55 249.22L930.55 249.22L930.55 249.41ZM941.88 231.46L941.88 231.46Q941.88 223.88 938.47 220.28Q935.06 216.68 927.76 216.68L927.76 216.68Q922.87 216.68 920.28 218.12L920.28 218.12L920.28 245.76Q922.20 246.34 925.94 246.34L925.94 246.34Q941.88 246.34 941.88 231.46ZM1000.95 231.46L1000.95 231.46Q1000.95 241.06 994.09 246.87Q987.22 252.68 973.50 251.33L973.50 251.33L970.52 251.04L970.52 278.50L961.88 278.50L961.88 215.14Q968.22 211.49 978.39 211.49L978.39 211.49Q989.62 211.49 995.29 216.92Q1000.95 222.34 1000.95 231.46ZM992.41 231.36L992.41 231.36Q992.41 224.07 988.95 220.42Q985.50 216.77 978.01 216.77L978.01 216.77Q973.40 216.77 970.52 218.02L970.52 218.02L970.52 245.67L973.40 245.96Q992.41 247.78 992.41 231.36Z M1032.43 226.84L1032.43 226.84Q1032.43 231.80 1028.90 235.32Q1025.36 238.84 1020.40 238.84Q1015.43 238.84 1011.91 235.32Q1008.39 231.80 1008.39 226.84L1008.39 226.84Q1008.39 221.84 1011.91 218.32Q1015.43 214.80 1020.40 214.80Q1025.36 214.80 1028.90 218.32Q1032.43 221.84 1032.43 226.84ZM1027.88 234.28Q1030.97 231.19 1030.97 226.84Q1030.97 222.49 1027.88 219.38Q1024.78 216.26 1020.40 216.26L1020.40 216.26Q1016.04 216.26 1012.95 219.38Q1009.86 222.49 1009.86 226.84Q1009.86 231.19 1012.95 234.28Q1016.04 237.38 1020.40 237.38L1020.40 237.38Q1024.78 237.38 1027.88 234.28ZM1020.50 227.11L1025.33 233.77L1023.42 233.77L1018.76 227.21L1018.25 227.21L1018.25 233.77L1016.66 233.77L1016.66 219.90Q1018.02 219.22 1019.99 219.22L1019.99 219.22Q1021.99 219.22 1023.35 220.28Q1024.71 221.33 1024.71 223.23L1024.71 223.23Q1024.71 225.00 1023.54 226.00Q1022.37 227.01 1020.50 227.11L1020.50 227.11ZM1023.08 223.20L1023.08 223.20Q1023.08 221.77 1022.11 221.16Q1021.14 220.55 1019.78 220.55L1019.78 220.55Q1018.90 220.55 1018.25 220.82L1018.25 220.82L1018.25 226.09L1019.51 226.09Q1021.08 226.09 1022.08 225.41Q1023.08 224.73 1023.08 223.20Z"></path></svg>
+                <span class="tsapp__sep"></span>
+                <span class="tsapp__switch"><span class="tsapp__g9"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>Home<span class="tsapp__chev"></span></span>
+                <span class="tsapp__right">
+                  <span class="tsapp__ic"><svg><use href="#i-sun"></use></svg></span>
+                  <span class="tsapp__ic"><svg><use href="#i-cart"></use></svg><span class="tsapp__bdg">1</span></span>
+                  <span class="tsapp__ic"><svg><use href="#i-bell"></use></svg><span class="tsapp__belldot"></span></span>
+                  <span class="tsapp__av">AW</span>
+                </span>
+              </div>
+              <div class="tsapp__row">
+                <div class="tsapp__side">
+                  <div class="tsapp__prod"><span class="tsapp__prodic"><i class="d"></i></span><div><div class="tsapp__prodname">Home</div><div class="tsapp__prodsub">Product menu</div></div></div>
+                  <nav class="tsapp__nav">
+                    <a class="tsapp__navitem is-active"><i class="d"></i>Your dashboard</a>
+                    <a class="tsapp__navitem"><i class="d"></i>Your account</a>
+                    <a class="tsapp__navitem"><i class="d"></i>Employee portal</a>
+                  </nav>
+                  <div class="tsapp__sidefoot">
+                    <a class="tsapp__navitem"><i class="d"></i>Documentation</a>
+                    <a class="tsapp__navitem"><i class="d"></i>Support request</a>
+                  </div>
+                </div>
+                <div class="tsapp__main">
+                  <div class="tsapp__head"><div class="tsapp__h3">Your dashboard</div><span class="tsapp__date" data-dynamic-date>Thursday, June 11, 2026</span></div>
+                  <div class="tsapp__alerts">
+                    <div class="tsapp__alert"><span class="tsapp__adot is-due"></span><div class="tsapp__amain"><div class="tsapp__atitle">$40.00 outstanding</div><div class="tsapp__asub">Miscellaneous charges — due Jun 30</div></div><span class="tsapp__btn">Pay now</span></div>
+                    <div class="tsapp__alert"><span class="tsapp__adot is-warn"></span><div class="tsapp__amain"><div class="tsapp__atitle">Password never changed</div><div class="tsapp__asub">Update it to keep your account secure</div></div><span class="tsapp__link">Change</span></div>
+                    <div class="tsapp__alert"><span class="tsapp__adot is-info"></span><div class="tsapp__amain"><div class="tsapp__atitle">6 events open for registration</div><div class="tsapp__asub">Outdoor Soccer closes this Friday</div></div><span class="tsapp__link">Browse</span></div>
+                  </div>
+                  <div class="tsapp__cols">
+                    <section class="tsapp__card tsapp__apps">
+                      <div class="tsapp__cardhead"><span class="tsapp__cardtitle">Apps &amp; modules</span><span class="tsapp__filter">Filter apps…</span></div>
+                      <div class="tsapp__appgrid">
+                        <div class="tsapp__app"><span class="tsapp__appic"><i class="d"></i></span><div class="tsapp__appmain"><div class="tsapp__appname">eBills</div><div class="tsapp__appdesc">View &amp; pay what you owe</div></div><span class="tsapp__appbdg is-due">$40 due</span></div>
+                        <div class="tsapp__app"><span class="tsapp__appic"><i class="d"></i></span><div class="tsapp__appmain"><div class="tsapp__appname">Events</div><div class="tsapp__appdesc">Programs &amp; registration</div></div><span class="tsapp__appbdg">6 active</span></div>
+                        <div class="tsapp__app"><span class="tsapp__appic"><i class="d"></i></span><div class="tsapp__appmain"><div class="tsapp__appname">Service requests</div><div class="tsapp__appdesc">Submit &amp; track issues</div></div><span class="tsapp__appbdg">1,489</span></div>
+                        <div class="tsapp__app"><span class="tsapp__appic"><i class="d"></i></span><div class="tsapp__appmain"><div class="tsapp__appname">Employee</div><div class="tsapp__appdesc">Time off &amp; resources</div></div></div>
+                        <div class="tsapp__app"><span class="tsapp__appic"><i class="d"></i></span><div class="tsapp__appmain"><div class="tsapp__appname">Financial</div><div class="tsapp__appdesc">Property tax &amp; accounts</div></div></div>
+                        <div class="tsapp__app"><span class="tsapp__appic"><i class="d"></i></span><div class="tsapp__appmain"><div class="tsapp__appname">Facility</div><div class="tsapp__appdesc">Bookings &amp; rentals</div></div><span class="tsapp__appbdg">17 active</span></div>
+                        <div class="tsapp__app"><span class="tsapp__appic"><i class="d"></i></span><div class="tsapp__appmain"><div class="tsapp__appname">Land Management</div><div class="tsapp__appdesc">Permits &amp; applications</div></div></div>
+                        <div class="tsapp__app"><span class="tsapp__appic"><i class="d"></i></span><div class="tsapp__appmain"><div class="tsapp__appname">Membership</div><div class="tsapp__appdesc">Passes &amp; renewals</div></div><span class="tsapp__appbdg">3 avail</span></div>
+                      </div>
+                      <div class="tsapp__admin">
+                        <div class="tsapp__adminhead">Administration</div>
+                        <div class="tsapp__adminrow">
+                          <span class="tsapp__chip"><i class="d"></i>Manage events</span>
+                          <span class="tsapp__chip"><i class="d"></i>Manage facilities</span>
+                          <span class="tsapp__chip"><i class="d"></i>Manage employees</span>
+                          <span class="tsapp__chip"><i class="d"></i>System settings</span>
+                        </div>
+                      </div>
+                    </section>
+                    <div class="tsapp__rail">
+                      <section class="tsapp__card tsapp__profile">
+                        <span class="tsapp__av tsapp__av--lg">AW</span>
+                        <div style="min-width:0;"><div class="tsapp__pname">Andrew W.</div><div class="tsapp__psub">Citizen · Employee · +5 roles</div></div>
+                      </section>
+                      <section class="tsapp__card tsapp__feed">
+                        <div class="tsapp__tabs"><span class="tsapp__tab is-active">Activity feed</span><span class="tsapp__tab">Transactions</span></div>
+                        <div class="tsapp__feedrows">
+                          <div class="tsapp__frow"><span class="tsapp__fdot"></span><span class="tsapp__ftext">Service request received — <b>Pothole on Maple Ave</b></span><span class="tsapp__fage">2h</span></div>
+                          <div class="tsapp__frow"><span class="tsapp__fdot"></span><span class="tsapp__ftext">Payment received — <b>Property tax installment</b></span><span class="tsapp__fage">1d</span></div>
+                          <div class="tsapp__frow"><span class="tsapp__fdot"></span><span class="tsapp__ftext">Booking confirmed — <b>Arena Rink B</b></span><span class="tsapp__fage">3d</span></div>
+                          <div class="tsapp__frow"><span class="tsapp__fdot"></span><span class="tsapp__ftext">Building permit approved — <b>Deck &amp; fence</b></span><span class="tsapp__fage">6d</span></div>
+                        </div>
+                      </section>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ts-float x-float--top">
+          <svg class="ts-maple"><use href="#i-maple"></use></svg>
+          <span>Canadian jurisdiction only<small>Cirrus, Micrologic's cloud — operational sovereignty</small></span>
+        </div>
+        <div class="ts-float x-float--br">
+          <svg style="width:18px;height:18px;color:var(--accent)"><use href="#i-ai"></use></svg>
+          <span>TownSuite Intelligence<small>Operationally sovereign AI on your own data</small></span>
+        </div>
       </div>
     </div>
+  </section>
 
-    <!-- launch date + journey -->
-    <div class="m-meta" style="display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:clamp(22px,3vw,34px);">
-      <span style="display:inline-flex;align-items:center;gap:9px;font-size:14.5px;font-weight:600;letter-spacing:.02em;border:1.5px solid var(--line2);border:1.5px solid color-mix(in srgb,var(--accent) 45%,transparent);border-radius:100px;padding:8px 18px;background:var(--accent-tint);color:var(--accent);">
-        <svg viewBox="0 0 24 24" style="width:15px;height:15px;flex:none;fill:var(--ts-red);"><path d="M12 0.5L14 4L16 3L15 8L15.5 9.5L18 7L19 8.5L22 8L21 11L22.5 12L17 16.5L17.5 18.5L12.5 17.6L12.5 23L11.5 23L11.5 17.6L6.5 18.5L7 16.5L1.5 12L3 11L2 8L5 8.5L6 7L8.5 9.5L9 8L8 3L10 4Z"></path></svg>
-        July 1, 2026 &mdash; Canada Day
-      </span>
+  <!-- ================= STATS ================= -->
+  <section class="ts-stats" data-screen-label="Stats">
+    <div class="ts-wrap ts-stats__in">
+      <div class="ts-stat ts-reveal"><div class="ts-stat__big" style="font-size:clamp(24px,2.2vw,32px);min-height:clamp(30px,3vw,42px);display:flex;align-items:center;justify-content:center;">Canada’s own</div><div class="ts-stat__lbl">Operationally sovereign mERP®</div></div>
+      <div class="ts-stat ts-reveal" data-delay="1"><div class="ts-stat__big">1</div><div class="ts-stat__lbl">platform for every municipal workflow</div></div>
+      <div class="ts-stat ts-reveal" data-delay="2"><div class="ts-stat__big">~35%</div><div class="ts-stat__lbl">of revenue reinvested into R&amp;D</div></div>
+      <div class="ts-stat ts-reveal" data-delay="3"><div class="ts-stat__big">1987</div><div class="ts-stat__lbl">Canadian-owned ever since</div></div>
     </div>
+  </section>
 
-    <!-- CTA -->
-    <div style="display:flex;gap:16px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:clamp(20px,3vw,30px);">
-      <a href="/home" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:700;font-size:16.5px;letter-spacing:.01em;min-height:52px;padding:0 28px;border-radius:14px;background:transparent;color:var(--ink);border:1.5px solid var(--line2);text-decoration:none;transition:border-color .18s ease,color .18s ease;" style-hover="border-color:var(--accent);color:var(--accent);">Visit the current site</a>
+  <!-- ================= SOVEREIGN (scrollytelling) ================= -->
+  <section class="ts-sec ts-sov" id="sovereign" data-chapter data-screen-label="Operationally Sovereign">
+    <div class="ts-wrap">
+      <p class="ts-kicker ts-reveal">Chapter 02 — Operationally Sovereign</p>
+      <h2 class="ts-h2 ts-reveal" data-delay="1">Your data answers to Canadian law.<br />And only Canadian law.</h2>
+      <p class="ts-lede ts-reveal" data-delay="2">Data residency and data sovereignty are not the same thing. Flip the switch — see the difference for yourself:</p>
+
+      <!-- interactive jurisdiction switch -->
+      <div class="ts-juris ts-reveal" data-pause-offscreen data-delay="2">
+        <div class="ts-juris__switch" role="group" aria-label="Hosting scenario">
+          <button type="button" data-mode="exposed" class="is-on" aria-pressed="true">A U.S. cloud, in Canada</button>
+          <button type="button" data-mode="layered" aria-pressed="false">Canadian vendor, foreign cloud</button>
+          <button type="button" data-mode="world" aria-pressed="false">Any foreign cloud</button>
+          <button type="button" data-mode="sealed" aria-pressed="false">TownSuite operationally sovereign cloud</button>
+        </div>
+        <div class="ts-juris__stage" style="text-align:left;">
+          <div class="ts-juris__diagram">
+            <div class="ts-juris__node safe"><span class="dotsq"></span><span>Your municipality's data<small>Property tax, payroll, permits, residents</small></span></div>
+            <div class="ts-juris__link" data-when="exposed">jurisdiction crosses the border</div>
+            <div class="ts-juris__link" data-when="layered">Canadian on the contract…</div>
+            <div class="ts-juris__link" data-when="sealed">jurisdiction stays in Canada</div>
+            <div class="ts-juris__node risk" data-when="exposed"><span class="dotsq" style="background:var(--ts-red)"></span><span>U.S.-owned provider — Canadian datacentre<small>Subject to the U.S. CLOUD Act</small></span></div>
+            <div class="ts-juris__node warn" data-when="layered"><span class="dotsq" style="background:var(--ts-orange)"></span><span>Canadian-owned software vendor<small>The brand and the contract are Canadian</small></span></div>
+            <div class="ts-juris__link" data-when="layered">…but the infrastructure underneath isn't</div>
+            <div class="ts-juris__node risk" data-when="layered"><span class="dotsq" style="background:var(--ts-red)"></span><span>Foreign-owned cloud underneath<small>That layer answers to foreign law — and your data sits on it</small></span></div>
+            <div class="ts-juris__link" data-when="world">every layer answers to its owner's law</div>
+            <div class="ts-juris__node risk" data-when="world"><span class="dotsq" style="background:var(--ts-red)"></span><span>Australia — Assistance &amp; Access Act<small>Agencies can compel providers to assist in accessing data</small></span></div>
+            <div class="ts-juris__node risk" data-when="world"><span class="dotsq" style="background:var(--ts-red)"></span><span>Germany — BND Act<small>Providers operating in Germany can be compelled to facilitate access</small></span></div>
+            <div class="ts-juris__node risk" data-when="world"><span class="dotsq" style="background:var(--ts-red)"></span><span>United Kingdom — Investigatory Powers Act<small>Technical capability notices compel assistance with data access</small></span></div>
+            <div class="ts-juris__node safe" data-when="sealed"><span class="dotsq" style="background:var(--ts-green)"></span><span>Every TownSuite app — built in-house<small>From customer-facing apps to the platform tooling beneath them — authentication, deployment, updates and backups — all designed by us, so sovereignty holds at every layer</small></span></div>
+            <div class="ts-juris__link" data-when="sealed">operationally sovereign with our infrastructure</div>
+            <div class="ts-juris__node safe" data-when="sealed"><span class="dotsq" style="background:var(--ts-green)"></span><span>Cirrus, Micrologic's cloud — Canadian owned &amp; operated<small>Contractually guaranteed Canadian operational sovereignty</small></span></div>
+          </div>
+          <div class="ts-juris__verdict">
+            <div data-when="exposed">
+              <span class="ts-juris__badge">Reachable by foreign authorities</span>
+              <h3 style="margin-top:16px;">Residency isn't protection.</h3>
+              <p style="margin-top:10px;">When your data sits with a U.S.-owned provider — even in a Canadian datacentre — American authorities can compel that provider to produce it. Anywhere in the world. Including Canada.</p>
+            </div>
+            <div data-when="layered">
+              <span class="ts-juris__badge">Sovereign in name only</span>
+              <h3 style="margin-top:16px;">Your jurisdiction is set by the weakest layer.</h3>
+              <p style="margin-top:10px;">A Canadian logo on the contract isn't enough. If any layer of the stack — the application, the platform, or the infrastructure it runs on — belongs to a foreign-owned company, that layer answers to foreign law and takes your data's jurisdiction with it. Ask every vendor who can access, operate, or be compelled to produce each layer.</p>
+            </div>
+            <div data-when="world">
+              <span class="ts-juris__badge">Reachable by foreign authorities — under any flag</span>
+              <h3 style="margin-top:16px;">It's not just the U.S. — every country's cloud is subject to its country's laws.</h3>
+              <p style="margin-top:10px;">The U.S. CLOUD Act is the famous one — but Australia, Germany, the U.K. and most major jurisdictions have laws that reach through their companies. Whichever country owns a layer of your stack, its law comes with it — even when the provider builds a dedicated “Canadian cloud” or sovereign region here. The datacentre moves; the legal obligations of its owner don't. The answer isn't a <i>better</i> foreign cloud — it's a stack under sovereign Canadian control, where no foreign entity can operate it or be compelled to hand it over.</p>
+            </div>
+            <div data-when="sealed">
+              <span class="ts-juris__badge">Outside foreign reach — by contract &amp; architecture</span>
+              <h3 style="margin-top:16px;">Sovereignty is in our DNA.</h3>
+              <p style="margin-top:10px;">TownSuite is 100% Canadian owned, and Cirrus, Micrologic's cloud, is Canadian operated. Our contract with Cirrus contractually commits to Canadian operational sovereignty: the infrastructure your data runs on is located, operated and administered exclusively in Canada, and is governed exclusively by Canadian law — so the jurisdiction your data answers to stays in Canada.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- certifications / trust strip -->
+      <div class="x-trust ts-reveal" style="margin-top:clamp(40px,5vw,64px);padding:20px 22px;border:1.5px solid var(--sov-line);border-radius:14px;">
+        <div style="display:flex;align-items:center;gap:11px;">
+          <svg class="ts-maple" style="width:18px;height:18px;flex:none;"><use href="#i-maple"></use></svg>
+          <span style="font-size:14.5px;line-height:1.5;color:var(--sov-hl);">Hosted on independently certified Canadian infrastructure — <b>Cirrus, Micrologic's cloud</b>.</span>
+        </div>
+        <div class="x-gartner">
+          <span class="x-gartner__badge">Gartner&reg;</span>
+          <span class="x-gartner__txt">Named a Representative Vendor in the <b>2025 Gartner&reg; Market Guide for Digital Sovereignty Solutions</b> — a Canadian-owned provider recognized in the category.</span>
+        </div>
+        <div class="x-certs">
+          <span class="x-cert"><b>SOC&nbsp;2 Type&nbsp;II</b> Cloud privacy &amp; operations</span>
+          <span class="x-cert"><b>ISO&nbsp;27001</b> Information security</span>
+          <span class="x-cert"><b>ISO&nbsp;27017</b> Cloud security</span>
+          <span class="x-cert"><b>ISO&nbsp;27018</b> Cloud privacy</span>
+          <span class="x-cert"><b>ISO&nbsp;9001</b> Quality management</span>
+        </div>
+        <p class="x-trust__note">Certifications shown are held by Cirrus, Micrologic's cloud (the hosting infrastructure), not by specific TownSuite applications. Gartner, Market Guide for Digital Sovereignty Solutions, 5 May 2025. Gartner does not endorse any vendor, product or service depicted in its research publications. GARTNER is a registered trademark of Gartner, Inc. and/or its affiliates and is used herein with permission.</p>
+      </div>
+
+      <!-- sovereign because it's ours -->
+      <div class="x-ours" data-screen-label="Operationally sovereign because ours">
+        <div>
+          <p class="ts-kicker ts-reveal">Operationally sovereign because it's ours</p>
+          <h3 class="ts-h2 ts-reveal" data-delay="1" style="font-size:clamp(26px,3vw,38px);">Made <span class="hl">by us</span>. Maintained <span class="hl">by us</span>. Supported <span class="hl">by us</span>.<br />For <span class="hl">municipalities only</span>.</h3>
+          <p class="ts-lede ts-reveal" data-delay="2">Sovereignty isn't only where your data lives — it's who builds and runs the software. TownSuite builds and maintains every application in-house, from the ground up — solely for the municipal space.</p>
+          <span class="x-ours__since ts-reveal" data-delay="3"><svg class="ts-maple"><use href="#i-maple"></use></svg> Enhanced by us &amp; our clients' feedback — since 1987</span>
+        </div>
+        <div class="x-ours__grid">
+          <div class="ts-card ts-reveal" data-delay="1">
+            <div class="ts-card__ic"><svg><use href="#i-wrench"></use></svg></div>
+            <h3 class="ts-card__t">Built from the ground up</h3>
+            <p class="ts-card__d">Every application is <b>ours</b> — designed and developed in-house, not adapted from a U.S. platform or assembled from acquired products.</p>
+          </div>
+          <div class="ts-card ts-reveal" data-delay="2">
+            <div class="ts-card__ic"><svg><use href="#i-shield"></use></svg></div>
+            <h3 class="ts-card__t">Made &amp; maintained by us</h3>
+            <p class="ts-card__d">The team that builds TownSuite is the team that maintains and supports it. <b>One platform, one accountable team.</b></p>
+          </div>
+          <div class="ts-card ts-reveal" data-delay="2">
+            <div class="ts-card__ic"><svg><use href="#i-bank"></use></svg></div>
+            <h3 class="ts-card__t">Only for the municipal space</h3>
+            <p class="ts-card__d">We serve <b>municipalities exclusively</b>. Nothing here is generic ERP adapted to fit municipalities.</p>
+          </div>
+          <div class="ts-card ts-reveal" data-delay="3">
+            <div class="ts-card__ic"><svg><use href="#i-people"></use></svg></div>
+            <h3 class="ts-card__t">Enhanced with our clients</h3>
+            <p class="ts-card__d">Since 1987, <b>client feedback has shaped every release</b> — and enhancements are included, never sold as upgrades.</p>
+          </div>
+          <a class="ts-reveal" href="about.html#ts-timeline-start" style="grid-column:1 / -1;justify-self:end;display:flex;width:fit-content;align-items:center;gap:7px;margin-top:10px;color:var(--sov-hl);font-weight:700;font-size:14px;letter-spacing:.02em;text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--sov-hl) 45%,transparent);padding-bottom:2px;">Explore our story — the timeline from 1987 to today <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
     </div>
-  </main>
+  </section>
 
-  <!-- footer -->
-  <footer class="m-foot" style="position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:18px clamp(20px,4vw,44px) 22px;border-top:1px solid var(--line);color:var(--ink3);font-size:13.5px;">
-    <span>&copy; 2026 TownSuite Municipal Software.<span class="m-hide"> mERP&reg; is a registered trademark of TownSuite.</span></span>
-    <a href="tel:18004083313" style="color:var(--ink2);text-decoration:none;font-weight:600;" style-hover="color:var(--accent);">1.800.408.3313</a>
-  </footer>
-</div>
-</x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;launchDate&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;2026-07-01T15:00:00-02:30&quot;, &quot;tsType&quot;: &quot;string&quot;}}">
-class Component extends DCLogic {
-  state = {
-    now: Date.now(),
-    squares: [],
-    phase: 'emblem',
-    theme: 'auto'
-  };
+  <!-- ================= MODULES (horizontal explorer) ================= -->
+  <section class="ts-sec ts-sec--wash" id="modules" data-chapter data-screen-label="Modules">
+    <div class="ts-wrap">
+      <div style="display:flex;align-items:flex-end;gap:24px;flex-wrap:wrap;">
+        <div style="flex:1;min-width:280px;">
+          <p class="ts-kicker ts-reveal">Chapter 03 — Modules</p>
+          <h2 class="ts-h2 ts-reveal" data-delay="1">One holistic system,<br />every department.</h2>
+          <p class="ts-lede ts-reveal" data-delay="2">TownSuite Financial sits at the core; everything else connects to it natively. Enter once, connected everywhere.</p>
+        </div>
+      </div>
+      <div class="x-plat ts-reveal">
+        <span class="x-plat__lbl">One platform, three ways to work</span>
+        <span class="x-plat__apps">
+        <span class="x-plat__item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="12.5" rx="2"></rect><path stroke-linecap="round" d="M9 20.5h6M12 17v3.5"></path></svg><span><b>Desktop</b> Windows &amp; macOS</span></span>
+        <span class="x-plat__item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8.5"></circle><path stroke-linecap="round" d="M3.6 12h16.8M12 3.5c2.6 2.6 2.6 14.4 0 17M12 3.5c-2.6 2.6-2.6 14.4 0 17"></path></svg><span><b>Browser</b> Any modern browser</span></span>
+        <span class="x-plat__item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"></rect><path stroke-linecap="round" d="M10.5 18.5h3"></path></svg><span><b>Mobile</b> iOS &amp; Android, offline-ready</span></span>
+        </span>
+      </div>
+      <p class="x-modcap x-modcap--top ts-reveal" data-pause-offscreen data-delay="2" aria-live="polite"><span class="x-modcap__dot"></span><span class="x-modcap__txt">Tap any module to trace how it connects — <b>Financial</b> is the hub everything posts to.</span></p>
+      <div class="x-modscroll ts-reveal" data-pause-offscreen data-delay="3" style="margin-top:18px;">
+        <svg class="x-modwire" aria-hidden="true"></svg>
+        <div class="ts-mod ts-mod--core" data-key="financial" data-label="TownSuite Financial" data-links="po,inventory,land,mapping,work,people,assets,ebills,pos,epermitting,s311,recreation,ai"><div class="ts-mod__ic"><svg><use href="#i-bank"></use></svg></div><h3 class="ts-mod__t"><a class="ts-mod__link" href="finance.html">TownSuite Financial — the core of mERP</a></h3><p class="ts-mod__d">Municipal focused AR (property tax, utility &amp; misc billing), AP, GL, budgeting &amp; banking.</p></div>
+        <div class="ts-mod" data-key="po" data-label="Purchasing" data-links="financial,inventory,work"><div class="ts-mod__ic"><svg><use href="#i-cart"></use></svg></div><h3 class="ts-mod__t"><a class="ts-mod__link" href="purchasing.html">Purchasing</a></h3><p class="ts-mod__d">Requisitions, approvals and POs — committed against budgets in Financial.</p></div>
+        <div class="ts-mod" data-key="inventory" data-label="Inventory" data-links="financial,po,work"><div class="ts-mod__ic"><svg><use href="#i-box"></use></svg></div><h3 class="ts-mod__t"><a class="ts-mod__link" href="purchasing.html">Inventory</a></h3><p class="ts-mod__d">Stock, issues and reorders across yards and depots, costed straight to the GL.</p></div>
+        <div class="ts-mod" data-key="land" data-label="Land Management" data-links="financial,mapping,epermitting,s311,ebills"><div class="ts-mod__ic"><svg><use href="#i-map"></use></svg></div><h3 class="ts-mod__t"><a class="ts-mod__link" href="land.html">Land Management</a></h3><p class="ts-mod__d">GIS, building permits, zoning, inspections &amp; bylaws — tailored to Canadian regulations.</p></div>
+        <div class="ts-mod" data-key="mapping" data-label="Mapping" data-links="financial,land,epermitting,assets,work"><div class="ts-mod__ic"><svg><use href="#i-pin"></use></svg></div><h3 class="ts-mod__t"><a class="ts-mod__link" href="maps.html">Mapping</a></h3><p class="ts-mod__d">Parcel-centric maps that link every property to its live mERP data.</p></div>
+        <div class="x-trio" data-screen-label="Operations trio">
+          <span class="x-trio__tag">People · Work · Assets — connected</span>
+          <div class="x-trio__cards">
+            <div class="ts-mod" data-key="people" data-label="People Management" data-links="financial,work,s311"><div class="ts-mod__ic"><svg><use href="#i-people"></use></svg></div><h3 class="ts-mod__t"><a class="ts-mod__link" href="hris.html">People Management</a></h3><p class="ts-mod__d">HRIS, payroll, benefits and certifications for your whole workforce.</p></div>
+            <div class="x-trio__joint" aria-hidden="true"><i style="background:var(--ts-orange)"></i></div>
+            <div class="ts-mod" data-key="work" data-label="Work Management" data-links="financial,people,po,inventory,assets,mapping,recreation,s311"><div class="ts-mod__ic"><svg><use href="#i-task"></use></svg></div><h3 class="ts-mod__t"><a class="ts-mod__link" href="work-management.html">Work Management</a></h3><p class="ts-mod__d">Work orders, task &amp; time management, scheduling and equipment maintenance.</p></div>
+            <div class="x-trio__joint" aria-hidden="true"><i style="background:var(--ts-green)"></i></div>
+            <div class="ts-mod" data-key="assets" data-label="Asset Management" data-links="financial,mapping,work"><div class="ts-mod__ic"><svg><use href="#i-wrench"></use></svg></div><h3 class="ts-mod__t"><a class="ts-mod__link" href="asset-management.html">Asset Management</a></h3><p class="ts-mod__d">Track &amp; manage assets from acquisition to disposal across their lifecycle.</p></div>
+          </div>
+          <p class="x-trio__cap">A work order pulls its crew from <b>People</b>, its equipment from <b>Assets</b> and its parts from <b>Inventory</b> — and every cost lands in <b>Financial</b>, automatically.</p>
+        </div>
+        <div class="ts-mod" data-key="ebills" data-label="eBills &amp; ePayments" data-links="financial,pos,land,recreation"><div class="ts-mod__ic"><svg><use href="#i-card"></use></svg></div><h3 class="ts-mod__t"><a class="ts-mod__link" href="ebills.html">eBills &amp; ePayments</a></h3><p class="ts-mod__d">Citizen-facing billing and payments, connected straight to Financial.</p></div>
+        <div class="ts-mod" data-key="pos" data-label="Point of Sale" data-links="financial,ebills,recreation"><div class="ts-mod__ic"><svg><use href="#i-pos"></use></svg></div><h3 class="ts-mod__t"><a class="ts-mod__link" href="point-of-sale.html">Point of Sale</a></h3><p class="ts-mod__d">Front-counter payments for taxes, utilities, permits and more — posted in real time.</p></div>
+        <div class="ts-mod" data-key="epermitting" data-label="ePermitting" data-links="financial,mapping,land,s311"><div class="ts-mod__ic"><svg><use href="#i-clip"></use></svg></div><h3 class="ts-mod__t"><a class="ts-mod__link" href="epermitting.html">ePermitting</a></h3><p class="ts-mod__d">Online permit applications with review &amp; approval workflows, connected to Land Management.</p></div>
+        <div class="ts-mod" data-key="s311" data-label="311 Citizen Service Requests" data-links="financial,work,land,epermitting,people"><div class="ts-mod__ic"><svg><use href="#i-chat"></use></svg></div><h3 class="ts-mod__t"><a class="ts-mod__link" href="service-requests.html">311 Citizen Service Requests</a></h3><p class="ts-mod__d">Citizen service requests, routed to the right department and tracked to resolution.</p></div>
+        <div class="ts-mod" data-key="recreation" data-label="Recreation &amp; Facility Bookings" data-links="financial,ebills,work,pos"><div class="ts-mod__ic"><svg><use href="#i-ticket"></use></svg></div><h3 class="ts-mod__t"><a class="ts-mod__link" href="recreation.html">Recreation &amp; Facility Bookings</a></h3><p class="ts-mod__d">Programs, facility bookings and registrations for your community.</p></div>
+        <div class="ts-mod ts-mod--ai" data-key="ai" data-label="TownSuite Intelligence" data-links="financial,po,inventory,land,mapping,people,work,assets,ebills,pos,epermitting,s311,recreation"><div class="ts-mod__ic"><svg><use href="#i-ai"></use></svg></div><h3 class="ts-mod__t"><a class="ts-mod__link" href="intelligence.html">TownSuite Intelligence</a></h3><p class="ts-mod__d">Sovereign AI on your own data — inside a Canadian-operated datacentre under guaranteed operational sovereignty.</p></div>
+      </div>
+      <ul class="ts-ai__checks ts-reveal" style="flex-direction:row;flex-wrap:wrap;gap:22px;margin-top:18px;">
+        <li><span class="chk"><svg style="width:12px;height:12px"><use href="#i-check"></use></svg></span> No duplicate entry</li>
+        <li><span class="chk"><svg style="width:12px;height:12px"><use href="#i-check"></use></svg></span> No third-party integrations to buy or maintain</li>
+        <li><span class="chk"><svg style="width:12px;height:12px"><use href="#i-check"></use></svg></span> APIs when you need them</li>
+        <li><span class="chk"><svg style="width:12px;height:12px"><use href="#i-check"></use></svg></span> Enhancements included — no version fees</li>
+      </ul>
+      <div class="x-integ ts-reveal">
+        <div class="x-integ__lead" style="max-width:44ch;"><b>One platform, one vendor, one jurisdiction.</b> A typical municipal stack bolts together a separate vendor for finance, payroll, assets, permitting and more — each one another contract, another renewal cycle, another data silo, another point of foreign-jurisdiction exposure. TownSuite is one.</div>
+        <div class="x-integ__names">
+          <span style="flex-basis:100%;margin-bottom:2px;font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);">Optional managed connectors — only when you choose to link an external system</span>
+          <span class="x-integ__chip">Banking &amp; EFT</span>
+          <span class="x-integ__chip">Property assessment authorities</span>
+          <span class="x-integ__chip">Payment processors</span>
+          <span class="x-integ__chip">Utility metering</span>
+          <span class="x-integ__chip">Open API &amp; data exchange</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  resolvedTheme() {
-    const t = this.state.theme;
-    if (t === 'auto') {
-      try { return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; } catch(e){ return 'light'; }
-    }
-    return t;
-  }
+  <!-- ================= SOVEREIGN AI ================= -->
+  <section class="ts-sec" id="ai" data-chapter data-screen-label="Operationally Sovereign AI">
+    <div class="ts-wrap">
+      <div class="ts-ai ts-reveal">
+        <div class="ts-ai__in">
+          <div class="ts-ai__copy">
+            <p class="ts-kicker">Chapter 04 — TownSuite Intelligence</p>
+            <h2 class="ts-h2" style="font-size:clamp(28px,3.2vw,42px);">Operationally sovereign AI that runs in Canada — on your own data.</h2>
+            <p class="ts-lede">TownSuite Intelligence isn't bolted-on cloud AI. It runs on your own data inside a Canadian-operated datacentre, with operational sovereignty maintained down to the infrastructure layer. Our contract with Cirrus, Micrologic's cloud, contractually commits to Canadian operational sovereignty — the infrastructure your data runs on is located, operated and administered exclusively in Canada, and is governed exclusively by Canadian law.</p>
+            <ul class="ts-ai__checks">
+              <li><span class="chk"><svg style="width:12px;height:12px"><use href="#i-check"></use></svg></span> Draws insights across finance, land, work orders and assets — in plain language</li>
+              <li><span class="chk"><svg style="width:12px;height:12px"><use href="#i-check"></use></svg></span> Answers drawn only from your connected records</li>
+              <li><span class="chk"><svg style="width:12px;height:12px"><use href="#i-check"></use></svg></span> Your data is never used to train AI models — answers are generated only from your connected records</li>
+              <li><span class="chk"><svg style="width:12px;height:12px"><use href="#i-check"></use></svg></span> Encrypted at rest and in transit — with encryption keys managed in Canada under our control</li>
+              <li><span class="chk"><svg class="ts-maple" style="width:12px;height:12px"><use href="#i-maple"></use></svg></span> Runs on Canadian infrastructure — your data isn't sent to any foreign AI service</li>
+            </ul>
+            <div class="ts-cta-row">
+              <button class="ts-btn ts-btn--primary" type="button" data-ts-openchat>Try TownSuite Intelligence <span class="arr">→</span></button>
+              <a class="ts-btn ts-btn--ghost" href="ai-assurance.html">How our AI stays sovereign &amp; accurate <span class="arr">→</span></a>
+            </div>
+          </div>
+          <div class="ts-ai__chat">
+            <div class="tsi-intro" aria-hidden="true"><svg class="tsi-introic"><use href="#i-ai"></use></svg></div>
+            <div class="tsi-carousel">
+              <div class="tsi-track" tabindex="0" role="group" aria-label="TownSuite Intelligence example conversations">
+                <div class="tsi-slide">
+            <div class="tsi-win" role="img" aria-label="TownSuite Intelligence citizen assistant for the Town of Anytown, answering questions about town hall hours and an account balance">
+              <div class="tsi-head">
+                <span class="tsi-badge"><svg viewBox="0 0 24 24" width="19" height="19"><use href="#i-ai"></use></svg>
+                </span>
+                <span class="tsi-head-txt">
+                  <span class="tsi-head-t">TownSuite Intelligence</span>
+                  <span class="tsi-head-s">AI assistant</span>
+                </span>
+                <span class="tsi-head-x" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"></path></svg>
+                </span>
+              </div>
+              <div class="tsi-ctx"><span class="tsi-dot"></span>Helping with eServices</div>
+                            <div class="tsi-body">
+                <div class="ts-bubble ts-bubble--bot">Hi — I'm TownSuite Intelligence. Ask me about your bills, programs or service requests with the Town of Anytown.</div>
+                <div class="ts-bubble ts-bubble--user">Town hall hours</div>
+                <div class="ts-bubble ts-bubble--bot">Anytown Town Hall is open <span class="tsi-hl">Monday–Friday, 8:30 AM–4:30 PM</span>. For urgent matters outside hours, call the public works line on your latest bill.
+                  <span class="tsi-act">Contact us <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"></path></svg></span>
+                </div>
+                <div class="ts-bubble ts-bubble--user">When is my next bill due?</div>
+                <div class="ts-bubble ts-bubble--bot">
+                  You have <span class="tsi-hl">$40.00</span> outstanding — miscellaneous charges on your account. Property tax and utility accounts are paid up.
+                  <span class="tsi-act">Open eBills <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"></path></svg></span>
+                </div>
+              </div>
+              <div class="tsi-suggest">
+                <span class="tsi-suggest-lbl">Try asking</span>
+                <div class="tsi-chips">
+                  <span class="tsi-chip">Report a service issue</span>
+                  <span class="tsi-chip">Pay my balance</span>
+                </div>
+              </div>
+              <div class="tsi-composer">
+                <span class="tsi-input">Ask about your account…</span>
+                <span class="tsi-send" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"></path></svg>
+                </span>
+              </div>
+              <div class="tsi-foot">TownSuite Intelligence can make mistakes. Verify important figures.</div>
+            </div>
+                </div>
+                <div class="tsi-slide">
+                  <div class="tsi-win" role="img" aria-label="TownSuite Intelligence in Accounts Receivable, taking a customer payment toward property tax">
+                    <div class="tsi-head">
+                      <span class="tsi-badge"><svg viewBox="0 0 24 24" width="19" height="19"><use href="#i-ai"></use></svg></span>
+                      <span class="tsi-head-txt">
+                        <span class="tsi-head-t">TownSuite Intelligence</span>
+                        <span class="tsi-head-s">AI assistant</span>
+                      </span>
+                      <span class="tsi-head-x" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"></path></svg></span>
+                    </div>
+                    <div class="tsi-ctx"><span class="tsi-dot"></span>Helping with Accounts Receivable</div>
+                    <div class="tsi-body">
+                      <div class="ts-bubble ts-bubble--user">Customer ABC001 came in to pay his balance.</div>
+                      <div class="ts-bubble ts-bubble--bot">
+                        ABC001 — Anders Construction has three open balances. Which is he paying down?
+                        <div class="tsi-bal"><span>Utility bills</span><b>$312.80</b></div>
+                        <div class="tsi-bal"><span>Property tax</span><b>$1,940.00</b></div>
+                        <div class="tsi-bal"><span>Miscellaneous</span><b>$85.50</b></div>
+                      </div>
+                      <div class="ts-bubble ts-bubble--user">Pay $250 off property taxes.</div>
+                      <div class="ts-bubble ts-bubble--bot">
+                        Opening Receipt Writer for ABC001 and applying <span class="tsi-hl">$250.00</span>. Please review and click issue to post the transaction.
+                        <span class="tsi-act">Complete in Receipt Writer <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"></path></svg></span>
+                      </div>
+                    </div>
+                    <div class="tsi-suggest">
+                      <span class="tsi-suggest-lbl">Try asking</span>
+                      <div class="tsi-chips">
+                        <span class="tsi-chip">Apply to a different balance</span>
+                        <span class="tsi-chip">Print the receipt</span>
+                      </div>
+                    </div>
+                    <div class="tsi-composer">
+                      <span class="tsi-input">Ask about Accounts Receivable…</span>
+                      <span class="tsi-send" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"></path></svg></span>
+                    </div>
+                    <div class="tsi-foot">TownSuite Intelligence can make mistakes. Verify important figures.</div>
+                  </div>
+                </div>
+                <div class="tsi-slide">
+                  <div class="tsi-win" role="img" aria-label="TownSuite Intelligence in Work Orders, opening a work order for a broken streetlight">
+                    <div class="tsi-head">
+                      <span class="tsi-badge"><svg viewBox="0 0 24 24" width="19" height="19"><use href="#i-ai"></use></svg></span>
+                      <span class="tsi-head-txt">
+                        <span class="tsi-head-t">TownSuite Intelligence</span>
+                        <span class="tsi-head-s">AI assistant</span>
+                      </span>
+                      <span class="tsi-head-x" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"></path></svg></span>
+                    </div>
+                    <div class="tsi-ctx"><span class="tsi-dot"></span>Helping with Work Orders</div>
+                    <div class="tsi-body">
+                      <div class="ts-bubble ts-bubble--user">A resident called about a broken streetlight at 12 Main Street.</div>
+                      <div class="ts-bubble ts-bubble--bot">
+                        I found the streetlight at <span class="tsi-hl">12 Main Street</span>, and there's no work order open for it yet. I can open a new work order and fill in the location and the issue for you — then you can assign a crew and pick a date.
+                        <span class="tsi-act">Open a work order <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"></path></svg></span>
+                      </div>
+                      <div class="ts-bubble ts-bubble--bot">I've opened a new work order and filled in the streetlight and the reported problem. It's ready for you to review, assign, and schedule.</div>
+                    </div>
+                    <div class="tsi-suggest">
+                      <span class="tsi-suggest-lbl">Try asking</span>
+                      <div class="tsi-chips">
+                        <span class="tsi-chip">Add a note</span>
+                        <span class="tsi-chip">Look up another address</span>
+                      </div>
+                    </div>
+                    <div class="tsi-composer">
+                      <span class="tsi-input">Ask about Work Orders…</span>
+                      <span class="tsi-send" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"></path></svg></span>
+                    </div>
+                    <div class="tsi-foot">TownSuite Intelligence can make mistakes. Verify important figures.</div>
+                  </div>
+                </div>
+                <div class="tsi-slide">
+                  <div class="tsi-win" role="img" aria-label="TownSuite Intelligence building a 311 report within 100 metres of an address">
+                    <div class="tsi-head">
+                      <span class="tsi-badge"><svg viewBox="0 0 24 24" width="19" height="19"><use href="#i-ai"></use></svg></span>
+                      <span class="tsi-head-txt">
+                        <span class="tsi-head-t">TownSuite Intelligence</span>
+                        <span class="tsi-head-s">AI assistant</span>
+                      </span>
+                      <span class="tsi-head-x" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"></path></svg></span>
+                    </div>
+                    <div class="tsi-ctx"><span class="tsi-dot"></span>Helping with Reports</div>
+                    <div class="tsi-body">
+                      <div class="ts-bubble ts-bubble--user">I want to make a new report that shows all the 311 requests that come within 100 metres of 151 Main Street.</div>
+                      <div class="ts-bubble ts-bubble--bot">Are there any other parameters you'd like in this report?</div>
+                      <div class="ts-bubble ts-bubble--user">No, just those — thank you.</div>
+                      <div class="ts-bubble ts-bubble--bot">
+                        You can prepare the report in your TownSuite Intelligence Dashboard.
+                        <span class="tsi-act">Launch Dashboard <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"></path></svg></span>
+                      </div>
+                    </div>
+                    <div class="tsi-suggest">
+                      <span class="tsi-suggest-lbl">Try asking</span>
+                      <div class="tsi-chips">
+                        <span class="tsi-chip">Add a date range</span>
+                        <span class="tsi-chip">Group by request type</span>
+                      </div>
+                    </div>
+                    <div class="tsi-composer">
+                      <span class="tsi-input">Ask about Reports…</span>
+                      <span class="tsi-send" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"></path></svg></span>
+                    </div>
+                    <div class="tsi-foot">TownSuite Intelligence can make mistakes. Verify important figures.</div>
+                  </div>
+                </div>
+                <div class="tsi-slide">
+                  <div class="tsi-win" role="img" aria-label="TownSuite Intelligence helping a resident start a building permit application for a deck">
+                    <div class="tsi-head">
+                      <span class="tsi-badge"><svg viewBox="0 0 24 24" width="19" height="19"><use href="#i-ai"></use></svg></span>
+                      <span class="tsi-head-txt">
+                        <span class="tsi-head-t">TownSuite Intelligence</span>
+                        <span class="tsi-head-s">AI assistant</span>
+                      </span>
+                      <span class="tsi-head-x" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"></path></svg></span>
+                    </div>
+                    <div class="tsi-ctx"><span class="tsi-dot"></span>Helping with Permits</div>
+                    <div class="tsi-body">
+                      <div class="ts-bubble ts-bubble--bot">Hi — I'm TownSuite Intelligence. Ask me about permits or applications for the Town of Anytown.</div>
+                      <div class="ts-bubble ts-bubble--user">I want to build a deck. What do I need?</div>
+                      <div class="ts-bubble ts-bubble--bot">
+                        A deck needs a <span class="tsi-hl">building permit</span>. I can start the application for you and fill in your address and contact details — you'd just review everything and submit it.
+                        <span class="tsi-act">Start my application <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"></path></svg></span>
+                      </div>
+                    </div>
+                    <div class="tsi-suggest">
+                      <span class="tsi-suggest-lbl">Try asking</span>
+                      <div class="tsi-chips">
+                        <span class="tsi-chip">What will it cost?</span>
+                        <span class="tsi-chip">What's the current process workflow?</span>
+                      </div>
+                    </div>
+                    <div class="tsi-composer">
+                      <span class="tsi-input">Ask about Permits…</span>
+                      <span class="tsi-send" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"></path></svg></span>
+                    </div>
+                    <div class="tsi-foot">TownSuite Intelligence can make mistakes. Verify important figures.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tsi-dots" role="group" aria-label="Switch example conversation">
+              <button type="button" class="tsi-playpause" aria-label="Pause the example conversations" aria-pressed="false"><span class="tsi-pp-ico" aria-hidden="true"></span></button>
+              <button type="button" class="tsi-page is-on" aria-pressed="true" aria-label="Resident eServices example"></button>
+              <button type="button" class="tsi-page" aria-pressed="false" aria-label="Staff Accounts Receivable example"></button>
+              <button type="button" class="tsi-page" aria-pressed="false" aria-label="Work Orders streetlight example"></button>
+              <button type="button" class="tsi-page" aria-pressed="false" aria-label="311 report builder example"></button>
+              <button type="button" class="tsi-page" aria-pressed="false" aria-label="Resident building permit example"></button>
+            </div>
+            <p class="tsi-cap">Illustrative example. Figures shown are for demonstration only.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  componentDidMount() {
-    document.title = 'TownSuite.com \u2014 Something new is coming';
-    document.documentElement.setAttribute('data-theme', this.resolvedTheme());
+  <!-- ================= IMPLEMENTATION ================= -->
+  <section class="ts-sec" id="implementation" data-chapter data-screen-label="Onboarding &amp; Implementation">
+    <div class="ts-wrap">
+      <p class="ts-kicker ts-reveal">Chapter 05 — Onboarding &amp; Implementation</p>
+      <h2 class="ts-h2 ts-reveal" data-delay="1">A guided path to go-live —<br />low-risk by design.</h2>
+      <p class="ts-lede ts-reveal" data-delay="2">Every application moves through the same four phases. Your data is migrated and validated in a safe environment, reviewed by your team, and only then promoted live — so nothing goes live before you've signed off.</p>
 
-    // Follow the OS theme live while the user hasn't manually overridden it.
-    try {
-      this.mql = window.matchMedia('(prefers-color-scheme: dark)');
-      this.onScheme = () => {
-        if (this.state.theme === 'auto') {
-          document.documentElement.setAttribute('data-theme', this.resolvedTheme());
-          this.forceUpdate();
-        }
-      };
-      if (this.mql.addEventListener) this.mql.addEventListener('change', this.onScheme);
-      else if (this.mql.addListener) this.mql.addListener(this.onScheme);
-    } catch(e){}
+      <div class="x-phases ts-reveal" data-delay="3">
+        <div class="x-phase">
+          <span class="x-phase__n">01</span>
+          <h3 class="x-phase__t">Assess</h3>
+          <p class="x-phase__d">An application intro, demo and review so your team knows exactly what's coming and how it fits.</p>
+          <span class="x-phase__tag">Intro · Demo · Review</span>
+        </div>
+        <div class="x-conn" aria-hidden="true"><span class="x-conn__chev"></span></div>
+        <div class="x-phase">
+          <span class="x-phase__n">02</span>
+          <h3 class="x-phase__t">Build</h3>
+          <p class="x-phase__d">Templated data conversion, ETL import and validation, plus setup, configuration and orientation training.</p>
+          <span class="x-phase__tag">Migrate · Configure · Train</span>
+        </div>
+        <div class="x-gate">
+          <span class="x-gate__arclbl">repeat the build</span>
+          <svg class="x-gate__arc" viewBox="0 0 226 48" fill="none" aria-hidden="true">
+            <path d="M214 44 C 214 12, 150 8, 30 8" stroke="currentColor" stroke-width="2.5" stroke-dasharray="6 7" stroke-linecap="round"/>
+            <path d="M30 8 l 13 -6 M30 8 l 11 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="x-gate__ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11.5a8 8 0 1 0-1 4.2"></path><path d="M20.5 4.5v6h-6"></path></svg>
+          </span>
+          <span class="x-gate__t">Test &amp; sign-off</span>
+          <span class="x-gate__d">Builds repeat until your team approves</span>
+          <svg class="x-gate__fwd" viewBox="0 0 226 46" fill="none" aria-hidden="true">
+            <path d="M12 6 C 12 34, 96 40, 196 40" stroke="currentColor" stroke-width="2.5" stroke-dasharray="6 7" stroke-linecap="round"></path>
+            <path d="M196 40 l -13 -6 M196 40 l -11 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <span class="x-gate__fwdlbl">once approved</span>
+        </div>
+        <div class="x-phase">
+          <span class="x-phase__n">03</span>
+          <h3 class="x-phase__t">Go-live</h3>
+          <p class="x-phase__d">Final data migration and go-live training, then your MVP goes live on Canadian infrastructure.</p>
+          <span class="x-phase__tag">Migrate · Train · Launch</span>
+        </div>
+        <div class="x-conn" aria-hidden="true"><span class="x-conn__chev"></span></div>
+        <div class="x-phase">
+          <span class="x-phase__n">04</span>
+          <h3 class="x-phase__t">Post go-live</h3>
+          <p class="x-phase__d">No one's expected to master every workflow on day 1 — or day 100. Our experts stay with you long after go-live to walk through infrequent processes together, whenever they come up.</p>
+          <span class="x-phase__tag">Refine · Support · Ongoing</span>
+        </div>
+      </div>
 
-    this.tick = setInterval(() => this.setState({ now: Date.now() }), 250);
+      <div class="x-envflow ts-reveal" data-delay="2">
+        <span class="x-env"><strong>TEST</strong> data migrated &amp; validated — iteratively, per module</span>
+        <span class="x-env__arrow">→</span>
+        <span class="x-env"><strong>STAGING</strong> your team reviews &amp; signs off each cycle</span>
+        <span class="x-env__arrow">→</span>
+        <span class="x-env"><strong>LIVE</strong> promoted once you're confident</span>
+        <span class="x-envflow__note">Timeline scales with your use case</span>
+      </div>
+    </div>
+  </section>
 
-    this.reduced = false;
-    try { this.reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch(e){}
+  <!-- ================= PRICING ================= -->
+  <section class="ts-sec ts-sec--wash" id="pricing" data-chapter data-screen-label="Pricing">
+    <div class="ts-wrap">
+      <p class="ts-kicker ts-reveal">Chapter 06 — Pricing</p>
+      <h2 class="ts-h2 ts-reveal" data-delay="1">Predictable by design.<br />No surprises for council.</h2>
+      <p class="ts-lede ts-reveal" data-delay="2">Pricing is tailored to your municipality, but the structure is simple — two components, and enhancements are always included.</p>
 
-    /* one-way reveal, four acts: emblem -> parcel map (even urban blocks
-       left, uneven rural parcels right) -> survey line traces the plan ->
-       collapse into the three bouncing dots. Same end state as before. */
-    if (this.reduced) {
-      this.setState({ phase: 'dots' });
-    } else {
-      this.t1 = setTimeout(() => this.setState({ phase: 'scatter' }), 1400);
-      this.t2 = setTimeout(() => this.setState({ phase: 'trace' }), 2500);
-      this.t3 = setTimeout(() => this.setState({ phase: 'dots' }), 4600);
-    }
+      <div class="x-price ts-reveal" data-delay="3">
+        <div class="x-pcard x-pcard--recurring">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;">
+            <span class="x-pcard__tag">Component 01</span>
+            <span class="x-pcard__cadence">Recurring · annual</span>
+          </div>
+          <h3 class="x-pcard__t">Annual subscription</h3>
+          <p class="x-pcard__lede">One predictable price for your operationally sovereign Canadian Cloud mERP® — the apps you license, your managed Canadian hosting, and everything that keeps it improving.</p>
+          <ul class="ts-ai__checks">
+            <li><span class="chk"><svg style="width:12px;height:12px"><use href="#i-check"></use></svg></span> Access to selected licensed applications</li>
+            <li><span class="chk"><svg style="width:12px;height:12px"><use href="#i-check"></use></svg></span> Managed, secure Canadian cloud connection</li>
+            <li><span class="chk"><svg style="width:12px;height:12px"><use href="#i-check"></use></svg></span> TownSuite Care — support &amp; maintenance</li>
+            <li><span class="chk"><svg style="width:12px;height:12px"><use href="#i-check"></use></svg></span> Documentation, webinars &amp; the annual user group</li>
+            <li><span class="chk"><svg style="width:12px;height:12px"><use href="#i-check"></use></svg></span> Enhancements &amp; continuous updates — no version fees</li>
+          </ul>
+        </div>
+        <div class="x-pcard">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;">
+            <span class="x-pcard__tag">Component 02</span>
+            <span class="x-pcard__cadence">One-time · per module</span>
+          </div>
+          <h3 class="x-pcard__t">Implementation</h3>
+          <p class="x-pcard__lede">A one-time cost for the work of bringing each module live — project management, configuration, data conversion and training.</p>
+          <ul class="ts-ai__checks">
+            <li><span class="chk"><svg style="width:12px;height:12px"><use href="#i-check"></use></svg></span> Charged once, per module — as you roll out</li>
+            <li><span class="chk"><svg style="width:12px;height:12px"><use href="#i-check"></use></svg></span> Scope agreed up front in a Statement of Work</li>
+            <li><span class="chk"><svg style="width:12px;height:12px"><use href="#i-check"></use></svg></span> Changes only by mutual agreement — no surprises</li>
+          </ul>
+        </div>
+      </div>
 
-    this.onMove = (e) => {
-      const el = this.rootEl; if (!el) return;
-      const px = (e.clientX / window.innerWidth - 0.5) * 26;
-      const py = (e.clientY / window.innerHeight - 0.5) * 26;
-      el.style.setProperty('--px', px.toFixed(1) + 'px');
-      el.style.setProperty('--py', py.toFixed(1) + 'px');
-    };
-    window.addEventListener('mousemove', this.onMove);
+      <div class="x-price__note ts-reveal" data-delay="2">
+        <div class="x-pnote">
+          <svg><use href="#i-check"></use></svg>
+          <div><b>No hidden costs</b><span>Planned enhancements and updates are included — never sold back to you as upgrades.</span></div>
+        </div>
+        <div class="x-pnote">
+          <svg><use href="#i-scale"></use></svg>
+          <div><b>Inflation-tracked</b><span>Once in place, increases track the Bank of Canada's reported inflation rate.</span></div>
+        </div>
+        <div class="x-pnote">
+          <svg><use href="#i-people"></use></svg>
+          <div><b>Scales with users</b><span>Named-user licensing for core apps; eServices step up automatically as usage grows.</span></div>
+        </div>
+      </div>
 
-    /* interactive dots: tap/click anywhere (not on links/buttons) to spawn a
-       brand square — random size + emblem color — that tumbles in and joins
-       the parallax field. Capped at 30; oldest fade away first. */
-    this.onTap = (e) => {
-      if (e.target && e.target.closest && e.target.closest('a,button')) return;
-      const el = this.rootEl; if (!el) return;
-      const rect = el.getBoundingClientRect();
-      const palette = ['var(--em-blue)', 'var(--em-light)', 'var(--em-mid)', 'var(--ts-orange)', 'var(--ts-green)', 'var(--ts-red)'];
-      const sq = {
-        id: Date.now() + '-' + Math.round(Math.random() * 1e6),
-        x: Math.round(e.clientX - rect.left),
-        y: Math.round(e.clientY - rect.top),
-        s: Math.round(10 + Math.random() * 22),
-        color: palette[Math.floor(Math.random() * palette.length)],
-        f: +(0.6 + Math.random() * 1.6).toFixed(2),
-      };
-      this.setState((st) => ({ squares: [...(st.squares || []), sq].slice(-30) }));
-    };
-    if (this.rootEl) this.rootEl.addEventListener('click', this.onTap);
-  }
+      <p class="x-price__foot ts-reveal" data-delay="3"><svg class="ts-maple"><use href="#i-maple"></use></svg> Every municipality is different — <a href="#start" style="color:var(--accent);font-weight:700;">book a demo</a> for a tailored quote.</p>
+    </div>
+  </section>
 
-  componentWillUnmount() {
-    clearInterval(this.tick);
-    clearTimeout(this.t1);
-    clearTimeout(this.t2);
-    clearTimeout(this.t3);
-    window.removeEventListener('mousemove', this.onMove);
-    if (this.mql) {
-      if (this.mql.removeEventListener) this.mql.removeEventListener('change', this.onScheme);
-      else if (this.mql.removeListener) this.mql.removeListener(this.onScheme);
-    }
-    if (this.rootEl) this.rootEl.removeEventListener('click', this.onTap);
-  }
+  <!-- ================= FINAL CTA ================= -->
+  <section class="ts-sec ts-sec--tint ts-final" id="start" data-chapter data-screen-label="Get started">
+    <div class="ts-wrap ts-center">
+      <svg class="x-roof" viewBox="0 0 400 180" fill="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="roofL" x1="70" y1="28" x2="170" y2="150" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#7CA6CF"></stop>
+            <stop offset="1" stop-color="#2E6699"></stop>
+          </linearGradient>
+          <linearGradient id="roofR" x1="330" y1="28" x2="240" y2="150" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#245F8D"></stop>
+            <stop offset="1" stop-color="#093E63"></stop>
+          </linearGradient>
+        </defs>
+        <g class="x-roof__body">
+          <path d="M50 104 L200 150 L200 162 L50 116 Z" fill="#063655"></path>
+          <path d="M200 150 L350 104 L350 116 L200 162 Z" fill="#04293F"></path>
+          <path d="M200 20 L50 104 L200 150 Z" fill="url(#roofL)"></path>
+          <path d="M200 20 L200 150 L350 104 Z" fill="url(#roofR)"></path>
+          <g stroke="#D8E6F3" stroke-width="1.3" opacity="0.13" stroke-linecap="round">
+            <line x1="200" y1="20" x2="92" y2="117"></line>
+            <line x1="200" y1="20" x2="125" y2="127"></line>
+            <line x1="200" y1="20" x2="158" y2="137"></line>
+          </g>
+          <g stroke="#A9C4DD" stroke-width="1.3" opacity="0.12" stroke-linecap="round">
+            <line x1="200" y1="20" x2="242" y2="137"></line>
+            <line x1="200" y1="20" x2="275" y2="127"></line>
+            <line x1="200" y1="20" x2="308" y2="117"></line>
+          </g>
+          <path d="M50 104 L200 20 L350 104" fill="none" stroke="#CBD9EA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"></path>
+          <path d="M200 20 L200 150" stroke="#CBD9EA" stroke-width="1.6" stroke-linecap="round" opacity="0.3"></path>
+        </g>
+        <use class="x-roof__finial" href="#i-maple" x="182" y="0" width="36" height="36" style="color:var(--ts-red)"></use>
+      </svg>
+      <p class="ts-kicker ts-reveal">Chapter 07 — Get started</p>
+      <h2 class="ts-display ts-reveal" data-delay="1">Ready to bring your systems home<br /><span class="ts-accent">under one Canadian roof?</span></h2>
+      <p class="ts-lede ts-reveal" data-delay="2" style="margin-left:auto;margin-right:auto;">Tell us how your municipality works, and we'll tailor the walkthrough to you — and show you what it feels like to run on one connected, fully sovereign platform.</p>
+      <div class="ts-cta-row ts-cta-row--center ts-reveal" data-delay="3">
+        <a class="ts-btn ts-btn--primary" id="roof-trigger" href="#" data-demo-open>Book a demo <span class="arr">→</span></a>
+        <a class="ts-btn ts-btn--ghost" href="tel:18004083313">Call 1.800.408.3313</a>
+        <a class="ts-btn ts-btn--ghost" href="mailto:marketing@townsuite.com">marketing@townsuite.com</a>
+      </div>
+      <p class="ts-reveal" data-delay="4" style="margin-top:26px;color:var(--ink3);font-size:14.5px;">A seasoned team that understands municipalities</p>
+    </div>
+  </section>
 
-  /* The emblem unpacked into what it depicts — a municipal parcel grid.
-     Four acts, one-way:
-       1. emblem  — assembled mark
-       2. parcels — the squares spread into a town plan: the blue trio lands
-                    left as big, EVEN urban blocks on a uniform street grid;
-                    orange/green/red land right as smaller, UNEVEN rural
-                    parcels at off-axis angles. "Urban functionality,
-                    rural practicality."
-       3. trace   — a survey line draws itself across the map: right-angled
-                    along the urban streets, jagged through the rural lots;
-                    each parcel pings as the line reaches it
-       4. dots    — the line sweeps away; the rural trio tumbles along arcs
-                    into the bouncing "connecting the dots" row, the urban
-                    blocks fade on their lots. Same end state as ever.
-     Flight is pure transform (translate/scale/rotate): X and Y travel on
-     different easings, which bends each path into an arc. */
-  buildMorph(phase) {
-    const E = React.createElement;
-    const W = 360, H = 178, S = 1.16;
-    const ox = (W - 128 * S) / 2, oy = (H - 128 * S) / 2;
-    const dotSize = 20, dotGap = 48;
-
-    const pieces = [
-      { c: [63.91, 64.87],  s: 34.00, col: 'var(--em-blue)',   dot: null, z: 2 },
-      { c: [46.95, 25.26],  s: 33.95, col: 'var(--em-light)',  dot: null, z: 1 },
-      { c: [23.70, 84.80],  s: 33.95, col: 'var(--em-mid)',    dot: null, z: 1 },
-      { c: [102.57, 97.64], s: 17.65, col: 'var(--ts-orange)', dot: 0,    z: 3 },
-      { c: [120.81, 84.37], s: 9.11,  col: 'var(--ts-green)',  dot: 1,    z: 3 },
-      { c: [108.47, 118.82],s: 9.28,  col: 'var(--ts-red)',    dot: 2,    z: 3 },
-    ];
-
-    /* the parcel map (stage px): urban left — big, even blocks, uniform
-       14px streets, square-true; rural right — smaller, uneven parcels at
-       slightly off-axis angles with irregular spacing */
-    const parcelPos   = [[56, 48], [104, 48], [56, 96], [236, 58], [282, 96], [224, 124]];
-    const parcelSize  = [34, 34, 34, 20, 13, 16];
-    const parcelRot   = [360, 360, 360, 376, 348, 370];
-    const parcelDelay = [0, 0.06, 0.12, 0.22, 0.30, 0.38]; /* the city settles first */
-    const pingDelay   = [0.30, 0.45, 0.15, 0.86, 1.05, 1.25]; /* survey-line arrival per parcel */
-
-    /* survey line: right angles along the urban streets, jagged through the rural lots */
-    const road = [[56, 96], [56, 48], [104, 48], [160, 48], [236, 58], [282, 96], [224, 124]];
-
-    const easeX = 'cubic-bezier(.22,1.25,.32,1)';  /* springy settle with slight overshoot */
-    const easeY = 'cubic-bezier(.55,.05,.25,1.3)'; /* lags, then overshoots -> arced path */
-
-    const kids = pieces.map((p, i) => {
-      const isDot = p.dot !== null;
-      const cx = ox + p.c[0] * S, cy = oy + p.c[1] * S;
-      let dx = 0, dy = 0, sc = 1, op = 1, w = p.s * S, rot = 65, delay = 0, dur = 1.0, bounce = 'none';
-
-      if (phase === 'scatter' || phase === 'trace') {
-        dx = parcelPos[i][0] - cx; dy = parcelPos[i][1] - cy;
-        w = parcelSize[i]; rot = parcelRot[i]; dur = 0.95;
-        delay = (phase === 'scatter') ? parcelDelay[i] : 0;
-        if (phase === 'trace' && !this.reduced) {
-          bounce = 'nodePing .55s ease ' + pingDelay[i].toFixed(2) + 's';
-        }
-      } else if (phase === 'dots') {
-        if (isDot) {
-          dx = (W / 2 + (p.dot - 1) * dotGap) - cx;
-          dy = H / 2 - cy;
-          w = dotSize; rot = 765; dur = 1.3; delay = 0.1 + p.dot * 0.12;
-          if (!this.reduced) {
-            bounce = 'dotBounce 1.15s ease-in-out ' + (delay + dur + 0.1).toFixed(2) + 's infinite';
-          }
-        } else {
-          /* the urban blocks fade out on their lots */
-          dx = parcelPos[i][0] - cx; dy = parcelPos[i][1] - cy;
-          w = parcelSize[i]; rot = 405; op = 0; sc = 0.25; dur = 0.9; delay = i * 0.05;
-        }
+  <script>
+  /* roof construction on scroll into view */
+  (function(){
+    var roof = document.querySelector('.x-roof');
+    var sec = document.getElementById('roof-trigger') || document.getElementById('start');
+    if(!roof || !sec) return;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduce) return; /* leave the roof in its built state, no animation */
+    roof.classList.add('x-roof--anim');
+    var built = false;
+    function build(){
+      if(built) return; built = true;
+      var leaf = roof.querySelector('.x-roof__finial');
+      if(leaf){
+        /* promote to its own GPU layer just before animating, then release it */
+        leaf.style.willChange = 'transform, opacity';
+        leaf.addEventListener('animationend', function(){ leaf.style.willChange = 'auto'; }, { once:true });
       }
-      const d = delay.toFixed(2) + 's';
+      roof.classList.add('is-built');
+      window.removeEventListener('scroll', check);
+      document.removeEventListener('scroll', check, true);
+    }
+    function check(){
+      var r = sec.getBoundingClientRect();
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      if(r.top < vh * 0.92 && r.bottom > 0) build();
+    }
+    if('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(es){
+        es.forEach(function(e){ if(e.isIntersecting){ build(); io.disconnect(); } });
+      }, { threshold:0 });
+      io.observe(sec);
+    }
+    window.addEventListener('scroll', check, { passive:true });
+    document.addEventListener('scroll', check, { passive:true, capture:true });
+    requestAnimationFrame(check);
+  })();
+  </script>
 
-      return E('div', { key: i, style: {
-        position: 'absolute', left: cx + 'px', top: cy + 'px', width: 0, height: 0, zIndex: p.z,
-        transform: 'translate3d(' + dx.toFixed(1) + 'px,0,0) scale(' + sc + ')',
-        opacity: op,
-        transition: 'transform ' + dur + 's ' + easeX + ' ' + d + ', opacity .7s ease ' + d,
-      } },
-        E('div', { style: {
-          width: 0, height: 0,
-          transform: 'translate3d(0,' + dy.toFixed(1) + 'px,0)',
-          transition: 'transform ' + dur + 's ' + easeY + ' ' + d,
-        } },
-          E('div', { style: { width: 0, height: 0, animation: bounce } },
-            E('div', { style: {
-              position: 'absolute', left: (-w / 2) + 'px', top: (-w / 2) + 'px',
-              width: w + 'px', height: w + 'px',
-              background: p.col,
-              borderRadius: Math.max(2, w * 0.09) + 'px',
-              transform: 'rotate(' + rot + 'deg)',
-              boxShadow: (phase === 'dots' && isDot) ? '0 12px 26px rgba(7,25,40,.2)' : 'none',
-              transition: ['left', 'top', 'width', 'height', 'transform'].map(function(pr){ return pr + ' ' + dur + 's ' + easeX + ' ' + d; }).join(', ') + ', box-shadow .6s ease ' + (delay + dur * 0.5).toFixed(2) + 's',
-            } })
-          )
-        )
-      );
+  <!-- ================= FOOTER ================= -->
+  <footer class="ts-footer" data-screen-label="Footer">
+    <div class="ts-wrap">
+      <div class="ts-footer__in">
+        <div>
+          <div class="ts-footer__logo"><svg class="ts-logo" viewBox="151 154 889 181" role="img" aria-label="TownSuite mERP"><rect x="-16.975" y="-16.975" width="33.95" height="33.95" fill="#D8E0ED" transform="translate(220.79,191.54) rotate(65) scale(1.38)"></rect><rect x="-16.975" y="-16.975" width="33.95" height="33.95" fill="#6B95BE" transform="translate(188.71,273.70) rotate(65) scale(1.38)"></rect><rect x="-17" y="-17" width="34" height="34" fill="#00578E" transform="translate(244.20,246.20) rotate(65) scale(1.38)"></rect><rect x="-8.825" y="-8.825" width="17.65" height="17.65" fill="#E48D1A" transform="translate(297.55,291.42) rotate(65) scale(1.38)"></rect><rect x="-4.555" y="-4.555" width="9.11" height="9.11" fill="#2DA343" transform="translate(322.72,273.11) rotate(65) scale(1.38)"></rect><rect x="-4.64" y="-4.64" width="9.28" height="9.28" fill="#E03A3E" transform="translate(305.69,320.65) rotate(65) scale(1.38)"></rect><path fill="currentColor" d="M401.02 212.45L401.02 218.40L387.86 218.40L387.86 278.50L379.03 278.50L379.03 218.40L365.88 218.40L365.88 212.45L401.02 212.45ZM443.39 252.68L443.39 252.68Q443.39 264.68 438.35 272.07Q433.31 279.46 423.23 279.46Q413.15 279.46 408.06 272.07Q402.97 264.68 402.97 252.68L402.97 252.68Q402.97 240.48 408.06 233.14Q413.15 225.80 423.13 225.80L423.13 225.80Q433.31 225.80 438.35 233.09Q443.39 240.39 443.39 252.68ZM434.94 252.68L434.94 252.68Q434.94 231.17 423.23 231.17L423.23 231.17Q411.42 231.17 411.42 252.68L411.42 252.68Q411.42 273.60 423.23 273.60L423.23 273.60Q434.94 273.60 434.94 252.68ZM508.90 226.76L516.58 226.76L501.79 278.50L494.50 278.50L484.03 241.54Q483.17 238.37 482.98 235.49L482.98 235.49L482.88 235.49Q482.59 238.37 481.63 241.54L481.63 241.54L470.98 278.50L463.68 278.50L448.99 226.76L457.63 226.76L466.66 263.91L467.71 270.05L467.90 270.05Q468.19 267.46 469.15 263.91L469.15 263.91L479.62 226.76L486.91 226.76L497.09 263.91Q498.24 270.05 498.24 270.05L498.24 270.05L498.43 270.05Q498.72 266.88 499.49 263.81L499.49 263.81L508.90 226.76ZM562.50 241.16L562.50 278.50L554.05 278.50L554.05 241.35Q554.05 231.27 543.20 231.27L543.20 231.27Q537.64 231.27 533.41 233.09L533.41 233.09L533.41 278.50L524.96 278.50L524.96 229.44Q532.55 225.80 543.88 225.80L543.88 225.80Q553.76 225.80 558.13 230.26Q562.50 234.72 562.50 241.16L562.50 241.16ZM607.27 259.88L607.27 259.88Q607.27 268.52 601.66 273.99Q596.04 279.46 587.30 279.46L587.30 279.46Q577.61 279.46 571.94 275.81L571.94 275.81L574.25 269.67Q579.24 272.74 585.77 272.74L585.77 272.74Q591.43 272.74 594.79 269.38Q598.15 266.02 598.15 260.36L598.15 260.36Q598.15 255.94 595.51 253.06Q592.87 250.18 586.63 247.68L586.63 247.68Q572.62 242.12 572.62 230.02L572.62 230.02Q572.62 222.24 577.75 216.87Q582.89 211.49 591.24 211.49L591.24 211.49Q599.69 211.49 604.78 215.04L604.78 215.04L602.66 220.61Q597.77 217.54 592.20 217.54L592.20 217.54Q587.02 217.54 584.14 220.66Q581.26 223.78 581.26 229.16L581.26 229.16Q581.26 233.86 584.09 236.50Q586.92 239.14 592.30 241.25L592.30 241.25Q607.27 247.11 607.27 259.88ZM654.35 226.76L654.35 275.43Q647.15 279.56 636.11 279.56L636.11 279.56Q617.77 279.56 617.77 262.66L617.77 262.66L617.77 226.76L626.22 226.76L626.22 262.95Q626.22 267.75 628.86 270.68Q631.50 273.60 636.59 273.60L636.59 273.60Q642.35 273.60 645.90 271.49L645.90 271.49L645.90 226.76L654.35 226.76ZM674.74 208.85Q676.18 210.24 676.18 212.16Q676.18 214.08 674.74 215.43Q673.30 216.77 671.28 216.77L671.28 216.77Q669.17 216.77 667.73 215.43Q666.29 214.08 666.29 212.16Q666.29 210.24 667.73 208.85Q669.17 207.46 671.28 207.46L671.28 207.46Q673.30 207.46 674.74 208.85ZM675.50 226.76L675.50 278.50L667.06 278.50L667.06 226.76L675.50 226.76ZM708.47 272.84L708.47 278.21Q705.88 278.98 703.86 278.98L703.86 278.98Q697.33 278.98 694.16 275.14Q691.00 271.30 691.00 265.92L691.00 265.92L691.00 232.04L685.04 232.04L685.04 226.76L691.00 226.76L691.00 214.85L699.44 212.26L699.44 226.76L708.47 226.76L708.47 232.04L699.44 232.04L699.44 265.73Q699.44 269.09 701.03 271.16Q702.61 273.22 705.97 273.22L705.97 273.22Q706.74 273.22 708.47 272.84L708.47 272.84ZM754.97 251.14L754.97 251.14L722.42 255.84Q723.86 273.32 738.17 273.32L738.17 273.32Q745.75 273.32 750.94 270.34L750.94 270.34L753.14 275.91Q747.29 279.46 737.50 279.46L737.50 279.46Q726.94 279.46 720.70 272.64Q714.46 265.83 714.46 252.48L714.46 252.48Q714.46 239.62 720.17 232.71Q725.88 225.80 735.29 225.80L735.29 225.80Q744.79 225.80 749.93 232.13Q755.06 238.47 754.97 251.14ZM722.14 251.33L746.90 247.59Q746.90 231.27 735 231.27L735 231.27Q729.05 231.27 725.54 236.26Q722.04 241.25 722.14 251.33L722.14 251.33Z M857.71 241.06L857.71 278.50L849.26 278.50L849.26 241.25Q849.26 236.93 846.91 234.15Q844.56 231.36 839.28 231.36L839.28 231.36Q832.94 231.36 828.62 235.97L828.62 235.97L828.62 278.50L820.17 278.50L820.17 240.87Q820.17 236.45 817.24 233.86Q814.32 231.27 808.84 231.27L808.84 231.27Q803.66 231.27 799.53 233.00L799.53 233.00L799.53 278.50L791.08 278.50L791.08 229.44Q798.57 225.80 809.04 225.80L809.04 225.80Q819.88 225.80 824.88 232.04L824.88 232.04Q830.83 225.80 840.91 225.80L840.91 225.80Q849.45 225.80 853.58 230.31Q857.71 234.82 857.71 241.06L857.71 241.06ZM901.04 272.55L901.04 278.50L870.42 278.50L870.42 212.45L901.04 212.45L901.04 218.40L879.25 218.40L879.25 241.44L898.83 241.44L898.83 247.30L879.25 247.30L879.25 272.55L901.04 272.55ZM930.55 249.41L952.15 278.50L942.16 278.50L920.47 247.68L920.28 247.68L920.28 278.50L911.54 278.50L911.54 215.04Q917.97 211.49 927.96 211.49L927.96 211.49Q939.09 211.49 944.85 216.63Q950.61 221.76 950.61 231.08L950.61 231.08Q950.61 239.43 945.19 244.23Q939.76 249.03 930.55 249.22L930.55 249.22L930.55 249.41ZM941.88 231.46L941.88 231.46Q941.88 223.88 938.47 220.28Q935.06 216.68 927.76 216.68L927.76 216.68Q922.87 216.68 920.28 218.12L920.28 218.12L920.28 245.76Q922.20 246.34 925.94 246.34L925.94 246.34Q941.88 246.34 941.88 231.46ZM1000.95 231.46L1000.95 231.46Q1000.95 241.06 994.09 246.87Q987.22 252.68 973.50 251.33L973.50 251.33L970.52 251.04L970.52 278.50L961.88 278.50L961.88 215.14Q968.22 211.49 978.39 211.49L978.39 211.49Q989.62 211.49 995.29 216.92Q1000.95 222.34 1000.95 231.46ZM992.41 231.36L992.41 231.36Q992.41 224.07 988.95 220.42Q985.50 216.77 978.01 216.77L978.01 216.77Q973.40 216.77 970.52 218.02L970.52 218.02L970.52 245.67L973.40 245.96Q992.41 247.78 992.41 231.36Z M1032.43 226.84L1032.43 226.84Q1032.43 231.80 1028.90 235.32Q1025.36 238.84 1020.40 238.84Q1015.43 238.84 1011.91 235.32Q1008.39 231.80 1008.39 226.84L1008.39 226.84Q1008.39 221.84 1011.91 218.32Q1015.43 214.80 1020.40 214.80Q1025.36 214.80 1028.90 218.32Q1032.43 221.84 1032.43 226.84ZM1027.88 234.28Q1030.97 231.19 1030.97 226.84Q1030.97 222.49 1027.88 219.38Q1024.78 216.26 1020.40 216.26L1020.40 216.26Q1016.04 216.26 1012.95 219.38Q1009.86 222.49 1009.86 226.84Q1009.86 231.19 1012.95 234.28Q1016.04 237.38 1020.40 237.38L1020.40 237.38Q1024.78 237.38 1027.88 234.28ZM1020.50 227.11L1025.33 233.77L1023.42 233.77L1018.76 227.21L1018.25 227.21L1018.25 233.77L1016.66 233.77L1016.66 219.90Q1018.02 219.22 1019.99 219.22L1019.99 219.22Q1021.99 219.22 1023.35 220.28Q1024.71 221.33 1024.71 223.23L1024.71 223.23Q1024.71 225.00 1023.54 226.00Q1022.37 227.01 1020.50 227.11L1020.50 227.11ZM1023.08 223.20L1023.08 223.20Q1023.08 221.77 1022.11 221.16Q1021.14 220.55 1019.78 220.55L1019.78 220.55Q1018.90 220.55 1018.25 220.82L1018.25 220.82L1018.25 226.09L1019.51 226.09Q1021.08 226.09 1022.08 225.41Q1023.08 224.73 1023.08 223.20Z"></path></svg></div>
+          <p class="ts-footer__note">Canada’s Operationally Sovereign Cloud mERP<span class="rtm">®</span> — built solely for Canadian municipalities, from the ground up. By Canadians, in Canada. Since 1987.</p>
+          <span class="ts-pill ts-pill--accent" style="margin-top:16px;"><svg class="ts-maple"><use href="#i-maple"></use></svg> 100% Canadian-owned since 1987</span>
+        </div>
+        <div>
+          <h2>Platform</h2>
+          <ul>
+            <li><a href="#modules">Modules</a></li>
+            <li><a href="#ai">TownSuite Intelligence</a></li>
+            <li><a href="#implementation">Onboarding</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="https://portal.ws.townsuite.com/login" target="_blank" rel="noopener">Sign in</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Explore</h2>
+          <ul>
+            <li><a href="#sovereign">Sovereignty</a></li>
+            <li><a href="big-picture.html">The Big Picture</a></li>
+            <li><a href="enhance.html">Enhance your processes</a></li>
+            <li><a href="procurement.html">For procurement &amp; IT</a></li>
+            <li><a href="https://status.townsuite.com" target="_blank" rel="noopener">Status</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Company</h2>
+          <ul>
+            <li><a href="about.html">About TownSuite</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="cookies.html">Cookie Policy</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="accessibility.html">Accessibility</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="ts-footer__base">
+        <span>© <span class="ts-yr">2026</span> TownSuite Municipal Software Inc. TownSuite<span class="rtm">®</span> and mERP<span class="rtm">®</span> are registered trademarks of TownSuite Municipal Software Inc.</span>
+        <span class="ts-dots" data-pause-offscreen><i></i><i></i><i></i></span>
+      </div>
+    </div>
+  </footer>
+
+</main>
+
+<!-- defer: download in parallel with parsing, execute in order after the HTML is parsed -->
+<script src="site.js" defer></script>
+<script src="logo-anim.js" defer></script>
+<script src="modules-connect.js" defer></script>
+<script src="onboarding-flow.js" defer></script>
+<script src="sovereign-tour.js" defer></script>
+<!-- proto-launch.js (~76KB) only powers the interactive demo. Load it off the
+     critical path: on first user interaction, or when the browser goes idle,
+     whichever comes first — so it's ready before anyone opens the demo but never
+     blocks first load. -->
+<script>
+(function () {
+  var loaded = false;
+  function loadProto() {
+    if (loaded) return; loaded = true;
+    var s = document.createElement("script");
+    s.src = "proto-launch.js"; s.defer = true;
+    document.body.appendChild(s);
+    rm();
+  }
+  var evs = ["pointerdown", "keydown", "touchstart", "scroll", "mousemove"];
+  function rm() { evs.forEach(function (e) { window.removeEventListener(e, loadProto, opts); }); }
+  var opts = { once: true, passive: true };
+  evs.forEach(function (e) { window.addEventListener(e, loadProto, opts); });
+  if ("requestIdleCallback" in window) { requestIdleCallback(loadProto, { timeout: 3000 }); }
+  else { window.addEventListener("load", function () { setTimeout(loadProto, 1500); }); }
+
+  /* First click on the hero dashboard can happen before proto-launch.js has loaded.
+     Load it immediately and flag the intent, so proto-launch.js can open the demo
+     once it's ready (it checks window.__tsDemoPending on init). */
+  var dash = document.querySelector(".x-layer--dash .ts-dash") || document.querySelector(".ts-dash");
+  if (dash) {
+    var openDemo = function () { window.__tsDemoPending = true; loadProto(); };
+    dash.addEventListener("click", openDemo);
+    dash.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") { e.preventDefault(); openDemo(); }
     });
-
-    /* the survey line: drawn on during trace, swept away in dots */
-    const segs = road.slice(1).map((pt, i) => Math.hypot(pt[0] - road[i][0], pt[1] - road[i][1]));
-    const LEN = Math.ceil(segs.reduce((a, b) => a + b, 0)) + 2;
-    const reached = (phase === 'trace' || phase === 'dots');
-    const line = E('svg', { viewBox: '0 0 ' + W + ' ' + H, style: { position: 'absolute', inset: 0, width: '100%', height: '100%', overflow: 'visible', pointerEvents: 'none', zIndex: 0 } },
-      E('polyline', {
-        points: road.map(function(pt){ return pt.join(','); }).join(' '),
-        fill: 'none', stroke: 'var(--ts-blue-mid)', strokeWidth: 2,
-        strokeLinejoin: 'round', strokeLinecap: 'round',
-        style: {
-          strokeDasharray: LEN,
-          strokeDashoffset: reached ? 0 : LEN,
-          opacity: phase === 'trace' ? 0.65 : 0,
-          transition: 'stroke-dashoffset 1.1s cubic-bezier(.4,.1,.2,1), opacity .5s ease',
-        }
-      })
-    );
-
-    /* the old saying, captioning each half of the map */
-    const mapPhase = (phase === 'scatter' || phase === 'trace');
-    const label = (text, x, y, d) => E('div', { style: {
-      position: 'absolute', left: x + 'px', top: y + 'px', transform: 'translateX(-50%)',
-      fontSize: '10px', fontWeight: 800, letterSpacing: '.18em', textTransform: 'uppercase',
-      color: 'var(--ink3)', whiteSpace: 'nowrap',
-      opacity: mapPhase ? 1 : 0,
-      transition: 'opacity .6s ease ' + (mapPhase ? d : '0s'),
-    } }, text);
-    const urbanLabel = label('Urban functionality', 80, 126, '.55s');
-    const ruralLabel = label('Rural practicality', 253, 148, '.75s');
-
-    return E('div', { 'aria-hidden': true, style: { position: 'relative', width: W + 'px', height: H + 'px', maxWidth: '100%', flex: 'none', animation: this.reduced ? 'none' : 'stageIn .9s cubic-bezier(.2,.7,.2,1) both' } },
-      E('div', { style: { position: 'absolute', inset: '-50px -90px', background: 'radial-gradient(closest-side, var(--halo2), transparent 72%)', animation: this.reduced ? 'none' : 'glowPulse 4.5s ease-in-out infinite', pointerEvents: 'none' } }),
-      E('div', { style: { position: 'absolute', inset: 0, animation: this.reduced ? 'none' : 'floatBob 7s ease-in-out infinite' } }, line, kids, urbanLabel, ruralLabel)
-    );
   }
-
-  /* Odometer digits: each character sits in a 1em window; when it changes,
-     a two-row column (old char above new) rolls up by 1em and stays. */
-  rollUnit(unit, str) {
-    const E = React.createElement;
-    if (!this.disp) this.disp = {};
-    let d = this.disp[unit];
-    if (!d) { d = this.disp[unit] = { prev: str, cur: str }; }
-    else if (d.cur !== str) { d.prev = d.cur; d.cur = str; }
-    const row = { display: 'flex', alignItems: 'center', justifyContent: 'center', height: '1em', lineHeight: 1 };
-    return E('span', { style: { display: 'inline-flex' } }, d.cur.split('').map((ch, i) => {
-      const pch = d.prev[i] !== undefined ? d.prev[i] : ch;
-      const changed = pch !== ch && !this.reduced;
-      return E('span', {
-        key: i + ':' + pch + '>' + ch,
-        style: { display: 'inline-flex', flexDirection: 'column', height: '1em', overflow: 'hidden', minWidth: '.62em' }
-      },
-        changed
-          ? E('span', { style: { display: 'flex', flexDirection: 'column', animation: 'digitRoll .5s cubic-bezier(.3,.9,.3,1.08) forwards' } },
-              E('span', { style: row }, pch),
-              E('span', { style: row }, ch))
-          : E('span', { style: row }, ch)
-      );
-    }));
-  }
-
-  /* Separator "colon" squares double as tick indicators: the pair tumbles
-     (sepPulse) whenever its unit rolls over — red on the minute, green on
-     the hour, yellow/orange on the day. Re-keyed on the unit's value so the
-     animation plays exactly once per rollover. */
-  sepEl(unit, color) {
-    const E = React.createElement;
-    const d = this.disp && this.disp[unit];
-    const changed = d && d.prev !== d.cur && !this.reduced;
-    const sq = (i) => E('span', { key: i, style: {
-      width: '10px', height: '10px', borderRadius: '2px', display: 'block',
-      background: color, transform: 'rotate(45deg)',
-      animation: changed ? ('sepPulse .8s cubic-bezier(.3,.8,.3,1) ' + (i * 0.1) + 's both') : 'none',
-    } });
-    return E('span', {
-      key: unit + ':' + (d ? d.cur : ''),
-      style: { display: 'flex', flexDirection: 'column', gap: '9px' }
-    }, sq(0), sq(1));
-  }
-
-  /* Milestone moments: copy + accent shift as launch approaches. */
-  milestone(diff) {
-    if (diff <= 0)             return { label: 'The new townsuite.com is live', color: 'var(--ts-green)' };
-    if (diff <= 3600000)       return { label: 'Counting the final minutes',    color: 'var(--ts-red)' };
-    if (diff <= 86400000)      return { label: 'Launching within a day',        color: 'var(--ts-red)' };
-    if (diff <= 7 * 86400000)  return { label: 'One week to go',                color: 'var(--ts-orange)' };
-    return { label: 'The new townsuite.com', color: 'var(--accent)' };
-  }
-
-  renderVals() {
-    const target = new Date(this.props.launchDate ?? '2026-07-01T15:00:00-02:30').getTime();
-    const diff = Math.max(0, target - this.state.now);
-    const pad = (n) => String(n).padStart(2, '0');
-    const days = Math.floor(diff / 86400000);
-    const hours = Math.floor(diff / 3600000) % 24;
-    const mins = Math.floor(diff / 60000) % 60;
-    const secs = Math.floor(diff / 1000) % 60;
-
-    const ms = this.milestone(diff);
-
-    /* rollers first — they refresh this.disp, which the separators read */
-    const daysEl = this.rollUnit('d', pad(days));
-    const hoursEl = this.rollUnit('h', pad(hours));
-    const minsEl = this.rollUnit('m', pad(mins));
-    const secsEl = this.rollUnit('s', pad(secs));
-
-    return {
-      morphStage: this.buildMorph(this.state.phase),
-      milestoneLabel: ms.label,
-      milestoneColor: ms.color,
-      daysEl: daysEl,
-      hoursEl: hoursEl,
-      minsEl: minsEl,
-      secsEl: secsEl,
-      sepDaysEl: this.sepEl('d', 'var(--ts-orange)'),
-      sepHoursEl: this.sepEl('h', 'var(--ts-green)'),
-      sepMinsEl: this.sepEl('m', 'var(--ts-red)'),
-      spawnedSquares: React.createElement('div', { 'aria-hidden': true, style: { position: 'absolute', inset: 0 } },
-        (this.state.squares || []).map((q) => React.createElement('div', {
-          key: q.id,
-          style: {
-            position: 'absolute', left: q.x + 'px', top: q.y + 'px',
-            width: q.s + 'px', height: q.s + 'px',
-            marginLeft: (-q.s / 2) + 'px', marginTop: (-q.s / 2) + 'px',
-            opacity: 0.9,
-            transform: 'translate(calc(var(--px,0px)*' + q.f + '),calc(var(--py,0px)*' + q.f + ')) rotate(45deg)',
-            transition: 'transform .2s ease-out',
-          }
-        },
-          React.createElement('div', { style: {
-            width: '100%', height: '100%', background: q.color, borderRadius: '14%',
-            animation: this.reduced ? 'none' : 'sqSpawn .7s cubic-bezier(.25,1.4,.4,1) both',
-          } })
-        ))
-      ),
-      rootRef: (el) => { this.rootEl = el; },
-      toggleTheme: () => {
-        const next = this.resolvedTheme() === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', next);
-        this.setState({ theme: next });
-      },
-    };
-  }
-}
+})();
 </script>
+<script>
+/* dashboard mockup: show today's date */
+(function(){
+  var el = document.querySelector('[data-dynamic-date]');
+  if (!el) return;
+  try {
+    el.textContent = new Date().toLocaleDateString('en-CA', { weekday:'long', month:'long', day:'numeric', year:'numeric' });
+  } catch(e){}
+})();
+</script>
+<script>
+/* TownSuite Intelligence panel — on scroll-in, flash the new icon, fade into the
+   chat, then play the first conversation (Town hall hours) as if it's happening live. */
+(function () {
+  var chat = document.querySelector(".ts-ai__chat");
+  if (!chat) return;
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce || !("IntersectionObserver" in window)) return;
+
+  var track = document.querySelector(".tsi-track");
+  var dots = Array.prototype.slice.call(document.querySelectorAll(".tsi-page"));
+  var slides = Array.prototype.slice.call(document.querySelectorAll(".tsi-slide"));
+
+  /* Lock each slide's body to its full final height BEFORE hiding bubbles, so the
+     window can never resize (grow OR shrink) as messages and the typing indicator
+     come and go. We measure after fonts settle so the lock matches the real layout,
+     then pin both min-height AND height (with overflow hidden via .tsi-anim) — that
+     way the typing indicator inserting an extra row can't push the page down. */
+  /* Measure a body's true full height at the CURRENT width: temporarily drop the
+     lock, hide any transient typing indicator, and un-collapse any bubble so we get
+     the final laid-out height (opacity has no layout effect, so .tsi-anim can stay). */
+  function measureBody(body) {
+    var prevH = body.style.height, prevMin = body.style.minHeight;
+    var typing = Array.prototype.slice.call(body.querySelectorAll(".ts-typing"));
+    var collapsed = Array.prototype.slice.call(body.querySelectorAll(".ts-bubble.is-collapsed"));
+    typing.forEach(function (t) { t.style.display = "none"; });
+    collapsed.forEach(function (b) { b.classList.remove("is-collapsed"); });
+    body.style.height = "auto"; body.style.minHeight = "0";
+    var h = body.offsetHeight;
+    body.style.height = prevH; body.style.minHeight = prevMin;
+    typing.forEach(function (t) { t.style.display = ""; });
+    collapsed.forEach(function (b) { b.classList.add("is-collapsed"); });
+    return h;
+  }
+  function lockSlides() {
+    slides.forEach(function (slide) {
+      var body = slide.querySelector(".tsi-body");
+      if (!body) return;
+      body.classList.add("tsi-anim");
+      var h = measureBody(body) + 8; /* small safety buffer so the last bubble never touches the line below */
+      body.style.minHeight = h + "px";
+      body.style.height = h + "px";
+      var input = slide.querySelector(".tsi-composer .tsi-input");
+      if (input && input.dataset.ph == null) input.dataset.ph = input.textContent;
+    });
+  }
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(lockSlides);
+  } else {
+    lockSlides();
+  }
+  /* Re-measure on resize: bubbles wrap to more/fewer lines at different widths, so a
+     height locked once at load would clip (and collide with the row below) when the
+     viewport narrows. Debounced; preserves each bubble's current animation state. */
+  var relockTimer;
+  window.addEventListener("resize", function () {
+    clearTimeout(relockTimer);
+    relockTimer = setTimeout(lockSlides, 150);
+  });
+
+  /* A generation token: every manual jump bumps `gen`, so any in-flight playback
+     (typing, bot-typing, the auto-advance chain) sees it's stale and bows out. */
+  var gen = 0;
+  var userHold = false;  /* true while the user hand-scrolls the carousel — aborts the auto-tour scroll tween */
+  function still(myGen) { return myGen === gen; }
+
+  /* Reset a slide back to its pre-animation state so it can be (re)played cleanly. */
+  function resetSlide(slide) {
+    var body = slide.querySelector(".tsi-body");
+    if (!body) return;
+    Array.prototype.slice.call(body.querySelectorAll(".ts-typing")).forEach(function (t) { t.remove(); });
+    Array.prototype.slice.call(body.querySelectorAll(".ts-bubble")).forEach(function (b) {
+      b.classList.remove("is-shown", "is-collapsed");
+    });
+    var input = slide.querySelector(".tsi-composer .tsi-input");
+    if (input) { input.textContent = input.dataset.ph || ""; input.classList.remove("is-typing"); input.scrollLeft = 0; }
+  }
+
+  /* Promise-sequenced playback so we can interleave typing of variable length.
+     wait() also gates on visibility, so any step pauses when scrolled out of view. */
+  function wait(ms) { return new Promise(function (r) { setTimeout(r, ms); }).then(untilVisible); }
+
+  function showBubble(b) { return Promise.resolve().then(function () { if (b) b.classList.add("is-shown"); }); }
+
+  function typeQuestion(input, text, myGen) {
+    if (!input) return Promise.resolve();
+    input.classList.add("is-typing");
+    input.textContent = "";
+    var i = 0;
+    return new Promise(function (resolve) {
+      (function step() {
+        if (!still(myGen)) { return resolve(); }              /* preempted — stop typing */
+        if (!visible) { untilVisible().then(step); return; }   /* pause typing when scrolled away */
+        if (i > text.length) { setTimeout(resolve, 240); return; }   /* brief pause on full text */
+        input.textContent = text.slice(0, i);
+        input.scrollLeft = input.scrollWidth;   /* keep the caret end in view (single-line, no wrap) */
+        i++;
+        setTimeout(step, 26 + Math.random() * 30);
+      })();
+    });
+  }
+
+  function sendQuestion(input, placeholder, b) {
+    /* "send": reveal the user bubble and reset the composer to its placeholder */
+    return showBubble(b).then(function () {
+      if (input) { input.textContent = placeholder; input.classList.remove("is-typing"); input.scrollLeft = 0; }
+    });
+  }
+
+  function botTyping(body, b, dur, myGen) {
+    if (!b) return Promise.resolve();
+    /* Collapse the answer bubble's reserved space while the dots show, so the
+       locked min-height absorbs the swap and the window stays perfectly static. */
+    b.classList.add("is-collapsed");
+    var typing = document.createElement("div");
+    typing.className = "ts-bubble ts-bubble--bot ts-typing is-shown";
+    typing.innerHTML = "<i></i><i></i><i></i>";
+    body.insertBefore(typing, b);
+    return wait(dur).then(function () {
+      typing.remove();
+      b.classList.remove("is-collapsed");
+      if (!still(myGen)) return;
+      return showBubble(b);
+    });
+  }
+
+  /* Play one slide's conversation: type each citizen/staff question into the
+     composer, send it, then show the assistant "typing" before each reply. */
+  function animateSlide(slide, myGen) {
+    var body = slide.querySelector(".tsi-body");
+    if (!body) return Promise.resolve();
+    var input = slide.querySelector(".tsi-composer .tsi-input");
+    var placeholder = input ? (input.dataset.ph || input.textContent) : "";
+    var bubbles = Array.prototype.slice.call(body.querySelectorAll(".ts-bubble"));
+    var seq = Promise.resolve();
+    bubbles.forEach(function (b, idx) {
+      var gate = function (v) { return still(myGen) ? v : Promise.reject("stale"); };
+      if (b.classList.contains("ts-bubble--user")) {
+        seq = seq.then(gate).then(function () { return wait(idx === 0 ? 250 : 600); })
+                 .then(gate).then(function () { return typeQuestion(input, b.textContent.replace(/\s+/g, " ").trim(), myGen); })
+                 .then(gate).then(function () { return sendQuestion(input, placeholder, b); });
+      } else if (idx === 0) {
+        seq = seq.then(gate).then(function () { return wait(200); }).then(gate).then(function () { return showBubble(b); });
+      } else {
+        seq = seq.then(gate).then(function () { return wait(280); }).then(gate).then(function () { return botTyping(body, b, 1050, myGen); });
+      }
+    });
+    return seq;
+  }
+
+  function goToSlide(i) {
+    if (track) {
+      /* Animate scrollLeft by hand. Two things that can make the PAGE jump during a
+         carousel advance: (a) a smooth programmatic scroll on a snap container, and
+         (b) re-snapping. We avoid scrollTo entirely AND pin the page scroll position
+         on every frame so the horizontal tween can never move the document. */
+      var to = track.clientWidth * i;
+      var from = track.scrollLeft;
+      if (Math.abs(to - from) > 1) {
+        var se = document.scrollingElement || document.documentElement;
+        var lockY = window.pageYOffset, lockSE = se.scrollTop, lockB = document.body.scrollTop;
+        var pin = function () {
+          if (window.pageYOffset !== lockY) window.scrollTo(window.pageXOffset, lockY);
+          if (se.scrollTop !== lockSE) se.scrollTop = lockSE;
+          if (document.body.scrollTop !== lockB) document.body.scrollTop = lockB;
+        };
+        var start = null, DUR = 460;
+        requestAnimationFrame(function tick(ts) {
+          if (userHold) return;
+          if (start == null) start = ts;
+          var t = Math.min(1, (ts - start) / DUR);
+          var e = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+          track.scrollLeft = from + (to - from) * e;
+          pin();
+          if (t < 1) { requestAnimationFrame(tick); }
+          else { track.scrollLeft = to; pin(); }
+        });
+      }
+    }
+    dots.forEach(function (d, k) { var on = k === i; d.classList.toggle("is-on", on); d.setAttribute("aria-pressed", on ? "true" : "false"); });
+  }
+
+  /* Track whether the chat panel is on-screen; pause playback when scrolled past. */
+  var visible = true;
+  var resumeWaiters = [];
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function (entries) {
+      visible = entries[0].isIntersecting;
+      if (visible && resumeWaiters.length) {
+        var w = resumeWaiters.slice(); resumeWaiters.length = 0;
+        w.forEach(function (r) { r(); });
+      }
+    }, { threshold: 0.25 }).observe(chat);
+  }
+  function untilVisible() {
+    if (visible) return Promise.resolve();
+    return new Promise(function (resolve) { resumeWaiters.push(resolve); });
+  }
+
+  /* Play conversations from slide `startIdx` onward: animate, pause, advance to the
+     next — each step bailing if a newer generation has taken over (manual jump). */
+  function playFrom(startIdx) {
+    var myGen = gen;
+    var p = Promise.resolve();
+    var gate = function (v) { return still(myGen) ? v : Promise.reject("stale"); };
+    slides.forEach(function (slide, i) {
+      if (i < startIdx) return;
+      p = p.then(gate).then(untilVisible)
+           .then(gate).then(function () { if (i !== startIdx) goToSlide(i); return wait(i === startIdx ? 0 : 750); })
+           .then(gate).then(untilVisible)
+           .then(gate).then(function () { resetSlide(slide); return animateSlide(slide, myGen); })
+           .then(gate).then(function () { return wait(2200); });
+    });
+    p.catch(function () {});
+  }
+
+  /* Manual jump (dot click / swipe release): preempt whatever's playing, scroll to
+     the chosen slide, play it right away, then resume the auto tour from the next. */
+  function goTo(i) {
+    userHold = false;
+    gen++;
+    goToSlide(i);
+    var myGen = gen;
+    resetSlide(slides[i]);
+    wait(260)
+      .then(function () { if (!still(myGen)) return Promise.reject("stale"); return animateSlide(slides[i], myGen); })
+      .then(function () { if (!still(myGen)) return Promise.reject("stale"); return wait(2200); })
+      .then(function () { if (still(myGen) && i + 1 < slides.length) playFrom(i + 1); })
+      .catch(function () {});
+  }
+  chat.__tsiGoTo = goTo;
+  chat.__tsiPause = function () { gen++; userHold = true; chat.__tsiPaused = true; };
+  /* Resume the auto-tour from the slide currently in view (used by the visible
+     Pause/Play toggle so keyboard users can stop and restart the motion). */
+  chat.__tsiResume = function () {
+    userHold = false;
+    chat.__tsiPaused = false;
+    var i = 0;
+    if (track && track.clientWidth) i = Math.round(track.scrollLeft / track.clientWidth);
+    if (i < 0) i = 0;
+    playFrom(i);
+  };
+  chat.__tsiPaused = false;
+
+  chat.classList.add("is-armed");
+  var played = false;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting || played) return;
+      played = true;
+      io.disconnect();
+      requestAnimationFrame(function () { chat.classList.add("is-playing"); });
+      setTimeout(function () { chat.classList.add("is-revealed"); }, 1000);
+      setTimeout(function () { chat.classList.remove("is-armed", "is-playing", "is-revealed"); }, 1800);
+      setTimeout(function () { playFrom(0); }, 1150);
+    });
+  }, { threshold: 0.4 });
+  io.observe(chat);
+})();
+</script>
+<script>
+/* Fit the pinned-width hero app shot to its column at any resolution.
+   The shot has a fixed 760px design width so it never reflows; we scale it
+   uniformly so the whole product screen stays legible from mobile to wide. */
+(function () {
+  var DESIGN_W = 760;
+  var stack = document.querySelector(".x-hero__stack");
+  var dash = document.querySelector(".x-layer--dash");
+  if (!stack || !dash) return;
+  function fit() {
+    var w = stack.clientWidth;
+    if (!w) return;
+    /* Make the shot as large as the hero allows, but never past the page's
+       right content edge — anchored top-left, so we cap width to the distance
+       from the stack's left edge to the container's right padding edge. */
+    var sr = stack.getBoundingClientRect();
+    /* cap the shot's right edge to the hero container's right content edge so
+       the right gutter mirrors the left margin — keeps the composition balanced
+       on wide screens while still scaling the demo up. */
+    var wrap = stack.closest(".x-hero__in") || stack.parentElement;
+    var avail = stack.clientWidth;
+    if (wrap) {
+      var wr = wrap.getBoundingClientRect();
+      var padR = parseFloat(getComputedStyle(wrap).paddingRight) || 0;
+      avail = (wr.right - padR) - sr.left;
+    }
+    var s = (avail / DESIGN_W);
+    s = Math.max(0.4, Math.min(s, 1.9));
+    stack.style.setProperty("--shot-scale", s.toFixed(3));
+    stack.style.setProperty("--inv", (1 / s).toFixed(3));
+    /* fade the depth ghost layers on large scale so they don't read as a heavy
+       dark slab behind the shot on ultra-wide/4K */
+    stack.style.setProperty("--ghost-fade", (s > 1.2 ? Math.max(0.35, 1.2 / s) : 1).toFixed(3));
+    /* keep the bottom-right chip pinned to the shot's actual right edge
+       (the shot bleeds past its column), inset 8px to mirror the top chip. */
+    var br = stack.querySelector(".x-float--br");
+    if (br) {
+      var bleed = (DESIGN_W * s) - w;
+      br.style.right = Math.round(-bleed + 8) + "px";
+    }
+    var h = dash.offsetHeight;
+    if (h) stack.style.height = Math.round(h * s + 10) + "px";
+  }
+  fit();
+  window.addEventListener("resize", fit);
+  window.addEventListener("load", fit);
+  setTimeout(fit, 120);
+  setTimeout(fit, 500);
+})();
+</script>
+
+<script>
+/* TownSuite Intelligence — swipeable example carousel */
+(function(){
+  const track = document.querySelector('.tsi-track');
+  const dots = [...document.querySelectorAll('.tsi-page')];
+  if (!track || !dots.length) return;
+  const setActive = (i) => dots.forEach((d, k) => { const on = k === i; d.classList.toggle('is-on', on); d.setAttribute('aria-pressed', on ? 'true' : 'false'); });
+  const indexNow = () => Math.round(track.scrollLeft / track.clientWidth);
+  /* snap-safe horizontal scroll: animate scrollLeft by hand and pin the page scroll
+     position every frame, so a snap container can't drag the document up/down. */
+  function snapScroll(i){
+    const to = track.clientWidth * i, from = track.scrollLeft;
+    if (Math.abs(to - from) <= 1) return;
+    const se = document.scrollingElement || document.documentElement;
+    const lockY = window.pageYOffset, lockSE = se.scrollTop, lockB = document.body.scrollTop;
+    const pin = () => {
+      if (window.pageYOffset !== lockY) window.scrollTo(window.pageXOffset, lockY);
+      if (se.scrollTop !== lockSE) se.scrollTop = lockSE;
+      if (document.body.scrollTop !== lockB) document.body.scrollTop = lockB;
+    };
+    let start = null; const DUR = 460;
+    requestAnimationFrame(function tick(ts){
+      if (start == null) start = ts;
+      const t = Math.min(1, (ts - start) / DUR);
+      const e = t < 0.5 ? 2*t*t : 1 - Math.pow(-2*t+2,2)/2;
+      track.scrollLeft = from + (to - from) * e;
+      pin();
+      if (t < 1) requestAnimationFrame(tick);
+      else { track.scrollLeft = to; pin(); }
+    });
+  }
+  dots.forEach((d, i) => d.addEventListener('click', () => {
+    const chat = document.querySelector('.ts-ai__chat');
+    if (chat && chat.__tsiGoTo) chat.__tsiGoTo(i);   /* jump AND replay that conversation */
+    else snapScroll(i);
+  }));
+
+  /* Visible, keyboard-operable Pause/Play toggle (WCAG 2.2.2) — stops/restarts the
+     auto-advancing conversations using the carousel's own pause/resume API. */
+  const playpause = document.querySelector('.tsi-playpause');
+  if (playpause) {
+    let paused = false;
+    const setState = (p) => {
+      paused = p;
+      playpause.classList.toggle('is-paused', p);
+      playpause.setAttribute('aria-pressed', p ? 'true' : 'false');
+      playpause.setAttribute('aria-label', p ? 'Play the example conversations' : 'Pause the example conversations');
+    };
+    playpause.addEventListener('click', () => {
+      const chat = document.querySelector('.ts-ai__chat');
+      if (!chat) return;
+      if (paused) { if (chat.__tsiResume) chat.__tsiResume(); setState(false); }
+      else { if (chat.__tsiPause) chat.__tsiPause(); setState(true); }
+    });
+  }
+  let raf = 0;
+  track.addEventListener('scroll', () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(() => setActive(indexNow())); });
+  /* Pause the auto-tour the instant the user grabs the carousel, so neither a mouse
+     drag nor a native touch swipe fights the running slide animation. */
+  const chatEl = document.querySelector('.ts-ai__chat');
+  const pauseTour = () => { if (chatEl && chatEl.__tsiPause) chatEl.__tsiPause(); };
+  const landOn = (n) => { if (chatEl && chatEl.__tsiGoTo) chatEl.__tsiGoTo(n); else snapScroll(n); };
+
+  /* mouse / trackpad: JS drag. Touch uses NATIVE horizontal scroll (so vertical page
+     scroll is never trapped); we just snap + play once the swipe settles. */
+  let down = false, sx = 0, sl = 0;
+  track.addEventListener('pointerdown', (e) => {
+    pauseTour();
+    if (e.pointerType === 'touch') return;
+    down = true; sx = e.clientX; sl = track.scrollLeft; track.setPointerCapture(e.pointerId); track.style.cursor = 'grabbing';
+  });
+  track.addEventListener('pointermove', (e) => { if (down) track.scrollLeft = sl - (e.clientX - sx); });
+  const end = () => { if (!down) return; down = false; track.style.cursor = ''; landOn(indexNow()); };
+  track.addEventListener('pointerup', end);
+  track.addEventListener('pointercancel', end);
+
+  /* touch: pause on grab; when momentum settles, land on the slide they stopped on */
+  let touching = false, settleT = 0;
+  track.addEventListener('touchstart', () => { touching = true; pauseTour(); }, { passive: true });
+  track.addEventListener('touchend', () => {
+    touching = false;
+    var last = -1;
+    clearTimeout(settleT);
+    (function waitStop(){
+      var cur = track.scrollLeft;
+      if (cur === last) { landOn(indexNow()); return; }
+      last = cur; settleT = setTimeout(waitStop, 90);
+    })();
+  }, { passive: true });
+})();
+</script>
+
+<!-- ================= TOWNSUITE INTELLIGENCE — LIVE CHAT WIDGET =================
+     Real assistant (live LLM + KB) injected into a shadow root by embed.js.
+     PRODUCTION: load embed.js from the chat instance so the bot can be updated
+     without touching the website — swap the src below to:
+       https://tschat-public.yqx.auto.k8s.townsuite.com/embed.js   (public launch)
+       https://tschat-prod.yqx.auto.k8s.townsuite.com/embed.js (office preview)
+     and set data-api to the matching origin. The local src below is only so the
+     widget chrome renders here in the Designer preview. -->
+<script src="embed.js"
+        data-api="https://tschat-prod.yqx.auto.k8s.townsuite.com"
+        data-lang="en" defer></script>
+
+
+<script>/*ts-yr-auto*/document.querySelectorAll(".ts-yr").forEach(function(e){e.textContent=new Date().getFullYear();});</script>
 </body>
 </html>

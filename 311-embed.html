@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#003C63" />
+<title>TownSuite 311 Request Widget</title>
+<!-- TODO (SRI — Mapbox CSS): Mapbox does not publish SRI hashes. crossorigin="anonymous"
+     is already set below (required for SRI to work cross-origin). At DEPLOY TIME, run the
+     exact command below to generate a sha384 value, then add it as integrity="sha384-..."
+     on the <link>:
+       openssl dgst -sha384 -binary <(curl -s https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css) | openssl base64 -A
+     (Re-generate and update the hash on every Mapbox version bump, or the stylesheet
+     will be refused by the browser.)
+
+     NOTE — the Mapbox GL *JavaScript* is NOT loaded here: it is injected at runtime by the
+     third-party 311Complaints.js (loaded from portal.ws.townsuite.com, see <script> below).
+     Because that injection happens inside the portal bundle, pinning the Mapbox GL JS with
+     SRI must be done in that portal bundle — it cannot be done from this page.
+
+     STRONGEST FIX (recommended for a citizen-PII form): self-host the Mapbox GL CSS *and* JS
+     (and jQuery) from townsuite.com so there is no third-party CDN trust dependency at all. -->
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" crossorigin="anonymous" />
+<!-- The live 311 widget (311Complaints.js) injects Bootstrap 3 + Kendo UI 2023.3 at
+     runtime, both of which expect jQuery to ALREADY be global. The widget does not
+     load jQuery itself — on townsuite.com the host page provides it. This iframe is
+     isolated, so we must supply jQuery here BEFORE the widget runs, or Kendo throws. -->
+<!-- Subresource Integrity: if the CDN copy is tampered with, the browser refuses to
+     run it. Hash is jQuery's official published SRI for 3.7.1.min.js — verify it still
+     matches https://releases.jquery.com/jquery/ before each version bump. -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous"></script>
+<script>
+/* Always start the demo at the category SELECTION with empty fields.
+   The live 311 widget saves an in-progress draft (form fields, email, location,
+   signatures) in localStorage — and because this iframe shares the site's origin,
+   that draft survives reloads. Without clearing it, a second open would skip the
+   options and resume the last form, leftover sample data (e.g. test@test.com) and
+   all. Wipe ONLY the widget's own draft keys on every load (never the site's
+   ts-theme / ts-chat-* keys). Runs before the widget restores (EmbedInit @ onload). */
+(function(){
+  try{
+    Object.keys(localStorage).forEach(function(k){
+      if(/^(mainForm-|subForm-|signatures-|subsignatures-|subformTagList-|location-|mainFormStoreTime)/.test(k)) localStorage.removeItem(k);
+    });
+  }catch(e){}
+})();
+</script>
+<style>
+/* ============================================================
+   Brand skin for the live TownSuite 311 widget.
+   This page is iframe-isolated — the widget's own stylesheet
+   stays in here, and these rules re-dress it to match the site.
+   ============================================================ */
+@font-face{
+  font-family:'Dax';
+  src:url('fonts/dax-regular.ttf') format('truetype'),
+      url('fonts/dax-regular.otf') format('opentype');
+  font-weight:400 900;
+  font-style:normal;
+  font-display:swap;
+}
+:root{
+  --ts-blue:#00578E;
+  --surface:#FFFFFF;
+  --surface2:#F3F6FA;
+  --ink:#13212D;
+  --ink2:#4C5D6C;
+  --ink3:#5E6E7C;
+  --line:#DCE4EC;
+  --line2:#C9D5E0;
+  --accent:#00578E;
+  --accent-strong:#004A79;
+  --accent-ink:#FFFFFF;
+  --accent-tint:#E9EFF6;
+  color-scheme:light;
+}
+[data-theme="dark"]{
+  --surface:#0D2032;
+  --surface2:#122A3F;
+  --ink:#E9F0F6;
+  --ink2:#A8BBCA;
+  --ink3:#71879A;
+  --line:#1C3850;
+  --line2:#27465F;
+  --accent:#2D9CDE;
+  --accent-strong:#5BB2EA;
+  --accent-ink:#06131D;
+  --accent-tint:#0C2C45;
+  color-scheme:dark;
+}
+html,body{margin:0;padding:0;}
+html{background:transparent;}
+/* the widget's own stylesheet paints white — repaint with the theme surface (matches the modal panel) */
+body{background:var(--surface) !important;}
+body{
+  font-family:'Dax','Source Sans 3','Segoe UI',sans-serif !important;
+  color:var(--ink);
+  font-size:15.5px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+#Complaints311Div *{font-family:inherit !important;}
+
+/* ---- panels / containers: drop the widget's boxes, let the modal provide chrome ---- */
+#Complaints311Div .panel,
+#Complaints311Div .panel311{
+  background:transparent !important;
+  border:none !important;
+  box-shadow:none !important;
+  margin:0 !important;
+  padding:0 !important;
+}
+#Complaints311Div .labels311{margin:0 0 12px !important;}
+
+/* ---- category cards ---- */
+#Complaints311Div .item311{
+  background:var(--surface2) !important;
+  border:1.5px solid var(--line) !important;
+  border-radius:14px !important;
+  padding:15px 18px !important;
+  margin:0 0 12px !important;
+  transition:border-color .18s,background .18s,transform .18s;
+}
+#Complaints311Div .item311:hover{
+  border-color:var(--accent) !important;
+  background:var(--accent-tint) !important;
+  transform:translateY(-1px);
+}
+#Complaints311Div .p311requestname,
+#Complaints311Div .text-primary,
+#Complaints311Div .text-primary311{
+  color:var(--accent) !important;
+  font-weight:700 !important;
+  font-size:16px !important;
+  margin:0 0 3px !important;
+}
+#Complaints311Div .p311requestdescription{
+  color:var(--ink2) !important;
+  font-size:13.5px !important;
+  line-height:1.5 !important;
+  margin:0 !important;
+}
+
+/* ---- form ---- */
+#Complaints311Div .form-header,
+#Complaints311Div .h1-custom{
+  color:var(--ink) !important;
+  font-weight:800 !important;
+  font-size:20px !important;
+  letter-spacing:-.01em;
+}
+#Complaints311Div .label-format,
+#Complaints311Div label{
+  color:var(--ink) !important;
+  font-weight:700 !important;
+  font-size:14px !important;
+}
+#Complaints311Div input[type="text"],
+#Complaints311Div input[type="email"],
+#Complaints311Div input[type="tel"],
+#Complaints311Div input[type="number"],
+#Complaints311Div textarea,
+#Complaints311Div select,
+#Complaints311Div .formcontrol311{
+  background:var(--surface2) !important;
+  color:var(--ink) !important;
+  border:1.5px solid var(--line2) !important;
+  border-radius:10px !important;
+  padding:9px 14px !important;
+  font-size:15px !important;
+  box-shadow:none !important;
+  outline:none;
+  transition:border-color .18s;
+}
+#Complaints311Div input:focus,
+#Complaints311Div textarea:focus,
+#Complaints311Div select:focus,
+#Complaints311Div .formcontrol311:focus{border-color:var(--accent) !important;outline:2px solid var(--accent) !important;outline-offset:2px;}
+#Complaints311Div input[type="checkbox"]{accent-color:var(--accent);width:16px;height:16px;}
+
+/* pell rich-text editor */
+#Complaints311Div .pell{border:1.5px solid var(--line2) !important;border-radius:10px !important;overflow:hidden;}
+#Complaints311Div .pell-actionbar{background:var(--surface2) !important;border-bottom:1px solid var(--line) !important;}
+#Complaints311Div .pell-button{color:var(--ink2) !important;background:transparent !important;}
+#Complaints311Div .pell-button:hover{color:var(--accent) !important;}
+#Complaints311Div .pell-content{background:var(--surface) !important;color:var(--ink) !important;min-height:110px;}
+
+/* buttons */
+#Complaints311Div button,
+#Complaints311Div input[type="submit"],
+#Complaints311Div input[type="button"],
+#Complaints311Div .btn{
+  font-weight:700;
+  border-radius:100px !important;
+  border:1.5px solid transparent !important;
+  padding:9px 22px !important;
+  cursor:pointer;
+  transition:background .18s,border-color .18s,color .18s;
+}
+#Complaints311Div button[type="submit"],
+#Complaints311Div input[type="submit"],
+#Complaints311Div .btn-primary{
+  background:var(--accent) !important;
+  color:var(--accent-ink) !important;
+}
+#Complaints311Div button[type="submit"]:hover,
+#Complaints311Div input[type="submit"]:hover,
+#Complaints311Div .btn-primary:hover{background:var(--accent-strong) !important;}
+#Complaints311Div .btn-default,
+#Complaints311Div .btn-secondary,
+#Complaints311Div button[type="button"]{
+  background:var(--surface) !important;
+  color:var(--ink) !important;
+  border-color:var(--line2) !important;
+}
+#Complaints311Div .btn-default:hover,
+#Complaints311Div .btn-secondary:hover,
+#Complaints311Div button[type="button"]:hover{border-color:var(--accent) !important;color:var(--accent) !important;}
+
+/* pell action buttons should stay square */
+#Complaints311Div .pell-button{border-radius:0 !important;padding:0 !important;border:none !important;}
+
+/* map */
+#Complaints311Div .map_canvas{border-radius:14px !important;overflow:hidden;border:1.5px solid var(--line) !important;}
+
+/* ---- suppress the widget's built-in CIRCULAR spinners / loading masks ----
+   The host modal already shows TownSuite's animated dots while the widget loads,
+   so the inner circle (Kendo busy mask, FontAwesome spinners) is redundant. Masks
+   are overlays, not content, so hiding them is safe. */
+#Complaints311Div .k-loading-mask,
+#Complaints311Div .k-loading-image,
+#Complaints311Div .k-i-loading,
+#Complaints311Div .k-loading-text,
+#Complaints311Div .k-loading-color,
+#Complaints311Div .fa-spin,
+#Complaints311Div .fa-spinner,
+#Complaints311Div .fa-circle-o-notch,
+#Complaints311Div .fa-refresh,
+#Complaints311Div .spinner,
+#Complaints311Div .loading-spinner,
+#Complaints311Div .loadingmask,
+#Complaints311Div .loading-image,
+#Complaints311Div .loading311,
+.k-loading-mask,
+.k-loading-image,
+.k-i-loading,
+.k-loading-text{
+  display:none !important;
+}
+
+/* ---- hardening: keep EVERY label / custom-field / option-row text readable in both themes ----
+   covers custom category forms (e.g. the Sales "which products" checkbox list) that use
+   Bootstrap-style .checkbox/.radio/.form-check rows the base rules above don't catch. */
+#Complaints311Div .labels311,
+#Complaints311Div .control-label,
+#Complaints311Div legend,
+#Complaints311Div .form-group > span,
+#Complaints311Div .checkbox,
+#Complaints311Div .checkbox label,
+#Complaints311Div .radio,
+#Complaints311Div .radio label,
+#Complaints311Div .form-check-label,
+#Complaints311Div .checkbox311-label,
+#Complaints311Div .question311,
+#Complaints311Div .customfield311,
+#Complaints311Div .customfield311 label,
+#Complaints311Div .customfield311 span{
+  color:var(--ink) !important;
+}
+
+/* generic text */
+#Complaints311Div p{color:var(--ink2);}
+#Complaints311Div a{color:var(--accent);}
+
+/* ============================================================
+   READABILITY NET — the custom category forms (e.g. the Sales
+   "which products" checkbox list) render text in widget markup
+   whose class names our targeted rules above don't catch, so on
+   the dark theme it falls back to a low-contrast grey. Force a
+   readable colour on EVERY descendant, then re-assert the few
+   intentional accent colours. The accent selectors below carry
+   higher specificity (id + class/element) than the `*` net, so
+   they always win regardless of source order.
+   ============================================================ */
+#Complaints311Div *{color:var(--ink) !important;}
+/* re-assert intentional accents */
+#Complaints311Div .text-primary,
+#Complaints311Div .text-primary311,
+#Complaints311Div .p311requestname,
+#Complaints311Div a{color:var(--accent) !important;}
+#Complaints311Div .p311requestdescription,
+#Complaints311Div p{color:var(--ink2) !important;}
+#Complaints311Div button[type="submit"],
+#Complaints311Div input[type="submit"],
+#Complaints311Div .btn-primary{color:var(--accent-ink) !important;}
+#Complaints311Div .btn-default,
+#Complaints311Div .btn-secondary,
+#Complaints311Div button[type="button"]{color:var(--ink) !important;}
+
+/* ---- checkbox / radio option ROWS: kill Bootstrap's absolute-positioned,
+   floated inputs (which overlap the label text) and lay each row out as a
+   clean flex line with consistent gap + vertical rhythm. Covers the common
+   class names the widget might emit. ---- */
+#Complaints311Div .checkbox,
+#Complaints311Div .radio,
+#Complaints311Div .form-check,
+#Complaints311Div .checkbox311,
+#Complaints311Div .option311{
+  display:flex !important;
+  align-items:center !important;
+  gap:10px !important;
+  margin:0 0 10px !important;
+  padding-left:0 !important;
+  min-height:0 !important;
+}
+#Complaints311Div .checkbox label,
+#Complaints311Div .radio label,
+#Complaints311Div .form-check label{
+  display:flex !important;
+  align-items:center !important;
+  gap:10px !important;
+  margin:0 !important;
+  padding-left:0 !important;
+  font-weight:600 !important;
+  cursor:pointer;
+}
+#Complaints311Div .checkbox input[type="checkbox"],
+#Complaints311Div .checkbox input[type="radio"],
+#Complaints311Div .radio input[type="checkbox"],
+#Complaints311Div .radio input[type="radio"],
+#Complaints311Div .form-check input{
+  position:static !important;
+  float:none !important;
+  margin:0 !important;
+  flex:0 0 auto !important;
+  vertical-align:middle !important;
+}
+
+/* ============================================================
+   MAPBOX GL CONTROLS — dark-mode contrast fix.
+   Light mode keeps Mapbox's defaults; in dark mode the attribution
+   links, geocoder search box and zoom/geolocate buttons fall back
+   to dark-on-dark (unreadable). Repaint them with the theme tokens.
+   Scoped under #Complaints311Div (where the map lives) so these win
+   over the widget's accent/readability rules; plus unscoped copies
+   for any control Mapbox attaches outside the widget container.
+   ============================================================ */
+/* geocoder search box */
+[data-theme="dark"] #Complaints311Div .mapboxgl-ctrl-geocoder,
+[data-theme="dark"] .mapboxgl-ctrl-geocoder{
+  background:var(--surface2) !important;
+  box-shadow:0 0 0 1.5px var(--line2) !important;
+  color:var(--ink) !important;
+}
+[data-theme="dark"] #Complaints311Div .mapboxgl-ctrl-geocoder input,
+[data-theme="dark"] .mapboxgl-ctrl-geocoder input{color:var(--ink) !important;}
+[data-theme="dark"] #Complaints311Div .mapboxgl-ctrl-geocoder input::placeholder,
+[data-theme="dark"] .mapboxgl-ctrl-geocoder input::placeholder{color:var(--ink3) !important;}
+[data-theme="dark"] #Complaints311Div .mapboxgl-ctrl-geocoder--icon,
+[data-theme="dark"] .mapboxgl-ctrl-geocoder--icon{fill:var(--ink2) !important;}
+[data-theme="dark"] #Complaints311Div .mapboxgl-ctrl-geocoder .suggestions,
+[data-theme="dark"] .mapboxgl-ctrl-geocoder .suggestions{
+  background:var(--surface2) !important;border:1px solid var(--line2) !important;
+}
+[data-theme="dark"] #Complaints311Div .mapboxgl-ctrl-geocoder .suggestions a,
+[data-theme="dark"] .mapboxgl-ctrl-geocoder .suggestions a{color:var(--ink) !important;background:transparent !important;}
+[data-theme="dark"] #Complaints311Div .mapboxgl-ctrl-geocoder .suggestions > .active > a,
+[data-theme="dark"] #Complaints311Div .mapboxgl-ctrl-geocoder .suggestions > li > a:hover,
+[data-theme="dark"] .mapboxgl-ctrl-geocoder .suggestions > .active > a,
+[data-theme="dark"] .mapboxgl-ctrl-geocoder .suggestions > li > a:hover{background:var(--accent-tint) !important;}
+
+/* zoom / geolocate button group */
+[data-theme="dark"] #Complaints311Div .mapboxgl-ctrl-group,
+[data-theme="dark"] .mapboxgl-ctrl-group{
+  background:var(--surface2) !important;
+  border:1px solid var(--line2) !important;
+}
+[data-theme="dark"] #Complaints311Div .mapboxgl-ctrl-group button,
+[data-theme="dark"] .mapboxgl-ctrl-group button{background:var(--surface2) !important;}
+[data-theme="dark"] #Complaints311Div .mapboxgl-ctrl-group button + button,
+[data-theme="dark"] .mapboxgl-ctrl-group button + button{border-top:1px solid var(--line2) !important;}
+[data-theme="dark"] #Complaints311Div .mapboxgl-ctrl-group button:hover,
+[data-theme="dark"] .mapboxgl-ctrl-group button:hover{background:var(--surface) !important;}
+/* control glyphs are dark monochrome SVGs — invert so they read on the dark buttons
+   (geolocate is excluded — it uses its own themed glyph below) */
+[data-theme="dark"] #Complaints311Div .mapboxgl-ctrl button:not(.mapboxgl-ctrl-geolocate) .mapboxgl-ctrl-icon,
+[data-theme="dark"] .mapboxgl-ctrl button:not(.mapboxgl-ctrl-geolocate) .mapboxgl-ctrl-icon{filter:invert(1) brightness(1.5) !important;}
+
+/* attribution bar */
+[data-theme="dark"] #Complaints311Div .mapboxgl-ctrl-attrib,
+[data-theme="dark"] .mapboxgl-ctrl-attrib{background:rgba(13,32,50,.82) !important;}
+[data-theme="dark"] #Complaints311Div .mapboxgl-ctrl-attrib a,
+[data-theme="dark"] #Complaints311Div .mapboxgl-ctrl-attrib,
+[data-theme="dark"] .mapboxgl-ctrl-attrib a,
+[data-theme="dark"] .mapboxgl-ctrl-attrib{color:var(--ink2) !important;}
+[data-theme="dark"] #Complaints311Div .mapboxgl-ctrl-attrib-button,
+[data-theme="dark"] .mapboxgl-ctrl-attrib-button{filter:invert(1) brightness(1.4) !important;}
+
+/* ---- geolocate ("find my location") control: guarantee a visible icon in BOTH
+   themes. The default glyph can render faint, and our generic dark-mode icon
+   invert can leave a light glyph on a light button (invisible). Override with an
+   explicit high-contrast target glyph, recoloured per theme, and pin the button
+   surface so it always reads. ---- */
+#Complaints311Div .mapboxgl-ctrl-group .mapboxgl-ctrl-geolocate,
+#Complaints311Div .mapboxgl-ctrl-geolocate,
+.mapboxgl-ctrl-geolocate{background:#fff !important;}
+[data-theme="dark"] #Complaints311Div .mapboxgl-ctrl-group .mapboxgl-ctrl-geolocate,
+[data-theme="dark"] #Complaints311Div .mapboxgl-ctrl-geolocate,
+[data-theme="dark"] .mapboxgl-ctrl-geolocate{background:var(--surface2) !important;}
+#Complaints311Div .mapboxgl-ctrl-geolocate .mapboxgl-ctrl-icon,
+.mapboxgl-ctrl-geolocate .mapboxgl-ctrl-icon{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2313212D' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='12' cy='12' r='6'/%3E%3Cline x1='12' y1='2' x2='12' y2='5'/%3E%3Cline x1='12' y1='19' x2='12' y2='22'/%3E%3Cline x1='2' y1='12' x2='5' y2='12'/%3E%3Cline x1='19' y1='12' x2='22' y2='12'/%3E%3Ccircle cx='12' cy='12' r='2' fill='%2313212D' stroke='none'/%3E%3C/svg%3E") !important;
+  background-position:center !important;
+  background-repeat:no-repeat !important;
+  background-size:20px 20px !important;
+  filter:none !important;
+  opacity:1 !important;
+}
+[data-theme="dark"] #Complaints311Div .mapboxgl-ctrl-geolocate .mapboxgl-ctrl-icon,
+[data-theme="dark"] .mapboxgl-ctrl-geolocate .mapboxgl-ctrl-icon{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23E9F0F6' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='12' cy='12' r='6'/%3E%3Cline x1='12' y1='2' x2='12' y2='5'/%3E%3Cline x1='12' y1='19' x2='12' y2='22'/%3E%3Cline x1='2' y1='12' x2='5' y2='12'/%3E%3Cline x1='19' y1='12' x2='22' y2='12'/%3E%3Ccircle cx='12' cy='12' r='2' fill='%23E9F0F6' stroke='none'/%3E%3C/svg%3E") !important;
+  filter:none !important;
+}
+
+/* The generic 311 pill-button styling (padding:9px 22px, 100px radius, border) was
+   being applied to Mapbox's icon-only control buttons, squishing the icon to 0px
+   wide. Strip that back off and restore Mapbox's compact square buttons so the
+   geolocate/zoom glyphs have room to paint. */
+#Complaints311Div .mapboxgl-ctrl button,
+.mapboxgl-ctrl button{
+  padding:0 !important;
+  border:0 !important;
+  min-height:0 !important;
+  box-shadow:none !important;
+  font-weight:400 !important;
+}
+#Complaints311Div .mapboxgl-ctrl-group button,
+.mapboxgl-ctrl-group button{
+  width:29px !important;
+  height:29px !important;
+  border-radius:4px !important;
+  box-sizing:border-box !important;
+}
+
+/* Book-a-demo request body: start tall (~8 lines) so there's room to write. */
+#Complaints311Div textarea{
+  min-height:180px !important;
+  line-height:1.5 !important;
+}
+</style>
+</head>
+<body>
+<div class="ios-statusbar-tint" aria-hidden="true"></div>
+<div id="Complaints311Div"></div>
+<script type="text/javascript" src="https://portal.ws.townsuite.com/assets/typescript/complaintsportal/311Complaints.js"></script>
+<script type="text/javascript">
+window.onload = function(){
+Townsuite.Complaint311.EmbedInit(true, "https://portal.ws.townsuite.com", "Complaints311Div", true);
+};
+</script>
+<script>
+/* theme: read ?theme= on load, accept live updates from the parent page */
+(function(){
+  try{
+    var m = location.search.match(/[?&]theme=(dark|light)/);
+    if (m) document.documentElement.setAttribute("data-theme", m[1]);
+  }catch(e){}
+  window.addEventListener("message", function(e){
+    if (e.origin !== window.location.origin) return;   // only trust the host page
+    if (e.data && e.data.tsTheme) document.documentElement.setAttribute("data-theme", e.data.tsTheme);
+  });
+})();
+/* report content height to the parent page so the modal frame sizes itself.
+   Measure the widget div itself — NOT documentElement.scrollHeight, which includes
+   the iframe viewport and creates a grow-forever feedback loop. */
+(function(){
+  var last = 0;
+  function measure(){
+    var d = document.getElementById("Complaints311Div");
+    if (!d) return 0;
+    var r = d.getBoundingClientRect();
+    return Math.ceil(r.top + r.height) + 16;
+  }
+  function report(){
+    var h = measure();
+    if (h > 0 && Math.abs(h - last) > 8) {
+      last = h;
+      if (window.parent !== window) window.parent.postMessage({ ts311Height: h }, window.location.origin);
+    }
+  }
+  setInterval(report, 350);
+  window.addEventListener("load", report);
+})();
+/* Clear button: the live widget's clearIssue() reloads the iframe — but the URL hash
+   still points at the open category, so it just reopens the same form (the window stays
+   open). In this modal embed, Clear should discard the entry and CLOSE the modal. Override
+   clearIssue to wipe the widget's saved state and tell the parent page to close. */
+(function(){
+  function patch(){
+    if (window.Townsuite && Townsuite.Complaint311 && Townsuite.Complaint311.clearIssue) {
+      Townsuite.Complaint311.clearIssue = function(){
+        try{
+          Object.keys(localStorage).forEach(function(k){
+            if(/^(mainForm-|subForm-|signatures-|subsignatures-|subformTagList-|location-|mainFormStoreTime)/.test(k)) localStorage.removeItem(k);
+          });
+        }catch(e){}
+        if (window.parent !== window) window.parent.postMessage({ ts311Close: true }, window.location.origin);
+      };
+      return true;
+    }
+    return false;
+  }
+  if(!patch()){ var n=0, t=setInterval(function(){ if(patch()||++n>100) clearInterval(t); },100); }
+})();
+</script>
+<script>
+/* Receive a chat summary from the host page (Ask TownSuite "Book a demo") and drop it
+   into the 311 request body. The description field only exists after a category is
+   chosen, so buffer the text and fill the field the moment it appears (then stop). */
+(function(){
+  var details = null, filled = false, products = null, obs = null;
+  var ticked = (typeof WeakSet !== "undefined") ? new WeakSet() : null;
+  window.addEventListener("message", function(e){
+    if (e.origin !== window.location.origin) return;   // only trust the host page
+    if (!e.data) return;
+    var changed = false;
+    if (typeof e.data.ts311Details === "string" && e.data.ts311Details) { details = e.data.ts311Details; changed = true; }
+    if (Array.isArray(e.data.ts311Products) && e.data.ts311Products.length) { products = e.data.ts311Products; changed = true; }
+    if (!changed) return;
+    run();
+    if (!obs) { obs = new MutationObserver(run); obs.observe(document.documentElement, {childList:true, subtree:true}); setTimeout(stop, 120000); }
+  });
+  function stop(){ if(obs){ obs.disconnect(); obs = null; } }
+  function run(){ tryFill(); tryTick(); if (filled && !products) stop(); }
+  function norm(s){ return (s||"").replace(/\s+/g," ").trim().toLowerCase(); }
+
+  /* ---- description body ---- */
+  function pick(){
+    var tas = Array.prototype.slice.call(document.querySelectorAll("#Complaints311Div textarea"));
+    var open = tas.filter(function(t){ return t.offsetParent !== null && !t.value && !t.readOnly && !t.disabled; });
+    var named = open.filter(function(t){ return /desc|detail|comment|message|issue|note|concern|explain/i.test((t.name||"")+" "+(t.id||"")+" "+(t.placeholder||"")); });
+    return named[0] || open[0] || null;
+  }
+  function tryFill(){
+    if (filled || !details) return;
+    var ta = pick();
+    if (!ta) return;
+    ta.value = details;
+    ta.dispatchEvent(new Event("input", {bubbles:true}));
+    ta.dispatchEvent(new Event("change", {bubbles:true}));
+    filled = true;
+  }
+
+  /* ---- pre-tick the "products interested in" checkboxes that match the chat ---- */
+  function labelFor(cb){
+    var lab = cb.closest("label");
+    if (lab) { var lt = norm(lab.textContent); if (lt && lt.length <= 50) return lt; }
+    if (cb.id) { var l = document.querySelector('label[for="' + cb.id + '"]'); if (l) { var lf = norm(l.textContent); if (lf && lf.length <= 50) return lf; } }
+    var el = cb.parentElement, hops = 0;          /* nearest short-text ancestor = the item label */
+    while (el && hops < 4) { var tx = norm(el.textContent); if (tx && tx.length <= 50) return tx; el = el.parentElement; hops++; }
+    return "";
+  }
+  function tryTick(){
+    if (!products || !products.length) return;
+    var boxes = document.querySelectorAll('#Complaints311Div input[type="checkbox"]');
+    for (var i = 0; i < boxes.length; i++){
+      var cb = boxes[i];
+      if (cb.checked || (ticked && ticked.has(cb))) continue;
+      var t = labelFor(cb);
+      if (!t) continue;
+      for (var j = 0; j < products.length; j++){
+        var want = norm(products[j]);
+        if (t === want || t.indexOf(want) !== -1) {
+          try { cb.click(); } catch (e) {}
+          if (!cb.checked) { cb.checked = true; cb.dispatchEvent(new Event("change", {bubbles:true})); }
+          if (ticked) ticked.add(cb);
+          break;
+        }
+      }
+    }
+  }
+})();
+</script>
+</body>
+</html>

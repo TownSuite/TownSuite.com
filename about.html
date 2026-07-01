@@ -1,214 +1,873 @@
 <!DOCTYPE html>
-<html lang="en_CA" xmlns:fb="https://ogp.me/ns/fb#" xml:lang="en_CA" class="grid-990" xmlns="https://www.w3.org/1999/xhtml">
-
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
-    <link id="linkFavicon" rel="shortcut icon" href="/assets/emblem.png" type="image/x-icon" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <link href="/assets/css/base.css" type="text/css" crossorigin="anonymous" rel="stylesheet" />
-    <meta name="keywords" content="About TownSuite, TownSuite, Municipal, Local goverment, Software, GIS, Accounting, Financial, Asset Management, HRIS, HRM, Event and Facility Management, Mapping, Public Works, Planning, Billing, Accounts Payable, General Ledger, Atlantic Canada, Andrew Whey, Newfoundland, Government, Municipality"
-    />
-    <meta name="description" content="TownSuite Municipal Software focuses on creating living municipal software that covers a broad array of offerings for any size municipality." />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>About TownSuite — TownSuite mERP®</title>
+<link rel="canonical" href="https://townsuite.com/about.html" />
+<meta name="description" content="TownSuite is 100% Canadian-owned — building one connected platform exclusively for Canadian municipalities since 1987." />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_CA" />
+<meta property="og:site_name" content="TownSuite mERP®" />
+<meta property="og:title" content="About TownSuite — TownSuite mERP®" />
+<meta property="og:description" content="TownSuite is 100% Canadian-owned — building one connected platform exclusively for Canadian municipalities since 1987." />
+<meta property="og:url" content="https://townsuite.com/about.html" />
+<meta property="og:image" content="https://townsuite.com/og-townsuite-merp.png" />
+<meta property="og:image:width" content="2400" />
+<meta property="og:image:height" content="1260" />
+<meta property="og:image:alt" content="TownSuite mERP® — Canada's Operationally Sovereign Cloud for Municipalities" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="About TownSuite — TownSuite mERP®" />
+<meta name="twitter:description" content="TownSuite is 100% Canadian-owned — building one connected platform exclusively for Canadian municipalities since 1987." />
+<meta name="twitter:image" content="https://townsuite.com/og-townsuite-merp.png" />
+<link rel="icon" type="image/svg+xml" href="/emblem.svg" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<!-- Fonts self-hosted via styles.css (@font-face Dax) — no external font calls -->
+<link rel="stylesheet" href="styles.css" />
+<meta name="theme-color" content="#003C63" />
+<script>
+/* apply saved theme before first paint — shared key with the main site */
+try{
+  var _p = localStorage.getItem("ts-theme") || "auto";
+  var _r = _p === "auto" ? (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : _p;
+  document.documentElement.setAttribute("data-theme", _r);
+}catch(e){}
+</script>
+<style>
+/* ============ document page (standalone — not the marketing layout) ============ */
+.pp-top{
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;gap:18px;
+  padding:14px clamp(20px,4vw,44px);
+  background:var(--bg);
+  border-bottom:1px solid var(--line);
+}
+.pp-top__logo{display:flex;align-items:center;text-decoration:none;color:var(--ink);}
+.pp-top__logo .ts-logo{height:30px;width:auto;}
+.pp-top__sp{flex:1;}
+.pp-back{
+  display:inline-flex;align-items:center;gap:8px;
+  text-decoration:none;font-weight:700;font-size:14.5px;color:var(--ink2);
+  min-height:44px;padding:0 16px;border:1.5px solid var(--line2);border-radius:100px;
+  transition:color .18s,border-color .18s;
+}
+.pp-back:hover{color:var(--accent);border-color:var(--accent);}
+.pp-back .arr{font-size:16px;line-height:1;}
+.pp-back svg{width:16px;height:16px;flex:none;}
 
-    <!-- Open Graph data -->
-    <meta content="About TownSuite - TownSuite Municipal Software" property="og:title" />
-    <meta content="website" property="og:type" />
-    <meta content="https://townsuite.com/about" property="og:url" />
-    <meta content="https://townsuite.com/assets/emblem.png" property="og:image" />
-    <meta content="TownSuite Municipal Software focuses on creating living municipal software that covers a broad array of offerings for any size municipality." property="og:description" />
+/* ---- hero ---- */
+.ab-hero{padding:clamp(48px,7vw,92px) 0 clamp(8px,2vw,18px);}
+.ab-kicker{margin:0;font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);}
+.ab-h1{margin:16px 0 0;font-weight:900;font-size:clamp(38px,5.6vw,62px);line-height:1.02;letter-spacing:-.022em;text-wrap:balance;max-width:18ch;}
+.ab-lede{margin:22px 0 0;font-size:clamp(17px,1.5vw,20px);line-height:1.6;color:var(--ink2);max-width:62ch;text-wrap:pretty;}
+.ab-pill-row{margin-top:26px;}
 
-    <title>About TownSuite - TownSuite Municipal Software</title>
+/* ---- stat band ---- */
+.ab-stats{
+  margin-top:clamp(40px,5vw,60px);
+  display:grid;grid-template-columns:repeat(5,1fr);gap:1.5px;
+  background:var(--line);border:1.5px solid var(--line);border-radius:18px;overflow:hidden;
+}
+.ab-stat{background:var(--surface);padding:26px 22px;display:flex;flex-direction:column;gap:7px;}
+.ab-stat__big{font-weight:900;font-size:clamp(26px,2.8vw,38px);letter-spacing:-.02em;color:var(--ink);line-height:1;}
+.ab-stat__big .u{font-size:.5em;font-weight:800;color:var(--ink3);margin-left:3px;}
+.ab-stat__lbl{font-size:13.5px;line-height:1.45;color:var(--ink2);text-wrap:pretty;}
+
+/* ---- section scaffold ---- */
+.ab-sec{padding:clamp(54px,7vw,96px) 0;}
+.ab-sec--wash{background:var(--bg2);}
+.ab-eyebrow{margin:0;font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);}
+.ab-h2{margin:14px 0 0;font-weight:800;font-size:clamp(26px,3.1vw,40px);line-height:1.1;letter-spacing:-.015em;text-wrap:balance;max-width:22ch;}
+.ab-prose{margin-top:24px;max-width:64ch;font-size:16.5px;line-height:1.72;color:var(--ink2);}
+.ab-prose p{margin:0 0 18px;text-wrap:pretty;}
+.ab-prose p:last-child{margin-bottom:0;}
+.ab-prose strong,.ab-prose b{color:var(--ink);font-weight:700;}
+/* team photo */
+.ab-photo{margin-top:clamp(34px,4.2vw,50px);border:1.5px solid var(--line);border-radius:18px;overflow:hidden;background:var(--surface2);}
+.ab-photo img{display:block;width:100%;height:auto;}
+.ab-photo figcaption{padding:13px 18px;font-size:13px;line-height:1.5;color:var(--ink3);border-top:1.5px solid var(--line);}
+.ab-photo figcaption b{color:var(--ink2);font-weight:700;}
+.ab-photo figcaption a{color:var(--accent);font-weight:700;text-decoration:none;}
+.ab-photo figcaption a:hover{text-decoration:underline;}
+/* interactive timeline */
+.ab-tl__header{margin-top:clamp(48px,6vw,76px);scroll-margin-top:96px;}
+.ab-tl__header .ab-eyebrow{margin-bottom:0;}
+.ab-tl__header .ab-h2{max-width:none;}
+.ab-tl__hint{margin:18px 0 0;font-size:13px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--ink3);display:flex;align-items:center;gap:9px;}
+.ab-tl__hint::before{content:"";width:18px;height:2px;background:var(--accent);}
+.ab-tl{margin-top:16px;scroll-margin-top:96px;}
+.ab-tl__stage{position:relative;border:1.5px solid var(--line);border-radius:18px;background:var(--surface);overflow:hidden;min-height:240px;touch-action:pan-y;}
+.ab-tl__card{display:none;padding:clamp(26px,3.4vw,42px);}
+.ab-tl__card.is-active{display:block;animation:abtlfade .4s ease;}
+@keyframes abtlfade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+.ab-tl__cardyr{display:inline-block;font-weight:900;font-size:clamp(42px,6.2vw,72px);line-height:.86;letter-spacing:-.025em;color:var(--accent);}
+.ab-tl__cardt{margin:14px 0 0;font-weight:800;font-size:clamp(20px,2.3vw,27px);color:var(--ink);letter-spacing:-.01em;text-wrap:balance;}
+.ab-tl__list{margin:18px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px;max-width:none;}
+.ab-tl__list li{position:relative;padding-left:24px;font-size:16px;line-height:1.55;color:var(--ink2);text-wrap:pretty;}
+.ab-tl__list li::before{content:"";position:absolute;left:1px;top:7px;width:9px;height:9px;background:var(--accent);transform:rotate(45deg);border-radius:2px;}
+.ab-tl__list b{color:var(--ink);font-weight:700;}
+.ab-tl__railwrap{display:flex;align-items:center;gap:10px;margin-top:18px;}
+.ab-tl__arrow{flex:none;width:42px;height:42px;border-radius:50%;border:1.5px solid var(--line2);background:var(--surface);color:var(--ink);font-size:20px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .18s,color .18s,opacity .18s;}
+.ab-tl__arrow:hover{border-color:var(--accent);color:var(--accent);}
+.ab-tl__arrow:disabled{opacity:.32;cursor:default;}
+.ab-tl__rail{position:relative;flex:1;min-width:0;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;padding:20px 4px 6px;}
+.ab-tl__rail::-webkit-scrollbar{display:none;}
+.ab-tl__track{position:relative;display:flex;align-items:flex-start;min-width:max-content;}
+.ab-tl__line{position:absolute;left:0;right:0;top:7px;height:2px;background:var(--line);}
+.ab-tl__fill{position:absolute;left:0;top:7px;height:2px;width:0;background:var(--accent);transition:width .35s ease;}
+.ab-tl__node{position:relative;flex:none;width:84px;display:flex;flex-direction:column;align-items:center;gap:11px;background:none;border:none;cursor:pointer;padding:0;color:var(--ink3);font-weight:700;font-size:13.5px;transition:color .18s;}
+.ab-tl__node .dot{width:14px;height:14px;border-radius:50%;background:var(--surface);border:2px solid var(--line2);transition:transform .18s,border-color .18s,background .18s,box-shadow .18s;}
+.ab-tl__node:hover{color:var(--ink);}
+.ab-tl__node:hover .dot{border-color:var(--accent);}
+.ab-tl__node.is-active{color:var(--accent);font-weight:900;}
+.ab-tl__node.is-active .dot{background:var(--accent);border-color:var(--accent);transform:scale(1.25);box-shadow:0 0 0 5px var(--accent-tint);}
+.ab-tl__list li.geo::before{display:none;}
+.ab-tl__list li.geo{padding-left:26px;}
+.ab-tl__list li.geo .ab-geoleaf{position:absolute;left:0;top:3px;width:15px;height:15px;color:var(--ts-red);fill:var(--ts-red);}
+@media (max-width:560px){.ab-tl__node{width:72px;font-size:12.5px;}.ab-tl__arrow{width:38px;height:38px;}}
+
+/* ---- value cards ---- */
+.ab-cards{margin-top:clamp(32px,4vw,48px);display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+.ab-card{border:1.5px solid var(--line);border-radius:18px;background:var(--surface);padding:26px 26px 28px;}
+.ab-card__ic{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:var(--accent-tint);color:var(--accent);margin-bottom:16px;}
+.ab-card__ic svg{width:23px;height:23px;}
+.ab-card__t{margin:0 0 8px;font-weight:800;font-size:19px;color:var(--ink);letter-spacing:-.01em;}
+.ab-card__d{margin:0;font-size:15.5px;line-height:1.6;color:var(--ink2);text-wrap:pretty;}
+.ab-card__d b{color:var(--ink);}
+.ab-merp{margin-top:20px;max-width:62ch;font-size:14.5px;line-height:1.6;color:var(--ink2);border-left:3px solid var(--accent);padding:3px 0 3px 16px;}
+.ab-merp b{color:var(--ink);font-weight:800;}
+.rtm{font-size:0.58em;vertical-align:0.42em;line-height:1;margin-left:0.03em;font-weight:400;}
+.ab-plat{margin-top:clamp(30px,3.6vw,44px);border-top:1.5px solid var(--line);padding-top:clamp(26px,3vw,36px);}
+.ab-plat__h{margin:0 0 20px;font-weight:800;font-size:clamp(18px,2vw,22px);color:var(--ink);letter-spacing:-.01em;}
+.ab-plat__row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.ab-plat__item{display:flex;gap:14px;align-items:flex-start;}
+.ab-plat__ic{flex:none;width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:var(--accent-tint);color:var(--accent);}
+.ab-plat__ic svg{width:22px;height:22px;}
+.ab-plat__t{font-weight:800;font-size:16px;color:var(--ink);}
+.ab-plat__d{margin-top:3px;font-size:13.5px;line-height:1.5;color:var(--ink2);text-wrap:pretty;}
+.ab-dogfood{margin-top:clamp(26px,3.2vw,38px);display:flex;gap:16px;align-items:flex-start;border:1.5px solid color-mix(in srgb,var(--accent) 30%,transparent);background:var(--accent-tint);border-radius:16px;padding:22px 24px;}
+.ab-dogfood__ic{flex:none;width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:var(--accent);color:#fff;}
+.ab-dogfood__ic svg{width:22px;height:22px;}
+.ab-dogfood__t{margin:0;font-size:16px;line-height:1.55;color:var(--ink);text-wrap:pretty;}
+.ab-dogfood__t b{font-weight:800;}
+.ab-foot__bil{margin-top:20px;font-size:15px;line-height:1.6;color:var(--ink2);max-width:60ch;}
+.ab-foot__bil b{color:var(--ink);font-weight:700;}
+@media (max-width:760px){.ab-plat__row{grid-template-columns:1fr;}}
+
+/* ---- recognition / trust ---- */
+.ab-trust{margin-top:clamp(28px,3.5vw,40px);border:1.5px solid var(--line);border-radius:18px;background:var(--surface);padding:clamp(24px,3vw,34px);}
+.ab-gartner{display:flex;align-items:flex-start;gap:16px;padding-bottom:22px;border-bottom:1.5px solid var(--line);}
+.ab-gartner__badge{flex:none;font-weight:900;font-size:15px;color:var(--ink);border:1.5px solid var(--line2);border-radius:10px;padding:9px 13px;letter-spacing:-.01em;}
+.ab-gartner__txt{font-size:15.5px;line-height:1.55;color:var(--ink2);}
+.ab-gartner__txt b{color:var(--ink);}
+.ab-certlabel{margin-top:22px;font-size:12.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--ink3);}
+.ab-certlabel b{color:var(--ink2);}
+.ab-certs{margin-top:14px;display:grid;grid-template-columns:repeat(5,1fr);gap:14px;}
+.ab-cert{display:flex;flex-direction:column;gap:4px;}
+.ab-cert b{color:var(--ink);font-size:14.5px;}
+.ab-cert span{color:var(--ink3);font-size:12.5px;line-height:1.4;}
+.ab-trust__host{margin-top:22px;display:flex;align-items:center;gap:11px;font-size:14.5px;line-height:1.5;color:var(--ink2);}
+.ab-trust__host b{color:var(--ink);}
+.ab-trust__note{margin:18px 0 0;font-size:12px;line-height:1.5;color:var(--ink3);max-width:80ch;}
+
+/* ---- footprint ---- */
+.ab-foot__lead{margin:20px 0 0;font-size:16.5px;line-height:1.65;color:var(--ink2);max-width:60ch;}
+.ab-provs{margin-top:24px;display:flex;flex-wrap:wrap;gap:11px;}
+.ab-prov{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:15px;color:var(--ink);background:var(--surface);border:1.5px solid var(--line2);border-radius:100px;padding:10px 18px;}
+.ab-prov--new{border-style:dashed;border-color:color-mix(in srgb,var(--accent) 55%,transparent);}
+.ab-prov__tag{font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--accent);background:var(--accent-tint);border-radius:100px;padding:3px 9px;}
+.ab-prov svg{width:15px;height:15px;}
+.ab-refs{margin-top:26px;display:inline-flex;align-items:center;gap:10px;font-size:14.5px;color:var(--ink2);border-left:3px solid var(--accent);padding:4px 0 4px 16px;}
+.ab-refs b{color:var(--ink);}
+
+/* ---- cta ---- */
+.ab-cta{text-align:center;padding:clamp(56px,7vw,96px) 0;}
+.ab-cta__h{margin:14px auto 0;font-weight:900;font-size:clamp(28px,3.6vw,46px);line-height:1.04;letter-spacing:-.02em;text-wrap:balance;max-width:18ch;}
+.ab-cta__h .ts-accent{color:var(--accent);}
+.ab-cta__p{margin:18px auto 0;max-width:54ch;font-size:17px;line-height:1.6;color:var(--ink2);}
+.ab-btns{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:32px;}
+.ab-btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15.5px;border-radius:100px;padding:14px 26px;text-decoration:none;border:1.5px solid var(--line2);color:var(--ink);transition:border-color .18s,color .18s,filter .18s;}
+.ab-btn:hover{border-color:var(--accent);color:var(--accent);}
+.ab-btn--primary{background:var(--accent);color:#fff;border-color:transparent;}
+.ab-btn--primary:hover{color:#fff;filter:brightness(1.08);}
+/* CTA roof finale (shared with the index) */
+:root{
+  /* spring settle: cubic-bezier fallback, upgraded to a true linear() spring where supported */
+  --leaf-spring: cubic-bezier(.34,1.42,.5,1);
+}
+@supports (animation-timing-function: linear(0,1)){
+  :root{ --leaf-spring: linear(0, 0.012, 0.05, 0.108, 0.182, 0.27, 0.367, 0.469, 0.573, 0.674, 0.768, 0.851, 0.921, 0.976, 1.014, 1.037, 1.046, 1.044, 1.035, 1.022, 1.009, 0.999, 0.993, 0.991, 0.993, 0.997, 1); }
+}
+.x-roof{display:block;overflow:visible;width:clamp(240px,40vw,440px);height:auto;margin:0 auto clamp(20px,3vw,34px);filter:drop-shadow(0 12px 18px rgba(0,0,0,.45));}
+.x-roof__body{transform-box:fill-box;transform-origin:50% 100%;}
+.x-roof--anim .x-roof__body{transform:scaleY(0.001);transition:transform .9s cubic-bezier(.22,1,.36,1) .15s;}
+/* maple finial: composite-only entrance (transform + opacity), GPU-promoted, spring settle */
+.x-roof--anim .x-roof__finial{opacity:0;transform-box:fill-box;transform-origin:50% 0%;transform:translate3d(0,-150px,0) rotate(-9deg) scale(.78);filter:drop-shadow(0 3px 9px rgba(214,40,40,.3));}
+.x-roof--anim.is-built .x-roof__body{transform:none;}
+.x-roof--anim.is-built .x-roof__finial{animation:leafFall 2s var(--leaf-spring) 1.5s both, leafFade .6s ease-out 1.5s both;}
+@keyframes leafFall{from{transform:translate3d(0,-150px,0) rotate(-9deg) scale(.78);}to{transform:translate3d(0,0,0) rotate(0deg) scale(1);}}
+@keyframes leafFade{from{opacity:0;}to{opacity:1;}}
+
+@media (max-width:900px){
+  .ab-stats{grid-template-columns:repeat(2,1fr);}
+  .ab-certs{grid-template-columns:repeat(2,1fr);}
+  .ab-cards{grid-template-columns:1fr;}
+}
+@media (max-width:560px){
+  .pp-back .lbl-long,.pp-back .dom{display:none;}
+  .ts-themer,.pp-signin,.pp-back{flex:none;}
+  .pp-signin .lbl{display:none;}
+  .pp-signin,.pp-back{width:46px;height:46px;padding:0;justify-content:center;border-radius:13px;}
+  .pp-top{gap:10px;}
+  .ab-stats{grid-template-columns:1fr;}
+  .ab-gartner{flex-direction:column;gap:12px;}
+}
+@media print{
+  .pp-top,.ts-footer,.ts-themer{display:none !important;}
+  body{background:#fff;color:#000;}
+  .ab-card,.ab-trust,.ab-stats{break-inside:avoid;}
+}
+
+@media (prefers-reduced-motion: no-preference){
+  .ts-dots i{animation:tsblink 1.4s infinite;}
+  .ts-dots i:nth-child(2){animation-delay:.18s;}
+  .ts-dots i:nth-child(3){animation-delay:.36s;}
+}
+@keyframes tsblink{0%,70%,100%{opacity:.25;transform:translateY(0) rotate(45deg);}35%{opacity:1;transform:translateY(-3px) rotate(45deg);}}
+
+/* demo modal */
+.d311[hidden]{display:none;}
+.d311{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;}
+.d311__scrim{position:absolute;inset:0;background:rgba(7,20,32,.6);}
+.d311__panel{position:relative;width:min(760px,calc(100vw - 32px));max-height:calc(100vh - 60px);background:var(--surface);border:1.5px solid var(--line);border-radius:18px;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 30px 80px -20px rgba(0,0,0,.5);}
+.d311__bar{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--line);font-weight:800;color:var(--ink);}
+.d311__x{background:none;border:none;font-size:18px;cursor:pointer;color:var(--ink2);line-height:1;}
+.d311__frame{border:0;width:100%;flex:1;min-height:440px;background:var(--surface);}
+</style>
+<!-- ts-seo-jsonld -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://townsuite.com/#organization","name":"TownSuite Municipal Software","alternateName":"TownSuite","url":"https://townsuite.com/","logo":"https://townsuite.com/og-townsuite-merp.png","foundingDate":"1987","address":{"@type":"PostalAddress","addressLocality":"Gander","addressRegion":"NL","addressCountry":"CA"},"areaServed":{"@type":"Country","name":"Canada"},"telephone":"+1.800.408.3313","contactPoint":{"@type":"ContactPoint","telephone":"+1.800.408.3313","contactType":"sales","areaServed":"CA","availableLanguage":["en","fr"]},"description":"100% Canadian-owned municipal ERP (mERP) — one connected platform for every municipal workflow, built, supported and hosted under Canadian jurisdiction since 1987."}</script>
 </head>
+<body data-screen-label="About">
+<div class="ios-statusbar-tint" aria-hidden="true"></div>
+<a class="ts-skip" href="#about">Skip to content</a>
 
-<body class="en_CA  townsuite-2017 townsuite-2017--responsive townsuite-logo-2017  " dir="ltr">
-    <header class="mast-head">
-        <div class="mast-head__container container">
-            <nav class="mast-head__nav mast-head-nav">
-                <ul class="nav-list">
-                    <li class="nav-list__item nav-list__item--ts"><a href="/try" id="try-ts" class="button-tertiary try-ts">Try TownSuite</a>
-                    </li>
-                </ul>
-                <ul class="nav-list">
-                    <li class="nav-list__item nav-list__item--download"><a href="/apps" class="button-link">View our apps</a>
-                    </li>
-                    <li class="nav-list__item nav-list__item--sign-in"><a href="https://portal.ws.townsuite.com" id="sign-in" class="sign-in button-link">Sign in</a>
-                    </li>
-                </ul>
-            </nav>
-            <h1 id="townsuite-logo" class="townsuite-logo"><a href="/"><img src="/assets/logo.svg" alt="" src="/" href="/" class="townsuite-logo__type" /></a>TownSuite</h1>
-        </div>
-    </header>
+<svg style="display:none" aria-hidden="true">
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.4" fill="none" stroke="currentColor" stroke-width="2"></circle><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5 5l1.7 1.7M17.3 17.3L19 19M19 5l-1.7 1.7M6.7 17.3L5 19"></path></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M20 13.6A8.3 8.3 0 0 1 10.4 4a8.3 8.3 0 1 0 9.6 9.6z"></path></symbol>
+  <symbol id="i-login" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14 3.5h4A1.5 1.5 0 0 1 19.5 5v14A1.5 1.5 0 0 1 18 20.5h-4M10 7.5l4.5 4.5L10 16.5M14 12H3.5"></path></symbol>
+  <symbol id="i-maple" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0.5L14 4L16 3L15 8L15.5 9.5L18 7L19 8.5L22 8L21 11L22.5 12L17 16.5L17.5 18.5L12.5 17.6L12.5 23L11.5 23L11.5 17.6L6.5 18.5L7 16.5L1.5 12L3 11L2 8L5 8.5L6 7L8.5 9.5L9 8L8 3L10 4Z"></path></symbol>
+  <symbol id="i-bank" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M3.5 9.5L12 4l8.5 5.5h-17zM5.5 9.5V18M10 9.5V18M14 9.5V18M18.5 9.5V18M3.5 18h17v2.5h-17z"></path></symbol>
+  <symbol id="i-wrench" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M20.2 6.4a5 5 0 0 1-6.6 6.2L7 19.2a2.1 2.1 0 0 1-3-3l6.6-6.6a5 5 0 0 1 6.2-6.6l-3 3 .5 2.7 2.7.5z"></path></symbol>
+  <symbol id="i-people" viewBox="0 0 24 24"><circle cx="9" cy="8.5" r="3.4" fill="none" stroke="currentColor" stroke-width="2"></circle><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M3 19.5c.8-3 3.2-4.7 6-4.7s5.2 1.7 6 4.7M15.5 5.6a3.4 3.4 0 0 1 0 5.8M18 14.9c1.6.7 2.6 2.1 3 4.1"></path></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l2.1 6.3L20.5 10l-6.4 1.7L12 18l-2.1-6.3L3.5 10l6.4-1.7zM19 16l1 2.7 2.7 1-2.7 1L19 23.5l-1-2.8-2.7-1 2.7-1z"></path></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 2.8l7.5 2.8v6.2c0 4.6-3.2 7.6-7.5 9.4-4.3-1.8-7.5-4.8-7.5-9.4V5.6z"></path><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8.6 11.8l2.3 2.3 4.5-4.5"></path></symbol>
+  <symbol id="i-map" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M9 4L3.5 6v14L9 18l6 2 5.5-2V4L15 6 9 4zM9 4v14M15 6v14"></path></symbol>
+</svg>
 
+<header class="pp-top">
+  <a class="pp-top__logo" href="index.html"><svg class="ts-logo" viewBox="151 154 889 181" role="img" aria-label="TownSuite mERP"><rect x="-16.975" y="-16.975" width="33.95" height="33.95" fill="#D8E0ED" transform="translate(220.79,191.54) rotate(65) scale(1.38)"></rect><rect x="-16.975" y="-16.975" width="33.95" height="33.95" fill="#6B95BE" transform="translate(188.71,273.70) rotate(65) scale(1.38)"></rect><rect x="-17" y="-17" width="34" height="34" fill="#00578E" transform="translate(244.20,246.20) rotate(65) scale(1.38)"></rect><rect x="-8.825" y="-8.825" width="17.65" height="17.65" fill="#E48D1A" transform="translate(297.55,291.42) rotate(65) scale(1.38)"></rect><rect x="-4.555" y="-4.555" width="9.11" height="9.11" fill="#2DA343" transform="translate(322.72,273.11) rotate(65) scale(1.38)"></rect><rect x="-4.64" y="-4.64" width="9.28" height="9.28" fill="#E03A3E" transform="translate(305.69,320.65) rotate(65) scale(1.38)"></rect><path fill="currentColor" d="M401.02 212.45L401.02 218.40L387.86 218.40L387.86 278.50L379.03 278.50L379.03 218.40L365.88 218.40L365.88 212.45L401.02 212.45ZM443.39 252.68L443.39 252.68Q443.39 264.68 438.35 272.07Q433.31 279.46 423.23 279.46Q413.15 279.46 408.06 272.07Q402.97 264.68 402.97 252.68L402.97 252.68Q402.97 240.48 408.06 233.14Q413.15 225.80 423.13 225.80L423.13 225.80Q433.31 225.80 438.35 233.09Q443.39 240.39 443.39 252.68ZM434.94 252.68L434.94 252.68Q434.94 231.17 423.23 231.17L423.23 231.17Q411.42 231.17 411.42 252.68L411.42 252.68Q411.42 273.60 423.23 273.60L423.23 273.60Q434.94 273.60 434.94 252.68ZM508.90 226.76L516.58 226.76L501.79 278.50L494.50 278.50L484.03 241.54Q483.17 238.37 482.98 235.49L482.98 235.49L482.88 235.49Q482.59 238.37 481.63 241.54L481.63 241.54L470.98 278.50L463.68 278.50L448.99 226.76L457.63 226.76L466.66 263.91L467.71 270.05L467.90 270.05Q468.19 267.46 469.15 263.91L469.15 263.91L479.62 226.76L486.91 226.76L497.09 263.91Q498.24 270.05 498.24 270.05L498.24 270.05L498.43 270.05Q498.72 266.88 499.49 263.81L499.49 263.81L508.90 226.76ZM562.50 241.16L562.50 278.50L554.05 278.50L554.05 241.35Q554.05 231.27 543.20 231.27L543.20 231.27Q537.64 231.27 533.41 233.09L533.41 233.09L533.41 278.50L524.96 278.50L524.96 229.44Q532.55 225.80 543.88 225.80L543.88 225.80Q553.76 225.80 558.13 230.26Q562.50 234.72 562.50 241.16L562.50 241.16ZM607.27 259.88L607.27 259.88Q607.27 268.52 601.66 273.99Q596.04 279.46 587.30 279.46L587.30 279.46Q577.61 279.46 571.94 275.81L571.94 275.81L574.25 269.67Q579.24 272.74 585.77 272.74L585.77 272.74Q591.43 272.74 594.79 269.38Q598.15 266.02 598.15 260.36L598.15 260.36Q598.15 255.94 595.51 253.06Q592.87 250.18 586.63 247.68L586.63 247.68Q572.62 242.12 572.62 230.02L572.62 230.02Q572.62 222.24 577.75 216.87Q582.89 211.49 591.24 211.49L591.24 211.49Q599.69 211.49 604.78 215.04L604.78 215.04L602.66 220.61Q597.77 217.54 592.20 217.54L592.20 217.54Q587.02 217.54 584.14 220.66Q581.26 223.78 581.26 229.16L581.26 229.16Q581.26 233.86 584.09 236.50Q586.92 239.14 592.30 241.25L592.30 241.25Q607.27 247.11 607.27 259.88ZM654.35 226.76L654.35 275.43Q647.15 279.56 636.11 279.56L636.11 279.56Q617.77 279.56 617.77 262.66L617.77 262.66L617.77 226.76L626.22 226.76L626.22 262.95Q626.22 267.75 628.86 270.68Q631.50 273.60 636.59 273.60L636.59 273.60Q642.35 273.60 645.90 271.49L645.90 271.49L645.90 226.76L654.35 226.76ZM674.74 208.85Q676.18 210.24 676.18 212.16Q676.18 214.08 674.74 215.43Q673.30 216.77 671.28 216.77L671.28 216.77Q669.17 216.77 667.73 215.43Q666.29 214.08 666.29 212.16Q666.29 210.24 667.73 208.85Q669.17 207.46 671.28 207.46L671.28 207.46Q673.30 207.46 674.74 208.85ZM675.50 226.76L675.50 278.50L667.06 278.50L667.06 226.76L675.50 226.76ZM708.47 272.84L708.47 278.21Q705.88 278.98 703.86 278.98L703.86 278.98Q697.33 278.98 694.16 275.14Q691.00 271.30 691.00 265.92L691.00 265.92L691.00 232.04L685.04 232.04L685.04 226.76L691.00 226.76L691.00 214.85L699.44 212.26L699.44 226.76L708.47 226.76L708.47 232.04L699.44 232.04L699.44 265.73Q699.44 269.09 701.03 271.16Q702.61 273.22 705.97 273.22L705.97 273.22Q706.74 273.22 708.47 272.84L708.47 272.84ZM754.97 251.14L754.97 251.14L722.42 255.84Q723.86 273.32 738.17 273.32L738.17 273.32Q745.75 273.32 750.94 270.34L750.94 270.34L753.14 275.91Q747.29 279.46 737.50 279.46L737.50 279.46Q726.94 279.46 720.70 272.64Q714.46 265.83 714.46 252.48L714.46 252.48Q714.46 239.62 720.17 232.71Q725.88 225.80 735.29 225.80L735.29 225.80Q744.79 225.80 749.93 232.13Q755.06 238.47 754.97 251.14ZM722.14 251.33L746.90 247.59Q746.90 231.27 735 231.27L735 231.27Q729.05 231.27 725.54 236.26Q722.04 241.25 722.14 251.33L722.14 251.33Z M857.71 241.06L857.71 278.50L849.26 278.50L849.26 241.25Q849.26 236.93 846.91 234.15Q844.56 231.36 839.28 231.36L839.28 231.36Q832.94 231.36 828.62 235.97L828.62 235.97L828.62 278.50L820.17 278.50L820.17 240.87Q820.17 236.45 817.24 233.86Q814.32 231.27 808.84 231.27L808.84 231.27Q803.66 231.27 799.53 233.00L799.53 233.00L799.53 278.50L791.08 278.50L791.08 229.44Q798.57 225.80 809.04 225.80L809.04 225.80Q819.88 225.80 824.88 232.04L824.88 232.04Q830.83 225.80 840.91 225.80L840.91 225.80Q849.45 225.80 853.58 230.31Q857.71 234.82 857.71 241.06L857.71 241.06ZM901.04 272.55L901.04 278.50L870.42 278.50L870.42 212.45L901.04 212.45L901.04 218.40L879.25 218.40L879.25 241.44L898.83 241.44L898.83 247.30L879.25 247.30L879.25 272.55L901.04 272.55ZM930.55 249.41L952.15 278.50L942.16 278.50L920.47 247.68L920.28 247.68L920.28 278.50L911.54 278.50L911.54 215.04Q917.97 211.49 927.96 211.49L927.96 211.49Q939.09 211.49 944.85 216.63Q950.61 221.76 950.61 231.08L950.61 231.08Q950.61 239.43 945.19 244.23Q939.76 249.03 930.55 249.22L930.55 249.22L930.55 249.41ZM941.88 231.46L941.88 231.46Q941.88 223.88 938.47 220.28Q935.06 216.68 927.76 216.68L927.76 216.68Q922.87 216.68 920.28 218.12L920.28 218.12L920.28 245.76Q922.20 246.34 925.94 246.34L925.94 246.34Q941.88 246.34 941.88 231.46ZM1000.95 231.46L1000.95 231.46Q1000.95 241.06 994.09 246.87Q987.22 252.68 973.50 251.33L973.50 251.33L970.52 251.04L970.52 278.50L961.88 278.50L961.88 215.14Q968.22 211.49 978.39 211.49L978.39 211.49Q989.62 211.49 995.29 216.92Q1000.95 222.34 1000.95 231.46ZM992.41 231.36L992.41 231.36Q992.41 224.07 988.95 220.42Q985.50 216.77 978.01 216.77L978.01 216.77Q973.40 216.77 970.52 218.02L970.52 218.02L970.52 245.67L973.40 245.96Q992.41 247.78 992.41 231.36Z M1032.43 226.84L1032.43 226.84Q1032.43 231.80 1028.90 235.32Q1025.36 238.84 1020.40 238.84Q1015.43 238.84 1011.91 235.32Q1008.39 231.80 1008.39 226.84L1008.39 226.84Q1008.39 221.84 1011.91 218.32Q1015.43 214.80 1020.40 214.80Q1025.36 214.80 1028.90 218.32Q1032.43 221.84 1032.43 226.84ZM1027.88 234.28Q1030.97 231.19 1030.97 226.84Q1030.97 222.49 1027.88 219.38Q1024.78 216.26 1020.40 216.26L1020.40 216.26Q1016.04 216.26 1012.95 219.38Q1009.86 222.49 1009.86 226.84Q1009.86 231.19 1012.95 234.28Q1016.04 237.38 1020.40 237.38L1020.40 237.38Q1024.78 237.38 1027.88 234.28ZM1020.50 227.11L1025.33 233.77L1023.42 233.77L1018.76 227.21L1018.25 227.21L1018.25 233.77L1016.66 233.77L1016.66 219.90Q1018.02 219.22 1019.99 219.22L1019.99 219.22Q1021.99 219.22 1023.35 220.28Q1024.71 221.33 1024.71 223.23L1024.71 223.23Q1024.71 225.00 1023.54 226.00Q1022.37 227.01 1020.50 227.11L1020.50 227.11ZM1023.08 223.20L1023.08 223.20Q1023.08 221.77 1022.11 221.16Q1021.14 220.55 1019.78 220.55L1019.78 220.55Q1018.90 220.55 1018.25 220.82L1018.25 220.82L1018.25 226.09L1019.51 226.09Q1021.08 226.09 1022.08 225.41Q1023.08 224.73 1023.08 223.20Z"></path></svg></a>
+    <nav class="pp-nav" aria-label="Primary">
+    <a href="index.html#modules">Modules</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="about.html">About</a>
+  </nav>
+<span class="pp-top__sp"></span>
+  <button class="ts-themer" type="button" aria-label="Toggle dark mode">
+    <svg class="ic-sun"><use href="#i-sun"></use></svg>
+    <svg class="ic-moon"><use href="#i-moon"></use></svg>
+  </button>
+  <a class="pp-back pp-signin" href="https://portal.ws.townsuite.com/login" target="_blank" rel="noopener" aria-label="Sign in to the portal"><svg><use href="#i-login"></use></svg> <span class="lbl">Sign in</span></a>
+  <a class="pp-back" href="index.html" aria-label="Back to townsuite.com"><span class="arr">←</span> <span class="lbl-long">Back to&nbsp;</span><span class="dom">townsuite.com</span></a>
+</header>
 
-    <div class="outer-menu">
-        <input class="checkbox-toggle" type="checkbox" />
-        <div class="hamburger">
-            <div></div>
-        </div>
-        <div class="menu-title">Menu</div>
-        <div class="menu">
-            <div>
-                <div>
-                    <ul>
-                        <li>1. <a href="/big-picture">The <strong>BIG</strong> picture</a></li>
-                        <li>2. <a href="/enhance">Enhancing your processes</a></li>
-                        <li>3. <a href="/apps">Understand our offerings</a></li>
-                        <li>4. <a href="/about">Learn about who we are</a></li>
-                        <li>5. <a href="/edge">TownSuite EDGE Conference</a></li>
-                        <div class="login">
-                            <a href="/try" class="button-tertiary">Try TownSuite</a> or
-                            <a href="https://portal.ws.townsuite.com" class="button-tertiary">Sign in</a>
-                        </div>
-                    </ul>
-                </div>
-            </div>
-        </div>
+<main id="about">
+
+  <!-- ===== HERO ===== -->
+  <section class="ab-hero">
+    <div class="ts-wrap">
+      <p class="ab-kicker">About TownSuite</p>
+      <h1 class="ab-h1">Municipal software, made in Canada — since 1987.</h1>
+      <p class="ab-lede">TownSuite is 100% Canadian-owned — founded in Gander, Newfoundland &amp; Labrador in 1987 and has built one connected platform exclusively for municipalities ever since. Every application is designed, developed, maintained and supported in-house, and our Sovereign Cloud is hosted and operated in Canada.</p>
+      <div class="ab-pill-row">
+        <span class="ts-pill ts-pill--accent"><svg class="ts-maple"><use href="#i-maple"></use></svg> 100% Canadian-owned since 1987</span>
+      </div>
+
+      <p class="ab-merp"><b>mERP<span class="rtm">®</span></b> — Municipal Enterprise Resource Planning: one connected system for every municipal workflow, from finance and HR to planning, public works, recreation and citizen services.</p>
+
+      <!-- stat band -->
+      <div class="ab-stats">
+        <div class="ab-stat"><div class="ab-stat__big">1987</div><div class="ab-stat__lbl">Founded in Gander, Newfoundland &amp; Labrador</div></div>
+        <div class="ab-stat"><div class="ab-stat__big">100<span class="u">%</span></div><div class="ab-stat__lbl">Canadian-owned</div></div>
+        <div class="ab-stat"><div class="ab-stat__big">7<span class="u">+</span></div><div class="ab-stat__lbl">provinces with municipal clients — 2 more incoming</div></div>
+        <div class="ab-stat"><div class="ab-stat__big">~35<span class="u">%</span></div><div class="ab-stat__lbl">of revenue reinvested into R&amp;D</div></div>
+        <div class="ab-stat"><div class="ab-stat__big">1,000s</div><div class="ab-stat__lbl">improvements deployed to clients every year</div></div>
+      </div>
     </div>
+  </section>
 
+  <!-- ===== STORY ===== -->
+  <section class="ab-sec">
+    <div class="ts-wrap">
+      <p class="ab-eyebrow">Who we are</p>
+      <h2 class="ab-h2">A team that builds for municipalities — and nowhere else.</h2>
+      <div class="ab-prose">
+        <p>TownSuite Municipal Software was founded in <strong>Gander, Newfoundland &amp; Labrador, in 1987</strong> — and is still headquartered there today. It began as Procom Data Services, a central-Newfoundland computer supplier, and built its first municipal product, a property-tax billing system, when local towns needed one. That product grew generation by generation into <strong>TownSuite Financial</strong>, and ultimately into the full TownSuite mERP<span class="rtm">®</span> platform municipalities run on now.</p>
+        <p>We have stayed deliberately focused: <strong>we build for municipalities, and nothing else</strong>. Every application is designed and developed in-house — not generic enterprise software bent to fit town hall, and not a foreign platform with a Canadian label. The team that builds TownSuite is the team that maintains and supports it: one platform, one accountable team.</p>
+        <p>Today TownSuite is a national operation — <strong>100% Canadian-owned</strong>, led by the Whey family with Andrew Whey as CEO since 2014, and staffed by employees and partners across Canada, from Newfoundland &amp; Labrador to British Columbia. And we still call it <strong>living software</strong>: client feedback has shaped every release since 1987, and enhancements are included — never billed back as version upgrades.</p>
+      </div>
 
-    <div id="page-content">
-        <div tabindex="-1" id="main-skip" class="main-skip-destination"></div>
-        <section class="about-section section-intro">
-            <h2 class="intro-text">TownSuite Municipal Software is a municipal technology company that builds simple yet powerful software focusing solely on local government.</h2>
-        </section>
-        <section class="about-section2 section-TownSuite even">
-            <div class="about-section-container">
-                <h2 class="heading-secondary">What we've built</h2>
-                <p class="about-section__text">Municipal employees across Canada use TownSuite to work the way they want. Including over 150 implementations of our various products over the last 5 years. With over 160 municipalities leveraging TownSuite, we're transforming everyday
-                    municipal operations and giving people like you the ability to better connect to your municipal information.</p>
-            </div>
-            <div class="section-TownSuite-graphic">
-                <img src="/assets/svg/header.svg" alt="" class="img--desktop" style="max-width: 100%"><img src="/assets/svg/header.svg" class="img--tablet" style="max-width: 100%"><img src="/assets/svg/header.svg" alt="" class="img--mobile" style="max-width: 100%">
-            </div>
-        </section>
-        <section class="about-section section-values">
-            <div class="about-section-container">
-                <h2 class="heading-secondary">What we value</h2>
-                <p class="about-section__text">We create products that connect across municipal departments, and that are easy to use. Our mindset is that information should only be inputted once. In addition, when people use TownSuite they know that their information is safe and can
-                    be retrieved at anytime. Having trust and reassurance that TownSuite will continue to grow with them as their requirements change is a nice thing to know before signing the dotted line. Simplifying our users' requirements while expanding
-                    their reach has always been our first priority, and always will be.
-                </p>
-            </div>
-            <img src="/assets/svg/partners.svg" data-hi-res-no-resize="True" data-hi-res="assets/svg/partners.svg" alt="" class="section-values__img">
-        </section>
+      <!-- team photo -->
+      <figure class="ab-photo">
+        <img src="team-townsuite.jpg" alt="Some of the TownSuite team at its head office in Gander, Newfoundland and Labrador" width="1600" height="581" loading="lazy" decoding="async" />
+        <figcaption><b>Some of the TownSuite team</b> on a lunch-time break at the Gander, Newfoundland &amp; Labrador head office. Featured in the Memorial University Gazette: <a href="https://gazette.mun.ca/student-life/new-energy-and-creativity/" target="_blank" rel="noopener">“New energy and creativity”</a>.</figcaption>
+      </figure>
 
-        <section class="about-section section-jobs odd">
-            <div class="about-section-container">
-                <h2 class="heading-secondary">We're growing fast,<br> see how you can contribute.</h2>
-                <a href="/jobs" class="btn">See our job openings</a>
-                <h3>or</h3>
-                <a href="/partner-program" class="btn">Become a partner</a>
+      <!-- interactive timeline -->
+      <div class="ab-tl__header" id="ts-timeline-start">
+        <p class="ab-eyebrow">Our story</p>
+        <h2 class="ab-h2">The TownSuite timeline — 1987 to today.</h2>
+      </div>
+      <p class="ab-tl__hint">Tap a year — or swipe — to explore TownSuite's history</p>
+      <div class="ab-tl" id="ts-timeline" tabindex="0" role="group" aria-label="TownSuite product and company timeline">
+        <div class="ab-tl__stage">
+          <div class="ab-tl__card is-active" id="tlcard-0" role="tabpanel" aria-labelledby="tlnode-0" data-i="0">
+            <span class="ab-tl__cardyr">1987</span>
+            <h3 class="ab-tl__cardt">The beginning, in Gander</h3>
+            <ul class="ab-tl__list">
+              <li>Founded as <b>Procom Data Services Inc.</b> in Gander, Newfoundland &amp; Labrador</li>
+              <li><b>MBS — the Municipal Billing System</b> — built so local municipalities could handle property-tax billing</li>
+              <li class="geo"><svg class="ab-geoleaf" aria-hidden="true"><use href="#i-maple"></use></svg>Serving its first <b>Newfoundland &amp; Labrador</b> municipalities — still proud clients today</li>
+            </ul>
+          </div>
+          <div class="ab-tl__card" id="tlcard-1" role="tabpanel" aria-labelledby="tlnode-1" data-i="1">
+            <span class="ab-tl__cardyr">1994</span>
+            <h3 class="ab-tl__cardt">Financial management matures</h3>
+            <ul class="ab-tl__list">
+              <li><b>MMS PRO</b> — financial management and meter billing</li>
+            </ul>
+          </div>
+          <div class="ab-tl__card" id="tlcard-2" role="tabpanel" aria-labelledby="tlnode-2" data-i="2">
+            <span class="ab-tl__cardyr">1998</span>
+            <h3 class="ab-tl__cardt">Onto the desktop</h3>
+            <ul class="ab-tl__list">
+              <li><b>TownSuite Municipal Accounting Software</b> arrives on Windows&nbsp;95</li>
+              <li class="geo"><svg class="ab-geoleaf" aria-hidden="true"><use href="#i-maple"></use></svg>First <b>Alberta</b> clients come aboard</li>
+            </ul>
+          </div>
+          <div class="ab-tl__card" id="tlcard-2001" role="tabpanel" aria-labelledby="tlnode-2001" data-i="2001">
+            <span class="ab-tl__cardyr">2001</span>
+            <h3 class="ab-tl__cardt">Into the Maritimes</h3>
+            <ul class="ab-tl__list">
+              <li class="geo"><svg class="ab-geoleaf" aria-hidden="true"><use href="#i-maple"></use></svg>First <b>Nova Scotia &amp; New Brunswick</b> clients</li>
+            </ul>
+          </div>
+          <div class="ab-tl__card" id="tlcard-2002" role="tabpanel" aria-labelledby="tlnode-2002" data-i="2002">
+            <span class="ab-tl__cardyr">2002</span>
+            <h3 class="ab-tl__cardt">The TownSuite<span class="rtm">®</span> name is registered</h3>
+            <ul class="ab-tl__list">
+              <li><b>TownSuite<span class="rtm">®</span></b> registered as a trademark — filed in 2000, registered in 2002</li>
+            </ul>
+          </div>
+          <div class="ab-tl__card" id="tlcard-2004" role="tabpanel" aria-labelledby="tlnode-2004" data-i="2004">
+            <span class="ab-tl__cardyr">2004</span>
+            <h3 class="ab-tl__cardt">Prince Edward Island joins</h3>
+            <ul class="ab-tl__list">
+              <li class="geo"><svg class="ab-geoleaf" aria-hidden="true"><use href="#i-maple"></use></svg>First <b>Prince Edward Island</b> clients</li>
+            </ul>
+          </div>
+          <div class="ab-tl__card" id="tlcard-3" role="tabpanel" aria-labelledby="tlnode-3" data-i="3">
+            <span class="ab-tl__cardyr">2006</span>
+            <h3 class="ab-tl__cardt">Land management comes to TownSuite</h3>
+            <ul class="ab-tl__list">
+              <li><b>Mapping &amp; Planning</b> modules added — TownSuite's land management offering joins the platform</li>
+            </ul>
+          </div>
+          <div class="ab-tl__card" id="tlcard-4" role="tabpanel" aria-labelledby="tlnode-4" data-i="4">
+            <span class="ab-tl__cardyr">2009</span>
+            <h3 class="ab-tl__cardt">The TownSuite name</h3>
+            <ul class="ab-tl__list">
+              <li>Rebrand to <b>TownSuite Municipal Software</b></li>
+              <li>Tangible Capital Assets <b>(TCA)</b> added</li>
+            </ul>
+          </div>
+          <div class="ab-tl__card" id="tlcard-2012" role="tabpanel" aria-labelledby="tlnode-2012" data-i="2012">
+            <span class="ab-tl__cardyr">2012</span>
+            <h3 class="ab-tl__cardt">Expansion in the Prairies</h3>
+            <ul class="ab-tl__list">
+              <li class="geo"><svg class="ab-geoleaf" aria-hidden="true"><use href="#i-maple"></use></svg>First <b>Manitoba</b> clients</li>
+            </ul>
+          </div>
+          <div class="ab-tl__card" id="tlcard-5" role="tabpanel" aria-labelledby="tlnode-5" data-i="5">
+            <span class="ab-tl__cardyr">2014</span>
+            <h3 class="ab-tl__cardt">Citizens get a portal</h3>
+            <ul class="ab-tl__list">
+              <li><b>Customer Portal</b> and <b>Recreation v1</b></li>
+              <li><b>eServices hosting</b> launches</li>
+              <li>Andrew Whey named CEO</li>
+            </ul>
+          </div>
+          <div class="ab-tl__card" id="tlcard-2015" role="tabpanel" aria-labelledby="tlnode-2015" data-i="2015">
+            <span class="ab-tl__cardyr">2015</span>
+            <h3 class="ab-tl__cardt">Ontario comes aboard</h3>
+            <ul class="ab-tl__list">
+              <li class="geo"><svg class="ab-geoleaf" aria-hidden="true"><use href="#i-maple"></use></svg>First <b>Ontario</b> clients</li>
+            </ul>
+          </div>
+          <div class="ab-tl__card" id="tlcard-6" role="tabpanel" aria-labelledby="tlnode-6" data-i="6">
+            <span class="ab-tl__cardyr">2016</span>
+            <h3 class="ab-tl__cardt">Requests &amp; work orders</h3>
+            <ul class="ab-tl__list">
+              <li><b>Service Requests</b> (311) launches</li>
+              <li><b>Work Orders</b> launches</li>
+            </ul>
+          </div>
+          <div class="ab-tl__card" id="tlcard-7" role="tabpanel" aria-labelledby="tlnode-7" data-i="7">
+            <span class="ab-tl__cardyr">2018</span>
+            <h3 class="ab-tl__cardt">Employees get a portal</h3>
+            <ul class="ab-tl__list">
+              <li><b>Employee Portal Essentials</b> launches</li>
+            </ul>
+          </div>
+          <div class="ab-tl__card" id="tlcard-8" role="tabpanel" aria-labelledby="tlnode-8" data-i="8">
+            <span class="ab-tl__cardyr">2019</span>
+            <h3 class="ab-tl__cardt">Into the cloud</h3>
+            <ul class="ab-tl__list">
+              <li><b>TownSuite Cloud</b> — managed Canadian hosting</li>
+            </ul>
+          </div>
+          <div class="ab-tl__card" id="tlcard-9" role="tabpanel" aria-labelledby="tlnode-9" data-i="9">
+            <span class="ab-tl__cardyr">2020</span>
+            <h3 class="ab-tl__cardt">mERP<span class="rtm">®</span> is born</h3>
+            <ul class="ab-tl__list">
+              <li>Incorporated as <b>TownSuite Municipal Software Inc.</b></li>
+              <li>The connected <b>TownSuite mERP<span class="rtm">®</span></b> platform is born</li>
+            </ul>
+          </div>
+          <div class="ab-tl__card" id="tlcard-10" role="tabpanel" aria-labelledby="tlnode-10" data-i="10">
+            <span class="ab-tl__cardyr">2021</span>
+            <h3 class="ab-tl__cardt">Built for the field</h3>
+            <ul class="ab-tl__list">
+              <li><b>Mobile Inspections &amp; Scheduling</b></li>
+            </ul>
+          </div>
+          <div class="ab-tl__card" id="tlcard-11" role="tabpanel" aria-labelledby="tlnode-11" data-i="11">
+            <span class="ab-tl__cardyr">2023</span>
+            <h3 class="ab-tl__cardt">An open platform</h3>
+            <ul class="ab-tl__list">
+              <li><b>Public API</b> deployment — Connect / Exchange</li>
+            </ul>
+          </div>
+          <div class="ab-tl__card" id="tlcard-2024" role="tabpanel" aria-labelledby="tlnode-2024" data-i="2024">
+            <span class="ab-tl__cardyr">2024</span>
+            <h3 class="ab-tl__cardt">The mERP<span class="rtm">®</span> name is registered</h3>
+            <ul class="ab-tl__list">
+              <li><b>mERP<span class="rtm">®</span></b> registered as a trademark — filed in 2019, registered in 2024</li>
+            </ul>
+          </div>
+          <div class="ab-tl__card" id="tlcard-12" role="tabpanel" aria-labelledby="tlnode-12" data-i="12">
+            <span class="ab-tl__cardyr">2025</span>
+            <h3 class="ab-tl__cardt">Permitting goes online</h3>
+            <ul class="ab-tl__list">
+              <li><b>ePermitting</b> — online applications with review &amp; approval workflows</li>
+            </ul>
+          </div>
+          <div class="ab-tl__card" id="tlcard-13" role="tabpanel" aria-labelledby="tlnode-13" data-i="13">
+            <span class="ab-tl__cardyr">2026</span>
+            <h3 class="ab-tl__cardt">The era of Sovereign Cloud is here</h3>
+            <ul class="ab-tl__list">
+              <li class="geo"><svg class="ab-geoleaf" aria-hidden="true"><use href="#i-maple"></use></svg>Launched our <b>operationally sovereign mERP<span class="rtm">®</span> Cloud</b> on <b>July 1st</b> — a first in the industry</li>
+              <li>New branding — the platform becomes <b>TownSuite mERP<span class="rtm">®</span></b></li>
+              <li><b>TownSuite Intelligence</b> — available now for early access</li>
+            </ul>
+          </div>
+          <div class="ab-tl__card" id="tlcard-2027" role="tabpanel" aria-labelledby="tlnode-2027" data-i="2027">
+            <span class="ab-tl__cardyr">2026+</span>
+            <h3 class="ab-tl__cardt">What's next</h3>
+            <ul class="ab-tl__list">
+              <li class="geo"><svg class="ab-geoleaf" aria-hidden="true"><use href="#i-maple"></use></svg>First <b>British Columbia &amp; Saskatchewan</b> clients</li>
+              <li>A <b>new desktop interface</b></li>
+              <li>A <b>new report engine</b> for web &amp; desktop</li>
+              <li>A <b>new eServices interface</b></li>
+              <li><b>Ask TownSuite</b> support added to eServices</li>
+            </ul>
+          </div>
+        </div>
+        <div class="ab-tl__railwrap">
+          <button class="ab-tl__arrow" type="button" data-tl-prev aria-label="Previous milestone">‹</button>
+          <div class="ab-tl__rail">
+            <div class="ab-tl__track" role="tablist" aria-label="Timeline years">
+              <span class="ab-tl__line" aria-hidden="true"></span>
+              <span class="ab-tl__fill" aria-hidden="true"></span>
+              <button class="ab-tl__node is-active" type="button" role="tab" id="tlnode-0" aria-controls="tlcard-0" aria-selected="true" data-i="0"><span class="dot"></span>1987</button>
+              <button class="ab-tl__node" type="button" role="tab" id="tlnode-1" aria-controls="tlcard-1" aria-selected="false" data-i="1"><span class="dot"></span>1994</button>
+              <button class="ab-tl__node" type="button" role="tab" id="tlnode-2" aria-controls="tlcard-2" aria-selected="false" data-i="2"><span class="dot"></span>1998</button>
+              <button class="ab-tl__node" type="button" role="tab" id="tlnode-2001" aria-controls="tlcard-2001" aria-selected="false" data-i="2001"><span class="dot"></span>2001</button>
+              <button class="ab-tl__node" type="button" role="tab" id="tlnode-2002" aria-controls="tlcard-2002" aria-selected="false" data-i="2002"><span class="dot"></span>2002</button>
+              <button class="ab-tl__node" type="button" role="tab" id="tlnode-2004" aria-controls="tlcard-2004" aria-selected="false" data-i="2004"><span class="dot"></span>2004</button>
+              <button class="ab-tl__node" type="button" role="tab" id="tlnode-3" aria-controls="tlcard-3" aria-selected="false" data-i="3"><span class="dot"></span>2006</button>
+              <button class="ab-tl__node" type="button" role="tab" id="tlnode-4" aria-controls="tlcard-4" aria-selected="false" data-i="4"><span class="dot"></span>2009</button>
+              <button class="ab-tl__node" type="button" role="tab" id="tlnode-2012" aria-controls="tlcard-2012" aria-selected="false" data-i="2012"><span class="dot"></span>2012</button>
+              <button class="ab-tl__node" type="button" role="tab" id="tlnode-5" aria-controls="tlcard-5" aria-selected="false" data-i="5"><span class="dot"></span>2014</button>
+              <button class="ab-tl__node" type="button" role="tab" id="tlnode-2015" aria-controls="tlcard-2015" aria-selected="false" data-i="2015"><span class="dot"></span>2015</button>
+              <button class="ab-tl__node" type="button" role="tab" id="tlnode-6" aria-controls="tlcard-6" aria-selected="false" data-i="6"><span class="dot"></span>2016</button>
+              <button class="ab-tl__node" type="button" role="tab" id="tlnode-7" aria-controls="tlcard-7" aria-selected="false" data-i="7"><span class="dot"></span>2018</button>
+              <button class="ab-tl__node" type="button" role="tab" id="tlnode-8" aria-controls="tlcard-8" aria-selected="false" data-i="8"><span class="dot"></span>2019</button>
+              <button class="ab-tl__node" type="button" role="tab" id="tlnode-9" aria-controls="tlcard-9" aria-selected="false" data-i="9"><span class="dot"></span>2020</button>
+              <button class="ab-tl__node" type="button" role="tab" id="tlnode-10" aria-controls="tlcard-10" aria-selected="false" data-i="10"><span class="dot"></span>2021</button>
+              <button class="ab-tl__node" type="button" role="tab" id="tlnode-11" aria-controls="tlcard-11" aria-selected="false" data-i="11"><span class="dot"></span>2023</button>
+              <button class="ab-tl__node" type="button" role="tab" id="tlnode-2024" aria-controls="tlcard-2024" aria-selected="false" data-i="2024"><span class="dot"></span>2024</button>
+              <button class="ab-tl__node" type="button" role="tab" id="tlnode-12" aria-controls="tlcard-12" aria-selected="false" data-i="12"><span class="dot"></span>2025</button>
+              <button class="ab-tl__node" type="button" role="tab" id="tlnode-13" aria-controls="tlcard-13" aria-selected="false" data-i="13"><span class="dot"></span>2026</button>
+              <button class="ab-tl__node" type="button" role="tab" id="tlnode-2027" aria-controls="tlcard-2027" aria-selected="false" data-i="2027"><span class="dot"></span>2026+</button>
             </div>
-            <img src="/assets/svg/useit.svg" alt="" class="section-jobs__img">
-        </section>
+          </div>
+          <button class="ab-tl__arrow" type="button" data-tl-next aria-label="Next milestone">›</button>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <!-- Start Cookie Consent plugin -->
-    <script type="text/javascript">
-        window.cookieconsent_options = {
-            "message": "This website uses cookies to ensure you get the best experience. For more information please",
-            "dismiss": "I accept",
-            "learnMore": "click here",
-            "link": "/cookies",
-            "theme": "light-bottom"
-        };
-    </script>
+  <!-- ===== WHAT MAKES US DIFFERENT ===== -->
+  <section class="ab-sec ab-sec--wash">
+    <div class="ts-wrap">
+      <p class="ab-eyebrow">What makes us different</p>
+      <h2 class="ab-h2">Operationally sovereign because it's ours.</h2>
+      <div class="ab-cards">
+        <div class="ab-card">
+          <div class="ab-card__ic"><svg><use href="#i-wrench"></use></svg></div>
+          <h3 class="ab-card__t">Built from the ground up</h3>
+          <p class="ab-card__d">Every application is <b>ours</b> — designed and developed in-house, not adapted from a foreign platform or assembled from acquired products.</p>
+        </div>
+        <div class="ab-card">
+          <div class="ab-card__ic"><svg><use href="#i-bank"></use></svg></div>
+          <h3 class="ab-card__t">Municipal-only focus</h3>
+          <p class="ab-card__d">We serve <b>municipalities exclusively</b>. Nothing here is generic ERP adapted to fit municipalities — it's purpose-built for the public sector.</p>
+        </div>
+        <div class="ab-card">
+          <div class="ab-card__ic"><svg><use href="#i-people"></use></svg></div>
+          <h3 class="ab-card__t">Made, maintained &amp; supported by us</h3>
+          <p class="ab-card__d">The team that builds TownSuite is the team that runs and supports it. Every subscription includes <b>TownSuite Care</b> — support, continuous updates, documentation and managed Canadian hosting.</p>
+        </div>
+        <div class="ab-card">
+          <div class="ab-card__ic"><svg><use href="#i-spark"></use></svg></div>
+          <h3 class="ab-card__t">Enhanced with our clients</h3>
+          <p class="ab-card__d">Since 1987, <b>client feedback has shaped every release</b> — and enhancements are included, never billed as upgrades.</p>
+        </div>
+      </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js" integrity="sha512-SsSkXR65y0pFkNNJnkDspyH6QhREroX9Bw87clZe3j2voFy6cPGPCObbJUkv65MD6xe4RWy0WhiXcE32/H+xJg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- End Cookie Consent plugin -->
-    <script>
-        (function(i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function() {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+      <div class="ab-plat">
+        <h3 class="ab-plat__h">One platform, delivered every way municipalities work</h3>
+        <div class="ab-plat__row">
+          <div class="ab-plat__item">
+            <span class="ab-plat__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="12.5" rx="2"></rect><path stroke-linecap="round" d="M9 20.5h6M12 17v3.5"></path></svg></span>
+            <div><div class="ab-plat__t">Desktop</div><div class="ab-plat__d">Windows &amp; macOS (Linux planned) — for office and power-user financial &amp; administrative work.</div></div>
+          </div>
+          <div class="ab-plat__item">
+            <span class="ab-plat__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8.5"></circle><path stroke-linecap="round" d="M3.6 12h16.8M12 3.5c2.6 2.6 2.6 14.4 0 17M12 3.5c-2.6 2.6-2.6 14.4 0 17"></path></svg></span>
+            <div><div class="ab-plat__t">Browser</div><div class="ab-plat__d">Current browsers — for eServices and citizen-facing web modules.</div></div>
+          </div>
+          <div class="ab-plat__item">
+            <span class="ab-plat__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"></rect><path stroke-linecap="round" d="M10.5 18.5h3"></path></svg></span>
+            <div><div class="ab-plat__t">Mobile</div><div class="ab-plat__d">iOS &amp; Android — for field operations and public access, with offline sync.</div></div>
+          </div>
+        </div>
+      </div>
 
-        ga('create', 'UA-6741184-3', 'auto');
-        ga('send', 'pageview');
-    </script>
+      <div class="ab-dogfood">
+        <span class="ab-dogfood__ic"><svg><use href="#i-spark"></use></svg></span>
+        <p class="ab-dogfood__t"><b>We run our own company on it.</b> TownSuite's own billing, HR, development and CRM all run on the same platform we sell — so we feel every change before our clients do.</p>
+      </div>
+    </div>
+  </section>
 
-    <section class="footer-row">
-        <footer id="homepage-footer" class="twelve-column townsuite-footer clearfix">
-            <nav>
-                <ul class="o-nav">
-                    <li class="o-nav__header">TownSuite</li>
-                    <li class="o-nav__item"><a href="/apps#desktop">Desktop apps</a>
-                    </li>
-                    <li class="o-nav__item"><a href="/apps#web">Web apps</a>
-                    </li>
-                    <li class="o-nav__item"><a href="/apps#mobile">Mobile apps</a>
-                    </li>
-                    <li class="o-nav__item"><a href="/features">Features</a>
-                    </li>
-                </ul>
-                <ul class="o-nav">
-                    <li class="o-nav__header">Company</li>
-                    <li class="o-nav__item"><a href="/about">About</a>
-                    </li>
-                    <li class="o-nav__item"><a href="https://news.townsuite.com">News</a>
-                    </li>
-                    <li class="o-nav__item"><a href="https://status.townsuite.com/">Status</a>
-                    </li>
-                    <li class="o-nav__item"><a href="/events">Events</a>
-                    </li>
-                </ul>
-                <ul class="o-nav">
-                    <li class="o-nav__header">Products</li>
-                    <li class="o-nav__item"><a href="/finance">Finance and revenue</a>
-                    </li>
-                    <li class="o-nav__item"><a href="/asset-management">Asset management</a>
-                    </li>
-                    <li class="o-nav__item"><a href="/hris">HRIS</a>
-                    </li>
-                    <li class="o-nav__item"><a href="/land">Land management</a>
-                    </li>
-                </ul>
-                <ul class="o-nav">
-                    <li class="o-nav__header"> &nbsp; </li>
-                    <li class="o-nav__item"><a href="/ebills">eBills and ePayments</a>
-                    </li>
-                    <li class="o-nav__item"><a href="/events-facilities">Event and facilities</a>
-                    </li>
-                    <li class="o-nav__item"><a href="/service-requests">Service requests</a>
-                    </li>
-                </ul>
-                <ul class="o-nav">
-                    <li class="o-nav__header">Support</li>
-                    <li class="o-nav__item"><a href="https://portal.ws.townsuite.com/issue/new#issue">Helpdesk</a>
-                    </li>
-                    <li class="o-nav__item"><a href="/contact">Contact us</a>
-                    </li>
-                    <li class="o-nav__item"><a href="/cookies">Cookies</a>
-                    </li>
-                    <li class="o-nav__item"><a href="/privacy">Privacy &amp; Terms</a>
-                    </li>
-                </ul>
-                <ul class="o-nav">
-                    <li class="o-nav__header">Community</li>
-                    <li class="o-nav__item"><a href="/partner-program">Partner program</a>
-                    </li>
-                    <li class="o-nav__item"><a href="/jobs">Jobs</a>
-                    </li>
-                    <li class="o-nav__item"><a href="/referrals">Referrals</a>
-                    </li>
-                    <li class="o-nav__item"><a href="https://docs.townsuite.com">Documentation</a>
-                    </li>
-                </ul>
-            </nav>
-            <div id="locale-container"> &copy;
-                <script>
-                    document.write(new Date().getFullYear())
-                </script> TownSuite Municipal Software <img border="0" src="/assets/emblem.svg?v=1.814.0.15739" alt="TownSuite Emblem"></div>
-        </footer>
-    </section>
-    <div id="accessible-announce" class="ax-visually-hidden" aria-live="assertive"></div>
-    <script></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha512-U6K1YLIFUWcvuw5ucmMtT9HH4t0uz3M366qrF5y4vnyH6dgDzndlcGvH/Lz5k8NFh80SN95aJ5rqGZEdaQZ7ZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- ===== FOOTPRINT ===== -->
+  <section class="ab-sec">
+    <div class="ts-wrap">
+      <p class="ab-eyebrow">Across Canada</p>
+      <h2 class="ab-h2">Trusted by municipalities of every size.</h2>
+      <p class="ab-foot__lead">Configurable for municipalities of any size, TownSuite serves clients across seven provinces — and expects to welcome its first British Columbia and Saskatchewan municipalities in 2026 — all backed by a Canadian support team, coast to coast.</p>
+      <div class="ab-provs">
+        <span class="ab-prov"><svg style="color:var(--accent)"><use href="#i-map"></use></svg> Alberta</span>
+        <span class="ab-prov"><svg style="color:var(--accent)"><use href="#i-map"></use></svg> Manitoba</span>
+        <span class="ab-prov"><svg style="color:var(--accent)"><use href="#i-map"></use></svg> Ontario</span>
+        <span class="ab-prov"><svg style="color:var(--accent)"><use href="#i-map"></use></svg> New Brunswick</span>
+        <span class="ab-prov"><svg style="color:var(--accent)"><use href="#i-map"></use></svg> Nova Scotia</span>
+        <span class="ab-prov"><svg style="color:var(--accent)"><use href="#i-map"></use></svg> Prince Edward Island</span>
+        <span class="ab-prov"><svg style="color:var(--accent)"><use href="#i-map"></use></svg> Newfoundland &amp; Labrador</span>
+        <span class="ab-prov ab-prov--new"><svg style="color:var(--accent)"><use href="#i-map"></use></svg> British Columbia <span class="ab-prov__tag">New 2026</span></span>
+        <span class="ab-prov ab-prov--new"><svg style="color:var(--accent)"><use href="#i-map"></use></svg> Saskatchewan <span class="ab-prov__tag">New 2026</span></span>
+      </div>
+      <p class="ab-foot__bil">Citizen-facing portals and eServices are <b>bilingual (English &amp; French)</b>, maintained collaboratively with each municipality.</p>
+      <p class="ab-refs"><span><b>Evaluating with peers?</b> Client references are available on request.</span></p>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="ab-cta" id="ab-cta">
+    <div class="ts-wrap">
+      <svg class="x-roof" viewBox="0 0 400 180" fill="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="roofL" x1="70" y1="28" x2="170" y2="150" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#7CA6CF"></stop>
+            <stop offset="1" stop-color="#2E6699"></stop>
+          </linearGradient>
+          <linearGradient id="roofR" x1="330" y1="28" x2="240" y2="150" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#245F8D"></stop>
+            <stop offset="1" stop-color="#093E63"></stop>
+          </linearGradient>
+        </defs>
+        <g class="x-roof__body">
+          <path d="M50 104 L200 150 L200 162 L50 116 Z" fill="#063655"></path>
+          <path d="M200 150 L350 104 L350 116 L200 162 Z" fill="#04293F"></path>
+          <path d="M200 20 L50 104 L200 150 Z" fill="url(#roofL)"></path>
+          <path d="M200 20 L200 150 L350 104 Z" fill="url(#roofR)"></path>
+          <g stroke="#D8E6F3" stroke-width="1.3" opacity="0.13" stroke-linecap="round">
+            <line x1="200" y1="20" x2="92" y2="117"></line>
+            <line x1="200" y1="20" x2="125" y2="127"></line>
+            <line x1="200" y1="20" x2="158" y2="137"></line>
+          </g>
+          <g stroke="#A9C4DD" stroke-width="1.3" opacity="0.12" stroke-linecap="round">
+            <line x1="200" y1="20" x2="242" y2="137"></line>
+            <line x1="200" y1="20" x2="275" y2="127"></line>
+            <line x1="200" y1="20" x2="308" y2="117"></line>
+          </g>
+          <path d="M50 104 L200 20 L350 104" fill="none" stroke="#CBD9EA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"></path>
+          <path d="M200 20 L200 150" stroke="#CBD9EA" stroke-width="1.6" stroke-linecap="round" opacity="0.3"></path>
+        </g>
+        <use class="x-roof__finial" href="#i-maple" x="182" y="0" width="36" height="36" style="color:var(--ts-red)"></use>
+      </svg>
+      <p class="ab-eyebrow">Get started</p>
+      <h2 class="ab-cta__h">Ready to bring your systems home<br /><span class="ts-accent">under one Canadian roof?</span></h2>
+      <p class="ab-cta__p">Tell us how your municipality works, and we'll tailor the walkthrough to you — and show you what it feels like to run on one connected, fully sovereign platform.</p>
+      <div class="ts-cta-row ts-cta-row--center">
+        <a class="ts-btn ts-btn--primary" id="roof-trigger" href="#" data-demo-open>Book a demo <span class="arr">→</span></a>
+        <a class="ts-btn ts-btn--ghost" href="tel:18004083313">Call 1.800.408.3313</a>
+        <a class="ts-btn ts-btn--ghost" href="mailto:marketing@townsuite.com">marketing@townsuite.com</a>
+      </div>
+      <p style="margin-top:26px;color:var(--ink3);font-size:14.5px;">A seasoned team that understands municipalities</p>
+    </div>
+  </section>
+</main>
+
+<footer class="ts-footer" data-screen-label="Footer">
+  <div class="ts-wrap">
+    <div class="ts-footer__in">
+      <div>
+        <div class="ts-footer__logo"><svg class="ts-logo" viewBox="151 154 889 181" role="img" aria-label="TownSuite mERP"><rect x="-16.975" y="-16.975" width="33.95" height="33.95" fill="#D8E0ED" transform="translate(220.79,191.54) rotate(65) scale(1.38)"></rect><rect x="-16.975" y="-16.975" width="33.95" height="33.95" fill="#6B95BE" transform="translate(188.71,273.70) rotate(65) scale(1.38)"></rect><rect x="-17" y="-17" width="34" height="34" fill="#00578E" transform="translate(244.20,246.20) rotate(65) scale(1.38)"></rect><rect x="-8.825" y="-8.825" width="17.65" height="17.65" fill="#E48D1A" transform="translate(297.55,291.42) rotate(65) scale(1.38)"></rect><rect x="-4.555" y="-4.555" width="9.11" height="9.11" fill="#2DA343" transform="translate(322.72,273.11) rotate(65) scale(1.38)"></rect><rect x="-4.64" y="-4.64" width="9.28" height="9.28" fill="#E03A3E" transform="translate(305.69,320.65) rotate(65) scale(1.38)"></rect><path fill="currentColor" d="M401.02 212.45L401.02 218.40L387.86 218.40L387.86 278.50L379.03 278.50L379.03 218.40L365.88 218.40L365.88 212.45L401.02 212.45ZM443.39 252.68L443.39 252.68Q443.39 264.68 438.35 272.07Q433.31 279.46 423.23 279.46Q413.15 279.46 408.06 272.07Q402.97 264.68 402.97 252.68L402.97 252.68Q402.97 240.48 408.06 233.14Q413.15 225.80 423.13 225.80L423.13 225.80Q433.31 225.80 438.35 233.09Q443.39 240.39 443.39 252.68ZM434.94 252.68L434.94 252.68Q434.94 231.17 423.23 231.17L423.23 231.17Q411.42 231.17 411.42 252.68L411.42 252.68Q411.42 273.60 423.23 273.60L423.23 273.60Q434.94 273.60 434.94 252.68ZM508.90 226.76L516.58 226.76L501.79 278.50L494.50 278.50L484.03 241.54Q483.17 238.37 482.98 235.49L482.98 235.49L482.88 235.49Q482.59 238.37 481.63 241.54L481.63 241.54L470.98 278.50L463.68 278.50L448.99 226.76L457.63 226.76L466.66 263.91L467.71 270.05L467.90 270.05Q468.19 267.46 469.15 263.91L469.15 263.91L479.62 226.76L486.91 226.76L497.09 263.91Q498.24 270.05 498.24 270.05L498.24 270.05L498.43 270.05Q498.72 266.88 499.49 263.81L499.49 263.81L508.90 226.76ZM562.50 241.16L562.50 278.50L554.05 278.50L554.05 241.35Q554.05 231.27 543.20 231.27L543.20 231.27Q537.64 231.27 533.41 233.09L533.41 233.09L533.41 278.50L524.96 278.50L524.96 229.44Q532.55 225.80 543.88 225.80L543.88 225.80Q553.76 225.80 558.13 230.26Q562.50 234.72 562.50 241.16L562.50 241.16ZM607.27 259.88L607.27 259.88Q607.27 268.52 601.66 273.99Q596.04 279.46 587.30 279.46L587.30 279.46Q577.61 279.46 571.94 275.81L571.94 275.81L574.25 269.67Q579.24 272.74 585.77 272.74L585.77 272.74Q591.43 272.74 594.79 269.38Q598.15 266.02 598.15 260.36L598.15 260.36Q598.15 255.94 595.51 253.06Q592.87 250.18 586.63 247.68L586.63 247.68Q572.62 242.12 572.62 230.02L572.62 230.02Q572.62 222.24 577.75 216.87Q582.89 211.49 591.24 211.49L591.24 211.49Q599.69 211.49 604.78 215.04L604.78 215.04L602.66 220.61Q597.77 217.54 592.20 217.54L592.20 217.54Q587.02 217.54 584.14 220.66Q581.26 223.78 581.26 229.16L581.26 229.16Q581.26 233.86 584.09 236.50Q586.92 239.14 592.30 241.25L592.30 241.25Q607.27 247.11 607.27 259.88ZM654.35 226.76L654.35 275.43Q647.15 279.56 636.11 279.56L636.11 279.56Q617.77 279.56 617.77 262.66L617.77 262.66L617.77 226.76L626.22 226.76L626.22 262.95Q626.22 267.75 628.86 270.68Q631.50 273.60 636.59 273.60L636.59 273.60Q642.35 273.60 645.90 271.49L645.90 271.49L645.90 226.76L654.35 226.76ZM674.74 208.85Q676.18 210.24 676.18 212.16Q676.18 214.08 674.74 215.43Q673.30 216.77 671.28 216.77L671.28 216.77Q669.17 216.77 667.73 215.43Q666.29 214.08 666.29 212.16Q666.29 210.24 667.73 208.85Q669.17 207.46 671.28 207.46L671.28 207.46Q673.30 207.46 674.74 208.85ZM675.50 226.76L675.50 278.50L667.06 278.50L667.06 226.76L675.50 226.76ZM708.47 272.84L708.47 278.21Q705.88 278.98 703.86 278.98L703.86 278.98Q697.33 278.98 694.16 275.14Q691.00 271.30 691.00 265.92L691.00 265.92L691.00 232.04L685.04 232.04L685.04 226.76L691.00 226.76L691.00 214.85L699.44 212.26L699.44 226.76L708.47 226.76L708.47 232.04L699.44 232.04L699.44 265.73Q699.44 269.09 701.03 271.16Q702.61 273.22 705.97 273.22L705.97 273.22Q706.74 273.22 708.47 272.84L708.47 272.84ZM754.97 251.14L754.97 251.14L722.42 255.84Q723.86 273.32 738.17 273.32L738.17 273.32Q745.75 273.32 750.94 270.34L750.94 270.34L753.14 275.91Q747.29 279.46 737.50 279.46L737.50 279.46Q726.94 279.46 720.70 272.64Q714.46 265.83 714.46 252.48L714.46 252.48Q714.46 239.62 720.17 232.71Q725.88 225.80 735.29 225.80L735.29 225.80Q744.79 225.80 749.93 232.13Q755.06 238.47 754.97 251.14ZM722.14 251.33L746.90 247.59Q746.90 231.27 735 231.27L735 231.27Q729.05 231.27 725.54 236.26Q722.04 241.25 722.14 251.33L722.14 251.33Z M857.71 241.06L857.71 278.50L849.26 278.50L849.26 241.25Q849.26 236.93 846.91 234.15Q844.56 231.36 839.28 231.36L839.28 231.36Q832.94 231.36 828.62 235.97L828.62 235.97L828.62 278.50L820.17 278.50L820.17 240.87Q820.17 236.45 817.24 233.86Q814.32 231.27 808.84 231.27L808.84 231.27Q803.66 231.27 799.53 233.00L799.53 233.00L799.53 278.50L791.08 278.50L791.08 229.44Q798.57 225.80 809.04 225.80L809.04 225.80Q819.88 225.80 824.88 232.04L824.88 232.04Q830.83 225.80 840.91 225.80L840.91 225.80Q849.45 225.80 853.58 230.31Q857.71 234.82 857.71 241.06L857.71 241.06ZM901.04 272.55L901.04 278.50L870.42 278.50L870.42 212.45L901.04 212.45L901.04 218.40L879.25 218.40L879.25 241.44L898.83 241.44L898.83 247.30L879.25 247.30L879.25 272.55L901.04 272.55ZM930.55 249.41L952.15 278.50L942.16 278.50L920.47 247.68L920.28 247.68L920.28 278.50L911.54 278.50L911.54 215.04Q917.97 211.49 927.96 211.49L927.96 211.49Q939.09 211.49 944.85 216.63Q950.61 221.76 950.61 231.08L950.61 231.08Q950.61 239.43 945.19 244.23Q939.76 249.03 930.55 249.22L930.55 249.22L930.55 249.41ZM941.88 231.46L941.88 231.46Q941.88 223.88 938.47 220.28Q935.06 216.68 927.76 216.68L927.76 216.68Q922.87 216.68 920.28 218.12L920.28 218.12L920.28 245.76Q922.20 246.34 925.94 246.34L925.94 246.34Q941.88 246.34 941.88 231.46ZM1000.95 231.46L1000.95 231.46Q1000.95 241.06 994.09 246.87Q987.22 252.68 973.50 251.33L973.50 251.33L970.52 251.04L970.52 278.50L961.88 278.50L961.88 215.14Q968.22 211.49 978.39 211.49L978.39 211.49Q989.62 211.49 995.29 216.92Q1000.95 222.34 1000.95 231.46ZM992.41 231.36L992.41 231.36Q992.41 224.07 988.95 220.42Q985.50 216.77 978.01 216.77L978.01 216.77Q973.40 216.77 970.52 218.02L970.52 218.02L970.52 245.67L973.40 245.96Q992.41 247.78 992.41 231.36Z M1032.43 226.84L1032.43 226.84Q1032.43 231.80 1028.90 235.32Q1025.36 238.84 1020.40 238.84Q1015.43 238.84 1011.91 235.32Q1008.39 231.80 1008.39 226.84L1008.39 226.84Q1008.39 221.84 1011.91 218.32Q1015.43 214.80 1020.40 214.80Q1025.36 214.80 1028.90 218.32Q1032.43 221.84 1032.43 226.84ZM1027.88 234.28Q1030.97 231.19 1030.97 226.84Q1030.97 222.49 1027.88 219.38Q1024.78 216.26 1020.40 216.26L1020.40 216.26Q1016.04 216.26 1012.95 219.38Q1009.86 222.49 1009.86 226.84Q1009.86 231.19 1012.95 234.28Q1016.04 237.38 1020.40 237.38L1020.40 237.38Q1024.78 237.38 1027.88 234.28ZM1020.50 227.11L1025.33 233.77L1023.42 233.77L1018.76 227.21L1018.25 227.21L1018.25 233.77L1016.66 233.77L1016.66 219.90Q1018.02 219.22 1019.99 219.22L1019.99 219.22Q1021.99 219.22 1023.35 220.28Q1024.71 221.33 1024.71 223.23L1024.71 223.23Q1024.71 225.00 1023.54 226.00Q1022.37 227.01 1020.50 227.11L1020.50 227.11ZM1023.08 223.20L1023.08 223.20Q1023.08 221.77 1022.11 221.16Q1021.14 220.55 1019.78 220.55L1019.78 220.55Q1018.90 220.55 1018.25 220.82L1018.25 220.82L1018.25 226.09L1019.51 226.09Q1021.08 226.09 1022.08 225.41Q1023.08 224.73 1023.08 223.20Z"></path></svg></div>
+        <p class="ts-footer__note">Canada’s Sovereign Cloud mERP<span class="rtm">®</span> — built solely for Canadian municipalities, from the ground up. By Canadians, in Canada. Since 1987.</p>
+        <span class="ts-pill ts-pill--accent" style="margin-top:16px;"><svg class="ts-maple"><use href="#i-maple"></use></svg> 100% Canadian-owned since 1987</span>
+      </div>
+      <div>
+        <h2>Platform</h2>
+        <ul>
+          <li><a href="index.html#modules">Modules</a></li>
+          <li><a href="index.html#ai">TownSuite Intelligence</a></li>
+          <li><a href="index.html#implementation">Onboarding</a></li>
+          <li><a href="index.html#pricing">Pricing</a></li>
+          <li><a href="https://portal.ws.townsuite.com/login" target="_blank" rel="noopener">Sign in</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="index.html#sovereign">Sovereignty</a></li>
+          <li><a href="big-picture.html">The Big Picture</a></li>
+          <li><a href="enhance.html">Enhance your processes</a></li>
+          <li><a href="procurement.html">For procurement &amp; IT</a></li>
+          <li><a href="https://status.townsuite.com" target="_blank" rel="noopener">Status</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="about.html">About TownSuite</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="cookies.html">Cookie Policy</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="accessibility.html">Accessibility</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ts-footer__base">
+      <span>© <span class="ts-yr">2026</span> TownSuite Municipal Software Inc. TownSuite<span class="rtm">®</span> and mERP<span class="rtm">®</span> are registered trademarks of TownSuite Municipal Software Inc.</span>
+      <span class="ts-dots"><i></i><i></i><i></i></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* standalone theme toggle — shares the ts-theme key with the main site */
+(function(){
+  var root = document.documentElement;
+  var mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+  function getTheme(){ try{ return localStorage.getItem("ts-theme") || "auto"; }catch(e){ return "auto"; } }
+  function resolveTheme(t){ return t === "auto" ? (mq && mq.matches ? "dark" : "light") : t; }
+  function setTheme(t){
+    root.setAttribute("data-theme", resolveTheme(t));
+    try{ document.querySelectorAll(".ts-themer").forEach(function(b){ b.setAttribute("aria-pressed", String(resolveTheme(t)==="dark")); }); }catch(e){}
+    try{ localStorage.setItem("ts-theme", t); }catch(e){}
+  }
+  setTheme(getTheme());
+  if(mq && mq.addEventListener){ mq.addEventListener("change", function(){ if(getTheme() === "auto") setTheme("auto"); }); }
+  document.querySelectorAll(".ts-themer").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var cur = resolveTheme(getTheme());
+      setTheme(cur === "dark" ? "light" : "dark");
+    });
+  });
+})();
+</script>
+
+<script>
+/* interactive company timeline + gentle autoplay */
+(function(){
+  var tl = document.getElementById("ts-timeline");
+  if(!tl) return;
+  var nodes = Array.prototype.slice.call(tl.querySelectorAll(".ab-tl__node"));
+  var cards = Array.prototype.slice.call(tl.querySelectorAll(".ab-tl__card"));
+  var fill  = tl.querySelector(".ab-tl__fill");
+  var rail  = tl.querySelector(".ab-tl__rail");
+  var prev  = tl.querySelector("[data-tl-prev]");
+  var next  = tl.querySelector("[data-tl-next]");
+  var i = 0, timer = null, touched = false, inView = false;
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function sel(n, doScroll){
+    i = (n + nodes.length) % nodes.length;
+    nodes.forEach(function(el,k){ var on = k===i; el.classList.toggle("is-active", on); el.setAttribute("aria-selected", on?"true":"false"); });
+    cards.forEach(function(el,k){ el.classList.toggle("is-active", k===i); });
+    var node = nodes[i];
+    fill.style.width = (node.offsetLeft + node.offsetWidth/2) + "px";
+    if(prev) prev.disabled = i===0;
+    if(next) next.disabled = i===nodes.length-1;
+    if(doScroll !== false && rail.scrollTo){
+      rail.scrollTo({ left: node.offsetLeft - rail.clientWidth/2 + node.offsetWidth/2, behavior:"smooth" });
+    }
+  }
+  function startAuto(){
+    if(timer || touched || reduce || !inView) return;
+    timer = setInterval(function(){ sel(i+1); }, 4000);
+  }
+  function stopAuto(permanent){
+    if(timer){ clearInterval(timer); timer = null; }
+    if(permanent) touched = true;
+  }
+  function userPick(n){ stopAuto(true); sel(n); }
+  nodes.forEach(function(el,k){ el.addEventListener("click", function(){ userPick(k); }); });
+  if(prev) prev.addEventListener("click", function(){ userPick(i-1); });
+  if(next) next.addEventListener("click", function(){ userPick(i+1); });
+  tl.addEventListener("keydown", function(e){
+    if(e.key==="ArrowRight"){ e.preventDefault(); userPick(i+1); }
+    else if(e.key==="ArrowLeft"){ e.preventDefault(); userPick(i-1); }
+  });
+  tl.addEventListener("pointerdown", function(){ stopAuto(true); });
+  /* swipe the card stage left/right to move between milestones (mobile/tablet).
+     Only a quick, horizontally-dominant gesture navigates; vertical swipes fall
+     through to native page scroll (touch-action:pan-y on the stage). */
+  var stage = tl.querySelector(".ab-tl__stage");
+  if(stage){
+    var swx=0, swy=0, swt=0, swon=false;
+    stage.addEventListener("pointerdown", function(e){ swon=true; swx=e.clientX; swy=e.clientY; swt=Date.now(); });
+    stage.addEventListener("pointerup", function(e){
+      if(!swon) return; swon=false;
+      var dx=e.clientX-swx, dy=e.clientY-swy;
+      if(Date.now()-swt < 700 && Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)*1.4){
+        userPick(dx < 0 ? i+1 : i-1);
+      }
+    });
+    stage.addEventListener("pointercancel", function(){ swon=false; });
+  }
+  function checkInView(){
+    if(touched) return;
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    var r = tl.getBoundingClientRect();
+    var vis = r.top < vh * 0.78 && r.bottom > vh * 0.22;
+    inView = vis;
+    if(vis) startAuto(); else stopAuto(false);
+  }
+  requestAnimationFrame(function(){ sel(0, false); checkInView(); });
+  window.addEventListener("resize", function(){ sel(i, false); checkInView(); });
+  window.addEventListener("scroll", checkInView, { passive: true });
+  document.addEventListener("scroll", checkInView, { passive: true, capture: true });
+  if("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(touched) return;
+        inView = en.isIntersecting && en.intersectionRatio >= 0.3;
+        if(inView) startAuto(); else stopAuto(false);
+      });
+    }, { threshold: [0, 0.3, 0.6] });
+    io.observe(tl);
+  }
+})();
+</script>
+
+<script>
+/* CTA roof construction on scroll into view */
+(function(){
+  var roof = document.querySelector('.x-roof');
+  var sec = document.getElementById('roof-trigger') || document.getElementById('ab-cta');
+  if(!roof || !sec) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce) return;
+  roof.classList.add('x-roof--anim');
+  var built = false;
+  function build(){ if(built) return; built = true; var leaf = roof.querySelector('.x-roof__finial'); if(leaf){ leaf.style.willChange = 'transform, opacity'; leaf.addEventListener('animationend', function(){ leaf.style.willChange = 'auto'; }, { once:true }); } roof.classList.add('is-built'); window.removeEventListener('scroll', check); document.removeEventListener('scroll', check, true); }
+  function check(){ var r = sec.getBoundingClientRect(); var vh = window.innerHeight || document.documentElement.clientHeight; if(r.top < vh * 0.92 && r.bottom > 0) build(); }
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ build(); io.disconnect(); } }); }, { threshold:0 });
+    io.observe(sec);
+  }
+  window.addEventListener('scroll', check, { passive:true });
+  document.addEventListener('scroll', check, { passive:true, capture:true });
+  requestAnimationFrame(check);
+})();
+</script>
+
+<div id="demo311" class="d311" hidden>
+  <div class="d311__scrim"></div>
+  <div class="d311__panel" role="dialog" aria-modal="true" aria-labelledby="d311-title">
+    <div class="d311__bar"><span id="d311-title">Connect with us</span><button class="d311__x" type="button" aria-label="Close">✕</button></div>
+    <iframe class="d311__frame" title="TownSuite request form"></iframe>
+  </div>
+</div>
+<script>
+(function(){var m=document.getElementById("demo311");if(!m)return;var f=m.querySelector(".d311__frame"),lastFocus=null;function th(){return document.documentElement.getAttribute("data-theme")==="dark"?"dark":"light";}function setInert(on){var k=document.body.children,i,el;for(i=0;i<k.length;i++){el=k[i];if(el===m)continue;if(on){el.setAttribute("aria-hidden","true");try{el.inert=true;}catch(x){}}else{el.removeAttribute("aria-hidden");try{el.inert=false;}catch(x){}}}}function op(e,details,products){if(e&&e.preventDefault)e.preventDefault();lastFocus=document.activeElement;f.setAttribute("src","311-embed.html?theme="+th()+"&r="+Date.now());if(details||products){f.onload=function(){try{f.contentWindow.postMessage({ts311Details:details,ts311Products:products},window.location.origin);}catch(x){}};}m.hidden=false;document.body.style.overflow="hidden";requestAnimationFrame(function(){setInert(true);var x=m.querySelector(".d311__x");if(x)x.focus();});}function cl(){m.hidden=true;f.setAttribute("src","about:blank");document.body.style.overflow="";setInert(false);if(lastFocus&&lastFocus.focus){try{lastFocus.focus();}catch(x){}}}document.querySelectorAll("[data-demo-open]").forEach(function(b){b.addEventListener("click",op);});m.querySelector(".d311__x").addEventListener("click",cl);m.querySelector(".d311__scrim").addEventListener("click",cl);document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!m.hidden)cl();});document.addEventListener("focusin",function(e){if(!m.hidden&&!m.contains(e.target)){var x=m.querySelector(".d311__x");if(x)x.focus();}});window.addEventListener("message",function(e){if(e.origin!==window.location.origin)return;if(e.data&&e.data.ts311Close)cl();});window.tsOpenDemo=function(c,d,p){op(null,d,p);};})();
+</script>
+<!-- scroll reveal — IntersectionObserver + CSS, reduced-motion safe (2026) -->
+<style>
+html.reveal-ready .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1);}
+html.reveal-ready .reveal.in{opacity:1;transform:none;}
+</style>
+<script>
+(function(){
+  if(!('IntersectionObserver' in window) || !window.matchMedia || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var SEL='.pp-kicker,.pp-h1,.pp-updated,.pp-doc > p,.pp-doc > ul,.pp-doc > ol,.pp-doc > .bp-video,.pp-doc > .bp-cta,.pp-h2,.pp-h3,.pp-bullets,.pp-prin > li,.pp-contact,.ab-eyebrow,.ab-h1,.ab-h2,.ab-lede,.ab-merp,.ab-prose > p,.ab-stat,.ab-card,.ab-plat__item,.ab-dogfood,.ab-prov,.ab-foot__lead,.ab-foot__bil,.ab-refs,.ab-cta__h,.ab-cta__p,.ab-btns';
+  var els=[].slice.call(document.querySelectorAll(SEL));
+  if(!els.length) return;
+  document.documentElement.classList.add('reveal-ready');
+  var groups=new Map();
+  els.forEach(function(el){
+    el.classList.add('reveal');
+    var p=el.parentNode, i=groups.get(p)||0; groups.set(p,i+1);
+    el.style.transitionDelay=Math.min(i*70,280)+'ms';
+  });
+  var io=new IntersectionObserver(function(ents){
+    ents.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{rootMargin:'0px 0px -8% 0px',threshold:0.06});
+  els.forEach(function(el){ io.observe(el); });
+})();
+</script>
+
+<!-- ================= TOWNSUITE INTELLIGENCE — LIVE CHAT WIDGET =================
+     Same widget as every page. PRODUCTION: load embed.js from the chat instance
+     (https://tschat-public.yqx.auto.k8s.townsuite.com/embed.js) and match data-api;
+     the local src below just renders the widget in the Designer preview. The chat
+     keeps its session + transcript across pages via sessionStorage. -->
+<script src="demo-modal.js" defer></script>
+<script src="embed.js"
+        data-api="https://tschat-prod.yqx.auto.k8s.townsuite.com"
+        data-lang="en" defer></script>
+
+<script>/*ts-yr-auto*/document.querySelectorAll(".ts-yr").forEach(function(e){e.textContent=new Date().getFullYear();});</script>
 </body>
+</html>

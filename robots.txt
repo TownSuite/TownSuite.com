@@ -1,4 +1,16 @@
-User-Agent: *
-Disallow:
+# robots.txt — TownSuite.com
+# Allow everything; point crawlers and AI answer engines at the sitemap.
+
+User-agent: *
+Allow: /
+
+# Keep error/utility pages out of crawl emphasis (they are also noindex-tagged)
+Disallow: /404.html
+Disallow: /500.html
+Disallow: /311-embed.html
+Disallow: /status.html
 
 Sitemap: https://townsuite.com/sitemap.xml
+
+# Curated Markdown index for LLMs / AI agents (llms.txt convention):
+# https://townsuite.com/llms.txt

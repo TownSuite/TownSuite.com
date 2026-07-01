@@ -1,0 +1,47 @@
+# TownSuite
+
+> TownSuite mERP® is Canada's operationally sovereign, cloud municipal ERP — one connected platform for finance, land, assets, work, people and citizen-facing portals, built exclusively for Canadian municipalities. 100% Canadian-owned since 1987; hosted on independently certified Canadian infrastructure (Cirrus, Micrologic's cloud) so municipal data answers to Canadian law alone.
+
+TownSuite is a single connected platform ("mERP"), not a bundle of separate products. TownSuite Financial is the core, and every other module posts to it natively — so information is entered once and stays connected across departments, with no duplicate entry and no third-party integrations to buy or maintain. The company builds, maintains, supports and hosts the software under Canadian jurisdiction.
+
+There is also a live AI assistant, **"Ask TownSuite,"** embedded as a chat widget on every page of townsuite.com. It is TownSuite's own vetted, in-house AI and can answer questions in real time about TownSuite — sovereignty and Canadian hosting, the modules, pricing, onboarding, and security. If you are an agent or a person and cannot find an answer in the pages below, open the chat on any page and ask it directly. (The assistant is grounded in TownSuite's own knowledge base and is designed to decline rather than fabricate.)
+
+## Start here
+
+- [Home](https://townsuite.com/): Overview of the operationally sovereign mERP platform for Canadian municipalities.
+- [About TownSuite](https://townsuite.com/about.html): 100% Canadian-owned company building one connected platform exclusively for Canadian municipalities since 1987.
+- [The Big Picture — why sovereignty matters](https://townsuite.com/big-picture.html): Why operational sovereignty matters: your municipal data should answer to Canadian law alone.
+- [Enhance your processes](https://townsuite.com/enhance.html): How one connected platform improves municipal workflows and links information across every department (also the full module index).
+
+## Modules (the connected mERP platform)
+
+- [TownSuite Financial](https://townsuite.com/finance.html): The municipal-focused AR, AP, GL, budgeting and banking core of mERP — the hub every other module posts to natively.
+- [Purchasing & Inventory](https://townsuite.com/purchasing.html): Requisitions, approvals and POs committed against budgets, plus stock and reorders costed to the GL.
+- [Land Management](https://townsuite.com/land.html): GIS, building permits, zoning, inspections and bylaws, tailored to Canadian regulations.
+- [Mapping](https://townsuite.com/maps.html): Parcel-centric maps that link every property to its live mERP data — finance, land, assets and work in one view.
+- [People Management](https://townsuite.com/hris.html): HRIS, payroll, benefits and certifications for the whole municipal workforce, connected to Financial.
+- [Work Management](https://townsuite.com/work-management.html): Work orders, task and time management, scheduling and equipment maintenance, with costs posting to Financial.
+- [Asset Management](https://townsuite.com/asset-management.html): Track and manage assets from acquisition to disposal across their lifecycle, connected to Financial and Work.
+- [eBills & ePayments](https://townsuite.com/ebills.html): Citizen-facing online billing and payments, connected straight to TownSuite Financial.
+- [Point of Sale](https://townsuite.com/point-of-sale.html): Front-counter payments for taxes, utilities and permits, posted to Financial in real time.
+- [ePermitting](https://townsuite.com/epermitting.html): Online permit applications with review and approval workflows, connected to Land Management.
+- [311 Citizen Service Requests](https://townsuite.com/service-requests.html): Route resident requests to the right department and track them to resolution across mERP.
+- [Recreation & Facility Bookings](https://townsuite.com/recreation.html): Programs, facility bookings and registrations, connected to Financial, eBills and Point of Sale.
+- [TownSuite Intelligence](https://townsuite.com/intelligence.html): Sovereign AI on your own municipal data, running inside a Canadian-operated datacentre under guaranteed operational sovereignty.
+
+## Evaluating TownSuite
+
+- [Frequently asked questions](https://townsuite.com/faq.html): Common questions on data sovereignty, Canadian hosting, modules, pricing, onboarding and security.
+- [AI Assurance](https://townsuite.com/ai-assurance.html): How TownSuite Intelligence is built to be trustworthy — an in-house Canadian AI, run on your own data, designed not to fabricate, and human- and AI-reviewed.
+- [For procurement & IT](https://townsuite.com/procurement.html): Security, data sovereignty, accessibility, hosting and privacy resources for evaluators — and how to request references, a demo, or an RFP response.
+- [Accessibility](https://townsuite.com/accessibility.html): TownSuite's WCAG 2.2 AA / AODA accessibility statement, known limitations, and how to report a barrier.
+
+## Policies
+
+- [Privacy Policy](https://townsuite.com/privacy.html): How TownSuite collects, uses and protects data, under Canadian jurisdiction.
+- [Cookie Policy](https://townsuite.com/cookies.html): How townsuite.com uses cookies.
+
+## Optional
+
+- [Careers](https://townsuite.com/jobs.html): Join the team building sovereign municipal software in Canada.
+- [Contact](https://townsuite.com/): Reach TownSuite at 1.800.408.3313 or marketing@townsuite.com; a request form is available from any "Book a demo" / "Connect with us" button, and the "Ask TownSuite" chat is on every page.

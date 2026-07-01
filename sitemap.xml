@@ -1,114 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- TownSuite.com Sitemap -->
-
-<url>
-  <loc>https://townsuite.com/</loc>
-  <lastmod>2017-05-01T17:21:09+00:00</lastmod>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://townsuite.com/try</loc>
-  <lastmod>2017-05-01T17:21:09+00:00</lastmod>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://townsuite.com/apps</loc>
-  <lastmod>2017-05-01T17:21:09+00:00</lastmod>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://townsuite.com/big-picture</loc>
-  <lastmod>2017-05-01T17:21:09+00:00</lastmod>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://townsuite.com/enhance</loc>
-  <lastmod>2017-05-01T17:21:09+00:00</lastmod>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://townsuite.com/about</loc>
-  <lastmod>2017-05-01T17:21:09+00:00</lastmod>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://townsuite.com/features</loc>
-  <lastmod>2017-05-01T17:21:09+00:00</lastmod>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://townsuite.com/events</loc>
-  <lastmod>2017-05-01T17:21:09+00:00</lastmod>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://townsuite.com/finance</loc>
-  <lastmod>2017-05-01T17:21:09+00:00</lastmod>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://townsuite.com/asset-management</loc>
-  <lastmod>2017-05-01T17:21:09+00:00</lastmod>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://townsuite.com/hris</loc>
-  <lastmod>2017-05-01T17:21:09+00:00</lastmod>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://townsuite.com/land</loc>
-  <lastmod>2017-05-01T17:21:09+00:00</lastmod>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://townsuite.com/ebills</loc>
-  <lastmod>2017-05-01T17:21:09+00:00</lastmod>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://townsuite.com/events-facilities</loc>
-  <lastmod>2017-05-01T17:21:09+00:00</lastmod>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://townsuite.com/service-requests</loc>
-  <lastmod>2017-05-01T17:21:09+00:00</lastmod>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://townsuite.com/contact</loc>
-  <lastmod>2017-05-01T17:21:09+00:00</lastmod>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://townsuite.com/cookies</loc>
-  <lastmod>2017-05-01T17:21:09+00:00</lastmod>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://townsuite.com/privacy</loc>
-  <lastmod>2017-05-01T17:21:09+00:00</lastmod>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://townsuite.com/partner-program</loc>
-  <lastmod>2017-05-01T17:21:09+00:00</lastmod>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://townsuite.com/referrals</loc>
-  <lastmod>2017-05-01T17:21:09+00:00</lastmod>
-  <changefreq>daily</changefreq>
-</url>
-<url>
-  <loc>https://townsuite.com/contact_map.html</loc>
-  <lastmod>2017-05-01T17:21:09+00:00</lastmod>
-  <changefreq>daily</changefreq>
-</url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://townsuite.com/</loc><lastmod>2026-07-01</lastmod><priority>1.0</priority></url>
+  <url><loc>https://townsuite.com/about.html</loc><lastmod>2026-07-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://townsuite.com/big-picture.html</loc><lastmod>2026-07-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://townsuite.com/enhance.html</loc><lastmod>2026-07-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://townsuite.com/jobs.html</loc><lastmod>2026-07-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://townsuite.com/finance.html</loc><lastmod>2026-07-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://townsuite.com/purchasing.html</loc><lastmod>2026-07-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://townsuite.com/land.html</loc><lastmod>2026-07-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://townsuite.com/maps.html</loc><lastmod>2026-07-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://townsuite.com/hris.html</loc><lastmod>2026-07-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://townsuite.com/work-management.html</loc><lastmod>2026-07-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://townsuite.com/asset-management.html</loc><lastmod>2026-07-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://townsuite.com/ebills.html</loc><lastmod>2026-07-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://townsuite.com/point-of-sale.html</loc><lastmod>2026-07-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://townsuite.com/epermitting.html</loc><lastmod>2026-07-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://townsuite.com/service-requests.html</loc><lastmod>2026-07-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://townsuite.com/recreation.html</loc><lastmod>2026-07-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://townsuite.com/intelligence.html</loc><lastmod>2026-07-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://townsuite.com/privacy.html</loc><lastmod>2026-07-01</lastmod><priority>0.3</priority></url>
+  <url><loc>https://townsuite.com/cookies.html</loc><lastmod>2026-07-01</lastmod><priority>0.3</priority></url>
+  <url><loc>https://townsuite.com/faq.html</loc><lastmod>2026-07-01</lastmod><priority>0.6</priority></url>
+  <url><loc>https://townsuite.com/accessibility.html</loc><lastmod>2026-07-01</lastmod><priority>0.4</priority></url>
+  <url><loc>https://townsuite.com/procurement.html</loc><lastmod>2026-07-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://townsuite.com/ai-assurance.html</loc><lastmod>2026-07-01</lastmod><priority>0.6</priority></url>
 </urlset>
