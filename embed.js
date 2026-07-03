@@ -147,6 +147,9 @@
         ".ts-chat.has-composer .ts-chat__foot{display:none;}" +
         "@media (max-width:1100px){.ts-chatfab{bottom:88px;}}" +
         "@media (max-width:600px){.ts-chat{right:0;bottom:0;left:0;top:0;width:100%;height:100dvh;max-height:100dvh;border-radius:0;border:none;}.ts-chat__resize{display:none;}.ts-chat__composer input{font-size:16px;min-height:46px;}" +
+        // when the keyboard shrinks the panel, let the transcript give up space so the
+        // composer never gets pushed past the panel's clipped bottom edge.
+        ".ts-chat__log{min-height:0;}" +
         // viewport-fit=cover lets the blue header paint up into the status-bar safe area;
         // pad the header content down so the title/badge clear the clock & battery, and lift
         // the composer above the home-indicator.
@@ -320,6 +323,31 @@
         else if (fsQ.addListener) fsQ.addListener(onFsQ);
     }
 
+    // ---- keyboard-safe full-screen sizing (iOS) ------------------------------
+    // Full-screen on mobile the panel is position:fixed at height:100dvh — but dvh
+    // does NOT shrink for the on-screen keyboard. When the composer input takes focus,
+    // iOS opens the keyboard, shrinks the *visual* viewport and scrolls the fixed panel
+    // upward so the input clears the keyboard; that drags the panel's bottom edge above
+    // the keyboard and the host page shows through the gap. So while the dock is open on
+    // a phone we pin it to the visual viewport (height + top/left offset) via the
+    // VisualViewport API, so it always covers exactly the visible area — nothing of the
+    // page can peek through. Desktop and the closed state are untouched.
+    var vvp = window.visualViewport || null;
+    function syncPanelViewport() {
+        if (!vvp || !fsQ || !fsQ.matches || !panel.classList.contains("is-open")) return;
+        panel.style.height = vvp.height + "px";
+        panel.style.transform = "translate(" + vvp.offsetLeft + "px," + vvp.offsetTop + "px)";
+    }
+    function clearPanelViewport() {
+        panel.style.transform = "";
+        if (fsQ && fsQ.matches) panel.style.height = "";   // hand height back to the 100dvh rule
+    }
+    if (vvp) {
+        var onVvp = function () { syncPanelViewport(); };
+        vvp.addEventListener("resize", onVvp);
+        vvp.addEventListener("scroll", onVvp);
+    }
+
     // ---- accessibility: focus management, focus trap, inert background -------
     var lastFocused = null;          // element to restore focus to on close
     var inertEls = [];               // host-page siblings we marked inert while open
@@ -384,6 +412,7 @@
         var first = root.querySelector(".ts-chat__chips button") || (composer && composer.querySelector("input")) || panel.querySelector(".ts-chat__x");
         if (first) first.focus();
         tintBarPersist();
+        syncPanelViewport();
     }
     function closePanel() {
         panel.classList.remove("is-open");
@@ -395,6 +424,7 @@
         lastFocused = null;
         try { restore.focus(); } catch (e) { try { fab.focus(); } catch (e2) {} }
         untintBar();
+        clearPanelViewport();
     }
     fab.addEventListener("click", openPanel);
     panel.querySelector(".ts-chat__x").addEventListener("click", closePanel);
@@ -708,6 +738,7 @@
             fab.setAttribute("aria-expanded", "true");
             setBackgroundInert(true);
             tintBar();
+            syncPanelViewport();
         }
         // Replay happens while the dock is hidden, so scrollTop never sticks. And the log keeps
         // growing AFTER the first frame as the Dax webfont loads and bubbles reflow taller — and on
