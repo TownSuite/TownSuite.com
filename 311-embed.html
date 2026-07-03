@@ -6,29 +6,11 @@
 <meta name="robots" content="noindex, follow" />
 <meta name="theme-color" content="#003C63" />
 <title>TownSuite 311 Request Widget</title>
-<!-- TODO (SRI — Mapbox CSS): Mapbox does not publish SRI hashes. crossorigin="anonymous"
-     is already set below (required for SRI to work cross-origin). At DEPLOY TIME, run the
-     exact command below to generate a sha384 value, then add it as integrity="sha384-..."
-     on the <link>:
-       openssl dgst -sha384 -binary <(curl -s https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css) | openssl base64 -A
-     (Re-generate and update the hash on every Mapbox version bump, or the stylesheet
-     will be refused by the browser.)
-
-     NOTE — the Mapbox GL *JavaScript* is NOT loaded here: it is injected at runtime by the
-     third-party 311Complaints.js (loaded from portal.ws.townsuite.com, see <script> below).
-     Because that injection happens inside the portal bundle, pinning the Mapbox GL JS with
-     SRI must be done in that portal bundle — it cannot be done from this page.
-
-     STRONGEST FIX (recommended for a citizen-PII form): self-host the Mapbox GL CSS *and* JS
-     (and jQuery) from townsuite.com so there is no third-party CDN trust dependency at all. -->
-<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" crossorigin="anonymous" />
-<!-- The live 311 widget (311Complaints.js) injects Bootstrap 3 + Kendo UI 2023.3 at
-     runtime, both of which expect jQuery to ALREADY be global. The widget does not
-     load jQuery itself — on townsuite.com the host page provides it. This iframe is
-     isolated, so we must supply jQuery here BEFORE the widget runs, or Kendo throws. -->
-<!-- Subresource Integrity: if the CDN copy is tampered with, the browser refuses to
-     run it. Hash is jQuery's official published SRI for 3.7.1.min.js — verify it still
-     matches https://releases.jquery.com/jquery/ before each version bump. -->
+<!-- jQuery IS required here and CANNOT be dropped: the isolated iframe's widget injects
+     Bootstrap 3 + Kendo UI 2023.3, both of which need jQuery global, and it does NOT load
+     jQuery itself. Removing it hangs the form in a runaway map-init loop (verified). It must
+     be supplied here BEFORE the widget runs. SRI pins the CDN copy (jQuery's official hash for
+     3.7.1.min.js — re-verify at https://releases.jquery.com/jquery/ on any version bump). -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
         crossorigin="anonymous"></script>
@@ -226,6 +208,12 @@ body{
 
 /* map */
 #Complaints311Div .map_canvas{border-radius:14px !important;overflow:hidden;border:1.5px solid var(--line) !important;}
+/* The widget sets inline width:50% on the map container AND its wrapper row, which in this
+   narrow embed compounds to a ~25%-wide map and clips the geocoder input off the left edge.
+   Force both back to full width. (Safe: markers use transform:translate(-50%,…) — an inline
+   *transform*, so they don't match a [style*="width: 50%"] selector.) */
+#Complaints311Div [style*="width: 50%"],
+#Complaints311Div [style*="width:50%"]{width:100% !important;}
 
 /* ---- suppress the widget's built-in CIRCULAR spinners / loading masks ----
    The host modal already shows TownSuite's animated dots while the widget loads,
@@ -583,6 +571,42 @@ Townsuite.Complaint311.EmbedInit(true, "https://portal.ws.townsuite.com", "Compl
       }
     }
   }
+})();
+</script>
+<script>
+/* Map canvas size fix. Mapbox GL initialises its <canvas> while the widget's container is
+   still collapsed, leaving a 400×300 canvas inside the (CSS-forced) full-width .map_canvas
+   box. Mapbox does re-measure on window "resize" — but only once the map is fully settled,
+   which can be 5-8s after the form appears (early nudges are ignored; verified). So instead
+   of a short fixed schedule, poll for up to 20s: whenever the canvas width doesn't match its
+   container, dispatch a resize; while they match, do nothing. Re-arms if the widget rebuilds
+   the map (new canvas node). Cheap: one getBoundingClientRect pair per 500ms, self-stops. */
+(function(){
+  var host = document.getElementById("Complaints311Div");
+  if (!host || !window.MutationObserver) return;
+  var poller = null, deadline = 0;
+  function poll(){
+    var wrap = host.querySelector(".map_canvas");
+    var canvas = host.querySelector(".mapboxgl-canvas");
+    if (!wrap || !canvas) return;
+    var ww = wrap.getBoundingClientRect().width;
+    var cw = canvas.getBoundingClientRect().width;
+    // only nudge when the container has real layout width and the canvas disagrees
+    if (ww > 300 && Math.abs(cw - ww) > 6) {
+      try { window.dispatchEvent(new Event("resize")); } catch (e) {}
+    }
+  }
+  function arm(){
+    deadline = Date.now() + 20000;
+    if (poller) return;
+    poller = setInterval(function(){
+      if (Date.now() > deadline) { clearInterval(poller); poller = null; return; }
+      poll();
+    }, 500);
+  }
+  new MutationObserver(function(){
+    if (host.querySelector(".mapboxgl-canvas")) arm();
+  }).observe(host, { childList: true, subtree: true });
 })();
 </script>
 </body>
