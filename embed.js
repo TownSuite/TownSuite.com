@@ -159,7 +159,14 @@
         ".ts-chatfab .lbl{display:none;}}";
 
     // ---- Dax @font-face (document-level: shadow roots resolve fonts at the doc) ----
-    if (!document.getElementById("ts-dax-face")) {
+    // Only inject when the host page does NOT already declare Dax. townsuite.com pages
+    // self-host it (styles.css @font-face), and injecting a second 'Dax' rule pointed at
+    // the chat instance made every page fire (failing) font requests at the API origin.
+    // The instance-hosted copy is only needed when the widget is embedded on a page
+    // without its own Dax.
+    var hasDax = false;
+    try { document.fonts.forEach(function (f) { if (/^["']?Dax["']?$/.test(f.family)) hasDax = true; }); } catch (e) {}
+    if (!hasDax && !document.getElementById("ts-dax-face")) {
         var face = document.createElement("style");
         face.id = "ts-dax-face";
         face.textContent =
