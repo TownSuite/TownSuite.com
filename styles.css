@@ -825,6 +825,11 @@ body[data-depth="on"] .ts-tilt{transform:perspective(1100px) rotateX(var(--rx,0d
 
 /* ---- mobile: chat is full-screen, no resize, no input-zoom ---- */
 @media (max-width:600px){
+  /* Long CTA labels (e.g. the AI section's "How our AI stays sovereign & accurate")
+     can't fit one line on a phone. With white-space:nowrap the button overflowed its
+     column and the AI card's overflow:hidden clipped the trailing arrow on iOS Safari.
+     Let these buttons wrap and never exceed their container. */
+  .ts-cta-row .ts-btn{white-space:normal;max-width:100%;}
   .ts-chat{
     right:0 !important;bottom:0 !important;left:0 !important;top:0 !important;
     width:100% !important;height:100dvh !important;max-height:100dvh !important;
