@@ -164,7 +164,8 @@
         face.id = "ts-dax-face";
         face.textContent =
             "@font-face{font-family:'Dax';" +
-            "src:url('" + API + "/fonts/dax-regular.ttf') format('truetype'),url('" + API + "/fonts/dax-regular.otf') format('opentype');" +
+            // woff2 first so modern browsers fetch the 12KB file instead of the 26KB ttf; ttf/otf stay as fallbacks.
+            "src:url('" + API + "/fonts/dax-regular.woff2') format('woff2'),url('" + API + "/fonts/dax-regular.ttf') format('truetype'),url('" + API + "/fonts/dax-regular.otf') format('opentype');" +
             "font-weight:400 900;font-style:normal;font-display:swap;}";
         document.head.appendChild(face);
     }
@@ -251,6 +252,10 @@
     // iOS 26 re-derives the toolbar colour from page CSS on SCROLL — so after we set the
     // navy sources, a tiny real scroll delta (move 1px, settle, move back) prompts Safari
     // to re-sample and pick up the navy. Harmless on older iOS.
+    // Note: while the full-screen dock is open the page is scroll-locked (<body> is
+    // position:fixed), so this open-time poke is a no-op there — the tint still resolves
+    // from the static fixed sources. Don't move the lock after the tint to "fix" it: the
+    // lock is deliberately applied first to stop iOS shoving the panel off-screen.
     function pokeScroll() {
         try { var y = window.pageYOffset || 0; window.scrollTo(0, y + 1); setTimeout(function () { window.scrollTo(0, y); }, 90); } catch (e) {}
     }
@@ -395,6 +400,58 @@
         } catch (e) {}
     }
 
+    // Full-screen on mobile, `inert` stops Tab/clicks reaching the page but the document
+    // itself still scrolls behind the overlay — so the host page shows through and can be
+    // dragged around under the chat, and that scrolling is what lets iOS Safari shove the
+    // fixed panel off the visible area when the keyboard opens (page peeks out below the
+    // composer). Freeze the page: pin <body> at its current scroll offset while open, then
+    // restore it on close. With the page locked, the panel stays put and nothing behind
+    // it moves. Scoped to full-screen widths; desktop keeps normal page scrolling.
+    var scrollLockY = 0, scrollLocked = false, lockPrev = null;
+    function setBodyScrollLock(on) {
+        var b = document.body, d = document.documentElement;
+        if (!b) return;
+        try {
+            if (on) {
+                if (inertQ && !inertQ.matches) return;   // only lock at full-screen / mobile widths
+                if (scrollLocked) return;
+                scrollLockY = window.pageYOffset || d.scrollTop || 0;
+                lockPrev = { position: b.style.position, top: b.style.top, left: b.style.left,
+                             right: b.style.right, width: b.style.width, overflow: b.style.overflow,
+                             dOverflow: d.style.overflow };
+                b.style.position = "fixed";
+                b.style.top = (-scrollLockY) + "px";
+                b.style.left = "0";
+                b.style.right = "0";
+                b.style.width = "100%";
+                b.style.overflow = "hidden";
+                d.style.overflow = "hidden";
+                scrollLocked = true;
+            } else {
+                if (!scrollLocked) return;
+                b.style.position = lockPrev ? lockPrev.position : "";
+                b.style.top = lockPrev ? lockPrev.top : "";
+                b.style.left = lockPrev ? lockPrev.left : "";
+                b.style.right = lockPrev ? lockPrev.right : "";
+                b.style.width = lockPrev ? lockPrev.width : "";
+                b.style.overflow = lockPrev ? lockPrev.overflow : "";
+                d.style.overflow = lockPrev ? lockPrev.dOverflow : "";
+                scrollLocked = false;
+                // Force a reflow so the document regains its full scroll height (it collapsed
+                // while <body> was fixed) BEFORE we restore Y — otherwise the restore clamps to
+                // 0 and the page jumps to the top on close. The page sets scroll-behavior:smooth,
+                // which would animate (and, if interrupted, strand the page at the top), so pin
+                // scroll-behavior to auto for the one instant jump, then restore it.
+                void b.offsetHeight;
+                var prevSB = d.style.scrollBehavior;
+                d.style.scrollBehavior = "auto";
+                window.scrollTo(0, scrollLockY);
+                if ((window.pageYOffset || 0) !== scrollLockY) { (document.scrollingElement || d).scrollTop = scrollLockY; }
+                d.style.scrollBehavior = prevSB;
+            }
+        } catch (e) {}
+    }
+
     function openPanel() {
         try { lastFocused = (document.activeElement && document.activeElement !== document.body) ? document.activeElement : fab; } catch (e) { lastFocused = fab; }
         panel.classList.add("is-open");
@@ -402,6 +459,7 @@
         fab.setAttribute("aria-expanded", "true");
         ssSet("ts-chat-open", "1");
         setBackgroundInert(true);
+        setBodyScrollLock(true);
         // Mount the text input as soon as the panel opens so it's ALWAYS present —
         // the 4 chips stay above as shortcuts, but visitors (and AI agents driving
         // the page, which look for a text field) can type a free-form question right
@@ -420,6 +478,7 @@
         fab.setAttribute("aria-expanded", "false");
         ssSet("ts-chat-open", "0");
         setBackgroundInert(false);
+        setBodyScrollLock(false);
         var restore = (lastFocused && lastFocused.focus) ? lastFocused : fab;
         lastFocused = null;
         try { restore.focus(); } catch (e) { try { fab.focus(); } catch (e2) {} }
@@ -737,6 +796,7 @@
             fab.style.display = "none";
             fab.setAttribute("aria-expanded", "true");
             setBackgroundInert(true);
+            setBodyScrollLock(true);
             tintBar();
             syncPanelViewport();
         }

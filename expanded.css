@@ -550,6 +550,7 @@
 .x-cd-inwrap{flex:1;min-width:0;}
 .x-cd-in{width:100%;font-family:inherit;font-size:14px;color:var(--ink);background:var(--surface);border:1.5px solid var(--line2);border-radius:9px;padding:10px 13px;}
 .x-cd-in:focus{outline:none;border-color:var(--accent);}
+.x-cd-in:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
 .x-cd-in.is-ro{background:var(--surface2);color:var(--ink2);max-width:180px;}
 .x-cd-addr{flex:1;min-width:0;display:flex;flex-direction:column;gap:9px;}
 .x-cd-provrow{flex:1;display:flex;align-items:center;gap:10px;}
@@ -636,7 +637,7 @@
 .x-se-searchlbl{font-size:13px;color:var(--ink2);margin-bottom:9px;}
 .x-se-searchlbl b{color:var(--accent);}
 .x-se-input{width:100%;font-family:inherit;font-size:14px;color:var(--ink);background:var(--bg);border:2px solid var(--accent);border-radius:9px;padding:11px 13px;}
-.x-se-input:focus{outline:none;}
+.x-se-input:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
 .x-se-searchbtns{flex:none;width:170px;display:flex;flex-direction:column;gap:10px;}
 .x-se-btn{font-family:inherit;font-weight:700;font-size:13.5px;color:var(--ink);background:var(--surface);border:1.5px solid var(--line2);border-radius:9px;padding:11px 16px;cursor:pointer;transition:border-color .15s,color .15s;}
 .x-se-btn:hover{border-color:var(--accent);color:var(--accent);}
@@ -655,6 +656,7 @@
 .x-sup.is-open .x-sup-panel{transform:none;opacity:1;}
 .x-sup-search{display:flex;align-items:center;gap:12px;padding:16px 18px;border-bottom:1px solid var(--line);color:var(--ink3);}
 .x-sup-input{flex:1;min-width:0;font-family:inherit;font-size:16px;color:var(--ink);background:none;border:none;outline:none;}
+.x-sup-input:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px;}
 .x-sup-input::placeholder{color:var(--ink3);}
 .x-sup-esc{font-family:inherit;font-size:11px;font-weight:700;color:var(--ink3);background:var(--surface2);border:1px solid var(--line2);border-radius:6px;padding:4px 8px;cursor:pointer;}
 .x-sup-esc:hover{border-color:var(--accent);color:var(--accent);}
@@ -779,7 +781,6 @@
 
 /* ---------------- #1 keep the Ask FAB clear of the chapter dock on small screens ---------------- */
 @media (max-width:1100px){
-  .ts-chatfab{bottom:88px;}
   /* #4 anchors (Why sovereign, dock jumps) land clear of the fixed topbar */
   html{scroll-padding-top:80px;}
 }
