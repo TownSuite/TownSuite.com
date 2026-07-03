@@ -337,6 +337,14 @@
     var stage = box.querySelector(".ts-juris__stage");
     function lockStageHeight() {
       if (!stage) return;
+      // Stacked layout (≤920px, one column): each scenario sizes to its own content.
+      // Reserving the tallest mode's height here would leave big dead space under the
+      // shorter scenarios (exposed / layered). Only the side-by-side layout needs a
+      // reserved height so the page doesn't reflow while the auto-tour steps through.
+      if (window.matchMedia && window.matchMedia("(max-width:920px)").matches) {
+        stage.style.minHeight = "";
+        return;
+      }
       var active = ["exposed", "layered", "sealed", "world"].filter(function (m) {
         return box.classList.contains("ts-juris--" + m);
       })[0] || "exposed";
@@ -352,8 +360,14 @@
     lockStageHeight();
     if (doc.fonts && doc.fonts.ready) doc.fonts.ready.then(lockStageHeight);
     window.addEventListener("load", lockStageHeight);
-    var rt;
+    // iOS Safari fires `resize` on scroll (the address bar collapsing/expanding) and when
+    // the keyboard opens — none of which change the layout width. Re-running the measure
+    // pass on those events collapses and restores the reserved height and reads as a
+    // flicker, so only recompute when the viewport WIDTH actually changes.
+    var rt, lastW = window.innerWidth;
     window.addEventListener("resize", function () {
+      if (window.innerWidth === lastW) return;
+      lastW = window.innerWidth;
       clearTimeout(rt);
       rt = setTimeout(lockStageHeight, 200);
     }, { passive: true });

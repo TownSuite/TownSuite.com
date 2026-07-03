@@ -427,6 +427,12 @@ body[data-depth="on"] .ts-tilt{transform:perspective(1100px) rotateX(var(--rx,0d
 }
 .ts-juris__switch button.is-on{background:var(--accent);color:var(--accent-ink);}
 [data-theme="dark"] .ts-juris__switch button.is-on{background:#E9F0F6;color:#0A2740;}
+/* mid widths: all four labels won't fit on one line, so the pill wraps 3+1 and orphans
+   the last option — lay them out as a tidy 2×2 grid instead. */
+@media (min-width:681px) and (max-width:1000px){
+  .ts-juris__switch{display:grid;grid-template-columns:1fr 1fr;gap:6px;width:100%;border-radius:20px;}
+  .ts-juris__switch button{width:100%;border-radius:14px;padding:0 16px;}
+}
 /* narrow screens: the pill wraps into a blob — switch to a clean stacked card instead */
 @media (max-width:680px){
   .ts-juris__switch{display:grid;grid-template-columns:1fr;width:100%;border-radius:18px;}
@@ -1098,6 +1104,10 @@ body[data-motion="off"] .x-layer--dash,body[data-depth="off"] .x-layer--dash{tra
   .ts-stat:nth-child(even){border-left:1.5px solid var(--line);}
   .ts-sov__cards{grid-template-columns:1fr;}
   .ts-juris__stage{grid-template-columns:1fr;}
+  /* stacked: let the diagram hug its content instead of centering inside a tall fixed
+     box — otherwise the shorter scenarios (exposed / layered) leave dead space. */
+  .ts-juris__diagram{min-height:auto;justify-content:flex-start;padding:22px;}
+  .ts-juris__verdict{justify-content:flex-start;gap:12px;}
   .ts-footer__in{grid-template-columns:1fr 1fr;}
   .x-story__pin{position:static;}
   .x-hero__stack{min-height:380px;}

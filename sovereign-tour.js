@@ -14,6 +14,11 @@
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (reduce) return;
   if (document.body.getAttribute("data-motion") === "off") return;
+  // Only auto-tour in the side-by-side layout. Stacked (≤920px) the stage height is no
+  // longer reserved (it would leave dead space under the short scenarios), so stepping
+  // through modes automatically would reflow the page under the visitor. On mobile the
+  // switch stays manually interactive instead.
+  if (window.matchMedia && window.matchMedia("(max-width:920px)").matches) return;
 
   var order = ["exposed", "layered", "world", "sealed"];
   var btnFor = {};
