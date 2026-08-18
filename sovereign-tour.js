@@ -26,22 +26,32 @@
     btnFor[b.getAttribute("data-mode")] = b;
   });
 
+  var STEP_MS = 4500; // risk scenarios advance quickly; the tour rests on "sealed"
+
   var userTook = false, toured = false, timer = null;
   /* any real user click on the switch cancels the auto-tour for good */
   box.querySelectorAll(".ts-juris__switch button").forEach(function (b) {
-    b.addEventListener("pointerdown", function () { userTook = true; clearTimeout(timer); });
+    b.addEventListener("pointerdown", function () {
+      userTook = true;
+      clearTimeout(timer);
+      box.classList.remove("ts-juris--touring");
+    });
   });
 
   function runTour() {
     if (userTook || toured) return;
     toured = true;
+    box.style.setProperty("--tour-ms", STEP_MS + "ms");
     var i = 0;
     (function step() {
       if (userTook) return;
+      /* the touring class draws a progress line across the active tab; drop it
+         on the final (sealed) step, where nothing further is coming */
+      box.classList.toggle("ts-juris--touring", i < order.length - 1);
       var b = btnFor[order[i]];
       if (b) b.click();
       i++;
-      if (i < order.length) timer = setTimeout(step, 7000);
+      if (i < order.length) timer = setTimeout(step, STEP_MS);
     })();
   }
 

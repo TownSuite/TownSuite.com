@@ -327,7 +327,11 @@
     btns.forEach(function (b) {
       b.addEventListener("click", function () { setMode(b.getAttribute("data-mode")); });
     });
-    setMode("exposed");
+    /* Stacked layout (≤920px) never runs the auto-tour, so it would rest on the red
+       "exposed" scenario forever — lead with the sovereign answer there instead.
+       Side-by-side keeps "exposed" as the tour's starting point. */
+    var stacked = window.matchMedia && window.matchMedia("(max-width:920px)").matches;
+    setMode(stacked ? "sealed" : "exposed");
 
     /* Each scenario has a different amount of content, so switching modes changes
        the stage's height — which shifts everything below it down (and reads as the

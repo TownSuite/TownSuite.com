@@ -431,9 +431,27 @@ body[data-depth="on"] .ts-tilt{transform:perspective(1100px) rotateX(var(--rx,0d
 }
 .ts-juris__switch button.is-on{background:var(--accent);color:var(--accent-ink);}
 [data-theme="dark"] .ts-juris__switch button.is-on{background:#E9F0F6;color:#0A2740;}
+/* auto-tour cue: a progress line fills across the active tab while the tour runs */
+.ts-juris__switch button{position:relative;overflow:hidden;}
+.ts-juris--touring .ts-juris__switch button.is-on::after{
+  content:"";position:absolute;left:0;bottom:0;height:2.5px;width:100%;
+  background:currentColor;opacity:.4;transform-origin:left;transform:scaleX(0);
+  animation:jurisTour var(--tour-ms,4500ms) linear forwards;
+}
+@keyframes jurisTour{to{transform:scaleX(1);}}
+/* scenario framing: risk tabs tint red when active; the TownSuite tab reads as "ours" */
+.ts-juris__label{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--sov-ink2);margin:0 0 12px;}
+.ts-juris__switch button.juris-risk.is-on{background:color-mix(in srgb,var(--ts-red) 14%,var(--surface));color:var(--ts-red-ink);box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--ts-red) 45%,transparent);}
+[data-theme="dark"] .ts-juris__switch button.juris-risk.is-on{background:rgba(224,58,62,.16);color:var(--ts-red-ink);}
+.ts-juris__switch button.juris-ours{color:var(--ts-green-ink);display:inline-flex;align-items:center;justify-content:center;gap:8px;}
+.ts-juris__switch button.juris-ours .ts-maple{width:15px;height:15px;}
+.ts-juris__switch button.juris-ours.is-on{background:color-mix(in srgb,var(--ts-green) 15%,var(--surface));color:var(--ts-green-ink);box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--ts-green) 50%,transparent);}
+[data-theme="dark"] .ts-juris__switch button.juris-ours.is-on{background:rgba(45,163,67,.18);color:var(--ts-green-ink);}
 /* mid widths: all four labels won't fit on one line, so the pill wraps 3+1 and orphans
-   the last option — lay them out as a tidy 2×2 grid instead. */
-@media (min-width:681px) and (max-width:1000px){
+   the last option — lay them out as a tidy 2×2 grid instead. The scenario labels need
+   ~1100px of content width for a single row, which (with the chapter rail) only exists
+   on viewports wider than ~1460px. */
+@media (min-width:681px) and (max-width:1459px){
   .ts-juris__switch{display:grid;grid-template-columns:1fr 1fr;gap:6px;width:100%;border-radius:20px;}
   .ts-juris__switch button{width:100%;border-radius:14px;padding:0 16px;}
 }

@@ -518,11 +518,12 @@ body[data-depth="on"] .x-trio__cards > .ts-mod:hover,body[data-depth="on"] .x-tr
 
       <!-- interactive jurisdiction switch -->
       <div class="ts-juris ts-reveal" data-pause-offscreen data-delay="2">
-        <div class="ts-juris__switch" role="group" aria-label="Hosting scenario">
-          <button type="button" data-mode="exposed" class="is-on" aria-pressed="true">A U.S. cloud, in Canada</button>
-          <button type="button" data-mode="layered" aria-pressed="false">Canadian vendor, foreign cloud</button>
-          <button type="button" data-mode="world" aria-pressed="false">Any foreign cloud</button>
-          <button type="button" data-mode="sealed" aria-pressed="false">TownSuite operationally sovereign cloud</button>
+        <p class="ts-juris__label" id="juris-q">Where could your municipality's data live?</p>
+        <div class="ts-juris__switch" role="group" aria-labelledby="juris-q">
+          <button type="button" data-mode="exposed" class="is-on juris-risk" aria-pressed="true">If it's a U.S. cloud in Canada</button>
+          <button type="button" data-mode="layered" class="juris-risk" aria-pressed="false">If it's a Canadian vendor on a foreign cloud</button>
+          <button type="button" data-mode="world" class="juris-risk" aria-pressed="false">If it's any other foreign cloud</button>
+          <button type="button" data-mode="sealed" class="juris-ours" aria-pressed="false"><svg class="ts-maple" aria-hidden="true"><use href="#i-maple"></use></svg>TownSuite operationally sovereign cloud</button>
         </div>
         <div class="ts-juris__stage" style="text-align:left;">
           <div class="ts-juris__diagram">
