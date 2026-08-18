@@ -754,6 +754,17 @@ body[data-depth="on"] .ts-tilt{transform:perspective(1100px) rotateX(var(--rx,0d
 .x-float--top{left:8px;top:0;right:auto;bottom:auto;transform:translateY(calc(-100% - 14px));}
 .x-float--br{right:8px;bottom:0;left:auto;top:auto;transform:translateY(calc(100% + 14px));}
 [data-theme="dark"] .x-hero__stack>.ts-float{border-color:rgba(150,196,230,.18);box-shadow:0 18px 46px rgba(0,0,0,.55),0 0 0 1px rgba(150,196,230,.10);}
+/* the sovereignty chip is the hero's key claim — lift it with the sovereign green */
+.x-hero__stack>.ts-float.x-float--sov{
+  background:color-mix(in srgb,var(--ts-green) 7%,var(--surface));
+  border-color:color-mix(in srgb,var(--ts-green) 45%,transparent);
+  color:var(--ts-green-ink);
+}
+[data-theme="dark"] .x-hero__stack>.ts-float.x-float--sov{
+  background:rgba(45,163,67,.10);
+  border-color:rgba(70,194,106,.38);
+  box-shadow:0 18px 46px rgba(0,0,0,.55),0 0 0 1px rgba(45,163,67,.14);
+}
 
 /* ---------------- final CTA ---------------- */
 .ts-final{position:relative;overflow:hidden;}
