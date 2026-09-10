@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Ask TownSuite Intelligence — TownSuite mERP®</title>
+<link rel="canonical" href="https://townsuite.com/2026mdcmgfoa0910" />
+<meta name="description" content="Chat with TownSuite Intelligence — our AI assistant for questions about TownSuite mERP®, modules, sovereignty, implementation and pricing. Runs on Canadian infrastructure." />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_CA" />
+<meta property="og:site_name" content="TownSuite mERP&#174;" />
+<meta property="og:title" content="Ask TownSuite Intelligence — TownSuite mERP®" />
+<meta property="og:description" content="Chat with TownSuite Intelligence — our AI assistant for questions about TownSuite mERP®, modules, sovereignty, implementation and pricing. Runs on Canadian infrastructure." />
+<meta property="og:url" content="https://townsuite.com/2026mdcmgfoa0910" />
+<meta property="og:image" content="https://townsuite.com/og-townsuite-merp.png" />
+<meta property="og:image:width" content="2400" />
+<meta property="og:image:height" content="1260" />
+<meta property="og:image:alt" content="TownSuite mERP&#174; — Canada's Operationally Sovereign Cloud for Municipalities" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Ask TownSuite Intelligence — TownSuite mERP®" />
+<meta name="twitter:description" content="Chat with TownSuite Intelligence — our AI assistant for questions about TownSuite mERP®, modules, sovereignty, implementation and pricing. Runs on Canadian infrastructure." />
+<meta name="twitter:image" content="https://townsuite.com/og-townsuite-merp.png" />
+<link rel="icon" type="image/svg+xml" href="/emblem.svg" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<!-- Fonts self-hosted via styles.css (@font-face Dax) — no external font calls -->
+<link rel="preload" href="fonts/dax-regular.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preconnect" href="https://tschat-prod.yqx.auto.k8s.townsuite.com" crossorigin />
+<link rel="stylesheet" href="styles.css" />
+<meta name="theme-color" content="#003C63" />
+<script>
+/* apply saved theme before first paint — shared key with the main site */
+try{
+  var _p = localStorage.getItem("ts-theme") || "auto";
+  var _r = _p === "auto" ? (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : _p;
+  document.documentElement.setAttribute("data-theme", _r);
+}catch(e){}
+</script>
+<style>
+/* ============ chat page (standalone — shares the document-page topbar) ============ */
+.pp-top{
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;gap:18px;
+  padding:14px clamp(20px,4vw,44px);
+  background:var(--bg);
+  border-bottom:1px solid var(--line);
+}
+.pp-top__logo{display:flex;align-items:center;text-decoration:none;color:var(--ink);}
+.pp-top__logo .ts-logo{height:30px;width:auto;}
+.pp-top__sp{flex:1;}
+.pp-back{
+  display:inline-flex;align-items:center;gap:8px;
+  text-decoration:none;font-weight:700;font-size:14.5px;color:var(--ink2);
+  min-height:44px;padding:0 16px;border:1.5px solid var(--line2);border-radius:100px;
+  transition:color .18s,border-color .18s;
+}
+.pp-back:hover{color:var(--accent);border-color:var(--accent);}
+.pp-back .arr{font-size:16px;line-height:1;}
+.pp-back svg{width:16px;height:16px;flex:none;}
+
+/* ---- layout ---- */
+.cx-page{
+  max-width:1240px;margin:0 auto;
+  padding:clamp(26px,3.6vw,44px) clamp(20px,4vw,44px) clamp(48px,6vw,76px);
+}
+.cx-head{max-width:760px;}
+.cx-kicker{
+  margin:0;font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);
+  display:flex;align-items:center;gap:9px;
+}
+.cx-kicker svg{width:17px;height:17px;fill:currentColor;flex:none;}
+.cx-h1{
+  margin:13px 0 0;font-weight:900;font-size:clamp(32px,4.2vw,47px);line-height:1.03;letter-spacing:-.02em;text-wrap:balance;
+  color:var(--ink);
+}
+.cx-lede{margin:16px 0 0;font-size:clamp(16.5px,1.5vw,18.5px);line-height:1.6;color:var(--ink2);max-width:64ch;text-wrap:pretty;}
+.cx-pills{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px;}
+
+.cx-grid{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);
+  gap:clamp(26px,3vw,48px);align-items:start;
+}
+.cx-head + .cx-block{margin-top:clamp(34px,4vw,48px);}
+@media (max-width:1000px){.cx-grid{grid-template-columns:minmax(0,1fr);}}
+
+/* ---- instructions column ---- */
+.cx-h2{
+  margin:0 0 16px;color:var(--ink);font-weight:800;font-size:clamp(19px,2.1vw,23px);
+  line-height:1.2;letter-spacing:-.01em;
+}
+.cx-block + .cx-block{margin-top:clamp(30px,3.4vw,42px);}
+
+.cx-steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px;counter-reset:cxs;}
+.cx-steps li{
+  counter-increment:cxs;position:relative;padding-left:46px;
+  font-size:16px;line-height:1.6;color:var(--ink2);max-width:62ch;
+}
+.cx-steps li::before{
+  content:counter(cxs);position:absolute;left:0;top:-1px;
+  width:30px;height:30px;border-radius:9px;
+  background:var(--accent-tint);color:var(--accent);
+  font-weight:800;font-size:14.5px;
+  display:flex;align-items:center;justify-content:center;
+}
+.cx-steps b{color:var(--ink);font-weight:700;}
+.cx-steps kbd{
+  font-family:inherit;font-size:13px;font-weight:700;color:var(--ink);
+  background:var(--surface2);border:1.5px solid var(--line2);border-bottom-width:2.5px;
+  border-radius:7px;padding:1px 7px;
+}
+
+/* example questions */
+.cx-ask{display:flex;flex-wrap:wrap;gap:10px;margin:0;padding:0;list-style:none;}
+.cx-ask li{display:flex;}
+.cx-ask button{
+  font-family:inherit;text-align:left;cursor:pointer;
+  border:1.5px solid var(--line2);background:var(--surface);color:var(--ink);
+  border-radius:14px;padding:12px 16px;min-height:46px;
+  font-size:15px;font-weight:600;line-height:1.35;
+  display:inline-flex;align-items:center;gap:10px;
+  transition:border-color .16s,background .16s,transform .16s,color .16s;
+}
+.cx-ask button:hover{border-color:var(--accent);background:var(--accent-tint);color:var(--accent);transform:translateY(-1px);}
+.cx-ask button .q{color:var(--accent);font-weight:800;flex:none;}
+.cx-hint{margin:14px 0 0;font-size:14px;color:var(--ink3);}
+
+/* good-to-know cards */
+.cx-notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;}
+.cx-note{
+  border:1.5px solid var(--line);border-radius:16px;background:var(--surface);
+  padding:18px 20px;
+}
+.cx-note .ic{
+  width:38px;height:38px;border-radius:11px;margin-bottom:12px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--accent-tint);color:var(--accent);
+}
+.cx-note .ic svg{width:19px;height:19px;}
+.cx-note b{display:block;color:var(--ink);font-size:15.5px;font-weight:800;}
+.cx-note p{margin:7px 0 0;font-size:14.5px;line-height:1.55;color:var(--ink2);}
+.cx-note--warn .ic{background:color-mix(in srgb,var(--ts-orange) 16%,transparent);color:var(--ts-orange);}
+
+/* full-product section */
+.cx-full .cx-h2{margin-top:10px;}
+.cx-para{margin:0 0 20px;font-size:16px;line-height:1.65;color:var(--ink2);max-width:66ch;text-wrap:pretty;}
+.cx-para em{color:var(--ink);font-style:italic;}
+.cx-feats{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(225px,1fr));gap:12px;}
+.cx-feat{border:1.5px solid var(--line);border-radius:14px;background:var(--surface);padding:15px 17px;}
+.cx-feat--lead{grid-column:1 / -1;border-color:var(--accent-soft);background:var(--accent-tint);}
+.cx-feat b{display:block;color:var(--ink);font-size:15px;font-weight:800;line-height:1.3;}
+.cx-feat p{margin:6px 0 0;font-size:14px;line-height:1.55;color:var(--ink2);}
+.cx-feat code{font-size:12.5px;padding:1px 5px;border-radius:5px;background:var(--surface2);border:1px solid var(--line);color:var(--ink);}
+.cx-feat--lead code,.cx-feat--lead p{color:var(--ink2);}
+.cx-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px;}
+.cx-cta--head{margin-top:22px;}
+
+/* ---- chat column ---- */
+.cx-chat{position:sticky;top:88px;}
+@media (max-width:1000px){.cx-chat{position:static;order:-1;}}
+
+.cx-slot{
+  position:relative;border-radius:22px;
+  height:clamp(540px,74vh,760px);
+}
+@media (max-width:1000px){.cx-slot{height:min(620px,78vh);}}
+
+/* skeleton shown until embed.js mounts (or on mobile, where the dock is full-screen) */
+.cx-ph{
+  position:absolute;inset:0;border-radius:22px;overflow:hidden;
+  border:1.5px solid var(--line);background:var(--surface);
+  display:flex;flex-direction:column;
+}
+.cx-ph__head{
+  display:flex;align-items:center;gap:12px;padding:16px 18px;
+  background:var(--ts-blue);color:#fff;
+}
+[data-theme="dark"] .cx-ph__head{background:var(--accent);color:var(--accent-ink);}
+.cx-ph__badge{
+  flex:none;width:40px;height:40px;border-radius:11px;background:rgba(255,255,255,.16);
+  display:flex;align-items:center;justify-content:center;
+}
+.cx-ph__badge svg{width:22px;height:22px;fill:currentColor;}
+.cx-ph__head b{display:block;font-size:16px;line-height:1.15;}
+.cx-ph__head small{display:block;font-size:12px;opacity:.85;}
+.cx-ph__body{
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:16px;padding:28px;text-align:center;
+}
+.cx-ph__body p{margin:0;font-size:15.5px;line-height:1.55;color:var(--ink2);max-width:34ch;}
+.cx-dots{display:inline-flex;gap:7px;align-items:center;}
+.cx-dots i{width:9px;height:9px;border-radius:2px;display:block;transform:rotate(45deg);animation:cxblink 1.1s infinite;}
+.cx-dots i:nth-child(1){background:var(--ts-orange);}
+.cx-dots i:nth-child(2){background:var(--ts-green);animation-delay:.18s;}
+.cx-dots i:nth-child(3){background:var(--ts-red);animation-delay:.36s;}
+@keyframes cxblink{0%,70%,100%{opacity:.25;}35%{opacity:1;}}
+@media (prefers-reduced-motion: reduce){.cx-dots i{animation:none;opacity:.8;}}
+
+.cx-start{
+  display:none;align-items:center;justify-content:center;gap:10px;
+  font-family:inherit;font-size:16px;font-weight:800;cursor:pointer;
+  min-height:52px;padding:0 26px;border:none;border-radius:100px;
+  background:var(--accent);color:var(--accent-ink);
+  box-shadow:0 12px 30px var(--halo);
+  transition:transform .18s,background .18s;
+}
+.cx-start:hover{transform:translateY(-2px);background:var(--accent-strong);}
+.cx-start svg{width:20px;height:20px;fill:currentColor;}
+/* below the two-column layout the slot becomes a launch card */
+.cx-is-overlay .cx-start{display:inline-flex;}
+.cx-is-overlay .cx-dots{display:none;}
+
+/* overlay mode (<=1000px): the standard dock handles the chat; the slot is just a launch card */
+.cx-slot.cx-is-overlay{height:auto;}
+.cx-slot.cx-is-overlay .cx-ph{position:static;inset:auto;}
+.cx-slot.cx-is-overlay .cx-ph__body{padding:26px 24px 30px;gap:18px;}
+
+/* the widget's shadow host is parked here in inline mode */
+.cx-slot > div[data-ts-inline]{position:absolute;inset:0;}
+.cx-slot.is-live .cx-ph{display:none;}
+
+/* ---- slim footer ---- */
+.cx-foot{
+  border-top:1.5px solid var(--line);
+  padding:26px clamp(20px,4vw,44px) 34px;
+  background:var(--bg);
+}
+.cx-foot__in{
+  max-width:1240px;margin:0 auto;
+  display:flex;flex-wrap:wrap;gap:16px 26px;align-items:center;
+}
+.cx-foot__logo{display:flex;align-items:center;}
+.cx-foot__logo .ts-logo{height:26px;width:auto;color:var(--ink);}
+.cx-foot nav{display:flex;flex-wrap:wrap;gap:6px 18px;}
+.cx-foot a{color:var(--ink2);font-weight:700;font-size:14.5px;text-decoration:none;}
+.cx-foot a:hover{color:var(--accent);text-decoration:underline;}
+.cx-foot__sp{flex:1;}
+.cx-foot__legal{width:100%;margin:0;font-size:13px;line-height:1.6;color:var(--ink3);}
+
+@media (max-width:560px){
+  .pp-back .lbl-long,.pp-back .dom{display:none;}
+  .ts-themer,.pp-signin,.pp-back{flex:none;}
+  .pp-signin .lbl{display:none;}
+  .pp-signin,.pp-back{width:46px;height:46px;padding:0;justify-content:center;border-radius:13px;}
+  .pp-top{gap:10px;}
+}
+</style>
+</head>
+<body data-screen-label="Ask TownSuite Intelligence">
+<div class="ios-statusbar-tint" aria-hidden="true"></div>
+<a class="ts-skip" href="#chat">Skip to the chat</a>
+
+<svg style="display:none" aria-hidden="true">
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.4" fill="none" stroke="currentColor" stroke-width="2"></circle><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5 5l1.7 1.7M17.3 17.3L19 19M19 5l-1.7 1.7M6.7 17.3L5 19"></path></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M20 13.6A8.3 8.3 0 0 1 10.4 4a8.3 8.3 0 1 0 9.6 9.6z"></path></symbol>
+  <symbol id="i-login" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14 3.5h4A1.5 1.5 0 0 1 19.5 5v14A1.5 1.5 0 0 1 18 20.5h-4M10 7.5l4.5 4.5L10 16.5M14 12H3.5"></path></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"></rect><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M3.5 7l8.5 6 8.5-6"></path></symbol>
+  <symbol id="i-maple" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0.5L14 4L16 3L15 8L15.5 9.5L18 7L19 8.5L22 8L21 11L22.5 12L17 16.5L17.5 18.5L12.5 17.6L12.5 23L11.5 23L11.5 17.6L6.5 18.5L7 16.5L1.5 12L3 11L2 8L5 8.5L6 7L8.5 9.5L9 8L8 3L10 4Z"></path></symbol>
+</svg>
+
+<header class="pp-top">
+  <a class="pp-top__logo" href="index.html"><svg class="ts-logo" viewBox="151 154 889 181" role="img" aria-label="TownSuite mERP"><rect x="-16.975" y="-16.975" width="33.95" height="33.95" fill="#D8E0ED" transform="translate(220.79,191.54) rotate(65) scale(1.38)"></rect><rect x="-16.975" y="-16.975" width="33.95" height="33.95" fill="#6B95BE" transform="translate(188.71,273.70) rotate(65) scale(1.38)"></rect><rect x="-17" y="-17" width="34" height="34" fill="#00578E" transform="translate(244.20,246.20) rotate(65) scale(1.38)"></rect><rect x="-8.825" y="-8.825" width="17.65" height="17.65" fill="#E48D1A" transform="translate(297.55,291.42) rotate(65) scale(1.38)"></rect><rect x="-4.555" y="-4.555" width="9.11" height="9.11" fill="#2DA343" transform="translate(322.72,273.11) rotate(65) scale(1.38)"></rect><rect x="-4.64" y="-4.64" width="9.28" height="9.28" fill="#E03A3E" transform="translate(305.69,320.65) rotate(65) scale(1.38)"></rect><path fill="currentColor" d="M401.02 212.45L401.02 218.40L387.86 218.40L387.86 278.50L379.03 278.50L379.03 218.40L365.88 218.40L365.88 212.45L401.02 212.45ZM443.39 252.68L443.39 252.68Q443.39 264.68 438.35 272.07Q433.31 279.46 423.23 279.46Q413.15 279.46 408.06 272.07Q402.97 264.68 402.97 252.68L402.97 252.68Q402.97 240.48 408.06 233.14Q413.15 225.80 423.13 225.80L423.13 225.80Q433.31 225.80 438.35 233.09Q443.39 240.39 443.39 252.68ZM434.94 252.68L434.94 252.68Q434.94 231.17 423.23 231.17L423.23 231.17Q411.42 231.17 411.42 252.68L411.42 252.68Q411.42 273.60 423.23 273.60L423.23 273.60Q434.94 273.60 434.94 252.68ZM508.90 226.76L516.58 226.76L501.79 278.50L494.50 278.50L484.03 241.54Q483.17 238.37 482.98 235.49L482.98 235.49L482.88 235.49Q482.59 238.37 481.63 241.54L481.63 241.54L470.98 278.50L463.68 278.50L448.99 226.76L457.63 226.76L466.66 263.91L467.71 270.05L467.90 270.05Q468.19 267.46 469.15 263.91L469.15 263.91L479.62 226.76L486.91 226.76L497.09 263.91Q498.24 270.05 498.24 270.05L498.24 270.05L498.43 270.05Q498.72 266.88 499.49 263.81L499.49 263.81L508.90 226.76ZM562.50 241.16L562.50 278.50L554.05 278.50L554.05 241.35Q554.05 231.27 543.20 231.27L543.20 231.27Q537.64 231.27 533.41 233.09L533.41 233.09L533.41 278.50L524.96 278.50L524.96 229.44Q532.55 225.80 543.88 225.80L543.88 225.80Q553.76 225.80 558.13 230.26Q562.50 234.72 562.50 241.16L562.50 241.16ZM607.27 259.88L607.27 259.88Q607.27 268.52 601.66 273.99Q596.04 279.46 587.30 279.46L587.30 279.46Q577.61 279.46 571.94 275.81L571.94 275.81L574.25 269.67Q579.24 272.74 585.77 272.74L585.77 272.74Q591.43 272.74 594.79 269.38Q598.15 266.02 598.15 260.36L598.15 260.36Q598.15 255.94 595.51 253.06Q592.87 250.18 586.63 247.68L586.63 247.68Q572.62 242.12 572.62 230.02L572.62 230.02Q572.62 222.24 577.75 216.87Q582.89 211.49 591.24 211.49L591.24 211.49Q599.69 211.49 604.78 215.04L604.78 215.04L602.66 220.61Q597.77 217.54 592.20 217.54L592.20 217.54Q587.02 217.54 584.14 220.66Q581.26 223.78 581.26 229.16L581.26 229.16Q581.26 233.86 584.09 236.50Q586.92 239.14 592.30 241.25L592.30 241.25Q607.27 247.11 607.27 259.88ZM654.35 226.76L654.35 275.43Q647.15 279.56 636.11 279.56L636.11 279.56Q617.77 279.56 617.77 262.66L617.77 262.66L617.77 226.76L626.22 226.76L626.22 262.95Q626.22 267.75 628.86 270.68Q631.50 273.60 636.59 273.60L636.59 273.60Q642.35 273.60 645.90 271.49L645.90 271.49L645.90 226.76L654.35 226.76ZM674.74 208.85Q676.18 210.24 676.18 212.16Q676.18 214.08 674.74 215.43Q673.30 216.77 671.28 216.77L671.28 216.77Q669.17 216.77 667.73 215.43Q666.29 214.08 666.29 212.16Q666.29 210.24 667.73 208.85Q669.17 207.46 671.28 207.46L671.28 207.46Q673.30 207.46 674.74 208.85ZM675.50 226.76L675.50 278.50L667.06 278.50L667.06 226.76L675.50 226.76ZM708.47 272.84L708.47 278.21Q705.88 278.98 703.86 278.98L703.86 278.98Q697.33 278.98 694.16 275.14Q691.00 271.30 691.00 265.92L691.00 265.92L691.00 232.04L685.04 232.04L685.04 226.76L691.00 226.76L691.00 214.85L699.44 212.26L699.44 226.76L708.47 226.76L708.47 232.04L699.44 232.04L699.44 265.73Q699.44 269.09 701.03 271.16Q702.61 273.22 705.97 273.22L705.97 273.22Q706.74 273.22 708.47 272.84L708.47 272.84ZM754.97 251.14L754.97 251.14L722.42 255.84Q723.86 273.32 738.17 273.32L738.17 273.32Q745.75 273.32 750.94 270.34L750.94 270.34L753.14 275.91Q747.29 279.46 737.50 279.46L737.50 279.46Q726.94 279.46 720.70 272.64Q714.46 265.83 714.46 252.48L714.46 252.48Q714.46 239.62 720.17 232.71Q725.88 225.80 735.29 225.80L735.29 225.80Q744.79 225.80 749.93 232.13Q755.06 238.47 754.97 251.14ZM722.14 251.33L746.90 247.59Q746.90 231.27 735 231.27L735 231.27Q729.05 231.27 725.54 236.26Q722.04 241.25 722.14 251.33L722.14 251.33Z M857.71 241.06L857.71 278.50L849.26 278.50L849.26 241.25Q849.26 236.93 846.91 234.15Q844.56 231.36 839.28 231.36L839.28 231.36Q832.94 231.36 828.62 235.97L828.62 235.97L828.62 278.50L820.17 278.50L820.17 240.87Q820.17 236.45 817.24 233.86Q814.32 231.27 808.84 231.27L808.84 231.27Q803.66 231.27 799.53 233.00L799.53 233.00L799.53 278.50L791.08 278.50L791.08 229.44Q798.57 225.80 809.04 225.80L809.04 225.80Q819.88 225.80 824.88 232.04L824.88 232.04Q830.83 225.80 840.91 225.80L840.91 225.80Q849.45 225.80 853.58 230.31Q857.71 234.82 857.71 241.06L857.71 241.06ZM901.04 272.55L901.04 278.50L870.42 278.50L870.42 212.45L901.04 212.45L901.04 218.40L879.25 218.40L879.25 241.44L898.83 241.44L898.83 247.30L879.25 247.30L879.25 272.55L901.04 272.55ZM930.55 249.41L952.15 278.50L942.16 278.50L920.47 247.68L920.28 247.68L920.28 278.50L911.54 278.50L911.54 215.04Q917.97 211.49 927.96 211.49L927.96 211.49Q939.09 211.49 944.85 216.63Q950.61 221.76 950.61 231.08L950.61 231.08Q950.61 239.43 945.19 244.23Q939.76 249.03 930.55 249.22L930.55 249.22L930.55 249.41ZM941.88 231.46L941.88 231.46Q941.88 223.88 938.47 220.28Q935.06 216.68 927.76 216.68L927.76 216.68Q922.87 216.68 920.28 218.12L920.28 218.12L920.28 245.76Q922.20 246.34 925.94 246.34L925.94 246.34Q941.88 246.34 941.88 231.46ZM1000.95 231.46L1000.95 231.46Q1000.95 241.06 994.09 246.87Q987.22 252.68 973.50 251.33L973.50 251.33L970.52 251.04L970.52 278.50L961.88 278.50L961.88 215.14Q968.22 211.49 978.39 211.49L978.39 211.49Q989.62 211.49 995.29 216.92Q1000.95 222.34 1000.95 231.46ZM992.41 231.36L992.41 231.36Q992.41 224.07 988.95 220.42Q985.50 216.77 978.01 216.77L978.01 216.77Q973.40 216.77 970.52 218.02L970.52 218.02L970.52 245.67L973.40 245.96Q992.41 247.78 992.41 231.36Z M1032.43 226.84L1032.43 226.84Q1032.43 231.80 1028.90 235.32Q1025.36 238.84 1020.40 238.84Q1015.43 238.84 1011.91 235.32Q1008.39 231.80 1008.39 226.84L1008.39 226.84Q1008.39 221.84 1011.91 218.32Q1015.43 214.80 1020.40 214.80Q1025.36 214.80 1028.90 218.32Q1032.43 221.84 1032.43 226.84ZM1027.88 234.28Q1030.97 231.19 1030.97 226.84Q1030.97 222.49 1027.88 219.38Q1024.78 216.26 1020.40 216.26L1020.40 216.26Q1016.04 216.26 1012.95 219.38Q1009.86 222.49 1009.86 226.84Q1009.86 231.19 1012.95 234.28Q1016.04 237.38 1020.40 237.38L1020.40 237.38Q1024.78 237.38 1027.88 234.28ZM1020.50 227.11L1025.33 233.77L1023.42 233.77L1018.76 227.21L1018.25 227.21L1018.25 233.77L1016.66 233.77L1016.66 219.90Q1018.02 219.22 1019.99 219.22L1019.99 219.22Q1021.99 219.22 1023.35 220.28Q1024.71 221.33 1024.71 223.23L1024.71 223.23Q1024.71 225.00 1023.54 226.00Q1022.37 227.01 1020.50 227.11L1020.50 227.11ZM1023.08 223.20L1023.08 223.20Q1023.08 221.77 1022.11 221.16Q1021.14 220.55 1019.78 220.55L1019.78 220.55Q1018.90 220.55 1018.25 220.82L1018.25 220.82L1018.25 226.09L1019.51 226.09Q1021.08 226.09 1022.08 225.41Q1023.08 224.73 1023.08 223.20Z"></path></svg></a>
+  <nav class="pp-nav" aria-label="Primary">
+    <a href="index.html#modules">Modules</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="about.html">About</a>
+  </nav>
+  <span class="pp-top__sp"></span>
+  <button class="ts-themer" type="button" aria-label="Toggle dark mode">
+    <svg class="ic-sun"><use href="#i-sun"></use></svg>
+    <svg class="ic-moon"><use href="#i-moon"></use></svg>
+  </button>
+  <a class="pp-back pp-signin" href="https://portal.ws.townsuite.com/login" target="_blank" rel="noopener" aria-label="Sign in to the portal"><svg><use href="#i-login"></use></svg> <span class="lbl">Sign in</span></a>
+  <a class="pp-back" href="index.html" aria-label="Back to townsuite.com"><span class="arr">&larr;</span> <span class="lbl-long">Back to&nbsp;</span><span class="dom">townsuite.com</span></a>
+</header>
+
+<main class="cx-page">
+
+  <div class="cx-grid">
+
+    <div>
+      <div class="cx-head">
+        <p class="cx-kicker"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.6 1.4l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"></path><path transform="translate(13.7,12.9) scale(0.355)" d="M12 0.5L14 4L16 3L15 8L15.5 9.5L18 7L19 8.5L22 8L21 11L22.5 12L17 16.5L17.5 18.5L12.5 17.6L12.5 23L11.5 23L11.5 17.6L6.5 18.5L7 16.5L1.5 12L3 11L2 8L5 8.5L6 7L8.5 9.5L9 8L8 3L10 4Z"></path></svg> TownSuite Intelligence</p>
+        <h1 class="cx-h1">Ask TownSuite anything.</h1>
+        <p class="cx-lede">This page is just the chat &mdash; a public preview of TownSuite Intelligence,
+          our AI assistant. Ask it anything about the platform in plain language: modules, sovereignty,
+          implementation, pricing, and how municipalities actually run on mERP<span class="rtm">&reg;</span>.
+          This demo is strictly for learning about TownSuite &mdash; it stays within that scope and
+          will decline anything outside it. The <a href="#cx-full">full version</a> runs on your own
+          municipal data.</p>
+        <div class="cx-pills">
+          <span class="ts-pill ts-pill--accent"><svg class="ts-maple"><use href="#i-maple"></use></svg> Runs on Canadian infrastructure</span>
+          <span class="ts-pill">No sign-in required</span>
+          <span class="ts-pill">Strictly TownSuite topics</span>
+        </div>
+        <div class="cx-cta cx-cta--head">
+          <a class="ts-btn ts-btn--primary" href="#" data-demo-open>Book a demo <span class="arr">&rarr;</span></a>
+          <a class="ts-btn ts-btn--ghost" href="intelligence.html">About TownSuite Intelligence</a>
+        </div>
+      </div>
+
+      <section class="cx-block" aria-labelledby="cx-how">
+        <h2 class="cx-h2" id="cx-how">How to use it</h2>
+        <ol class="cx-steps">
+          <li><b>Type your question in the box.</b> Plain language is fine &mdash; full sentences,
+            fragments, either way. Press <kbd>Enter</kbd> to send. Or tap one of the suggested
+            starters inside the chat to get going.</li>
+          <li><b>Keep going with follow-ups.</b> It remembers the conversation, so you can drill in:
+            &ldquo;what about for a town of 4,000?&rdquo;, &ldquo;how does that compare to what we do
+            now?&rdquo;, &ldquo;show me the module that handles it.&rdquo;</li>
+          <li><b>Give it your context.</b> Province, population, the department or process you care
+            about, what you run today &mdash; the more specific you are, the sharper the answer.</li>
+          <li><b>Ask for a demo whenever you&rsquo;re ready.</b> Say &ldquo;book a demo&rdquo; and it
+            opens our booking form right there. <b>Clear</b> in the chat header starts a fresh
+            conversation.</li>
+        </ol>
+      </section>
+
+      <section class="cx-block" aria-labelledby="cx-ask">
+        <h2 class="cx-h2" id="cx-ask">Good places to start</h2>
+        <ul class="cx-ask">
+      <li><button type="button" data-cx-ask="What is mERP®, and how is it different from a traditional ERP?"><span class="q" aria-hidden="true">&ldquo;</span>What is mERP®, and how is it different from a traditional ERP?</button></li>
+      <li><button type="button" data-cx-ask="Which modules cover utility billing and e-bills?"><span class="q" aria-hidden="true">&ldquo;</span>Which modules cover utility billing and e-bills?</button></li>
+      <li><button type="button" data-cx-ask="What does operational sovereignty actually mean for our data?"><span class="q" aria-hidden="true">&ldquo;</span>What does operational sovereignty actually mean for our data?</button></li>
+      <li><button type="button" data-cx-ask="What does implementation look like for a town of 5,000?"><span class="q" aria-hidden="true">&ldquo;</span>What does implementation look like for a town of 5,000?</button></li>
+      <li><button type="button" data-cx-ask="How does pricing work?"><span class="q" aria-hidden="true">&ldquo;</span>How does pricing work?</button></li>
+      <li><button type="button" data-cx-ask="Can TownSuite work with our GIS and our existing payment provider?"><span class="q" aria-hidden="true">&ldquo;</span>Can TownSuite work with our GIS and our existing payment provider?</button></li>
+        </ul>
+        <p class="cx-hint">Tap any question to send it straight to the chat.</p>
+      </section>
+
+      <section class="cx-block" aria-labelledby="cx-know">
+        <h2 class="cx-h2" id="cx-know">Worth knowing</h2>
+        <div class="cx-notes">
+          <div class="cx-note">
+            <span class="ic" aria-hidden="true"><svg><use href="#i-maple"></use></svg></span>
+            <b>Your questions stay in Canada</b>
+            <p>The model and your prompt data run on operationally sovereign Canadian
+              infrastructure, alongside mERP<span class="rtm">&reg;</span> data.</p>
+          </div>
+          <div class="cx-note">
+            <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.6 1.4l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"></path><path transform="translate(13.7,12.9) scale(0.355)" d="M12 0.5L14 4L16 3L15 8L15.5 9.5L18 7L19 8.5L22 8L21 11L22.5 12L17 16.5L17.5 18.5L12.5 17.6L12.5 23L11.5 23L11.5 17.6L6.5 18.5L7 16.5L1.5 12L3 11L2 8L5 8.5L6 7L8.5 9.5L9 8L8 3L10 4Z"></path></svg></span>
+            <b>Strictly about TownSuite</b>
+            <p>This demo exists for one purpose: learning about TownSuite. It answers from
+              TownSuite&rsquo;s public product knowledge only. Anything outside that scope is out of
+              scope, and TownSuite Intelligence will abide by those rules rather than improvise.
+              The full version answers from <em>your</em> municipality&rsquo;s connected records.</p>
+          </div>
+          <div class="cx-note cx-note--warn">
+            <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3.5L22 20.5H2z" stroke-linejoin="round"></path><path d="M12 9.5v5M12 17.8v.2"></path></svg></span>
+            <b>It can make mistakes</b>
+            <p>Verify figures, timelines and anything contractual with our team before you
+              rely on it.</p>
+          </div>
+          <div class="cx-note">
+            <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="10" rx="2.5"></rect><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"></path></svg></span>
+            <b>Don&rsquo;t share private data</b>
+            <p>Keep personal, financial or confidential municipal information out of the chat.
+              For account-specific help, <a href="contact.html">contact us</a> or sign in to the
+              portal.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="cx-block cx-full" aria-labelledby="cx-full" id="cx-full">
+        <p class="cx-kicker">Beyond this chat</p>
+        <h2 class="cx-h2">The full TownSuite Intelligence</h2>
+        <p class="cx-para">What you&rsquo;re talking to here is the public preview: it knows about TownSuite.
+          The full TownSuite Intelligence is a contextually aware, role-based assistant &mdash; each user automatically gets the skills, projects and context their role needs &mdash; that runs on
+          <em>your</em> municipality&rsquo;s own data &mdash; focused on expanding the context to suit
+          your needs, for TownSuite and beyond. That context is self-healing: it improves over time
+          through feedback and updated information, whether that arrives by ingestion, MCP, or someone
+          on your team simply correcting it. Everything below is documented in the knowledge base.</p>
+        <ul class="cx-feats">
+          <li class="cx-feat cx-feat--lead"><b>Runs on your data, sovereign</b><p>Answers in plain language only from your municipality&rsquo;s connected records. Runs in Canada on Canadian-controlled infrastructure, encrypted in transit and at rest with keys in Canada. Never used to train models; nothing sent to a foreign AI service.</p></li>
+          <li class="cx-feat cx-feat--lead"><b>Role-based inference</b><p>It knows who it&rsquo;s working with. A finance officer, a planner, a clerk and an IT lead each automatically get the skills, projects and context that fit their role &mdash; so the assistant already has the right procedures, files and domain knowledge in hand before they ask, rather than everyone working from the same generic prompt. Access follows roles, so people only see the context they&rsquo;re entitled to.</p></li>
+          <li class="cx-feat"><b>Documents &amp; screenshots</b><p>Attach files or screenshots and it explains, summarises, drafts, or works through the problem with you.</p></li>
+          <li class="cx-feat"><b>Folder work (desktop)</b><p>Point it at a folder: it reads and changes files and runs commands &mdash; with approval prompts, allowed-command lists, and undo.</p></li>
+          <li class="cx-feat"><b>CLI</b><p>The same assistant from a terminal: same sign-in, models, conversations and working-folder tools. Scriptable via flags (<code>--y</code>, <code>--allow-edits</code>, <code>--project</code>, <code>--workspace</code>); <code>tsintel gui</code> opens the desktop app.</p></li>
+          <li class="cx-feat"><b>Collaborative projects</b><p>A shared workspace of instructions, files and skills every member gets automatically; add members by user id or by role. Files have version history showing who added each version; work the assistant saves is credited to the model alongside the person.</p></li>
+          <li class="cx-feat"><b>Skills</b><p>Saved instructions it follows whenever relevant &mdash; how you format minutes, what a report must satisfy. Personal or project-wide, with a plain-language trigger and an on/off switch.</p></li>
+          <li class="cx-feat"><b>Memory</b><p>Remembers durable facts about you and how you work. Review, edit or delete anything in Settings &rarr; User Memory.</p></li>
+          <li class="cx-feat"><b>Voice</b><p>Replies read aloud with a previewable voice picker, and dictation instead of typing.</p></li>
+          <li class="cx-feat"><b>Generated files</b><p>Files appear in the reply that produced them, with Open and Save buttons.</p></li>
+          <li class="cx-feat"><b>Share &amp; edit chats</b><p>Share a chat by link or download it. Reword a sent message and resend, keeping both versions.</p></li>
+          <li class="cx-feat"><b>Desktop, browser &amp; mobile</b><p>Self-updating desktop app for Windows x64 and Mac (Apple Silicon); browser version at your server URL; iOS and Android apps.</p></li>
+          <li class="cx-feat"><b>Bring in more context</b><p>Securely ingest or stream other information via TownSuite Intelligence MCP and other ingestion methods.</p></li>
+          <li class="cx-feat"><b>Context that heals itself</b><p>Its understanding of your municipality isn&rsquo;t fixed at setup. Feedback on answers, freshly ingested or streamed data, and manual corrections by your team all update the shared context &mdash; so it gets more accurate the longer you use it.</p></li>
+        </ul>
+        <div class="cx-cta">
+          <a class="ts-btn ts-btn--primary" href="#" data-demo-open>Schedule a demo <span class="arr">&rarr;</span></a>
+          <a class="ts-btn ts-btn--ghost" href="ai-assurance.html">How we keep it trustworthy</a>
+        </div>
+      </section>
+    </div>
+
+    <div class="cx-chat">
+      <div class="cx-slot" id="chat">
+        <div class="cx-ph" id="cx-ph">
+          <div class="cx-ph__head">
+            <span class="cx-ph__badge" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.6 1.4l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"></path><path transform="translate(13.7,12.9) scale(0.355)" d="M12 0.5L14 4L16 3L15 8L15.5 9.5L18 7L19 8.5L22 8L21 11L22.5 12L17 16.5L17.5 18.5L12.5 17.6L12.5 23L11.5 23L11.5 17.6L6.5 18.5L7 16.5L1.5 12L3 11L2 8L5 8.5L6 7L8.5 9.5L9 8L8 3L10 4Z"></path></svg></span>
+            <div><b>TownSuite Intelligence</b><small>AI assistant</small></div>
+          </div>
+          <div class="cx-ph__body">
+            <p id="cx-ph-msg">Starting the chat&hellip;</p>
+            <span class="cx-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <button class="cx-start" type="button" data-ts-chat-open><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.6 1.4l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"></path><path transform="translate(13.7,12.9) scale(0.355)" d="M12 0.5L14 4L16 3L15 8L15.5 9.5L18 7L19 8.5L22 8L21 11L22.5 12L17 16.5L17.5 18.5L12.5 17.6L12.5 23L11.5 23L11.5 17.6L6.5 18.5L7 16.5L1.5 12L3 11L2 8L5 8.5L6 7L8.5 9.5L9 8L8 3L10 4Z"></path></svg> Start the chat</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="cx-foot" data-screen-label="Footer">
+  <div class="cx-foot__in">
+    <span class="cx-foot__logo"><svg class="ts-logo" viewBox="151 154 889 181" role="img" aria-label="TownSuite mERP"><rect x="-16.975" y="-16.975" width="33.95" height="33.95" fill="#D8E0ED" transform="translate(220.79,191.54) rotate(65) scale(1.38)"></rect><rect x="-16.975" y="-16.975" width="33.95" height="33.95" fill="#6B95BE" transform="translate(188.71,273.70) rotate(65) scale(1.38)"></rect><rect x="-17" y="-17" width="34" height="34" fill="#00578E" transform="translate(244.20,246.20) rotate(65) scale(1.38)"></rect><rect x="-8.825" y="-8.825" width="17.65" height="17.65" fill="#E48D1A" transform="translate(297.55,291.42) rotate(65) scale(1.38)"></rect><rect x="-4.555" y="-4.555" width="9.11" height="9.11" fill="#2DA343" transform="translate(322.72,273.11) rotate(65) scale(1.38)"></rect><rect x="-4.64" y="-4.64" width="9.28" height="9.28" fill="#E03A3E" transform="translate(305.69,320.65) rotate(65) scale(1.38)"></rect><path fill="currentColor" d="M401.02 212.45L401.02 218.40L387.86 218.40L387.86 278.50L379.03 278.50L379.03 218.40L365.88 218.40L365.88 212.45L401.02 212.45ZM443.39 252.68L443.39 252.68Q443.39 264.68 438.35 272.07Q433.31 279.46 423.23 279.46Q413.15 279.46 408.06 272.07Q402.97 264.68 402.97 252.68L402.97 252.68Q402.97 240.48 408.06 233.14Q413.15 225.80 423.13 225.80L423.13 225.80Q433.31 225.80 438.35 233.09Q443.39 240.39 443.39 252.68ZM434.94 252.68L434.94 252.68Q434.94 231.17 423.23 231.17L423.23 231.17Q411.42 231.17 411.42 252.68L411.42 252.68Q411.42 273.60 423.23 273.60L423.23 273.60Q434.94 273.60 434.94 252.68ZM508.90 226.76L516.58 226.76L501.79 278.50L494.50 278.50L484.03 241.54Q483.17 238.37 482.98 235.49L482.98 235.49L482.88 235.49Q482.59 238.37 481.63 241.54L481.63 241.54L470.98 278.50L463.68 278.50L448.99 226.76L457.63 226.76L466.66 263.91L467.71 270.05L467.90 270.05Q468.19 267.46 469.15 263.91L469.15 263.91L479.62 226.76L486.91 226.76L497.09 263.91Q498.24 270.05 498.24 270.05L498.24 270.05L498.43 270.05Q498.72 266.88 499.49 263.81L499.49 263.81L508.90 226.76ZM562.50 241.16L562.50 278.50L554.05 278.50L554.05 241.35Q554.05 231.27 543.20 231.27L543.20 231.27Q537.64 231.27 533.41 233.09L533.41 233.09L533.41 278.50L524.96 278.50L524.96 229.44Q532.55 225.80 543.88 225.80L543.88 225.80Q553.76 225.80 558.13 230.26Q562.50 234.72 562.50 241.16L562.50 241.16ZM607.27 259.88L607.27 259.88Q607.27 268.52 601.66 273.99Q596.04 279.46 587.30 279.46L587.30 279.46Q577.61 279.46 571.94 275.81L571.94 275.81L574.25 269.67Q579.24 272.74 585.77 272.74L585.77 272.74Q591.43 272.74 594.79 269.38Q598.15 266.02 598.15 260.36L598.15 260.36Q598.15 255.94 595.51 253.06Q592.87 250.18 586.63 247.68L586.63 247.68Q572.62 242.12 572.62 230.02L572.62 230.02Q572.62 222.24 577.75 216.87Q582.89 211.49 591.24 211.49L591.24 211.49Q599.69 211.49 604.78 215.04L604.78 215.04L602.66 220.61Q597.77 217.54 592.20 217.54L592.20 217.54Q587.02 217.54 584.14 220.66Q581.26 223.78 581.26 229.16L581.26 229.16Q581.26 233.86 584.09 236.50Q586.92 239.14 592.30 241.25L592.30 241.25Q607.27 247.11 607.27 259.88ZM654.35 226.76L654.35 275.43Q647.15 279.56 636.11 279.56L636.11 279.56Q617.77 279.56 617.77 262.66L617.77 262.66L617.77 226.76L626.22 226.76L626.22 262.95Q626.22 267.75 628.86 270.68Q631.50 273.60 636.59 273.60L636.59 273.60Q642.35 273.60 645.90 271.49L645.90 271.49L645.90 226.76L654.35 226.76ZM674.74 208.85Q676.18 210.24 676.18 212.16Q676.18 214.08 674.74 215.43Q673.30 216.77 671.28 216.77L671.28 216.77Q669.17 216.77 667.73 215.43Q666.29 214.08 666.29 212.16Q666.29 210.24 667.73 208.85Q669.17 207.46 671.28 207.46L671.28 207.46Q673.30 207.46 674.74 208.85ZM675.50 226.76L675.50 278.50L667.06 278.50L667.06 226.76L675.50 226.76ZM708.47 272.84L708.47 278.21Q705.88 278.98 703.86 278.98L703.86 278.98Q697.33 278.98 694.16 275.14Q691.00 271.30 691.00 265.92L691.00 265.92L691.00 232.04L685.04 232.04L685.04 226.76L691.00 226.76L691.00 214.85L699.44 212.26L699.44 226.76L708.47 226.76L708.47 232.04L699.44 232.04L699.44 265.73Q699.44 269.09 701.03 271.16Q702.61 273.22 705.97 273.22L705.97 273.22Q706.74 273.22 708.47 272.84L708.47 272.84ZM754.97 251.14L754.97 251.14L722.42 255.84Q723.86 273.32 738.17 273.32L738.17 273.32Q745.75 273.32 750.94 270.34L750.94 270.34L753.14 275.91Q747.29 279.46 737.50 279.46L737.50 279.46Q726.94 279.46 720.70 272.64Q714.46 265.83 714.46 252.48L714.46 252.48Q714.46 239.62 720.17 232.71Q725.88 225.80 735.29 225.80L735.29 225.80Q744.79 225.80 749.93 232.13Q755.06 238.47 754.97 251.14ZM722.14 251.33L746.90 247.59Q746.90 231.27 735 231.27L735 231.27Q729.05 231.27 725.54 236.26Q722.04 241.25 722.14 251.33L722.14 251.33Z M857.71 241.06L857.71 278.50L849.26 278.50L849.26 241.25Q849.26 236.93 846.91 234.15Q844.56 231.36 839.28 231.36L839.28 231.36Q832.94 231.36 828.62 235.97L828.62 235.97L828.62 278.50L820.17 278.50L820.17 240.87Q820.17 236.45 817.24 233.86Q814.32 231.27 808.84 231.27L808.84 231.27Q803.66 231.27 799.53 233.00L799.53 233.00L799.53 278.50L791.08 278.50L791.08 229.44Q798.57 225.80 809.04 225.80L809.04 225.80Q819.88 225.80 824.88 232.04L824.88 232.04Q830.83 225.80 840.91 225.80L840.91 225.80Q849.45 225.80 853.58 230.31Q857.71 234.82 857.71 241.06L857.71 241.06ZM901.04 272.55L901.04 278.50L870.42 278.50L870.42 212.45L901.04 212.45L901.04 218.40L879.25 218.40L879.25 241.44L898.83 241.44L898.83 247.30L879.25 247.30L879.25 272.55L901.04 272.55ZM930.55 249.41L952.15 278.50L942.16 278.50L920.47 247.68L920.28 247.68L920.28 278.50L911.54 278.50L911.54 215.04Q917.97 211.49 927.96 211.49L927.96 211.49Q939.09 211.49 944.85 216.63Q950.61 221.76 950.61 231.08L950.61 231.08Q950.61 239.43 945.19 244.23Q939.76 249.03 930.55 249.22L930.55 249.22L930.55 249.41ZM941.88 231.46L941.88 231.46Q941.88 223.88 938.47 220.28Q935.06 216.68 927.76 216.68L927.76 216.68Q922.87 216.68 920.28 218.12L920.28 218.12L920.28 245.76Q922.20 246.34 925.94 246.34L925.94 246.34Q941.88 246.34 941.88 231.46ZM1000.95 231.46L1000.95 231.46Q1000.95 241.06 994.09 246.87Q987.22 252.68 973.50 251.33L973.50 251.33L970.52 251.04L970.52 278.50L961.88 278.50L961.88 215.14Q968.22 211.49 978.39 211.49L978.39 211.49Q989.62 211.49 995.29 216.92Q1000.95 222.34 1000.95 231.46ZM992.41 231.36L992.41 231.36Q992.41 224.07 988.95 220.42Q985.50 216.77 978.01 216.77L978.01 216.77Q973.40 216.77 970.52 218.02L970.52 218.02L970.52 245.67L973.40 245.96Q992.41 247.78 992.41 231.36Z M1032.43 226.84L1032.43 226.84Q1032.43 231.80 1028.90 235.32Q1025.36 238.84 1020.40 238.84Q1015.43 238.84 1011.91 235.32Q1008.39 231.80 1008.39 226.84L1008.39 226.84Q1008.39 221.84 1011.91 218.32Q1015.43 214.80 1020.40 214.80Q1025.36 214.80 1028.90 218.32Q1032.43 221.84 1032.43 226.84ZM1027.88 234.28Q1030.97 231.19 1030.97 226.84Q1030.97 222.49 1027.88 219.38Q1024.78 216.26 1020.40 216.26L1020.40 216.26Q1016.04 216.26 1012.95 219.38Q1009.86 222.49 1009.86 226.84Q1009.86 231.19 1012.95 234.28Q1016.04 237.38 1020.40 237.38L1020.40 237.38Q1024.78 237.38 1027.88 234.28ZM1020.50 227.11L1025.33 233.77L1023.42 233.77L1018.76 227.21L1018.25 227.21L1018.25 233.77L1016.66 233.77L1016.66 219.90Q1018.02 219.22 1019.99 219.22L1019.99 219.22Q1021.99 219.22 1023.35 220.28Q1024.71 221.33 1024.71 223.23L1024.71 223.23Q1024.71 225.00 1023.54 226.00Q1022.37 227.01 1020.50 227.11L1020.50 227.11ZM1023.08 223.20L1023.08 223.20Q1023.08 221.77 1022.11 221.16Q1021.14 220.55 1019.78 220.55L1019.78 220.55Q1018.90 220.55 1018.25 220.82L1018.25 220.82L1018.25 226.09L1019.51 226.09Q1021.08 226.09 1022.08 225.41Q1023.08 224.73 1023.08 223.20Z"></path></svg></span>
+    <nav aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="index.html#modules">Modules</a>
+      <a href="index.html#ai">TownSuite Intelligence</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="ai-assurance.html">AI assurance</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <span class="cx-foot__sp"></span>
+    <p class="cx-foot__legal">&copy; <span class="ts-yr">2026</span> TownSuite Municipal Software Inc.
+      TownSuite<span class="rtm">&reg;</span> and mERP<span class="rtm">&reg;</span> are registered
+      trademarks of TownSuite Municipal Software Inc.</p>
+  </div>
+</footer>
+
+<script>
+/* standalone theme toggle — shares the ts-theme key with the main site */
+(function(){
+  var root = document.documentElement;
+  var mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+  function getTheme(){ try{ return localStorage.getItem("ts-theme") || "auto"; }catch(e){ return "auto"; } }
+  function resolveTheme(t){ return t === "auto" ? (mq && mq.matches ? "dark" : "light") : t; }
+  function setTheme(t){
+    root.setAttribute("data-theme", resolveTheme(t));
+    try{ document.querySelectorAll(".ts-themer").forEach(function(b){ b.setAttribute("aria-pressed", String(resolveTheme(t)==="dark")); }); }catch(e){}
+    try{ localStorage.setItem("ts-theme", t); }catch(e){}
+  }
+  setTheme(getTheme());
+  if(mq && mq.addEventListener){ mq.addEventListener("change", function(){ if(getTheme() === "auto") setTheme("auto"); }); }
+  document.querySelectorAll(".ts-themer").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var cur = resolveTheme(getTheme());
+      setTheme(cur === "dark" ? "light" : "dark");
+    });
+  });
+})();
+</script>
+
+<!-- ================= TOWNSUITE INTELLIGENCE — LIVE CHAT WIDGET =================
+     Same widget as every page. PRODUCTION: load embed.js from the chat instance
+     (https://tschat-public.yqx.auto.k8s.townsuite.com/embed.js) and match data-api;
+     the local src below just renders the widget in the Designer preview. -->
+<script src="demo-modal.js" defer></script>
+<script src="embed.js"
+        data-api="https://tschat-prod.yqx.auto.k8s.townsuite.com"
+        data-lang="en" defer></script>
+
+<!-- ===== chat-page host: dock the widget INTO the page instead of the corner =====
+     embed.js renders the dock as a fixed bottom-right panel inside its own (open)
+     shadow root appended to <body>. On this page the chat IS the content, so in the
+     two-column layout (>1000px) we move that shadow host into .cx-slot and inject a
+     few overrides so the panel fills the slot: no fab, no close button, no resize grip.
+     At <=1000px we leave the dock alone — fab in the corner, panel as a corner dock
+     (or full-screen at <=600px, where embed.js also scroll-locks the page) — and the
+     slot becomes a launch card at the top of the page instead.
+     Nothing in embed.js is modified — all overrides are additive. -->
+<script>
+(function(){
+  var slot = document.getElementById("chat");
+  var ph   = document.getElementById("cx-ph");
+  var msg  = document.getElementById("cx-ph-msg");
+  if(!slot) return;
+
+  /* inline only in the two-column desktop layout (matches the .cx-grid breakpoint);
+     everything narrower keeps the standard dock — fab + panel — like a phone. */
+  var INLINE = window.matchMedia ? window.matchMedia("(min-width:1001px)") : null;
+  var OVERRIDES =
+    ':host{display:block !important;position:absolute !important;inset:0 !important;}' +
+    '.ts-chat{position:absolute !important;inset:0 !important;width:100% !important;' +
+      'height:100% !important;max-height:none !important;transform:none !important;' +
+      'border-radius:22px !important;}' +
+    '.ts-chatfab,.ts-chat__resize,.ts-chat__x{display:none !important;}';
+
+  var host = null, styleEl = null, panel = null, inline = false, obs = null;
+
+  function findHost(){
+    var kids = document.body.children;
+    for(var i = kids.length - 1; i >= 0; i--){
+      var el = kids[i];
+      if(el.shadowRoot && el.shadowRoot.querySelector(".ts-chat")) return el;
+    }
+    return null;
+  }
+
+  /* Escape closes the dock (right for a corner widget, wrong when it IS the page).
+     The handler lives on the panel inside the shadow root, so a capture-phase
+     listener on the host runs first and can stop it while we're inline. */
+  function swallowEscape(e){
+    if(inline && e.key === "Escape"){ e.stopPropagation(); }
+  }
+
+  /* open the dock without letting its open-time focus() scroll the page */
+  function openQuietly(){
+    if(!window.tsOpenChat) return;
+    var x = window.pageXOffset, y = window.pageYOffset;
+    var d = document.documentElement, sb = d.style.scrollBehavior;
+    d.style.scrollBehavior = "auto";
+    window.tsOpenChat();
+    window.scrollTo(x, y);
+    requestAnimationFrame(function(){
+      window.scrollTo(x, y);
+      d.style.scrollBehavior = sb;
+    });
+  }
+
+  function goInline(){
+    if(inline || !host) return;
+    inline = true;
+    host.setAttribute("data-ts-inline", "");
+    slot.appendChild(host);
+    if(!styleEl){
+      styleEl = document.createElement("style");
+      styleEl.textContent = OVERRIDES;
+    }
+    host.shadowRoot.appendChild(styleEl);       // last in the sheet order — wins
+    if(panel){ panel.style.height = ""; panel.style.transform = ""; }
+    slot.classList.add("is-live");
+    slot.classList.remove("cx-is-overlay");
+    /* opening focuses a starter chip inside the panel, which scrolls the page down to
+       it — on first load that jumps the visitor past the heading. Hold the scroll. */
+    openQuietly();
+    /* if anything else closes the panel while it's the page content, reopen it */
+    if(!obs && window.MutationObserver && panel){
+      obs = new MutationObserver(function(){
+        if(inline && !panel.classList.contains("is-open")) openQuietly();
+      });
+      obs.observe(panel, {attributes:true, attributeFilter:["class"]});
+    }
+  }
+
+  function goOverlay(){
+    if(!host) return;
+    if(inline){
+      inline = false;
+      if(obs){ obs.disconnect(); obs = null; }
+      if(styleEl && styleEl.parentNode) styleEl.parentNode.removeChild(styleEl);
+      host.removeAttribute("data-ts-inline");
+      document.body.appendChild(host);
+      if(window.tsCloseChat) window.tsCloseChat();
+    }
+    slot.classList.remove("is-live");
+    slot.classList.add("cx-is-overlay");
+    if(msg) msg.textContent = "Tap below to open TownSuite Intelligence, or use the Ask TownSuite button in the corner.";
+  }
+
+  function apply(){ (INLINE && INLINE.matches ? goInline : goOverlay)(); }
+
+  /* embed.js is deferred; wait for its shadow host to show up. */
+  var tries = 0;
+  (function wait(){
+    host = findHost();
+    if(host){
+      panel = host.shadowRoot.querySelector(".ts-chat");
+      host.addEventListener("keydown", swallowEscape, true);
+      apply();
+      if(INLINE && INLINE.addEventListener) INLINE.addEventListener("change", apply);
+      return;
+    }
+    if(++tries > 200){                          // ~10s — widget never mounted
+      if(msg) msg.textContent = "The chat couldn't load. Please refresh, or reach us at info@townsuite.com.";
+      slot.classList.add("cx-is-overlay");
+      var b = slot.querySelector(".cx-start"); if(b) b.style.display = "none";
+      var d = slot.querySelector(".cx-dots");  if(d) d.style.display = "none";
+      return;
+    }
+    setTimeout(wait, 50);
+  })();
+
+  /* example questions on the page — open the dock, then type + send for real */
+  document.querySelectorAll("[data-cx-ask]").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var q = btn.getAttribute("data-cx-ask");
+      if(window.tsOpenChat) window.tsOpenChat();
+      if(!inline) slot.scrollIntoView({block:"center", behavior:"smooth"});
+      var t = 0;
+      (function send(){
+        var root = host && host.shadowRoot;
+        var input = root && root.querySelector(".ts-chat__composer input");
+        var go    = root && root.querySelector(".ts-chat__composer button");
+        if(input && go){
+          input.focus();
+          input.value = q;
+          input.dispatchEvent(new Event("input", {bubbles:true}));
+          go.click();
+          return;
+        }
+        if(++t < 60) setTimeout(send, 60);
+      })();
+    });
+  });
+})();
+</script>
+
+<script>/*ts-yr-auto*/document.querySelectorAll(".ts-yr").forEach(function(e){e.textContent=new Date().getFullYear();});</script>
+</body>
+</html>

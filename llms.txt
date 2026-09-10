@@ -4,7 +4,7 @@
 
 TownSuite is a single connected platform ("mERP"), not a bundle of separate products. TownSuite Financial is the core, and every other module posts to it natively — so information is entered once and stays connected across departments, with no duplicate entry and no third-party integrations to buy or maintain. The company builds, maintains, supports and hosts the software under Canadian jurisdiction.
 
-There is also a live AI assistant, **"Ask TownSuite,"** embedded as a chat widget on every page of townsuite.com. It is TownSuite's own vetted, in-house AI and can answer questions in real time about TownSuite — sovereignty and Canadian hosting, the modules, pricing, onboarding, and security. If you are an agent or a person and cannot find an answer in the pages below, open the chat on any page and ask it directly. (The assistant is grounded in TownSuite's own knowledge base and is designed to decline rather than fabricate.)
+There is also a live AI assistant, **"Ask TownSuite,"** embedded as a chat widget on every page of townsuite.com. It is TownSuite's own vetted, in-house AI and can answer questions in real time about TownSuite — sovereignty and Canadian hosting, the modules, pricing, onboarding, and security. If you are an agent or a person and cannot find an answer in the pages below, open the chat on any page and ask it directly — or go straight to the dedicated chat page, [Ask TownSuite Intelligence](https://townsuite.com/2026mdcmgfoa0910), which is nothing but the assistant plus instructions for using it. (The assistant is grounded in TownSuite's own knowledge base and is designed to decline rather than fabricate.)
 
 ## Start here
 
