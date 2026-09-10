@@ -138,6 +138,8 @@ try{
 .cx-note .ic svg{width:19px;height:19px;}
 .cx-note b{display:block;color:var(--ink);font-size:15.5px;font-weight:800;}
 .cx-note p{margin:7px 0 0;font-size:14.5px;line-height:1.55;color:var(--ink2);}
+.cx-note a{color:var(--accent);font-weight:700;text-decoration:none;}
+.cx-note a:hover{text-decoration:underline;}
 .cx-note--warn .ic{background:color-mix(in srgb,var(--ts-orange) 16%,transparent);color:var(--ts-orange);}
 
 /* full-product section */
@@ -335,7 +337,11 @@ try{
             <span class="ic" aria-hidden="true"><svg><use href="#i-maple"></use></svg></span>
             <b>Your questions stay in Canada</b>
             <p>The model and your prompt data run on operationally sovereign Canadian
-              infrastructure, alongside mERP<span class="rtm">&reg;</span> data.</p>
+              infrastructure, alongside mERP<span class="rtm">&reg;</span> data. Why that matters:
+              the Government of Canada&rsquo;s
+              <a href="https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/cloud-services/digital-sovereignty/gc-white-paper-data-sovereignty-public-cloud.html" target="_blank" rel="noopener">white paper on data sovereignty and public cloud</a>
+              and its current
+              <a href="https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/cloud-services/digital-sovereignty/digital-sovereignty-framework-improve-digital-readiness.html" target="_blank" rel="noopener">Digital Sovereignty Framework</a>.</p>
           </div>
           <div class="cx-note">
             <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.6 1.4l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"></path><path transform="translate(13.7,12.9) scale(0.355)" d="M12 0.5L14 4L16 3L15 8L15.5 9.5L18 7L19 8.5L22 8L21 11L22.5 12L17 16.5L17.5 18.5L12.5 17.6L12.5 23L11.5 23L11.5 17.6L6.5 18.5L7 16.5L1.5 12L3 11L2 8L5 8.5L6 7L8.5 9.5L9 8L8 3L10 4Z"></path></svg></span>
@@ -569,6 +575,12 @@ try{
     host = findHost();
     if(host){
       panel = host.shadowRoot.querySelector(".ts-chat");
+      /* embed.js lifts the fab 88px on narrow screens to clear the main site's mobile
+         bottom bar. This page has no bottom bar, so put it back at the normal corner
+         (plus the home-indicator safe area). Inline mode hides the fab anyway. */
+      var fabFix = document.createElement("style");
+      fabFix.textContent = ".ts-chatfab{bottom:calc(24px + env(safe-area-inset-bottom, 0px)) !important;}";
+      host.shadowRoot.appendChild(fabFix);
       host.addEventListener("keydown", swallowEscape, true);
       apply();
       if(INLINE && INLINE.addEventListener) INLINE.addEventListener("change", apply);
