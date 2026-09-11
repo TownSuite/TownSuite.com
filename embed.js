@@ -253,7 +253,6 @@
     //    tracked in WebKit and expected to improve in a later 26.x.)
     var pageTcMetas = [].slice.call(document.querySelectorAll('meta[name="theme-color"]'));
     var tcOrig = pageTcMetas.map(function (m) { return { content: m.getAttribute("content"), media: m.getAttribute("media") }; });
-    var bgOrig = null;
     var sbTint = null;   // light-DOM fixed strip Safari 26 can sample
     var topBars = [];    // the page's own fixed top bar(s) — iOS 26 samples these first
     // iOS 26 re-derives the toolbar colour from page CSS on SCROLL — so after we set the
@@ -279,10 +278,14 @@
         // (a) theme-color path for iOS <=18.6 — set, then nudge value to force a repaint.
         setMetas(c);
         requestAnimationFrame(function () { setMetas(nudgeColor(c)); requestAnimationFrame(function () { setMetas(c); }); });
-        // (b) CSS-derived path for iOS 26 — body bg + a fixed navy strip at the top edge.
-        if (bgOrig === null) bgOrig = { html: document.documentElement.style.backgroundColor, body: document.body ? document.body.style.backgroundColor : "" };
-        document.documentElement.style.backgroundColor = c;
-        if (document.body) document.body.style.backgroundColor = c;
+        // (b) CSS-derived path for iOS 26 — a fixed navy strip at the very top edge.
+        // NOTE: we deliberately do NOT paint <html>/<body> navy any more. While the dock
+        // is open the panel is sized to the *visual* viewport, and on iOS that viewport
+        // changes with every toolbar collapse/expand, overscroll and keyboard transition —
+        // so for a frame (or, with a stale offset, indefinitely) part of the layout viewport
+        // is uncovered. With the page painted navy that gap showed as a solid blue band
+        // that "came to the foreground" after scrolling. The strip below plus the panel's own
+        // navy header are what Safari 26 actually samples; the body paint was only a fallback.
         if (!sbTint && document.body) {
             sbTint = document.createElement("div");
             sbTint.setAttribute("aria-hidden", "true");
@@ -314,11 +317,6 @@
             if (o.content == null) mm.removeAttribute("content"); else mm.setAttribute("content", o.content);
             if (o.media == null) mm.removeAttribute("media"); else mm.setAttribute("media", o.media);
         });
-        if (bgOrig !== null) {
-            document.documentElement.style.backgroundColor = bgOrig.html;
-            if (document.body) document.body.style.backgroundColor = bgOrig.body;
-            bgOrig = null;
-        }
         if (sbTint) sbTint.style.display = "none";
         topBars.forEach(function (t) { t.el.style.background = t.bg; t.el.style.webkitBackdropFilter = t.bf; t.el.style.backdropFilter = t.bf2; });
         topBars = [];
@@ -345,10 +343,21 @@
     // VisualViewport API, so it always covers exactly the visible area — nothing of the
     // page can peek through. Desktop and the closed state are untouched.
     var vvp = window.visualViewport || null;
+    // Only pin to the visual viewport when it is meaningfully shorter than the layout
+    // viewport — i.e. the soft keyboard is up. Safari's toolbar collapsing/expanding as
+    // the visitor scrolls the transcript also shrinks/grows the visual viewport by a few
+    // dozen px, and tracking THAT resized the panel on every scroll and left the page
+    // peeking through below it. Below the threshold we hand sizing back to the 100dvh
+    // rule, which always covers the layout viewport.
+    var KEYBOARD_MIN_PX = 150;
     function syncPanelViewport() {
         if (!vvp || !fsQ || !fsQ.matches || !panel.classList.contains("is-open")) return;
+        var layoutH = window.innerHeight || vvp.height;
+        if (layoutH - vvp.height < KEYBOARD_MIN_PX) { clearPanelViewport(); return; }
         panel.style.height = vvp.height + "px";
-        panel.style.transform = "translate(" + vvp.offsetLeft + "px," + vvp.offsetTop + "px)";
+        // never translate upward/leftward — a negative offset (rubber-band overscroll)
+        // would expose the page above the panel
+        panel.style.transform = "translate(" + Math.max(0, vvp.offsetLeft) + "px," + Math.max(0, vvp.offsetTop) + "px)";
     }
     function clearPanelViewport() {
         panel.style.transform = "";
