@@ -216,7 +216,7 @@
         if (explicit === "dark" || explicit === "light") return explicit;
         return (mq && mq.matches) ? "dark" : "light";
     }
-    function applyTheme() { hostEl.setAttribute("data-theme", effectiveTheme()); if (typeof tintBarPersist === "function" && panel.classList.contains("is-open")) tintBarPersist(); }
+    function applyTheme() { hostEl.setAttribute("data-theme", effectiveTheme()); if (typeof tintBarPersist === "function" && panel.classList.contains("is-open")) { tintBarPersist(); if (typeof coverPage === "function") coverPage(true); } }
     applyTheme();
     if (mq) {
         var onMq = function () { applyTheme(); };
@@ -328,7 +328,12 @@
         pokeScroll();
     }
     if (fsQ) {
-        var onFsQ = function () { (panel.classList.contains("is-open") ? tintBar : untintBar)(); };
+        var onFsQ = function () {
+            var open = panel.classList.contains("is-open");
+            (open ? tintBar : untintBar)();
+            if (open && fsQ.matches) { coverPage(true); startVvpLoop(); }
+            else { stopVvpLoop(); clearPanelViewport(); coverPage(false); }
+        };
         if (fsQ.addEventListener) fsQ.addEventListener("change", onFsQ);
         else if (fsQ.addListener) fsQ.addListener(onFsQ);
     }
@@ -354,19 +359,60 @@
         if (!vvp || !fsQ || !fsQ.matches || !panel.classList.contains("is-open")) return;
         var layoutH = window.innerHeight || vvp.height;
         if (layoutH - vvp.height < KEYBOARD_MIN_PX) { clearPanelViewport(); return; }
-        panel.style.height = vvp.height + "px";
+        var h = vvp.height + "px";
         // never translate upward/leftward — a negative offset (rubber-band overscroll)
         // would expose the page above the panel
-        panel.style.transform = "translate(" + Math.max(0, vvp.offsetLeft) + "px," + Math.max(0, vvp.offsetTop) + "px)";
+        var t = "translate(" + Math.max(0, vvp.offsetLeft) + "px," + Math.max(0, vvp.offsetTop) + "px)";
+        // called every frame while open on a phone — only touch style when it changes
+        if (panel.style.height !== h) panel.style.height = h;
+        if (panel.style.transform !== t) panel.style.transform = t;
     }
     function clearPanelViewport() {
-        panel.style.transform = "";
-        if (fsQ && fsQ.matches) panel.style.height = "";   // hand height back to the 100dvh rule
+        if (panel.style.transform) panel.style.transform = "";
+        if (fsQ && fsQ.matches && panel.style.height) panel.style.height = "";   // hand height back to the 100dvh rule
     }
     if (vvp) {
         var onVvp = function () { syncPanelViewport(); };
         vvp.addEventListener("resize", onVvp);
         vvp.addEventListener("scroll", onVvp);
+    }
+    // iOS animates the keyboard pan and can deliver the visualViewport resize/scroll
+    // events late or coalesced — so for the ~300ms of the animation the panel sat at
+    // its previous size/offset and the host page showed through beneath it. The
+    // viewport VALUES do update during the animation, so while the dock is open at
+    // phone width we re-sync every frame instead of waiting to be told.
+    var vvpRaf = 0;
+    function startVvpLoop() {
+        if (vvpRaf || !vvp || !fsQ || !fsQ.matches) return;
+        var tick = function () {
+            if (!panel.classList.contains("is-open") || !fsQ.matches) { vvpRaf = 0; return; }
+            syncPanelViewport();
+            vvpRaf = requestAnimationFrame(tick);
+        };
+        vvpRaf = requestAnimationFrame(tick);
+    }
+    function stopVvpLoop() { if (vvpRaf) { cancelAnimationFrame(vvpRaf); vvpRaf = 0; } }
+
+    // Whatever the panel fails to cover for a frame should look like the CHAT, not the
+    // host page: while the dock is full-screen, paint <html>/<body> the panel's own
+    // surface colour (not the navy header — that was the old "blue band").
+    var coverOrig = null;
+    function coverPage(on) {
+        var d = document.documentElement, b = document.body;
+        if (!b) return;
+        if (on) {
+            if (!fsQ || !fsQ.matches) return;
+            var c = "";
+            try { c = getComputedStyle(panel).backgroundColor; } catch (e) {}
+            if (!/^rgb/i.test(c)) c = effectiveTheme() === "dark" ? "#0D2032" : "#FFFFFF";
+            if (coverOrig === null) coverOrig = { html: d.style.backgroundColor, body: b.style.backgroundColor };
+            d.style.backgroundColor = c;
+            b.style.backgroundColor = c;
+        } else if (coverOrig !== null) {
+            d.style.backgroundColor = coverOrig.html;
+            b.style.backgroundColor = coverOrig.body;
+            coverOrig = null;
+        }
     }
 
     // ---- accessibility: focus management, focus trap, inert background -------
@@ -395,23 +441,42 @@
 
     // While full-screen on mobile, mark host-page content inert so Tab can't escape
     // behind the overlay. The widget's own host element is left reachable.
+    // While full-screen we also HIDE the page's content (visibility:hidden), not just
+    // make it inert. iOS animates the keyboard pan and can deliver visualViewport events
+    // late; for those frames the panel may not yet cover the visual viewport and the host
+    // page showed through beneath it (see the per-frame sync below, which closes most of
+    // that window). Hiding the content means anything that does peek through is the
+    // chat-coloured page background, never the site. Elements that must stay visible
+    // over the dock are skipped: the widget host, the status-bar tint strips, and the
+    // demo modal the chat itself opens.
+    var hiddenEls = [];
+    function keepVisibleOverDock(el) {
+        if (el === hostEl || el === sbTint) return true;
+        var cl = el.classList;
+        return !!(cl && (cl.contains("ts-dmodal") || cl.contains("ios-statusbar-tint")));
+    }
     function setBackgroundInert(on) {
         if (inertQ && !inertQ.matches) return;   // only scope to small / full-screen screens
         try {
             if (on) {
-                inertEls = [];
+                inertEls = []; hiddenEls = [];
                 Array.prototype.forEach.call(document.body.children, function (el) {
                     if (el === hostEl) return;
                     inertEls.push(el);
                     try { el.inert = true; } catch (e2) {}
                     el.setAttribute("aria-hidden", "true");
+                    if (!keepVisibleOverDock(el) && el.tagName !== "SCRIPT" && el.tagName !== "STYLE") {
+                        hiddenEls.push({ el: el, vis: el.style.visibility });
+                        el.style.visibility = "hidden";
+                    }
                 });
             } else {
                 inertEls.forEach(function (el) {
                     try { el.inert = false; } catch (e2) {}
                     el.removeAttribute("aria-hidden");
                 });
-                inertEls = [];
+                hiddenEls.forEach(function (h) { h.el.style.visibility = h.vis; });
+                inertEls = []; hiddenEls = [];
             }
         } catch (e) {}
     }
@@ -486,7 +551,9 @@
         var first = root.querySelector(".ts-chat__chips button") || (composer && composer.querySelector("input")) || panel.querySelector(".ts-chat__x");
         if (first) first.focus();
         tintBarPersist();
+        coverPage(true);
         syncPanelViewport();
+        startVvpLoop();
     }
     function closePanel() {
         panel.classList.remove("is-open");
@@ -499,7 +566,9 @@
         lastFocused = null;
         try { restore.focus(); } catch (e) { try { fab.focus(); } catch (e2) {} }
         untintBar();
+        stopVvpLoop();
         clearPanelViewport();
+        coverPage(false);
     }
     fab.addEventListener("click", openPanel);
     panel.querySelector(".ts-chat__x").addEventListener("click", closePanel);
