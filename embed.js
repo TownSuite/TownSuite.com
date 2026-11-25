@@ -38,12 +38,12 @@
     // ---- localized chrome (English mirrors the mockup verbatim) -------------
     var T = {
         en: {
-            fab: "Ask TownSuite", title: "TownSuite Intelligence", sub: "AI assistant",
+            fab: "Ask TownSuite", title: "TownSuite Intelligence",
             ctx: "Helping with TownSuite.com Inquiries",
             greeting: "Hi — I’m TownSuite Intelligence, running on operationally sovereign Canadian infrastructure. Ask me anything about the platform.",
             chips: [["merp", "What is mERP®?"], ["sovereignty", "Why sovereignty?"], ["cost", "What does it cost?"], ["demo", "Book a demo"]],
             followup: "Ask a question…",
-            foot: "Powered by TownSuite Intelligence — runs on Canadian infrastructure. Your AI and prompt data stay securely in Canada along with your mERP® data unless you explicitly opt in to connect your own external model.",
+            foot: "Powered by TownSuite Intelligence — runs on Canadian infrastructure. Your prompts and chat data stay securely in Canada along with your mERP® data unless you explicitly opt in to connect your own external model.",
             disclaimer: "TownSuite Intelligence can make mistakes. Verify important figures.",
             close: "Close chat", send: "Send", resize: "Drag to resize", clearChat: "Clear chat",
             cleared: "Chat cleared. How can I help you with TownSuite?",
@@ -52,12 +52,12 @@
             demoReply: "I’ve opened our demo booking form for you — fill it in and our team will be in touch. Anything else I can help with?"
         },
         fr: {
-            fab: "Demandez à TownSuite", title: "TownSuite Intelligence", sub: "Assistant IA",
+            fab: "Demandez à TownSuite", title: "TownSuite Intelligence",
             ctx: "Assistance — demandes TownSuite.com",
             greeting: "Bonjour — je suis TownSuite Intelligence, hébergée sur une infrastructure canadienne opérationnellement souveraine. Posez-moi vos questions sur la plateforme.",
             chips: [["merp", "Qu’est-ce que le mERP®?"], ["sovereignty", "Pourquoi la souveraineté?"], ["cost", "Combien ça coûte?"], ["demo", "Réserver une démo"]],
             followup: "Posez une question…",
-            foot: "Propulsé par TownSuite Intelligence — fonctionne sur une infrastructure canadienne. Vos données et requêtes IA restent au Canada avec vos données mERP®, sauf si vous choisissez de connecter votre propre modèle externe.",
+            foot: "Propulsé par TownSuite Intelligence — fonctionne sur une infrastructure canadienne. Vos requêtes et données de clavardage restent au Canada avec vos données mERP®, sauf si vous choisissez de connecter votre propre modèle externe.",
             disclaimer: "TownSuite Intelligence peut faire des erreurs. Vérifiez les informations importantes.",
             close: "Fermer", send: "Envoyer", resize: "Glisser pour redimensionner", clearChat: "Effacer",
             cleared: "Conversation effacée. Comment puis-je vous aider avec TownSuite\u202F?",
@@ -120,7 +120,6 @@
         ".ts-chat__badge{flex:none;width:40px;height:40px;border-radius:11px;background:rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;}" +
         ".ts-chat__badge svg{width:22px;height:22px;}" +
         ".ts-chat__head b{font-size:16px;display:block;line-height:1.15;}" +
-        ".ts-chat__head small{font-size:12px;opacity:.85;display:block;}" +
         ".ts-chat__clear{margin-left:auto;background:rgba(255,255,255,.16);border:none;color:inherit;height:34px;padding:0 13px;border-radius:10px;cursor:pointer;font-size:12.5px;font-weight:700;white-space:nowrap;}" +
         ".ts-chat__clear:hover{background:rgba(255,255,255,.26);}" +
         ".ts-chat__x{background:rgba(255,255,255,.16);border:none;color:inherit;width:34px;height:34px;border-radius:10px;cursor:pointer;font-size:16px;font-weight:800;}" +
@@ -191,7 +190,7 @@
         '<div class="ts-chat" id="ts-chat-panel" role="dialog" aria-modal="true" aria-labelledby="ts-chat-title">' +
         '<div class="ts-chat__resize" aria-hidden="true" title="' + escapeHtml(T.resize) + '">' + GRIP + '</div>' +
         '<div class="ts-chat__head"><span class="ts-chat__badge">' + aiSvg("") + '</span>' +
-        '<div><b id="ts-chat-title">' + escapeHtml(T.title) + '</b><small>' + escapeHtml(T.sub) + '</small></div>' +
+        '<div><b id="ts-chat-title">' + escapeHtml(T.title) + '</b></div>' +
         '<button class="ts-chat__clear" type="button" aria-label="' + escapeHtml(T.clearChat) + '" title="' + escapeHtml(T.clearChat) + '">' + escapeHtml(T.clearChat) + '</button>' +
         '<button class="ts-chat__x" type="button" aria-label="' + escapeHtml(T.close) + '">✕</button>' +
         '</div>' +
