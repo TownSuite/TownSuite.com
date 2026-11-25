@@ -609,8 +609,6 @@ body[data-depth="on"] .ts-tilt{transform:perspective(1100px) rotateX(var(--rx,0d
 [data-theme="dark"] .tsi-badge{background:rgba(6,19,29,.18);color:var(--accent-ink);}
 .tsi-head-txt{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px;line-height:1.15;}
 .tsi-head-t{font-weight:800;font-size:14px;letter-spacing:.01em;}
-.tsi-head-s{font-size:11.5px;font-weight:600;color:rgba(255,255,255,.78);}
-[data-theme="dark"] .tsi-head-s{color:color-mix(in srgb,var(--accent-ink) 70%,transparent);}
 .tsi-head-x{
   width:30px;height:30px;flex:none;border-radius:8px;
   background:rgba(255,255,255,.12);color:#fff;display:flex;align-items:center;justify-content:center;
